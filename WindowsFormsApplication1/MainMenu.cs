@@ -46,5 +46,16 @@ namespace WindowsFormsApplication1
         {
 
         }
+
+        private void btn_건물추가_Click(object sender, EventArgs e)
+        {
+            AddMenu addMenu = new AddMenu();
+            addMenu.Show();
+        }
+
+        private void btn_찾기_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
