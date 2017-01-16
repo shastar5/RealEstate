@@ -52,6 +52,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.comboBox_매매 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.Init_탭컨트롤.SuspendLayout();
             this.Panel_InitText.SuspendLayout();
             this.SuspendLayout();
@@ -71,7 +75,6 @@
             // 
             // Page_준비
             // 
-            this.Page_준비.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             resources.ApplyResources(this.Page_준비, "Page_준비");
             this.Page_준비.Name = "Page_준비";
             this.Page_준비.UseVisualStyleBackColor = true;
@@ -103,6 +106,10 @@
             // 
             // Panel_InitText
             // 
+            this.Panel_InitText.Controls.Add(this.comboBox3);
+            this.Panel_InitText.Controls.Add(this.comboBox2);
+            this.Panel_InitText.Controls.Add(this.comboBox1);
+            this.Panel_InitText.Controls.Add(this.comboBox_매매);
             this.Panel_InitText.Controls.Add(this.textBox7);
             this.Panel_InitText.Controls.Add(this.textBox6);
             this.Panel_InitText.Controls.Add(this.textBox5);
@@ -206,6 +213,46 @@
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
             // 
+            // comboBox_매매
+            // 
+            this.comboBox_매매.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comboBox_매매.FormattingEnabled = true;
+            this.comboBox_매매.Items.AddRange(new object[] {
+            resources.GetString("comboBox_매매.Items"),
+            resources.GetString("comboBox_매매.Items1")});
+            resources.ApplyResources(this.comboBox_매매, "comboBox_매매");
+            this.comboBox_매매.Name = "comboBox_매매";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            resources.GetString("comboBox1.Items"),
+            resources.GetString("comboBox1.Items1")});
+            resources.ApplyResources(this.comboBox1, "comboBox1");
+            this.comboBox1.Name = "comboBox1";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            resources.GetString("comboBox2.Items"),
+            resources.GetString("comboBox2.Items1")});
+            resources.ApplyResources(this.comboBox2, "comboBox2");
+            this.comboBox2.Name = "comboBox2";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            resources.GetString("comboBox3.Items"),
+            resources.GetString("comboBox3.Items1")});
+            resources.ApplyResources(this.comboBox3, "comboBox3");
+            this.comboBox3.Name = "comboBox3";
+            // 
             // InitialFoam
             // 
             resources.ApplyResources(this, "$this");
@@ -215,8 +262,8 @@
             this.Controls.Add(this.Init_탭컨트롤);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "InitialFoam";
+            this.ShowIcon = false;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Init_탭컨트롤.ResumeLayout(false);
             this.Panel_InitText.ResumeLayout(false);
@@ -243,15 +290,17 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-
-
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox_매매;
     }
 }
 

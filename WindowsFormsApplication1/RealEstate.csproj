@@ -64,8 +64,17 @@
     <Compile Include="HiddenMenu.Designer.cs">
       <DependentUpon>HiddenMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="NaverMap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NaverMap.Designer.cs">
+      <DependentUpon>NaverMap.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddMenu.resx">
+      <DependentUpon>AddMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
