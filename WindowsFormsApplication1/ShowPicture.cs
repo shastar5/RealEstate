@@ -9,21 +9,16 @@ using System.Windows.Forms;
 
 namespace RealEstate
 {
-    public partial class NaverMap : Form
+    public partial class ShowPicture : Form
     {
-        public NaverMap()
+        public ShowPicture()
         {
             InitializeComponent();
         }
 
-        private void NaverMap_Load(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
-            
-        }
 
-        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
-        {
-            
         }
     }
 }

@@ -82,6 +82,7 @@ namespace WindowsFormsApplication1
         {
             AddMenu addMenu = new AddMenu();
             addMenu.Show();
+
         }
 
         private void btn_찾기_Click(object sender, EventArgs e)
