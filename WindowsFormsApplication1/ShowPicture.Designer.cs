@@ -36,9 +36,9 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(13, 13);
+            this.pictureBox1.Location = new System.Drawing.Point(13, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(532, 422);
+            this.pictureBox1.Size = new System.Drawing.Size(532, 423);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -71,6 +71,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "ShowPicture";
             this.Text = "ShowPicture";
+            this.Load += new System.EventHandler(this.ShowPicture_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

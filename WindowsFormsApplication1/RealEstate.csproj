@@ -81,7 +81,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainMenu.cs">
@@ -96,11 +98,11 @@
     <Compile Include="AddMenu.Designer.cs">
       <DependentUpon>AddMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="HiddenMenu.cs">
+    <Compile Include="ManagerView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HiddenMenu.Designer.cs">
-      <DependentUpon>HiddenMenu.cs</DependentUpon>
+    <Compile Include="ManagerView.Designer.cs">
+      <DependentUpon>ManagerView.cs</DependentUpon>
     </Compile>
     <Compile Include="NaverMap.cs">
       <SubType>Form</SubType>
@@ -116,11 +118,20 @@
     <Compile Include="ShowPicture.Designer.cs">
       <DependentUpon>ShowPicture.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserView.Designer.cs">
+      <DependentUpon>UserView.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddMenu.resx">
       <DependentUpon>AddMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagerView.resx">
+      <DependentUpon>ManagerView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NaverMap.resx">
       <DependentUpon>NaverMap.cs</DependentUpon>
@@ -148,7 +159,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="RealEstate_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">

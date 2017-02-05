@@ -12,6 +12,8 @@ namespace WindowsFormsApplication1
 {
     public partial class AddMenu : Form
     {
+        ShowPicture sp;
+        NaverMap nm;
 
         public AddMenu()
         {
@@ -36,8 +38,11 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            NaverMap nm = new NaverMap();
-            nm.Show();
+            if(nm == null)
+            {
+                nm = new RealEstate.NaverMap();
+                nm.Show();
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -47,8 +52,7 @@ namespace WindowsFormsApplication1
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            ShowPicture pc = new ShowPicture();
-            pc.Show();
+     
         }
 
         // 코멘트 부분
@@ -58,6 +62,25 @@ namespace WindowsFormsApplication1
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void AddMenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+            if(sp == null)
+            {
+                sp = new RealEstate.ShowPicture();
+                sp.Show();
+            }
         }
     }
 

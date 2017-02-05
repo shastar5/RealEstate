@@ -1,6 +1,6 @@
-﻿namespace WindowsFormsApplication1
+﻿namespace RealEstate
 {
-    partial class HiddenMenu
+    partial class UserView
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form3";
+            this.Text = "UserView";
         }
 
         #endregion

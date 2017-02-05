@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using WindowsFormsApplication1;
 
 namespace RealEstate
 {
@@ -13,10 +14,16 @@ namespace RealEstate
     {
         public ShowPicture()
         {
+            
             InitializeComponent();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void ShowPicture_Load(object sender, EventArgs e)
         {
 
         }

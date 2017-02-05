@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace WindowsFormsApplication1
+namespace RealEstate
 {
-    public partial class HiddenMenu : Form
+    public partial class ManagerView : Form
     {
-        public HiddenMenu()
+        public ManagerView()
         {
             InitializeComponent();
         }
