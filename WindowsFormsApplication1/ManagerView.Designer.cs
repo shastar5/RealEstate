@@ -36,7 +36,7 @@
             this.listView3 = new System.Windows.Forms.ListView();
             this.label40 = new System.Windows.Forms.Label();
             this.listView2 = new System.Windows.Forms.ListView();
-            this.textBox29 = new System.Windows.Forms.TextBox();
+            this.TB_TotalMemo = new System.Windows.Forms.TextBox();
             this.TB_Memo = new System.Windows.Forms.TextBox();
             this.label38 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -183,13 +183,13 @@
             this.listView2.TabIndex = 110;
             this.listView2.UseCompatibleStateImageBehavior = false;
             // 
-            // textBox29
+            // TB_TotalMemo
             // 
-            this.textBox29.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox29.Location = new System.Drawing.Point(476, 531);
-            this.textBox29.Name = "textBox29";
-            this.textBox29.Size = new System.Drawing.Size(388, 27);
-            this.textBox29.TabIndex = 108;
+            this.TB_TotalMemo.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TB_TotalMemo.Location = new System.Drawing.Point(476, 531);
+            this.TB_TotalMemo.Name = "TB_TotalMemo";
+            this.TB_TotalMemo.Size = new System.Drawing.Size(388, 27);
+            this.TB_TotalMemo.TabIndex = 108;
             // 
             // TB_Memo
             // 
@@ -865,7 +865,7 @@
             this.Controls.Add(this.SaveData);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.listView2);
-            this.Controls.Add(this.textBox29);
+            this.Controls.Add(this.TB_TotalMemo);
             this.Controls.Add(this.TB_Memo);
             this.Controls.Add(this.label38);
             this.Controls.Add(this.panel6);
@@ -936,7 +936,7 @@
         private System.Windows.Forms.ListView listView3;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.ListView listView2;
-        private System.Windows.Forms.TextBox textBox29;
+        private System.Windows.Forms.TextBox TB_TotalMemo;
         private System.Windows.Forms.TextBox TB_Memo;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Panel panel6;

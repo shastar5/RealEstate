@@ -6,11 +6,17 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.SQLite;
 
 namespace WindowsFormsApplication1
 {
+    
     public partial class InitialFoam : Form
     {
+
+        string DBFile;
+        String deskPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory); //바탕화면 경로 가져오기
+
         public InitialFoam()
         {
             InitializeComponent();
@@ -81,6 +87,7 @@ namespace WindowsFormsApplication1
         private void btn_건물추가_Click(object sender, EventArgs e)
         {
             AddMenu addMenu = new AddMenu();
+            addMenu.setDBfile(DBFile); //디비 파일 위치 전송
             addMenu.Show();
 
         }
