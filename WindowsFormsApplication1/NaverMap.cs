@@ -14,6 +14,7 @@ namespace RealEstate
         public NaverMap()
         {
             InitializeComponent();
+            
         }
 
         private void NaverMap_Load(object sender, EventArgs e)
