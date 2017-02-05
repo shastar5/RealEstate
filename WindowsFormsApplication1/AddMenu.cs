@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using RealEstate;
+using System.Data.SQLite;
 
 namespace WindowsFormsApplication1
 {
