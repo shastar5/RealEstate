@@ -39,23 +39,23 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox_매매 = new System.Windows.Forms.ComboBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TB_RoadWidth = new System.Windows.Forms.TextBox();
+            this.TB_RoadAddr = new System.Windows.Forms.TextBox();
+            this.TB_Distance = new System.Windows.Forms.TextBox();
+            this.TB_YearPercent = new System.Windows.Forms.TextBox();
+            this.TB_Income = new System.Windows.Forms.TextBox();
+            this.TB_TakeOverPrice = new System.Windows.Forms.TextBox();
+            this.TB_SellPrice = new System.Windows.Forms.TextBox();
             this.btn_찾기 = new System.Windows.Forms.Button();
             this.Text_매매금액 = new System.Windows.Forms.Label();
             this.btn_건물추가 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.Init_탭컨트롤.SuspendLayout();
             this.Panel_InitText.SuspendLayout();
             this.SuspendLayout();
@@ -109,13 +109,13 @@
             this.Panel_InitText.Controls.Add(this.comboBox3);
             this.Panel_InitText.Controls.Add(this.comboBox1);
             this.Panel_InitText.Controls.Add(this.comboBox_매매);
-            this.Panel_InitText.Controls.Add(this.textBox7);
-            this.Panel_InitText.Controls.Add(this.textBox6);
-            this.Panel_InitText.Controls.Add(this.textBox5);
-            this.Panel_InitText.Controls.Add(this.textBox4);
-            this.Panel_InitText.Controls.Add(this.textBox3);
-            this.Panel_InitText.Controls.Add(this.textBox2);
-            this.Panel_InitText.Controls.Add(this.textBox1);
+            this.Panel_InitText.Controls.Add(this.TB_RoadWidth);
+            this.Panel_InitText.Controls.Add(this.TB_RoadAddr);
+            this.Panel_InitText.Controls.Add(this.TB_Distance);
+            this.Panel_InitText.Controls.Add(this.TB_YearPercent);
+            this.Panel_InitText.Controls.Add(this.TB_Income);
+            this.Panel_InitText.Controls.Add(this.TB_TakeOverPrice);
+            this.Panel_InitText.Controls.Add(this.TB_SellPrice);
             this.Panel_InitText.Controls.Add(this.btn_찾기);
             this.Panel_InitText.Controls.Add(this.Text_매매금액);
             this.Panel_InitText.Controls.Add(this.btn_건물추가);
@@ -159,41 +159,43 @@
             resources.ApplyResources(this.comboBox_매매, "comboBox_매매");
             this.comboBox_매매.Name = "comboBox_매매";
             // 
-            // textBox7
+            // TB_RoadWidth
             // 
-            resources.ApplyResources(this.textBox7, "textBox7");
-            this.textBox7.Name = "textBox7";
+            this.TB_RoadWidth.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TB_RoadWidth.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            resources.ApplyResources(this.TB_RoadWidth, "TB_RoadWidth");
+            this.TB_RoadWidth.Name = "TB_RoadWidth";
             // 
-            // textBox6
+            // TB_RoadAddr
             // 
-            resources.ApplyResources(this.textBox6, "textBox6");
-            this.textBox6.Name = "textBox6";
+            resources.ApplyResources(this.TB_RoadAddr, "TB_RoadAddr");
+            this.TB_RoadAddr.Name = "TB_RoadAddr";
             // 
-            // textBox5
+            // TB_Distance
             // 
-            resources.ApplyResources(this.textBox5, "textBox5");
-            this.textBox5.Name = "textBox5";
+            resources.ApplyResources(this.TB_Distance, "TB_Distance");
+            this.TB_Distance.Name = "TB_Distance";
             // 
-            // textBox4
+            // TB_YearPercent
             // 
-            resources.ApplyResources(this.textBox4, "textBox4");
-            this.textBox4.Name = "textBox4";
+            resources.ApplyResources(this.TB_YearPercent, "TB_YearPercent");
+            this.TB_YearPercent.Name = "TB_YearPercent";
             // 
-            // textBox3
+            // TB_Income
             // 
-            resources.ApplyResources(this.textBox3, "textBox3");
-            this.textBox3.Name = "textBox3";
+            resources.ApplyResources(this.TB_Income, "TB_Income");
+            this.TB_Income.Name = "TB_Income";
             // 
-            // textBox2
+            // TB_TakeOverPrice
             // 
-            resources.ApplyResources(this.textBox2, "textBox2");
-            this.textBox2.Name = "textBox2";
+            resources.ApplyResources(this.TB_TakeOverPrice, "TB_TakeOverPrice");
+            this.TB_TakeOverPrice.Name = "TB_TakeOverPrice";
             // 
-            // textBox1
+            // TB_SellPrice
             // 
-            resources.ApplyResources(this.textBox1, "textBox1");
-            this.textBox1.Name = "textBox1";
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            resources.ApplyResources(this.TB_SellPrice, "TB_SellPrice");
+            this.TB_SellPrice.Name = "TB_SellPrice";
+            this.TB_SellPrice.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // btn_찾기
             // 
@@ -213,6 +215,11 @@
             this.btn_건물추가.Name = "btn_건물추가";
             this.btn_건물추가.UseVisualStyleBackColor = true;
             this.btn_건물추가.Click += new System.EventHandler(this.btn_건물추가_Click);
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
             // 
             // label5
             // 
@@ -243,11 +250,6 @@
             // 
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
             // 
             // InitialFoam
             // 
@@ -286,13 +288,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TB_SellPrice;
+        private System.Windows.Forms.TextBox TB_RoadWidth;
+        private System.Windows.Forms.TextBox TB_RoadAddr;
+        private System.Windows.Forms.TextBox TB_Distance;
+        private System.Windows.Forms.TextBox TB_YearPercent;
+        private System.Windows.Forms.TextBox TB_Income;
+        private System.Windows.Forms.TextBox TB_TakeOverPrice;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox_매매;

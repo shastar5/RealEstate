@@ -123,7 +123,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="Page_준비.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Malgun Gothic, 9.75pt</value>
+    <value>맑은 고딕, 9.75pt</value>
   </data>
   <data name="Page_준비.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 4</value>
@@ -262,7 +262,7 @@
     <value>4</value>
   </data>
   <data name="Init_탭컨트롤.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Malgun Gothic, 9.75pt</value>
+    <value>맑은 고딕, 9.75pt</value>
   </data>
   <data name="Init_탭컨트롤.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>On</value>
@@ -381,151 +381,151 @@
   <data name="&gt;&gt;comboBox_매매.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="textBox7.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="TB_RoadWidth.Location" type="System.Drawing.Point, System.Drawing">
     <value>127, 265</value>
   </data>
-  <data name="textBox7.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="TB_RoadWidth.Size" type="System.Drawing.Size, System.Drawing">
     <value>156, 29</value>
   </data>
-  <data name="textBox7.TabIndex" type="System.Int32, mscorlib">
+  <data name="TB_RoadWidth.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
   </data>
-  <data name="&gt;&gt;textBox7.Name" xml:space="preserve">
-    <value>textBox7</value>
+  <data name="&gt;&gt;TB_RoadWidth.Name" xml:space="preserve">
+    <value>TB_RoadWidth</value>
   </data>
-  <data name="&gt;&gt;textBox7.Type" xml:space="preserve">
+  <data name="&gt;&gt;TB_RoadWidth.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox7.Parent" xml:space="preserve">
+  <data name="&gt;&gt;TB_RoadWidth.Parent" xml:space="preserve">
     <value>Panel_InitText</value>
   </data>
-  <data name="&gt;&gt;textBox7.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;TB_RoadWidth.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="textBox6.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="TB_RoadAddr.Location" type="System.Drawing.Point, System.Drawing">
     <value>127, 225</value>
   </data>
-  <data name="textBox6.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="TB_RoadAddr.Size" type="System.Drawing.Size, System.Drawing">
     <value>156, 29</value>
   </data>
-  <data name="textBox6.TabIndex" type="System.Int32, mscorlib">
+  <data name="TB_RoadAddr.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
   </data>
-  <data name="&gt;&gt;textBox6.Name" xml:space="preserve">
-    <value>textBox6</value>
+  <data name="&gt;&gt;TB_RoadAddr.Name" xml:space="preserve">
+    <value>TB_RoadAddr</value>
   </data>
-  <data name="&gt;&gt;textBox6.Type" xml:space="preserve">
+  <data name="&gt;&gt;TB_RoadAddr.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox6.Parent" xml:space="preserve">
+  <data name="&gt;&gt;TB_RoadAddr.Parent" xml:space="preserve">
     <value>Panel_InitText</value>
   </data>
-  <data name="&gt;&gt;textBox6.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;TB_RoadAddr.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="textBox5.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="TB_Distance.Location" type="System.Drawing.Point, System.Drawing">
     <value>127, 184</value>
   </data>
-  <data name="textBox5.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="TB_Distance.Size" type="System.Drawing.Size, System.Drawing">
     <value>156, 29</value>
   </data>
-  <data name="textBox5.TabIndex" type="System.Int32, mscorlib">
+  <data name="TB_Distance.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
   </data>
-  <data name="&gt;&gt;textBox5.Name" xml:space="preserve">
-    <value>textBox5</value>
+  <data name="&gt;&gt;TB_Distance.Name" xml:space="preserve">
+    <value>TB_Distance</value>
   </data>
-  <data name="&gt;&gt;textBox5.Type" xml:space="preserve">
+  <data name="&gt;&gt;TB_Distance.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox5.Parent" xml:space="preserve">
+  <data name="&gt;&gt;TB_Distance.Parent" xml:space="preserve">
     <value>Panel_InitText</value>
   </data>
-  <data name="&gt;&gt;textBox5.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;TB_Distance.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="textBox4.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="TB_YearPercent.Location" type="System.Drawing.Point, System.Drawing">
     <value>127, 146</value>
   </data>
-  <data name="textBox4.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="TB_YearPercent.Size" type="System.Drawing.Size, System.Drawing">
     <value>156, 29</value>
   </data>
-  <data name="textBox4.TabIndex" type="System.Int32, mscorlib">
+  <data name="TB_YearPercent.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
   </data>
-  <data name="&gt;&gt;textBox4.Name" xml:space="preserve">
-    <value>textBox4</value>
+  <data name="&gt;&gt;TB_YearPercent.Name" xml:space="preserve">
+    <value>TB_YearPercent</value>
   </data>
-  <data name="&gt;&gt;textBox4.Type" xml:space="preserve">
+  <data name="&gt;&gt;TB_YearPercent.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox4.Parent" xml:space="preserve">
+  <data name="&gt;&gt;TB_YearPercent.Parent" xml:space="preserve">
     <value>Panel_InitText</value>
   </data>
-  <data name="&gt;&gt;textBox4.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;TB_YearPercent.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="textBox3.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="TB_Income.Location" type="System.Drawing.Point, System.Drawing">
     <value>127, 106</value>
   </data>
-  <data name="textBox3.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="TB_Income.Size" type="System.Drawing.Size, System.Drawing">
     <value>156, 29</value>
   </data>
-  <data name="textBox3.TabIndex" type="System.Int32, mscorlib">
+  <data name="TB_Income.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
   </data>
-  <data name="&gt;&gt;textBox3.Name" xml:space="preserve">
-    <value>textBox3</value>
+  <data name="&gt;&gt;TB_Income.Name" xml:space="preserve">
+    <value>TB_Income</value>
   </data>
-  <data name="&gt;&gt;textBox3.Type" xml:space="preserve">
+  <data name="&gt;&gt;TB_Income.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox3.Parent" xml:space="preserve">
+  <data name="&gt;&gt;TB_Income.Parent" xml:space="preserve">
     <value>Panel_InitText</value>
   </data>
-  <data name="&gt;&gt;textBox3.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;TB_Income.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="textBox2.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="TB_TakeOverPrice.Location" type="System.Drawing.Point, System.Drawing">
     <value>127, 69</value>
   </data>
-  <data name="textBox2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="TB_TakeOverPrice.Size" type="System.Drawing.Size, System.Drawing">
     <value>156, 29</value>
   </data>
-  <data name="textBox2.TabIndex" type="System.Int32, mscorlib">
+  <data name="TB_TakeOverPrice.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
   </data>
-  <data name="&gt;&gt;textBox2.Name" xml:space="preserve">
-    <value>textBox2</value>
+  <data name="&gt;&gt;TB_TakeOverPrice.Name" xml:space="preserve">
+    <value>TB_TakeOverPrice</value>
   </data>
-  <data name="&gt;&gt;textBox2.Type" xml:space="preserve">
+  <data name="&gt;&gt;TB_TakeOverPrice.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;TB_TakeOverPrice.Parent" xml:space="preserve">
     <value>Panel_InitText</value>
   </data>
-  <data name="&gt;&gt;textBox2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;TB_TakeOverPrice.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="TB_SellPrice.Location" type="System.Drawing.Point, System.Drawing">
     <value>127, 26</value>
   </data>
-  <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="TB_SellPrice.Size" type="System.Drawing.Size, System.Drawing">
     <value>156, 29</value>
   </data>
-  <data name="textBox1.TabIndex" type="System.Int32, mscorlib">
+  <data name="TB_SellPrice.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="&gt;&gt;textBox1.Name" xml:space="preserve">
-    <value>textBox1</value>
+  <data name="&gt;&gt;TB_SellPrice.Name" xml:space="preserve">
+    <value>TB_SellPrice</value>
   </data>
-  <data name="&gt;&gt;textBox1.Type" xml:space="preserve">
+  <data name="&gt;&gt;TB_SellPrice.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;TB_SellPrice.Parent" xml:space="preserve">
     <value>Panel_InitText</value>
   </data>
-  <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;TB_SellPrice.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
   <data name="btn_찾기.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
@@ -649,16 +649,16 @@
     <value>NoControl</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>37, 184</value>
+    <value>36, 184</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 21</value>
+    <value>90, 21</value>
   </data>
   <data name="label5.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
   <data name="label5.Text" xml:space="preserve">
-    <value>역 :</value>
+    <value>역과 거리 :</value>
   </data>
   <data name="&gt;&gt;label5.Name" xml:space="preserve">
     <value>label5</value>
@@ -859,7 +859,7 @@
     <value>529, 394</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Malgun Gothic, 12pt</value>
+    <value>맑은 고딕, 12pt</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 5, 4, 5</value>
