@@ -20,19 +20,19 @@ namespace WindowsFormsApplication1
             InitializeComponent();
 
             listView1.View = View.Details;
-
             listView1.BeginUpdate();
-
-            listView1.Columns.Add("index");
-            listView1.Columns.Add("Content");
-
-            ListViewItem lvi = new ListViewItem("1");
-            lvi.SubItems.Add("사거리에 보기가 좋다");
-            listView1.Items.Add(lvi);
-
-
-
+            AddComment(1, "asdf");
+            AddComment(2, "dfdf");
+            AddComment(3, "As");
             listView1.EndUpdate();
+        }
+
+        // 코멘트에 더하기
+        private void AddComment(int idx, string content)
+        {
+            ListViewItem lvi = new ListViewItem(idx.ToString());
+            lvi.SubItems.Add(content);
+            listView1.Items.Add(lvi);
 
         }
 
@@ -86,20 +86,6 @@ namespace WindowsFormsApplication1
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
-        }
-    }
-
-    public class Comment
-    {
-        int index;
-        string data;
-      
-        Comment() { }
-
-        Comment(int arg0, string arg1)
-        {
-            this.index = arg0;
-            this.data = arg1;
         }
     }
 }
