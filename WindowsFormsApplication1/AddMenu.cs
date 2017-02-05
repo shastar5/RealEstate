@@ -82,6 +82,11 @@ namespace WindowsFormsApplication1
                 sp.Show();
             }
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public class Comment

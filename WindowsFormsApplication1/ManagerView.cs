@@ -11,9 +11,20 @@ namespace RealEstate
 {
     public partial class ManagerView : Form
     {
+        NaverMap nm;
+
         public ManagerView()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(nm == null)
+            {
+                nm = new NaverMap();
+                nm.Show();
+            }
         }
     }
 }
