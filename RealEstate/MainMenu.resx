@@ -127,7 +127,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="radioButton5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>349, 13</value>
+    <value>344, 13</value>
   </data>
   <data name="radioButton5.Size" type="System.Drawing.Size, System.Drawing">
     <value>92, 25</value>

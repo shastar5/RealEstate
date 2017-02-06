@@ -71,7 +71,6 @@ namespace RealEstate
             parking = TB_Parking.Text.ToString();
             acHeating = TB_AC_Heating.Text.ToString();
             EV = TB_EV.Text.ToString();
-            totalMemo = TB_TotalMemo.Text.ToString();
 
             owner = TB_Owner.Text.ToString();
             tel = TB_Tel.Text.ToString();
@@ -85,7 +84,6 @@ namespace RealEstate
             sellPrice = double.Parse(TB_SellPrice.Text.ToString()); ;
             payedPrice = double.Parse(TB_TakeOverPrice.Text.ToString()); ;
             yearPercent = double.Parse(TB_YearPercent.Text.ToString()); ;
-            monthPercent = double.Parse(TB_MonthPercent.Text.ToString()); ;
 
         }
         public ManagerView()
