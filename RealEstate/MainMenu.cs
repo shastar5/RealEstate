@@ -7,33 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SQLite;
+using System.Windows.Controls;
+using RealEstate;
 
 namespace WindowsFormsApplication1
 {
-    
+
     public partial class InitialFoam : Form
     {
-
         string DBFile;
         String deskPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory); //바탕화면 경로 가져오기
 
         public InitialFoam()
         {
             InitializeComponent();
-
+            
             // Set tab control click event listener
             Init_탭컨트롤.SelectedIndexChanged += new EventHandler(Tabs_SelectedIndexChanged);
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         // This is linked click event listener
         private void Tabs_SelectedIndexChanged(object sender, EventArgs e)
@@ -59,26 +51,6 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void btn_건물추가_Click(object sender, EventArgs e)
         {
             AddMenu addMenu = new AddMenu();
@@ -87,44 +59,34 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void btn_찾기_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox_매매_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Panel_InitText_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void TB_TakeOverPrice_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        /*
+         * 라디오버튼 체크 리스너
+         */ 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
 
         }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton5_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
-}
+
+
+    }

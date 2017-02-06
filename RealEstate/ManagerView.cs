@@ -10,10 +10,7 @@ using System.Data.SQLite;
 
 namespace RealEstate
 {
-    public interface DBInterface
-    {
-        void setDBfile(String DBFile);
-    }
+
     public partial class ManagerView : Form, DBInterface
     {
         NaverMap nm;

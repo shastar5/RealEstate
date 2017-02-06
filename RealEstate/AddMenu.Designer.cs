@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication1
+﻿namespace RealEstate
 {
     partial class AddMenu
     {
@@ -105,10 +105,27 @@
             this.label41 = new System.Windows.Forms.Label();
             this.SaveData = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Init_탭컨트롤 = new System.Windows.Forms.TabControl();
+            this.Page_준비 = new System.Windows.Forms.TabPage();
+            this.Page_완료 = new System.Windows.Forms.TabPage();
+            this.Page_보류 = new System.Windows.Forms.TabPage();
+            this.Page_매매 = new System.Windows.Forms.TabPage();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.층수 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.면적 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.상호명 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.보증금 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.월세 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.관리비 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.비고 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.Init_탭컨트롤.SuspendLayout();
             this.SuspendLayout();
             // 
             // TB_RoadWidth
@@ -751,6 +768,14 @@
             // 
             // listView2
             // 
+            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.층수,
+            this.면적,
+            this.상호명,
+            this.보증금,
+            this.월세,
+            this.관리비,
+            this.비고});
             this.listView2.Location = new System.Drawing.Point(402, 218);
             this.listView2.Name = "listView2";
             this.listView2.Size = new System.Drawing.Size(461, 316);
@@ -832,11 +857,151 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
+            // Init_탭컨트롤
+            // 
+            this.Init_탭컨트롤.Alignment = System.Windows.Forms.TabAlignment.Right;
+            this.Init_탭컨트롤.Controls.Add(this.Page_준비);
+            this.Init_탭컨트롤.Controls.Add(this.Page_완료);
+            this.Init_탭컨트롤.Controls.Add(this.Page_보류);
+            this.Init_탭컨트롤.Controls.Add(this.Page_매매);
+            this.Init_탭컨트롤.Font = new System.Drawing.Font("Malgun Gothic", 9.75F);
+            this.Init_탭컨트롤.HotTrack = true;
+            this.Init_탭컨트롤.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.Init_탭컨트롤.ItemSize = new System.Drawing.Size(90, 30);
+            this.Init_탭컨트롤.Location = new System.Drawing.Point(866, 15);
+            this.Init_탭컨트롤.Multiline = true;
+            this.Init_탭컨트롤.Name = "Init_탭컨트롤";
+            this.Init_탭컨트롤.SelectedIndex = 0;
+            this.Init_탭컨트롤.Size = new System.Drawing.Size(36, 200);
+            this.Init_탭컨트롤.TabIndex = 28;
+            // 
+            // Page_준비
+            // 
+            this.Page_준비.Font = new System.Drawing.Font("Malgun Gothic", 9.75F);
+            this.Page_준비.Location = new System.Drawing.Point(4, 4);
+            this.Page_준비.Name = "Page_준비";
+            this.Page_준비.Padding = new System.Windows.Forms.Padding(3);
+            this.Page_준비.Size = new System.Drawing.Size(0, 192);
+            this.Page_준비.TabIndex = 0;
+            this.Page_준비.Text = "준비";
+            this.Page_준비.UseVisualStyleBackColor = true;
+            // 
+            // Page_완료
+            // 
+            this.Page_완료.Location = new System.Drawing.Point(4, 4);
+            this.Page_완료.Name = "Page_완료";
+            this.Page_완료.Padding = new System.Windows.Forms.Padding(3);
+            this.Page_완료.Size = new System.Drawing.Size(0, 365);
+            this.Page_완료.TabIndex = 1;
+            this.Page_완료.Text = "완료";
+            this.Page_완료.UseVisualStyleBackColor = true;
+            // 
+            // Page_보류
+            // 
+            this.Page_보류.Location = new System.Drawing.Point(4, 4);
+            this.Page_보류.Name = "Page_보류";
+            this.Page_보류.Padding = new System.Windows.Forms.Padding(3);
+            this.Page_보류.Size = new System.Drawing.Size(0, 365);
+            this.Page_보류.TabIndex = 2;
+            this.Page_보류.Text = "보류";
+            this.Page_보류.UseVisualStyleBackColor = true;
+            // 
+            // Page_매매
+            // 
+            this.Page_매매.Location = new System.Drawing.Point(4, 4);
+            this.Page_매매.Name = "Page_매매";
+            this.Page_매매.Padding = new System.Windows.Forms.Padding(3);
+            this.Page_매매.Size = new System.Drawing.Size(0, 365);
+            this.Page_매매.TabIndex = 3;
+            this.Page_매매.Text = "매매";
+            this.Page_매매.UseVisualStyleBackColor = true;
+            // 
+            // radioButton5
+            // 
+            this.radioButton5.AutoSize = true;
+            this.radioButton5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.radioButton5.Location = new System.Drawing.Point(365, 19);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.Size = new System.Drawing.Size(71, 16);
+            this.radioButton5.TabIndex = 32;
+            this.radioButton5.TabStop = true;
+            this.radioButton5.Text = "신축부지";
+            this.radioButton5.UseVisualStyleBackColor = true;
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.radioButton4.Location = new System.Drawing.Point(277, 19);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(71, 16);
+            this.radioButton4.TabIndex = 31;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "상가주택";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.radioButton3.Location = new System.Drawing.Point(211, 19);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(47, 16);
+            this.radioButton3.TabIndex = 30;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "빌딩";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.radioButton2.Location = new System.Drawing.Point(129, 19);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(59, 16);
+            this.radioButton2.TabIndex = 29;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "다가구";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // 층수
+            // 
+            this.층수.Text = "층수";
+            // 
+            // 면적
+            // 
+            this.면적.Text = "면적";
+            // 
+            // 상호명
+            // 
+            this.상호명.Text = "상호명";
+            // 
+            // 보증금
+            // 
+            this.보증금.Text = "보증금";
+            // 
+            // 월세
+            // 
+            this.월세.Text = "월세";
+            // 
+            // 관리비
+            // 
+            this.관리비.Text = "관리비";
+            // 
+            // 비고
+            // 
+            this.비고.Text = "비고";
+            // 
             // AddMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(877, 733);
+            this.ClientSize = new System.Drawing.Size(914, 733);
+            this.Controls.Add(this.Init_탭컨트롤);
+            this.Controls.Add(this.radioButton5);
+            this.Controls.Add(this.radioButton4);
+            this.Controls.Add(this.radioButton3);
+            this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.listView2);
@@ -896,6 +1061,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Init_탭컨트롤.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -979,5 +1145,21 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ColumnHeader 번호;
         private System.Windows.Forms.ColumnHeader 내용;
+        private System.Windows.Forms.TabControl Init_탭컨트롤;
+        private System.Windows.Forms.TabPage Page_준비;
+        private System.Windows.Forms.TabPage Page_완료;
+        private System.Windows.Forms.TabPage Page_보류;
+        private System.Windows.Forms.TabPage Page_매매;
+        private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.ColumnHeader 층수;
+        private System.Windows.Forms.ColumnHeader 면적;
+        private System.Windows.Forms.ColumnHeader 상호명;
+        private System.Windows.Forms.ColumnHeader 보증금;
+        private System.Windows.Forms.ColumnHeader 월세;
+        private System.Windows.Forms.ColumnHeader 관리비;
+        private System.Windows.Forms.ColumnHeader 비고;
     }
 }

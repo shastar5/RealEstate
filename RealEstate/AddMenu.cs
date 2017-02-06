@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using RealEstate;
 using System.Data.SQLite;
 
-namespace WindowsFormsApplication1
+namespace RealEstate
 {
     public interface DBInterface
     {
