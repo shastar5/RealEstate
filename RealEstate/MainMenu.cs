@@ -57,11 +57,6 @@ namespace WindowsFormsApplication1
             {
 
             }
-
-            else if (Init_탭컨트롤.SelectedTab == Page_전체)
-            {
-
-            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -118,6 +113,16 @@ namespace WindowsFormsApplication1
         }
 
         private void Panel_InitText_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void TB_TakeOverPrice_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
 
         }

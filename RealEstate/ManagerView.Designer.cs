@@ -36,13 +36,10 @@
             this.listView3 = new System.Windows.Forms.ListView();
             this.label40 = new System.Windows.Forms.Label();
             this.listView2 = new System.Windows.Forms.ListView();
-            this.TB_TotalMemo = new System.Windows.Forms.TextBox();
             this.TB_Memo = new System.Windows.Forms.TextBox();
             this.label38 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.TB_YearPercent = new System.Windows.Forms.TextBox();
-            this.TB_MonthPercent = new System.Windows.Forms.TextBox();
-            this.label35 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
@@ -52,22 +49,20 @@
             this.label31 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.TB_PayedPrice = new System.Windows.Forms.TextBox();
+            this.TB_TakeOverPrice = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.TB_SellPrice = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.TB_TakeOverPrice = new System.Windows.Forms.TextBox();
+            this.TB_PayedPrice = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.TB_Interest = new System.Windows.Forms.TextBox();
             this.TB_Deposit = new System.Windows.Forms.TextBox();
             this.TB_Income = new System.Windows.Forms.TextBox();
             this.TB_Loan = new System.Windows.Forms.TextBox();
-            this.label39 = new System.Windows.Forms.Label();
             this.TB_Tel = new System.Windows.Forms.TextBox();
             this.label37 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
@@ -183,14 +178,6 @@
             this.listView2.TabIndex = 110;
             this.listView2.UseCompatibleStateImageBehavior = false;
             // 
-            // TB_TotalMemo
-            // 
-            this.TB_TotalMemo.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.TB_TotalMemo.Location = new System.Drawing.Point(476, 531);
-            this.TB_TotalMemo.Name = "TB_TotalMemo";
-            this.TB_TotalMemo.Size = new System.Drawing.Size(388, 27);
-            this.TB_TotalMemo.TabIndex = 108;
-            // 
             // TB_Memo
             // 
             this.TB_Memo.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -212,8 +199,6 @@
             // panel6
             // 
             this.panel6.Controls.Add(this.TB_YearPercent);
-            this.panel6.Controls.Add(this.TB_MonthPercent);
-            this.panel6.Controls.Add(this.label35);
             this.panel6.Controls.Add(this.label34);
             this.panel6.Controls.Add(this.label30);
             this.panel6.Controls.Add(this.label33);
@@ -223,16 +208,15 @@
             this.panel6.Controls.Add(this.label31);
             this.panel6.Controls.Add(this.label27);
             this.panel6.Controls.Add(this.label18);
-            this.panel6.Controls.Add(this.label26);
             this.panel6.Controls.Add(this.label19);
             this.panel6.Controls.Add(this.label20);
             this.panel6.Controls.Add(this.label25);
             this.panel6.Controls.Add(this.label21);
-            this.panel6.Controls.Add(this.TB_PayedPrice);
+            this.panel6.Controls.Add(this.TB_TakeOverPrice);
             this.panel6.Controls.Add(this.label22);
             this.panel6.Controls.Add(this.TB_SellPrice);
             this.panel6.Controls.Add(this.label23);
-            this.panel6.Controls.Add(this.TB_TakeOverPrice);
+            this.panel6.Controls.Add(this.TB_PayedPrice);
             this.panel6.Controls.Add(this.label24);
             this.panel6.Controls.Add(this.TB_Interest);
             this.panel6.Controls.Add(this.TB_Deposit);
@@ -250,24 +234,6 @@
             this.TB_YearPercent.Name = "TB_YearPercent";
             this.TB_YearPercent.Size = new System.Drawing.Size(202, 27);
             this.TB_YearPercent.TabIndex = 14;
-            // 
-            // TB_MonthPercent
-            // 
-            this.TB_MonthPercent.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.TB_MonthPercent.Location = new System.Drawing.Point(110, 232);
-            this.TB_MonthPercent.Name = "TB_MonthPercent";
-            this.TB_MonthPercent.Size = new System.Drawing.Size(202, 27);
-            this.TB_MonthPercent.TabIndex = 16;
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label35.Location = new System.Drawing.Point(313, 234);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(23, 21);
-            this.label35.TabIndex = 0;
-            this.label35.Text = "%";
             // 
             // label34
             // 
@@ -359,16 +325,6 @@
             this.label18.TabIndex = 0;
             this.label18.Text = "보증금 :";
             // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label26.Location = new System.Drawing.Point(12, 232);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(68, 21);
-            this.label26.TabIndex = 15;
-            this.label26.Text = "월수익 :";
-            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -409,19 +365,19 @@
             this.label21.TabIndex = 3;
             this.label21.Text = "이자 :";
             // 
-            // TB_PayedPrice
+            // TB_TakeOverPrice
             // 
-            this.TB_PayedPrice.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.TB_PayedPrice.Location = new System.Drawing.Point(110, 176);
-            this.TB_PayedPrice.Name = "TB_PayedPrice";
-            this.TB_PayedPrice.Size = new System.Drawing.Size(202, 27);
-            this.TB_PayedPrice.TabIndex = 12;
+            this.TB_TakeOverPrice.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TB_TakeOverPrice.Location = new System.Drawing.Point(110, 176);
+            this.TB_TakeOverPrice.Name = "TB_TakeOverPrice";
+            this.TB_TakeOverPrice.Size = new System.Drawing.Size(202, 27);
+            this.TB_TakeOverPrice.TabIndex = 12;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label22.Location = new System.Drawing.Point(12, 120);
+            this.label22.Location = new System.Drawing.Point(12, 178);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(84, 21);
             this.label22.TabIndex = 4;
@@ -445,19 +401,19 @@
             this.label23.TabIndex = 5;
             this.label23.Text = "매매가격 :";
             // 
-            // TB_TakeOverPrice
+            // TB_PayedPrice
             // 
-            this.TB_TakeOverPrice.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.TB_TakeOverPrice.Location = new System.Drawing.Point(110, 120);
-            this.TB_TakeOverPrice.Name = "TB_TakeOverPrice";
-            this.TB_TakeOverPrice.Size = new System.Drawing.Size(202, 27);
-            this.TB_TakeOverPrice.TabIndex = 10;
+            this.TB_PayedPrice.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TB_PayedPrice.Location = new System.Drawing.Point(110, 120);
+            this.TB_PayedPrice.Name = "TB_PayedPrice";
+            this.TB_PayedPrice.Size = new System.Drawing.Size(202, 27);
+            this.TB_PayedPrice.TabIndex = 10;
             // 
             // label24
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label24.Location = new System.Drawing.Point(12, 176);
+            this.label24.Location = new System.Drawing.Point(12, 122);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(84, 21);
             this.label24.TabIndex = 6;
@@ -494,16 +450,6 @@
             this.TB_Loan.Name = "TB_Loan";
             this.TB_Loan.Size = new System.Drawing.Size(202, 27);
             this.TB_Loan.TabIndex = 8;
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label39.Location = new System.Drawing.Point(413, 534);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(57, 21);
-            this.label39.TabIndex = 103;
-            this.label39.Text = "Total :";
             // 
             // TB_Tel
             // 
@@ -866,11 +812,9 @@
             this.Controls.Add(this.SaveData);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.listView2);
-            this.Controls.Add(this.TB_TotalMemo);
             this.Controls.Add(this.TB_Memo);
             this.Controls.Add(this.label38);
             this.Controls.Add(this.panel6);
-            this.Controls.Add(this.label39);
             this.Controls.Add(this.TB_Tel);
             this.Controls.Add(this.label37);
             this.Controls.Add(this.label41);
@@ -937,13 +881,10 @@
         private System.Windows.Forms.ListView listView3;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.ListView listView2;
-        private System.Windows.Forms.TextBox TB_TotalMemo;
         private System.Windows.Forms.TextBox TB_Memo;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TextBox TB_YearPercent;
-        private System.Windows.Forms.TextBox TB_MonthPercent;
-        private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label33;
@@ -953,22 +894,20 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox TB_PayedPrice;
+        private System.Windows.Forms.TextBox TB_TakeOverPrice;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox TB_SellPrice;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox TB_TakeOverPrice;
+        private System.Windows.Forms.TextBox TB_PayedPrice;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox TB_Interest;
         private System.Windows.Forms.TextBox TB_Deposit;
         private System.Windows.Forms.TextBox TB_Income;
         private System.Windows.Forms.TextBox TB_Loan;
-        private System.Windows.Forms.Label label39;
         private System.Windows.Forms.TextBox TB_Tel;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label41;

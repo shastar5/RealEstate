@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InitialFoam));
-            this.Init_탭컨트롤 = new System.Windows.Forms.TabControl();
-            this.Page_준비 = new System.Windows.Forms.TabPage();
-            this.Page_완료 = new System.Windows.Forms.TabPage();
-            this.Page_보류 = new System.Windows.Forms.TabPage();
-            this.Page_매매 = new System.Windows.Forms.TabPage();
-            this.Page_전체 = new System.Windows.Forms.TabPage();
             this.Panel_InitText = new System.Windows.Forms.Panel();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -56,56 +50,27 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.Init_탭컨트롤.SuspendLayout();
+            this.Page_매매 = new System.Windows.Forms.TabPage();
+            this.Page_보류 = new System.Windows.Forms.TabPage();
+            this.Page_완료 = new System.Windows.Forms.TabPage();
+            this.Page_준비 = new System.Windows.Forms.TabPage();
+            this.Init_탭컨트롤 = new System.Windows.Forms.TabControl();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.Panel_InitText.SuspendLayout();
+            this.Init_탭컨트롤.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // Init_탭컨트롤
-            // 
-            resources.ApplyResources(this.Init_탭컨트롤, "Init_탭컨트롤");
-            this.Init_탭컨트롤.Controls.Add(this.Page_준비);
-            this.Init_탭컨트롤.Controls.Add(this.Page_완료);
-            this.Init_탭컨트롤.Controls.Add(this.Page_보류);
-            this.Init_탭컨트롤.Controls.Add(this.Page_매매);
-            this.Init_탭컨트롤.Controls.Add(this.Page_전체);
-            this.Init_탭컨트롤.HotTrack = true;
-            this.Init_탭컨트롤.Multiline = true;
-            this.Init_탭컨트롤.Name = "Init_탭컨트롤";
-            this.Init_탭컨트롤.SelectedIndex = 0;
-            // 
-            // Page_준비
-            // 
-            resources.ApplyResources(this.Page_준비, "Page_준비");
-            this.Page_준비.Name = "Page_준비";
-            this.Page_준비.UseVisualStyleBackColor = true;
-            this.Page_준비.Click += new System.EventHandler(this.tabPage1_Click_1);
-            // 
-            // Page_완료
-            // 
-            resources.ApplyResources(this.Page_완료, "Page_완료");
-            this.Page_완료.Name = "Page_완료";
-            this.Page_완료.UseVisualStyleBackColor = true;
-            // 
-            // Page_보류
-            // 
-            resources.ApplyResources(this.Page_보류, "Page_보류");
-            this.Page_보류.Name = "Page_보류";
-            this.Page_보류.UseVisualStyleBackColor = true;
-            // 
-            // Page_매매
-            // 
-            resources.ApplyResources(this.Page_매매, "Page_매매");
-            this.Page_매매.Name = "Page_매매";
-            this.Page_매매.UseVisualStyleBackColor = true;
-            // 
-            // Page_전체
-            // 
-            resources.ApplyResources(this.Page_전체, "Page_전체");
-            this.Page_전체.Name = "Page_전체";
-            this.Page_전체.UseVisualStyleBackColor = true;
             // 
             // Panel_InitText
             // 
+            this.Panel_InitText.Controls.Add(this.radioButton5);
+            this.Panel_InitText.Controls.Add(this.radioButton4);
+            this.Panel_InitText.Controls.Add(this.radioButton3);
+            this.Panel_InitText.Controls.Add(this.radioButton2);
+            this.Panel_InitText.Controls.Add(this.radioButton1);
             this.Panel_InitText.Controls.Add(this.comboBox3);
             this.Panel_InitText.Controls.Add(this.comboBox1);
             this.Panel_InitText.Controls.Add(this.comboBox_매매);
@@ -191,6 +156,7 @@
             // 
             resources.ApplyResources(this.TB_TakeOverPrice, "TB_TakeOverPrice");
             this.TB_TakeOverPrice.Name = "TB_TakeOverPrice";
+            this.TB_TakeOverPrice.TextChanged += new System.EventHandler(this.TB_TakeOverPrice_TextChanged);
             // 
             // TB_SellPrice
             // 
@@ -252,6 +218,79 @@
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
             // 
+            // Page_매매
+            // 
+            resources.ApplyResources(this.Page_매매, "Page_매매");
+            this.Page_매매.Name = "Page_매매";
+            this.Page_매매.UseVisualStyleBackColor = true;
+            // 
+            // Page_보류
+            // 
+            resources.ApplyResources(this.Page_보류, "Page_보류");
+            this.Page_보류.Name = "Page_보류";
+            this.Page_보류.UseVisualStyleBackColor = true;
+            // 
+            // Page_완료
+            // 
+            resources.ApplyResources(this.Page_완료, "Page_완료");
+            this.Page_완료.Name = "Page_완료";
+            this.Page_완료.UseVisualStyleBackColor = true;
+            // 
+            // Page_준비
+            // 
+            resources.ApplyResources(this.Page_준비, "Page_준비");
+            this.Page_준비.Name = "Page_준비";
+            this.Page_준비.UseVisualStyleBackColor = true;
+            this.Page_준비.Click += new System.EventHandler(this.tabPage1_Click_1);
+            // 
+            // Init_탭컨트롤
+            // 
+            resources.ApplyResources(this.Init_탭컨트롤, "Init_탭컨트롤");
+            this.Init_탭컨트롤.Controls.Add(this.Page_준비);
+            this.Init_탭컨트롤.Controls.Add(this.Page_완료);
+            this.Init_탭컨트롤.Controls.Add(this.Page_보류);
+            this.Init_탭컨트롤.Controls.Add(this.Page_매매);
+            this.Init_탭컨트롤.HotTrack = true;
+            this.Init_탭컨트롤.Multiline = true;
+            this.Init_탭컨트롤.Name = "Init_탭컨트롤";
+            this.Init_탭컨트롤.SelectedIndex = 0;
+            // 
+            // radioButton1
+            // 
+            resources.ApplyResources(this.radioButton1, "radioButton1");
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.TabStop = true;
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // radioButton2
+            // 
+            resources.ApplyResources(this.radioButton2, "radioButton2");
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.TabStop = true;
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton3
+            // 
+            resources.ApplyResources(this.radioButton3, "radioButton3");
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.TabStop = true;
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton4
+            // 
+            resources.ApplyResources(this.radioButton4, "radioButton4");
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.TabStop = true;
+            this.radioButton4.UseVisualStyleBackColor = true;
+            // 
+            // radioButton5
+            // 
+            resources.ApplyResources(this.radioButton5, "radioButton5");
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.TabStop = true;
+            this.radioButton5.UseVisualStyleBackColor = true;
+            // 
             // InitialFoam
             // 
             resources.ApplyResources(this, "$this");
@@ -264,21 +303,14 @@
             this.Name = "InitialFoam";
             this.ShowIcon = false;
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.Init_탭컨트롤.ResumeLayout(false);
             this.Panel_InitText.ResumeLayout(false);
             this.Panel_InitText.PerformLayout();
+            this.Init_탭컨트롤.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TabControl Init_탭컨트롤;
-        private System.Windows.Forms.TabPage Page_준비;
-        private System.Windows.Forms.TabPage Page_완료;
-        private System.Windows.Forms.TabPage Page_보류;
-        private System.Windows.Forms.TabPage Page_매매;
-        private System.Windows.Forms.TabPage Page_전체;
         private System.Windows.Forms.Panel Panel_InitText;
         private System.Windows.Forms.Button btn_찾기;
         private System.Windows.Forms.Label Text_매매금액;
@@ -300,6 +332,16 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox_매매;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TabPage Page_매매;
+        private System.Windows.Forms.TabPage Page_보류;
+        private System.Windows.Forms.TabPage Page_완료;
+        private System.Windows.Forms.TabPage Page_준비;
+        private System.Windows.Forms.TabControl Init_탭컨트롤;
+        private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
     }
 }
 

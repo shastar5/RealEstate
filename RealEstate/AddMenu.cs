@@ -82,11 +82,10 @@ namespace WindowsFormsApplication1
             Income = double.Parse(TB_Income.Text.ToString()); ;
             loan = double.Parse(TB_Loan.Text.ToString()); ;
             interest = double.Parse(TB_Interest.Text.ToString()); ;
-            takeOverPrice = double.Parse(TB_TakeOverPrice.Text.ToString()); ;
+            takeOverPrice = double.Parse(TB_PayedPrice.Text.ToString()); ;
             sellPrice = double.Parse(TB_SellPrice.Text.ToString()); ;
-            payedPrice = double.Parse(TB_PayedPrice.Text.ToString()); ;
+            payedPrice = double.Parse(TB_TakeOverPrice.Text.ToString()); ;
             yearPercent = double.Parse(TB_YearPercent.Text.ToString()); ;
-            monthPercent = double.Parse(TB_MonthPercent.Text.ToString()); ;
 
         }
         public AddMenu()
@@ -158,6 +157,16 @@ namespace WindowsFormsApplication1
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label19_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
