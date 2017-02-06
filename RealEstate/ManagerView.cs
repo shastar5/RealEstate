@@ -31,7 +31,6 @@ namespace RealEstate
         string parking;
         string acHeating;
         string EV;
-        string totalMemo;
 
         //관리자용 변수
         string owner;
@@ -45,7 +44,6 @@ namespace RealEstate
         double sellPrice;
         double payedPrice;
         double yearPercent;
-        double monthPercent;
 
         public void setDBfile(string DBFile) //DB파일위치 계승
         {
@@ -74,13 +72,13 @@ namespace RealEstate
             meno = TB_Memo.Text.ToString();
 
             deposit = double.Parse(TB_Deposit.Text.ToString());
-            Income = double.Parse(TB_Income.Text.ToString()); ;
-            loan = double.Parse(TB_Loan.Text.ToString()); ;
-            interest = double.Parse(TB_Interest.Text.ToString()); ;
-            takeOverPrice = double.Parse(TB_PayedPrice.Text.ToString()); ;
-            sellPrice = double.Parse(TB_SellPrice.Text.ToString()); ;
-            payedPrice = double.Parse(TB_TakeOverPrice.Text.ToString()); ;
-            yearPercent = double.Parse(TB_YearPercent.Text.ToString()); ;
+            Income = double.Parse(TB_Income.Text.ToString()); 
+            loan = double.Parse(TB_Loan.Text.ToString()); 
+            interest = double.Parse(TB_Interest.Text.ToString()); 
+            takeOverPrice = double.Parse(TB_PayedPrice.Text.ToString()); 
+            sellPrice = double.Parse(TB_SellPrice.Text.ToString()); 
+            payedPrice = double.Parse(TB_TakeOverPrice.Text.ToString()); 
+            yearPercent = double.Parse(TB_YearPercent.Text.ToString()); 
 
         }
         public ManagerView()

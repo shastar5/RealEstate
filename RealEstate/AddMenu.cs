@@ -28,6 +28,8 @@ namespace RealEstate
         string useArea;
         string publicPrice;
         string sumPP;
+        string distance;
+        string roadWidth;
         string totalArea;
         string buildArea;
         string floorNum;
@@ -35,7 +37,7 @@ namespace RealEstate
         string parking;
         string acHeating;
         string EV;
-        string totalMemo;
+
 
         //관리자용 변수
         string owner;
@@ -49,11 +51,11 @@ namespace RealEstate
         double sellPrice;
         double payedPrice;
         double yearPercent;
-        double monthPercent;
 
         public void setDBfile(string DBFile) //DB파일위치 계승
         {
             this.DBFile = DBFile;
+            TB_AC_Heating.Text = DBFile;
         }
 
         private void setData()
@@ -65,6 +67,10 @@ namespace RealEstate
             useArea = TB_UseDistrict.Text.ToString();
             publicPrice = TB_PublicPrice.Text.ToString();
             sumPP = TB_SumPP.Text.ToString();
+            
+            distance = TB_Distance.Text.ToString();
+            roadWidth = TB_RoadWidth.Text.ToString();
+
             totalArea = TB_TotalArea.Text.ToString();
             buildArea = TB_BuildArea.Text.ToString();
             floorNum = TB_FloorNum.Text.ToString();
@@ -72,20 +78,19 @@ namespace RealEstate
             parking = TB_Parking.Text.ToString();
             acHeating = TB_AC_Heating.Text.ToString();
             EV = TB_EV.Text.ToString();
-            totalMemo = TB_TotalMemo.Text.ToString();
 
             owner = TB_Owner.Text.ToString();
             tel = TB_Tel.Text.ToString();
             meno = TB_Memo.Text.ToString();
 
             deposit = double.Parse(TB_Deposit.Text.ToString());
-            Income = double.Parse(TB_Income.Text.ToString()); ;
-            loan = double.Parse(TB_Loan.Text.ToString()); ;
-            interest = double.Parse(TB_Interest.Text.ToString()); ;
-            takeOverPrice = double.Parse(TB_PayedPrice.Text.ToString()); ;
-            sellPrice = double.Parse(TB_SellPrice.Text.ToString()); ;
-            payedPrice = double.Parse(TB_TakeOverPrice.Text.ToString()); ;
-            yearPercent = double.Parse(TB_YearPercent.Text.ToString()); ;
+            Income = double.Parse(TB_Income.Text.ToString()); 
+            loan = double.Parse(TB_Loan.Text.ToString()); 
+            interest = double.Parse(TB_Interest.Text.ToString()); 
+            takeOverPrice = double.Parse(TB_PayedPrice.Text.ToString()); 
+            sellPrice = double.Parse(TB_SellPrice.Text.ToString()); 
+            payedPrice = double.Parse(TB_TakeOverPrice.Text.ToString()); 
+            yearPercent = double.Parse(TB_YearPercent.Text.ToString()); 
 
         }
         public AddMenu()
