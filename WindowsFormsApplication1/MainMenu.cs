@@ -116,5 +116,10 @@ namespace WindowsFormsApplication1
         {
 
         }
+
+        private void Panel_InitText_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

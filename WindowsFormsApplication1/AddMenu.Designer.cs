@@ -802,19 +802,11 @@
             // 
             // TB_TotalMemo
             // 
-<<<<<<< HEAD
             this.TB_TotalMemo.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.TB_TotalMemo.Location = new System.Drawing.Point(475, 540);
             this.TB_TotalMemo.Name = "TB_TotalMemo";
             this.TB_TotalMemo.Size = new System.Drawing.Size(388, 27);
             this.TB_TotalMemo.TabIndex = 16;
-=======
-            this.textBox29.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox29.Location = new System.Drawing.Point(475, 540);
-            this.textBox29.Name = "textBox29";
-            this.textBox29.Size = new System.Drawing.Size(388, 27);
-            this.textBox29.TabIndex = 16;
->>>>>>> master
             // 
             // panel1
             // 

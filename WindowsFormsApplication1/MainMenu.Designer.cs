@@ -128,6 +128,7 @@
             this.Panel_InitText.Controls.Add(this.label4);
             resources.ApplyResources(this.Panel_InitText, "Panel_InitText");
             this.Panel_InitText.Name = "Panel_InitText";
+            this.Panel_InitText.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_InitText_Paint);
             // 
             // comboBox3
             // 

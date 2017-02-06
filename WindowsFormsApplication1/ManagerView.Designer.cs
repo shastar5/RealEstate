@@ -185,7 +185,7 @@
             // 
             // TB_TotalMemo
             // 
-            this.TB_TotalMemo.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TB_TotalMemo.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.TB_TotalMemo.Location = new System.Drawing.Point(476, 531);
             this.TB_TotalMemo.Name = "TB_TotalMemo";
             this.TB_TotalMemo.Size = new System.Drawing.Size(388, 27);
@@ -193,7 +193,7 @@
             // 
             // TB_Memo
             // 
-            this.TB_Memo.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TB_Memo.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.TB_Memo.Location = new System.Drawing.Point(501, 97);
             this.TB_Memo.Name = "TB_Memo";
             this.TB_Memo.Size = new System.Drawing.Size(202, 27);
@@ -202,7 +202,7 @@
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label38.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label38.Location = new System.Drawing.Point(403, 97);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(52, 21);
@@ -245,7 +245,7 @@
             // 
             // TB_YearPercent
             // 
-            this.TB_YearPercent.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TB_YearPercent.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.TB_YearPercent.Location = new System.Drawing.Point(110, 204);
             this.TB_YearPercent.Name = "TB_YearPercent";
             this.TB_YearPercent.Size = new System.Drawing.Size(202, 27);
@@ -253,7 +253,7 @@
             // 
             // TB_MonthPercent
             // 
-            this.TB_MonthPercent.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TB_MonthPercent.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.TB_MonthPercent.Location = new System.Drawing.Point(110, 232);
             this.TB_MonthPercent.Name = "TB_MonthPercent";
             this.TB_MonthPercent.Size = new System.Drawing.Size(202, 27);
@@ -262,7 +262,7 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label35.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label35.Location = new System.Drawing.Point(313, 234);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(23, 21);
@@ -272,7 +272,7 @@
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label34.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label34.Location = new System.Drawing.Point(313, 204);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(23, 21);
@@ -282,7 +282,7 @@
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label30.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label30.Location = new System.Drawing.Point(313, 94);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(42, 21);
@@ -292,7 +292,7 @@
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label33.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label33.Location = new System.Drawing.Point(313, 148);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(42, 21);
@@ -302,7 +302,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label28.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label28.Location = new System.Drawing.Point(313, 38);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(42, 21);
@@ -312,7 +312,7 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label32.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label32.Location = new System.Drawing.Point(313, 178);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(42, 21);
@@ -322,7 +322,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label29.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label29.Location = new System.Drawing.Point(313, 64);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(42, 21);
@@ -332,7 +332,7 @@
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label31.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label31.Location = new System.Drawing.Point(313, 122);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(42, 21);
@@ -342,7 +342,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label27.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label27.Location = new System.Drawing.Point(313, 12);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(42, 21);
@@ -352,7 +352,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label18.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label18.Location = new System.Drawing.Point(12, 9);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(68, 21);
@@ -362,7 +362,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label26.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label26.Location = new System.Drawing.Point(12, 232);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(68, 21);
@@ -372,7 +372,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label19.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label19.Location = new System.Drawing.Point(12, 36);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(68, 21);
@@ -382,7 +382,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label20.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label20.Location = new System.Drawing.Point(12, 64);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(52, 21);
@@ -392,7 +392,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label25.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label25.Location = new System.Drawing.Point(12, 204);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(68, 21);
@@ -402,7 +402,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label21.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label21.Location = new System.Drawing.Point(12, 92);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(52, 21);
@@ -411,7 +411,7 @@
             // 
             // TB_PayedPrice
             // 
-            this.TB_PayedPrice.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TB_PayedPrice.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.TB_PayedPrice.Location = new System.Drawing.Point(110, 176);
             this.TB_PayedPrice.Name = "TB_PayedPrice";
             this.TB_PayedPrice.Size = new System.Drawing.Size(202, 27);
@@ -420,7 +420,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label22.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label22.Location = new System.Drawing.Point(12, 120);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(84, 21);
@@ -429,7 +429,7 @@
             // 
             // TB_SellPrice
             // 
-            this.TB_SellPrice.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TB_SellPrice.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.TB_SellPrice.Location = new System.Drawing.Point(110, 148);
             this.TB_SellPrice.Name = "TB_SellPrice";
             this.TB_SellPrice.Size = new System.Drawing.Size(202, 27);
@@ -438,7 +438,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label23.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label23.Location = new System.Drawing.Point(12, 148);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(84, 21);
@@ -447,7 +447,7 @@
             // 
             // TB_TakeOverPrice
             // 
-            this.TB_TakeOverPrice.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TB_TakeOverPrice.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.TB_TakeOverPrice.Location = new System.Drawing.Point(110, 120);
             this.TB_TakeOverPrice.Name = "TB_TakeOverPrice";
             this.TB_TakeOverPrice.Size = new System.Drawing.Size(202, 27);
@@ -456,7 +456,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label24.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label24.Location = new System.Drawing.Point(12, 176);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(84, 21);
@@ -465,7 +465,7 @@
             // 
             // TB_Interest
             // 
-            this.TB_Interest.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TB_Interest.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.TB_Interest.Location = new System.Drawing.Point(110, 92);
             this.TB_Interest.Name = "TB_Interest";
             this.TB_Interest.Size = new System.Drawing.Size(202, 27);
@@ -473,7 +473,7 @@
             // 
             // TB_Deposit
             // 
-            this.TB_Deposit.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TB_Deposit.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.TB_Deposit.Location = new System.Drawing.Point(110, 8);
             this.TB_Deposit.Name = "TB_Deposit";
             this.TB_Deposit.Size = new System.Drawing.Size(202, 27);
@@ -481,7 +481,7 @@
             // 
             // TB_Income
             // 
-            this.TB_Income.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TB_Income.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.TB_Income.Location = new System.Drawing.Point(110, 36);
             this.TB_Income.Name = "TB_Income";
             this.TB_Income.Size = new System.Drawing.Size(202, 27);
@@ -489,7 +489,7 @@
             // 
             // TB_Loan
             // 
-            this.TB_Loan.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TB_Loan.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.TB_Loan.Location = new System.Drawing.Point(110, 64);
             this.TB_Loan.Name = "TB_Loan";
             this.TB_Loan.Size = new System.Drawing.Size(202, 27);
@@ -498,7 +498,7 @@
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label39.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label39.Location = new System.Drawing.Point(413, 534);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(57, 21);
@@ -507,7 +507,7 @@
             // 
             // TB_Tel
             // 
-            this.TB_Tel.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TB_Tel.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.TB_Tel.Location = new System.Drawing.Point(501, 69);
             this.TB_Tel.Name = "TB_Tel";
             this.TB_Tel.Size = new System.Drawing.Size(202, 27);
@@ -516,7 +516,7 @@
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label37.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label37.Location = new System.Drawing.Point(403, 69);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(68, 21);
@@ -526,7 +526,7 @@
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label41.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label41.Location = new System.Drawing.Point(582, 179);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(112, 21);
@@ -536,7 +536,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label15.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label15.Location = new System.Drawing.Point(219, 237);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(74, 21);
@@ -545,7 +545,7 @@
             // 
             // TB_Owner
             // 
-            this.TB_Owner.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TB_Owner.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.TB_Owner.Location = new System.Drawing.Point(501, 41);
             this.TB_Owner.Name = "TB_Owner";
             this.TB_Owner.Size = new System.Drawing.Size(202, 27);
@@ -554,7 +554,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label13.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label13.Location = new System.Drawing.Point(219, 181);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(84, 21);
@@ -563,7 +563,7 @@
             // 
             // TB_Parking
             // 
-            this.TB_Parking.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TB_Parking.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.TB_Parking.Location = new System.Drawing.Point(317, 209);
             this.TB_Parking.Name = "TB_Parking";
             this.TB_Parking.Size = new System.Drawing.Size(80, 27);
@@ -581,7 +581,7 @@
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label36.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label36.Location = new System.Drawing.Point(403, 41);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(68, 21);
@@ -591,7 +591,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label14.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label14.Location = new System.Drawing.Point(219, 209);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(84, 21);
@@ -600,7 +600,7 @@
             // 
             // TB_CompleteYear
             // 
-            this.TB_CompleteYear.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TB_CompleteYear.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.TB_CompleteYear.Location = new System.Drawing.Point(317, 181);
             this.TB_CompleteYear.Name = "TB_CompleteYear";
             this.TB_CompleteYear.Size = new System.Drawing.Size(80, 27);
@@ -608,7 +608,7 @@
             // 
             // TB_BuildArea
             // 
-            this.TB_BuildArea.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TB_BuildArea.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.TB_BuildArea.Location = new System.Drawing.Point(317, 125);
             this.TB_BuildArea.Name = "TB_BuildArea";
             this.TB_BuildArea.Size = new System.Drawing.Size(80, 27);
@@ -616,7 +616,7 @@
             // 
             // TB_FloorNum
             // 
-            this.TB_FloorNum.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TB_FloorNum.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.TB_FloorNum.Location = new System.Drawing.Point(317, 153);
             this.TB_FloorNum.Name = "TB_FloorNum";
             this.TB_FloorNum.Size = new System.Drawing.Size(80, 27);
@@ -624,7 +624,7 @@
             // 
             // TB_UseDistrict
             // 
-            this.TB_UseDistrict.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TB_UseDistrict.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.TB_UseDistrict.Location = new System.Drawing.Point(123, 151);
             this.TB_UseDistrict.Name = "TB_UseDistrict";
             this.TB_UseDistrict.Size = new System.Drawing.Size(90, 27);
@@ -632,7 +632,7 @@
             // 
             // TB_Station
             // 
-            this.TB_Station.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TB_Station.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.TB_Station.Location = new System.Drawing.Point(123, 123);
             this.TB_Station.Name = "TB_Station";
             this.TB_Station.Size = new System.Drawing.Size(90, 27);
@@ -640,7 +640,7 @@
             // 
             // TB_RoadAddr
             // 
-            this.TB_RoadAddr.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TB_RoadAddr.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.TB_RoadAddr.Location = new System.Drawing.Point(123, 67);
             this.TB_RoadAddr.Name = "TB_RoadAddr";
             this.TB_RoadAddr.Size = new System.Drawing.Size(274, 27);
@@ -648,7 +648,7 @@
             // 
             // TB_Area
             // 
-            this.TB_Area.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TB_Area.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.TB_Area.Location = new System.Drawing.Point(123, 95);
             this.TB_Area.Name = "TB_Area";
             this.TB_Area.Size = new System.Drawing.Size(90, 27);
@@ -656,7 +656,7 @@
             // 
             // TB_Addr
             // 
-            this.TB_Addr.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TB_Addr.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.TB_Addr.Location = new System.Drawing.Point(123, 39);
             this.TB_Addr.Name = "TB_Addr";
             this.TB_Addr.Size = new System.Drawing.Size(274, 27);
@@ -665,7 +665,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label7.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label7.Location = new System.Drawing.Point(25, 207);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(100, 21);
@@ -680,10 +680,11 @@
             this.pictureBox1.Size = new System.Drawing.Size(156, 176);
             this.pictureBox1.TabIndex = 111;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // TB_PublicPrice
             // 
-            this.TB_PublicPrice.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TB_PublicPrice.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.TB_PublicPrice.Location = new System.Drawing.Point(123, 179);
             this.TB_PublicPrice.Name = "TB_PublicPrice";
             this.TB_PublicPrice.Size = new System.Drawing.Size(90, 27);
@@ -691,7 +692,7 @@
             // 
             // TB_RoadWidth
             // 
-            this.TB_RoadWidth.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TB_RoadWidth.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.TB_RoadWidth.Location = new System.Drawing.Point(123, 263);
             this.TB_RoadWidth.Name = "TB_RoadWidth";
             this.TB_RoadWidth.Size = new System.Drawing.Size(90, 27);
@@ -700,7 +701,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label9.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label9.Location = new System.Drawing.Point(25, 263);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(84, 21);
@@ -709,7 +710,7 @@
             // 
             // TB_Distance
             // 
-            this.TB_Distance.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TB_Distance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.TB_Distance.Location = new System.Drawing.Point(123, 235);
             this.TB_Distance.Name = "TB_Distance";
             this.TB_Distance.Size = new System.Drawing.Size(90, 27);
@@ -718,7 +719,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label8.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label8.Location = new System.Drawing.Point(25, 235);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(90, 21);
@@ -727,7 +728,7 @@
             // 
             // TB_SumPP
             // 
-            this.TB_SumPP.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TB_SumPP.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.TB_SumPP.Location = new System.Drawing.Point(123, 207);
             this.TB_SumPP.Name = "TB_SumPP";
             this.TB_SumPP.Size = new System.Drawing.Size(90, 27);
@@ -735,7 +736,7 @@
             // 
             // TB_TotalArea
             // 
-            this.TB_TotalArea.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TB_TotalArea.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.TB_TotalArea.Location = new System.Drawing.Point(317, 97);
             this.TB_TotalArea.Name = "TB_TotalArea";
             this.TB_TotalArea.Size = new System.Drawing.Size(80, 27);
@@ -743,7 +744,7 @@
             // 
             // TB_EV
             // 
-            this.TB_EV.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TB_EV.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.TB_EV.Location = new System.Drawing.Point(317, 265);
             this.TB_EV.Name = "TB_EV";
             this.TB_EV.Size = new System.Drawing.Size(80, 27);
@@ -752,7 +753,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label10.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label10.Location = new System.Drawing.Point(219, 97);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(68, 21);
@@ -762,7 +763,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label16.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label16.Location = new System.Drawing.Point(219, 265);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(44, 21);
@@ -772,7 +773,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label11.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label11.Location = new System.Drawing.Point(219, 125);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(84, 21);
@@ -781,7 +782,7 @@
             // 
             // TB_AC_Heating
             // 
-            this.TB_AC_Heating.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TB_AC_Heating.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.TB_AC_Heating.Location = new System.Drawing.Point(317, 237);
             this.TB_AC_Heating.Name = "TB_AC_Heating";
             this.TB_AC_Heating.Size = new System.Drawing.Size(80, 27);
@@ -790,7 +791,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label12.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label12.Location = new System.Drawing.Point(219, 153);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(52, 21);
@@ -800,7 +801,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.Location = new System.Drawing.Point(25, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 21);
@@ -810,7 +811,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label2.Location = new System.Drawing.Point(25, 67);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 21);
@@ -820,7 +821,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label3.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label3.Location = new System.Drawing.Point(25, 95);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 21);
@@ -830,7 +831,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label4.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label4.Location = new System.Drawing.Point(25, 123);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 21);
@@ -840,7 +841,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label5.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label5.Location = new System.Drawing.Point(25, 151);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(84, 21);
@@ -850,7 +851,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label6.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label6.Location = new System.Drawing.Point(25, 179);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(84, 21);

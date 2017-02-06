@@ -60,5 +60,10 @@ namespace RealEstate
         {
             this.DBFile = DBFile;
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
