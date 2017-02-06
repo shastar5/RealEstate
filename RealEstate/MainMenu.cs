@@ -10,12 +10,20 @@ using System.Data.SQLite;
 
 namespace WindowsFormsApplication1
 {
-    
+ 
     public partial class InitialFoam : Form
     {
 
         string DBFile;
+        String strConn;
+        SQLiteConnection cn = new SQLiteConnection();
+        SQLiteCommand cmd = new SQLiteCommand();
+        SQLiteDataReader dr;
+        SQLiteParameter picture;
+        
+        //로인창으로 옮겨야함 deskpath;
         String deskPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory); //바탕화면 경로 가져오기
+
 
         public InitialFoam()
         {
@@ -23,14 +31,15 @@ namespace WindowsFormsApplication1
 
             // Set tab control click event listener
             Init_탭컨트롤.SelectedIndexChanged += new EventHandler(Tabs_SelectedIndexChanged);
+            
+            //로그인 창 나오면 삭제해야함
+            deskPath = deskPath.Replace("\\", "/"); //\\글자 /로 바꾸기
+            DBFile = deskPath + @"/DB.db";
+            DBLocation.Text = "DB파일 위치 : " + DBFile;
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
         {
 
         }
@@ -59,72 +68,46 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click_1(object sender, EventArgs e)
-        {
-
-        }
 
         private void btn_건물추가_Click(object sender, EventArgs e)
         {
             AddMenu addMenu = new AddMenu();
-            addMenu.setDBfile(DBFile); //디비 파일 위치 전송
+            addMenu.setDBfile(DBFile);
             addMenu.Show();
 
         }
 
-        private void btn_찾기_Click(object sender, EventArgs e)
+        
+        private void btn_DBFind_Click(object sender, EventArgs e)
         {
-
+             try
+            {
+                OpenFileDialog find = new OpenFileDialog();
+                find.InitialDirectory = deskPath;
+                find.Filter = "DB|*.db";
+                if (find.ShowDialog() == DialogResult.OK)
+                {
+                    DBFile = find.FileName;
+                    DBFile = DBFile.Replace("\\", "/"); //\\을 /로 바꾸기
+                    DBLocation.Text = "DB파일 위치 : " + DBFile;
+                    strConn = "Data Source=" + DBFile + "; Version=3;";
+                    cn.ConnectionString = strConn;
+                    cn.Open();
+                    string query = "Create table if not exists info1 (id INTEGER  PRIMARY KEY, addr varchar(2000), roadAddr varchar(2000), "
+                        + "area varchar(100), station varchar(100), useArea varchar(100), pulbicPrice varchar(100), sumPP varchar(100), distance varchar(100), roadWidth varchar(100), "
+                        + "totalArea varchar(100), buildArea varchar(100), floorNum varchar(100), completeYear varchar(100), parking varchar(100), acHeating varchar(100), EV varchar(100), "
+                        + "owner varchar(100), tel varchar(100), meno varchar(100), deposit NUMERIC, income NUMERIC, loan NUMERIC, interest NUMERIC, takeOverPrice NUMERIC, "
+                        + "sellPrice NUMERIC, payedPrice NUMERIC, yearPercent NUMERIC)";
+                    SQLiteCommand cmd = new SQLiteCommand(query, cn);
+                    cmd.ExecuteNonQuery();
+                    cn.Close();
+                }
+            }
+             catch (Exception ex)
+             {
+                   MessageBox.Show(ex.Message.ToString());
+             }
         }
-
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox_매매_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Panel_InitText_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void TB_TakeOverPrice_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
+    
     }
 }

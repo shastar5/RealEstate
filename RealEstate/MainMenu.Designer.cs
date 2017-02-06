@@ -30,6 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InitialFoam));
             this.Panel_InitText = new System.Windows.Forms.Panel();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox_매매 = new System.Windows.Forms.ComboBox();
@@ -40,6 +45,7 @@
             this.TB_Income = new System.Windows.Forms.TextBox();
             this.TB_TakeOverPrice = new System.Windows.Forms.TextBox();
             this.TB_SellPrice = new System.Windows.Forms.TextBox();
+            this.btn_DBFind = new System.Windows.Forms.Button();
             this.btn_찾기 = new System.Windows.Forms.Button();
             this.Text_매매금액 = new System.Windows.Forms.Label();
             this.btn_건물추가 = new System.Windows.Forms.Button();
@@ -55,17 +61,14 @@
             this.Page_완료 = new System.Windows.Forms.TabPage();
             this.Page_준비 = new System.Windows.Forms.TabPage();
             this.Init_탭컨트롤 = new System.Windows.Forms.TabControl();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.DBLocation = new System.Windows.Forms.Label();
             this.Panel_InitText.SuspendLayout();
             this.Init_탭컨트롤.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel_InitText
             // 
+            this.Panel_InitText.Controls.Add(this.DBLocation);
             this.Panel_InitText.Controls.Add(this.radioButton5);
             this.Panel_InitText.Controls.Add(this.radioButton4);
             this.Panel_InitText.Controls.Add(this.radioButton3);
@@ -81,6 +84,7 @@
             this.Panel_InitText.Controls.Add(this.TB_Income);
             this.Panel_InitText.Controls.Add(this.TB_TakeOverPrice);
             this.Panel_InitText.Controls.Add(this.TB_SellPrice);
+            this.Panel_InitText.Controls.Add(this.btn_DBFind);
             this.Panel_InitText.Controls.Add(this.btn_찾기);
             this.Panel_InitText.Controls.Add(this.Text_매매금액);
             this.Panel_InitText.Controls.Add(this.btn_건물추가);
@@ -93,7 +97,41 @@
             this.Panel_InitText.Controls.Add(this.label4);
             resources.ApplyResources(this.Panel_InitText, "Panel_InitText");
             this.Panel_InitText.Name = "Panel_InitText";
-            this.Panel_InitText.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_InitText_Paint);
+            // 
+            // radioButton5
+            // 
+            resources.ApplyResources(this.radioButton5, "radioButton5");
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.TabStop = true;
+            this.radioButton5.UseVisualStyleBackColor = true;
+            // 
+            // radioButton4
+            // 
+            resources.ApplyResources(this.radioButton4, "radioButton4");
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.TabStop = true;
+            this.radioButton4.UseVisualStyleBackColor = true;
+            // 
+            // radioButton3
+            // 
+            resources.ApplyResources(this.radioButton3, "radioButton3");
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.TabStop = true;
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            resources.ApplyResources(this.radioButton2, "radioButton2");
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.TabStop = true;
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            resources.ApplyResources(this.radioButton1, "radioButton1");
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.TabStop = true;
+            this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // comboBox3
             // 
@@ -156,20 +194,24 @@
             // 
             resources.ApplyResources(this.TB_TakeOverPrice, "TB_TakeOverPrice");
             this.TB_TakeOverPrice.Name = "TB_TakeOverPrice";
-            this.TB_TakeOverPrice.TextChanged += new System.EventHandler(this.TB_TakeOverPrice_TextChanged);
             // 
             // TB_SellPrice
             // 
             resources.ApplyResources(this.TB_SellPrice, "TB_SellPrice");
             this.TB_SellPrice.Name = "TB_SellPrice";
-            this.TB_SellPrice.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            // 
+            // btn_DBFind
+            // 
+            resources.ApplyResources(this.btn_DBFind, "btn_DBFind");
+            this.btn_DBFind.Name = "btn_DBFind";
+            this.btn_DBFind.UseVisualStyleBackColor = true;
+            this.btn_DBFind.Click += new System.EventHandler(this.btn_DBFind_Click);
             // 
             // btn_찾기
             // 
             resources.ApplyResources(this.btn_찾기, "btn_찾기");
             this.btn_찾기.Name = "btn_찾기";
             this.btn_찾기.UseVisualStyleBackColor = true;
-            this.btn_찾기.Click += new System.EventHandler(this.btn_찾기_Click);
             // 
             // Text_매매금액
             // 
@@ -241,7 +283,6 @@
             resources.ApplyResources(this.Page_준비, "Page_준비");
             this.Page_준비.Name = "Page_준비";
             this.Page_준비.UseVisualStyleBackColor = true;
-            this.Page_준비.Click += new System.EventHandler(this.tabPage1_Click_1);
             // 
             // Init_탭컨트롤
             // 
@@ -255,41 +296,10 @@
             this.Init_탭컨트롤.Name = "Init_탭컨트롤";
             this.Init_탭컨트롤.SelectedIndex = 0;
             // 
-            // radioButton1
+            // DBLocation
             // 
-            resources.ApplyResources(this.radioButton1, "radioButton1");
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.TabStop = true;
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            // 
-            // radioButton2
-            // 
-            resources.ApplyResources(this.radioButton2, "radioButton2");
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.TabStop = true;
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            resources.ApplyResources(this.radioButton3, "radioButton3");
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.TabStop = true;
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // radioButton4
-            // 
-            resources.ApplyResources(this.radioButton4, "radioButton4");
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.TabStop = true;
-            this.radioButton4.UseVisualStyleBackColor = true;
-            // 
-            // radioButton5
-            // 
-            resources.ApplyResources(this.radioButton5, "radioButton5");
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.TabStop = true;
-            this.radioButton5.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.DBLocation, "DBLocation");
+            this.DBLocation.Name = "DBLocation";
             // 
             // InitialFoam
             // 
@@ -342,6 +352,8 @@
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Button btn_DBFind;
+        private System.Windows.Forms.Label DBLocation;
     }
 }
 
