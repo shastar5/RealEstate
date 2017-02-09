@@ -126,6 +126,7 @@
             this.SaveData.TabIndex = 109;
             this.SaveData.Text = "저장";
             this.SaveData.UseVisualStyleBackColor = true;
+            this.SaveData.Click += new System.EventHandler(this.SaveData_Click);
             // 
             // listView1
             // 
