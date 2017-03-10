@@ -329,6 +329,7 @@
             this.MaximizeBox = false;
             this.Name = "InitialFoam";
             this.ShowIcon = false;
+            this.Load += new System.EventHandler(this.InitialFoam_Load);
             this.Panel_InitText.ResumeLayout(false);
             this.Panel_InitText.PerformLayout();
             this.Init_탭컨트롤.ResumeLayout(false);

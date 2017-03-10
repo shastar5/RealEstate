@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
+using RealEstate;
 
 namespace RealEstate
 {
@@ -15,7 +14,7 @@ namespace RealEstate
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            Application.Run(new InitialFoam());
         }
     }
 }

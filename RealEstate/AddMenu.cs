@@ -19,6 +19,8 @@ namespace RealEstate
     {
         ShowPicture sp;
         NaverMap nm;
+        Boolean isHidden = false;
+
         //전체 보이는용 변수
         string DBFile;
         string addr;
@@ -213,7 +215,13 @@ namespace RealEstate
 
         private void Sangga_CheckedChanged(object sender, EventArgs e)
         {
-
+            if(Sangga.Checked == true)
+            {
+                panel6.Hide();
+            } else
+            {
+                panel6.Show();
+            }
         }
 
     }

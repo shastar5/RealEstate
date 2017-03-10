@@ -4,7 +4,6 @@ using System.Data.SQLite;
 
 namespace RealEstate
 {
-
     public partial class InitialFoam : Form
     {
         string DBFile;
@@ -144,5 +143,9 @@ namespace RealEstate
 
         }
 
+        private void InitialFoam_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
