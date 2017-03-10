@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InitialFoam));
             this.Panel_InitText = new System.Windows.Forms.Panel();
+            this.radioButton6 = new System.Windows.Forms.RadioButton();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
@@ -61,9 +62,7 @@
             this.Page_완료 = new System.Windows.Forms.TabPage();
             this.Page_준비 = new System.Windows.Forms.TabPage();
             this.Init_탭컨트롤 = new System.Windows.Forms.TabControl();
-
             this.DBLocation = new System.Windows.Forms.Label();
-
             this.Panel_InitText.SuspendLayout();
             this.Init_탭컨트롤.SuspendLayout();
             this.SuspendLayout();
@@ -71,6 +70,7 @@
             // Panel_InitText
             // 
             this.Panel_InitText.Controls.Add(this.DBLocation);
+            this.Panel_InitText.Controls.Add(this.radioButton6);
             this.Panel_InitText.Controls.Add(this.radioButton5);
             this.Panel_InitText.Controls.Add(this.radioButton4);
             this.Panel_InitText.Controls.Add(this.radioButton3);
@@ -100,6 +100,14 @@
             resources.ApplyResources(this.Panel_InitText, "Panel_InitText");
             this.Panel_InitText.Name = "Panel_InitText";
             // 
+            // radioButton6
+            // 
+            resources.ApplyResources(this.radioButton6, "radioButton6");
+            this.radioButton6.Name = "radioButton6";
+            this.radioButton6.TabStop = true;
+            this.radioButton6.UseVisualStyleBackColor = true;
+            this.radioButton6.CheckedChanged += new System.EventHandler(this.radioButton6_CheckedChanged);
+            // 
             // radioButton5
             // 
             resources.ApplyResources(this.radioButton5, "radioButton5");
@@ -107,7 +115,6 @@
             this.radioButton5.TabStop = true;
             this.radioButton5.UseVisualStyleBackColor = true;
             this.radioButton5.CheckedChanged += new System.EventHandler(this.radioButton5_CheckedChanged);
-
             // 
             // radioButton4
             // 
@@ -116,7 +123,6 @@
             this.radioButton4.TabStop = true;
             this.radioButton4.UseVisualStyleBackColor = true;
             this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
-
             // 
             // radioButton3
             // 
@@ -125,7 +131,6 @@
             this.radioButton3.TabStop = true;
             this.radioButton3.UseVisualStyleBackColor = true;
             this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
-
             // 
             // radioButton2
             // 
@@ -134,7 +139,6 @@
             this.radioButton2.TabStop = true;
             this.radioButton2.UseVisualStyleBackColor = true;
             this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
-
             // 
             // radioButton1
             // 
@@ -142,9 +146,7 @@
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.TabStop = true;
             this.radioButton1.UseVisualStyleBackColor = true;
-
             this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-
             // 
             // comboBox3
             // 
@@ -207,6 +209,7 @@
             // 
             resources.ApplyResources(this.TB_TakeOverPrice, "TB_TakeOverPrice");
             this.TB_TakeOverPrice.Name = "TB_TakeOverPrice";
+            this.TB_TakeOverPrice.TextChanged += new System.EventHandler(this.TB_TakeOverPrice_TextChanged);
             // 
             // TB_SellPrice
             // 
@@ -313,6 +316,7 @@
             // 
             resources.ApplyResources(this.DBLocation, "DBLocation");
             this.DBLocation.Name = "DBLocation";
+            this.DBLocation.Click += new System.EventHandler(this.DBLocation_Click);
             // 
             // InitialFoam
             // 
@@ -365,6 +369,7 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Button btn_DBFind;
+        private System.Windows.Forms.RadioButton radioButton6;
         private System.Windows.Forms.Label DBLocation;
     }
 }

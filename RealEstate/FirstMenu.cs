@@ -4,6 +4,7 @@ using System.Data.SQLite;
 
 namespace RealEstate
 {
+
     public partial class InitialFoam : Form
     {
         string DBFile;
@@ -95,6 +96,12 @@ namespace RealEstate
         {
 
         }
+        
+        // 상가 라디오 버튼 클릭되었을 때
+        private void radioButton6_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
 
         private void btn_DBFind_Click(object sender, EventArgs e)
         {
@@ -126,5 +133,16 @@ namespace RealEstate
                 MessageBox.Show(ex.Message.ToString());
             }
         }
+
+        private void TB_TakeOverPrice_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DBLocation_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

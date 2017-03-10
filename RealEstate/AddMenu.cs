@@ -175,5 +175,46 @@ namespace RealEstate
         {
 
         }
+
+        private void label36_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TB_Owner_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Dagagu_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Building_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SanggaHome_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NewConstruction_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Sangga_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

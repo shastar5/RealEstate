@@ -22,11 +22,7 @@ namespace RealEstate
         string area;
         string station;
         string useArea;
-        string publicPrice;
-        string sumPP;
         string totalArea;
-        string buildArea;
-        string floorNum;
         string completeYear;
         string parking;
         string acHeating;
@@ -57,11 +53,7 @@ namespace RealEstate
             area = TB_Area.Text.ToString();
             station = TB_Station.Text.ToString();
             useArea = TB_UseDistrict.Text.ToString();
-            publicPrice = TB_PublicPrice.Text.ToString();
-            sumPP = TB_SumPP.Text.ToString();
             totalArea = TB_TotalArea.Text.ToString();
-            buildArea = TB_BuildArea.Text.ToString();
-            floorNum = TB_FloorNum.Text.ToString();
             completeYear = TB_CompleteYear.Text.ToString();
             parking = TB_Parking.Text.ToString();
             acHeating = TB_AC_Heating.Text.ToString();
@@ -103,6 +95,80 @@ namespace RealEstate
         private void SaveData_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void TB_Deposit_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ManagerView_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TB_Parking_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TB_CompleteYear_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TB_EV_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TB_AC_Heating_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TB_RoadWidth_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TB_Distance_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
         }
     }
 }

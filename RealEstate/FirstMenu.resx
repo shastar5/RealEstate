@@ -123,13 +123,13 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="DBLocation.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 376</value>
+    <value>8, 382</value>
   </data>
   <data name="DBLocation.Size" type="System.Drawing.Size, System.Drawing">
     <value>54, 21</value>
   </data>
   <data name="DBLocation.TabIndex" type="System.Int32, mscorlib">
-    <value>28</value>
+    <value>30</value>
   </data>
   <data name="DBLocation.Text" xml:space="preserve">
     <value>label8</value>
@@ -146,15 +146,45 @@
   <data name="&gt;&gt;DBLocation.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="radioButton5.AutoSize" type="System.Boolean, mscorlib">
+  <data name="radioButton6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="radioButton6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="radioButton6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>401, 13</value>
+  </data>
+  <data name="radioButton6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 25</value>
+  </data>
+  <data name="radioButton6.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="radioButton6.Text" xml:space="preserve">
+    <value>상가</value>
+  </data>
+  <data name="&gt;&gt;radioButton6.Name" xml:space="preserve">
+    <value>radioButton6</value>
+  </data>
+  <data name="&gt;&gt;radioButton6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radioButton6.Parent" xml:space="preserve">
+    <value>Panel_InitText</value>
+  </data>
+  <data name="&gt;&gt;radioButton6.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="radioButton5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="radioButton5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="radioButton5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>344, 13</value>
+    <value>313, 13</value>
   </data>
   <data name="radioButton5.Size" type="System.Drawing.Size, System.Drawing">
     <value>92, 25</value>
@@ -175,7 +205,7 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;radioButton5.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="radioButton4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -184,7 +214,7 @@
     <value>NoControl</value>
   </data>
   <data name="radioButton4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>246, 13</value>
+    <value>219, 13</value>
   </data>
   <data name="radioButton4.Size" type="System.Drawing.Size, System.Drawing">
     <value>92, 25</value>
@@ -205,13 +235,13 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;radioButton4.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="radioButton3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="radioButton3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>180, 13</value>
+    <value>153, 13</value>
   </data>
   <data name="radioButton3.Size" type="System.Drawing.Size, System.Drawing">
     <value>60, 25</value>
@@ -232,13 +262,13 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;radioButton3.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="radioButton2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="radioButton2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>98, 13</value>
+    <value>71, 13</value>
   </data>
   <data name="radioButton2.Size" type="System.Drawing.Size, System.Drawing">
     <value>76, 25</value>
@@ -259,13 +289,13 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;radioButton2.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="radioButton1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="radioButton1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>32, 13</value>
+    <value>12, 13</value>
   </data>
   <data name="radioButton1.Size" type="System.Drawing.Size, System.Drawing">
     <value>60, 25</value>
@@ -286,7 +316,7 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;radioButton1.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="comboBox3.Items" xml:space="preserve">
     <value>이상</value>
@@ -316,7 +346,7 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;comboBox3.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="comboBox1.Items" xml:space="preserve">
     <value>이상</value>
@@ -346,7 +376,7 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;comboBox1.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="comboBox_매매.Items" xml:space="preserve">
     <value>이상</value>
@@ -376,7 +406,7 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;comboBox_매매.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="TB_RoadWidth.Location" type="System.Drawing.Point, System.Drawing">
     <value>127, 283</value>
@@ -397,7 +427,7 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;TB_RoadWidth.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="TB_RoadAddr.Location" type="System.Drawing.Point, System.Drawing">
     <value>127, 243</value>
@@ -418,7 +448,7 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;TB_RoadAddr.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="TB_Distance.Location" type="System.Drawing.Point, System.Drawing">
     <value>127, 202</value>
@@ -439,7 +469,7 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;TB_Distance.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="TB_YearPercent.Location" type="System.Drawing.Point, System.Drawing">
     <value>127, 164</value>
@@ -460,7 +490,7 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;TB_YearPercent.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="TB_Income.Location" type="System.Drawing.Point, System.Drawing">
     <value>127, 124</value>
@@ -481,7 +511,7 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;TB_Income.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="TB_TakeOverPrice.Location" type="System.Drawing.Point, System.Drawing">
     <value>127, 87</value>
@@ -502,7 +532,7 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;TB_TakeOverPrice.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
   </data>
   <data name="TB_SellPrice.Location" type="System.Drawing.Point, System.Drawing">
     <value>127, 44</value>
@@ -523,7 +553,7 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;TB_SellPrice.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>16</value>
   </data>
   <data name="btn_DBFind.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -550,7 +580,7 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;btn_DBFind.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>17</value>
   </data>
   <data name="btn_찾기.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -577,7 +607,7 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;btn_찾기.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>18</value>
   </data>
   <data name="Text_매매금액.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -607,7 +637,7 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;Text_매매금액.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>19</value>
   </data>
   <data name="btn_건물추가.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -634,7 +664,7 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;btn_건물추가.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>20</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -664,7 +694,7 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>21</value>
   </data>
   <data name="label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -694,7 +724,7 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>22</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -724,7 +754,7 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>23</value>
   </data>
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -754,7 +784,7 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>23</value>
+    <value>24</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -784,7 +814,7 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>24</value>
+    <value>25</value>
   </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -814,7 +844,7 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>25</value>
+    <value>26</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -844,7 +874,7 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>26</value>
+    <value>27</value>
   </data>
   <data name="Panel_InitText.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 12</value>
@@ -874,7 +904,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="Page_매매.Size" type="System.Drawing.Size, System.Drawing">
-    <value>0, 365</value>
+    <value>0, 402</value>
   </data>
   <data name="Page_매매.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -901,7 +931,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="Page_보류.Size" type="System.Drawing.Size, System.Drawing">
-    <value>0, 365</value>
+    <value>0, 402</value>
   </data>
   <data name="Page_보류.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -928,7 +958,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="Page_완료.Size" type="System.Drawing.Size, System.Drawing">
-    <value>0, 365</value>
+    <value>0, 402</value>
   </data>
   <data name="Page_완료.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -949,7 +979,7 @@
     <value>1</value>
   </data>
   <data name="Page_준비.Font" type="System.Drawing.Font, System.Drawing">
-    <value>맑은 고딕, 9.75pt</value>
+    <value>Malgun Gothic, 9.75pt</value>
   </data>
   <data name="Page_준비.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 4</value>
@@ -982,7 +1012,7 @@
     <value>Right</value>
   </data>
   <data name="Init_탭컨트롤.Font" type="System.Drawing.Font, System.Drawing">
-    <value>맑은 고딕, 9.75pt</value>
+    <value>Malgun Gothic, 9.75pt</value>
   </data>
   <data name="Init_탭컨트롤.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>On</value>
@@ -1027,7 +1057,7 @@
     <value>529, 434</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
-    <value>맑은 고딕, 12pt</value>
+    <value>Malgun Gothic, 12pt</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 5, 4, 5</value>

@@ -14,5 +14,10 @@ namespace RealEstate
         {
 
         }
+
+        private void UserView_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
