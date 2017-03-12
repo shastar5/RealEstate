@@ -10,8 +10,7 @@ namespace RealEstate
         String strConn;
         SQLiteConnection cn = new SQLiteConnection();
         SQLiteCommand cmd = new SQLiteCommand();
-        SQLiteDataReader dr;
-        SQLiteParameter picture;
+  
 
         //로인창으로 옮겨야함 deskpath;
         String deskPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory); //바탕화면 경로 가져오기
@@ -29,6 +28,17 @@ namespace RealEstate
             deskPath = deskPath.Replace("\\", "/"); //\\글자 /로 바꾸기
             DBFile = deskPath + @"/DB.db";
             DBLocation.Text = "DB파일 위치 : " + DBFile;
+            strConn = "Data Source=" + DBFile + "; Version=3;";
+            cn.ConnectionString = strConn;
+            cn.Open();
+            string query = "Create table if not exists info1 (id INTEGER  PRIMARY KEY autoincrement, addr varchar(2000), roadAddr varchar(2000), "
+                + "area varchar(100), station varchar(100), useArea varchar(100), distance varchar(100), roadWidth varchar(100), "
+                + "totalArea varchar(100), completeYear varchar(100), parking varchar(100), acHeating varchar(100), EV varchar(100), "
+                + "buildingName varchar(100), owner varchar(100), tel varchar(100), meno varchar(100), deposit NUMERIC, income NUMERIC, loan NUMERIC, interest NUMERIC, takeOverPrice NUMERIC, "
+                + "sellPrice NUMERIC, payedPrice NUMERIC, yearPercent NUMERIC)";
+            SQLiteCommand cmd = new SQLiteCommand(query, cn);
+            cmd.ExecuteNonQuery();
+            cn.Close();
 
         }
 
@@ -117,10 +127,10 @@ namespace RealEstate
                     strConn = "Data Source=" + DBFile + "; Version=3;";
                     cn.ConnectionString = strConn;
                     cn.Open();
-                    string query = "Create table if not exists info1 (id INTEGER  PRIMARY KEY, addr varchar(2000), roadAddr varchar(2000), "
-                        + "area varchar(100), station varchar(100), useArea varchar(100), pulbicPrice varchar(100), sumPP varchar(100), distance varchar(100), roadWidth varchar(100), "
-                        + "totalArea varchar(100), buildArea varchar(100), floorNum varchar(100), completeYear varchar(100), parking varchar(100), acHeating varchar(100), EV varchar(100), "
-                        + "owner varchar(100), tel varchar(100), meno varchar(100), deposit NUMERIC, income NUMERIC, loan NUMERIC, interest NUMERIC, takeOverPrice NUMERIC, "
+                    string query = "Create table if not exists info1 (id INTEGER  PRIMARY KEY autoincrement, addr varchar(2000), roadAddr varchar(2000), "
+                        + "area varchar(100), station varchar(100), useArea varchar(100), distance varchar(100), roadWidth varchar(100), "
+                        + "totalArea varchar(100), completeYear varchar(100), parking varchar(100), acHeating varchar(100), EV varchar(100), "
+                        + "buildingName varchar(100), owner varchar(100), tel varchar(100), meno varchar(100), deposit NUMERIC, income NUMERIC, loan NUMERIC, interest NUMERIC, takeOverPrice NUMERIC, "
                         + "sellPrice NUMERIC, payedPrice NUMERIC, yearPercent NUMERIC)";
                     SQLiteCommand cmd = new SQLiteCommand(query, cn);
                     cmd.ExecuteNonQuery();
