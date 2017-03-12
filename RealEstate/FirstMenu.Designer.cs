@@ -99,6 +99,7 @@
             this.Panel_InitText.Controls.Add(this.label4);
             resources.ApplyResources(this.Panel_InitText, "Panel_InitText");
             this.Panel_InitText.Name = "Panel_InitText";
+            this.Panel_InitText.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_InitText_Paint);
             // 
             // DBLocation
             // 
@@ -231,10 +232,12 @@
             // 
             // btn_find
             // 
+
             resources.ApplyResources(this.btn_find, "btn_find");
             this.btn_find.Name = "btn_find";
             this.btn_find.UseVisualStyleBackColor = true;
             this.btn_find.Click += new System.EventHandler(this.btn_find_Click);
+           
             // 
             // Text_매매금액
             // 
@@ -330,7 +333,6 @@
             this.MaximizeBox = false;
             this.Name = "InitialFoam";
             this.ShowIcon = false;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InitialFoam_FormClosing);
             this.Load += new System.EventHandler(this.InitialFoam_Load);
             this.Panel_InitText.ResumeLayout(false);
             this.Panel_InitText.PerformLayout();
