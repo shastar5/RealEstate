@@ -63,7 +63,7 @@ namespace RealEstate
 
         private void btn_건물추가_Click(object sender, EventArgs e)
         {
-            AddMenu addMenu = new AddMenu();
+            ManagerView addMenu = new ManagerView();
             addMenu.setDBfile(DBFile);
             addMenu.Show();
         }
@@ -148,9 +148,9 @@ namespace RealEstate
 
         }
 
-        private void InitialFoam_FormClosing(object sender, FormClosingEventArgs e)
+        private void Panel_InitText_Paint(object sender, PaintEventArgs e)
         {
-            Close();
+
         }
     }
 }

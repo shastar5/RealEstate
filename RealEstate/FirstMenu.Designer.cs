@@ -99,6 +99,7 @@
             this.Panel_InitText.Controls.Add(this.label4);
             resources.ApplyResources(this.Panel_InitText, "Panel_InitText");
             this.Panel_InitText.Name = "Panel_InitText";
+            this.Panel_InitText.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_InitText_Paint);
             // 
             // DBLocation
             // 
@@ -329,7 +330,6 @@
             this.MaximizeBox = false;
             this.Name = "InitialFoam";
             this.ShowIcon = false;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InitialFoam_FormClosing);
             this.Load += new System.EventHandler(this.InitialFoam_Load);
             this.Panel_InitText.ResumeLayout(false);
             this.Panel_InitText.PerformLayout();

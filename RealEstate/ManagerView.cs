@@ -13,8 +13,6 @@ namespace RealEstate
 
     public partial class ManagerView : Form, DBInterface
     {
-        NaverMap nm;
-
         //전체 보이는용 변수
         string DBFile;
         string addr;
@@ -80,11 +78,12 @@ namespace RealEstate
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(nm == null)
+            if(TB_Addr.Text.Equals(null))
             {
-                nm = new NaverMap();
-                nm.Show();
+                return;
             }
+            string addr = "http://map.daum.net/link/search/" + TB_Addr.Text;
+            System.Diagnostics.Process.Start(addr);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -170,5 +169,6 @@ namespace RealEstate
         private void panel6_Paint(object sender, PaintEventArgs e)
         {
         }
+
     }
 }

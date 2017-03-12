@@ -18,8 +18,6 @@ namespace RealEstate
     public partial class AddMenu : Form, DBInterface
     {
         ShowPicture sp;
-        NaverMap nm;
-        Boolean isHidden = false;
 
         //전체 보이는용 변수
         string DBFile;
