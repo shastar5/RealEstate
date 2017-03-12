@@ -104,7 +104,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(123, 4);
+            this.button1.Location = new System.Drawing.Point(123, 6);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(67, 29);
             this.button1.TabIndex = 64;
@@ -114,7 +114,7 @@
             // 
             // SaveData
             // 
-            this.SaveData.Location = new System.Drawing.Point(26, 4);
+            this.SaveData.Location = new System.Drawing.Point(26, 6);
             this.SaveData.Name = "SaveData";
             this.SaveData.Size = new System.Drawing.Size(67, 29);
             this.SaveData.TabIndex = 109;
@@ -143,7 +143,7 @@
             // 
             this.panel1.Controls.Add(this.listView3);
             this.panel1.Controls.Add(this.label40);
-            this.panel1.Location = new System.Drawing.Point(403, 565);
+            this.panel1.Location = new System.Drawing.Point(403, 533);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(461, 163);
             this.panel1.TabIndex = 70;
@@ -217,7 +217,7 @@
             this.panel6.Controls.Add(this.TB_Deposit);
             this.panel6.Controls.Add(this.TB_Income);
             this.panel6.Controls.Add(this.TB_Loan);
-            this.panel6.Location = new System.Drawing.Point(13, 294);
+            this.panel6.Location = new System.Drawing.Point(13, 249);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(384, 265);
             this.panel6.TabIndex = 76;
@@ -519,7 +519,7 @@
             // 
             this.panel3.Controls.Add(this.listView1);
             this.panel3.Controls.Add(this.label17);
-            this.panel3.Location = new System.Drawing.Point(13, 565);
+            this.panel3.Location = new System.Drawing.Point(13, 533);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(384, 163);
             this.panel3.TabIndex = 69;
@@ -763,7 +763,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(877, 733);
+            this.ClientSize = new System.Drawing.Size(877, 703);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.SaveData);

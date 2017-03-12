@@ -235,6 +235,7 @@
             resources.ApplyResources(this.btn_찾기, "btn_찾기");
             this.btn_찾기.Name = "btn_찾기";
             this.btn_찾기.UseVisualStyleBackColor = true;
+            this.btn_찾기.Click += new System.EventHandler(this.btn_찾기_Click);
             // 
             // Text_매매금액
             // 

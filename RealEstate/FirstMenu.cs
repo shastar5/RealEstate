@@ -63,9 +63,19 @@ namespace RealEstate
 
         private void btn_건물추가_Click(object sender, EventArgs e)
         {
-            ManagerView addMenu = new ManagerView();
+            AddMenu addMenu = new AddMenu();
             addMenu.setDBfile(DBFile);
             addMenu.Show();
+
+            if(radioButton6.Checked == true)
+            {
+                
+            }
+        }
+
+        public Boolean getSangga(object sender, EventArgs e)
+        {
+            return false;
         }
 
         /*
@@ -131,6 +141,7 @@ namespace RealEstate
             {
                 MessageBox.Show(ex.Message.ToString());
             }
+            
         }
 
         private void TB_TakeOverPrice_TextChanged(object sender, EventArgs e)
@@ -152,5 +163,14 @@ namespace RealEstate
         {
 
         }
+
+        private void btn_찾기_Click(object sender, EventArgs e)
+        {
+            ManagerView mv = new ManagerView();
+            Hide();
+            mv.Show();
+        }
+
     }
+
 }
