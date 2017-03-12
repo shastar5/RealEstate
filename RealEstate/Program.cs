@@ -14,7 +14,7 @@ namespace RealEstate
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new InitialFoam());
+            Application.Run(new Login());
         }
     }
 }

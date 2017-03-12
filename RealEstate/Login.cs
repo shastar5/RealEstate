@@ -14,6 +14,24 @@ namespace RealEstate
             InitializeComponent();
         }
 
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        void EnterClicked(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Return)
+            {
+                button1_Click(this, e);
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (string.Equals(textBox1.Text.ToString(), "admin"))
@@ -23,8 +41,7 @@ namespace RealEstate
                     if (init == null)
                     {
                         init = new InitialFoam();
-                        init.Owner = this;
-                        this.Hide();
+                        Hide();
                         init.ShowDialog();
                     }
                 }

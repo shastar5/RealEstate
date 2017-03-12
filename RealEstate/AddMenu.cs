@@ -118,11 +118,7 @@ namespace RealEstate
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(nm == null)
-            {
-                nm = new RealEstate.NaverMap();
-                nm.Show();
-            }
+           
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
