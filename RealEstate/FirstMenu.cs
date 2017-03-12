@@ -41,7 +41,11 @@ namespace RealEstate
             cn.Close();
 
         }
-
+        private void btn_find_Click(object sender, EventArgs e)
+        {
+            findtest findtest = new findtest();
+            findtest.setDBfile(DBFile);
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -162,5 +166,7 @@ namespace RealEstate
         {
             Close();
         }
+
+      
     }
 }

@@ -41,14 +41,14 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox_매매 = new System.Windows.Forms.ComboBox();
             this.TB_RoadWidth = new System.Windows.Forms.TextBox();
-            this.TB_RoadAddr = new System.Windows.Forms.TextBox();
+            this.TB_Addr = new System.Windows.Forms.TextBox();
             this.TB_Distance = new System.Windows.Forms.TextBox();
             this.TB_YearPercent = new System.Windows.Forms.TextBox();
             this.TB_Income = new System.Windows.Forms.TextBox();
             this.TB_TakeOverPrice = new System.Windows.Forms.TextBox();
             this.TB_SellPrice = new System.Windows.Forms.TextBox();
             this.btn_DBFind = new System.Windows.Forms.Button();
-            this.btn_찾기 = new System.Windows.Forms.Button();
+            this.btn_find = new System.Windows.Forms.Button();
             this.Text_매매금액 = new System.Windows.Forms.Label();
             this.btn_건물추가 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -80,14 +80,14 @@
             this.Panel_InitText.Controls.Add(this.comboBox1);
             this.Panel_InitText.Controls.Add(this.comboBox_매매);
             this.Panel_InitText.Controls.Add(this.TB_RoadWidth);
-            this.Panel_InitText.Controls.Add(this.TB_RoadAddr);
+            this.Panel_InitText.Controls.Add(this.TB_Addr);
             this.Panel_InitText.Controls.Add(this.TB_Distance);
             this.Panel_InitText.Controls.Add(this.TB_YearPercent);
             this.Panel_InitText.Controls.Add(this.TB_Income);
             this.Panel_InitText.Controls.Add(this.TB_TakeOverPrice);
             this.Panel_InitText.Controls.Add(this.TB_SellPrice);
             this.Panel_InitText.Controls.Add(this.btn_DBFind);
-            this.Panel_InitText.Controls.Add(this.btn_찾기);
+            this.Panel_InitText.Controls.Add(this.btn_find);
             this.Panel_InitText.Controls.Add(this.Text_매매금액);
             this.Panel_InitText.Controls.Add(this.btn_건물추가);
             this.Panel_InitText.Controls.Add(this.label1);
@@ -191,10 +191,10 @@
             resources.ApplyResources(this.TB_RoadWidth, "TB_RoadWidth");
             this.TB_RoadWidth.Name = "TB_RoadWidth";
             // 
-            // TB_RoadAddr
+            // TB_Addr
             // 
-            resources.ApplyResources(this.TB_RoadAddr, "TB_RoadAddr");
-            this.TB_RoadAddr.Name = "TB_RoadAddr";
+            resources.ApplyResources(this.TB_Addr, "TB_Addr");
+            this.TB_Addr.Name = "TB_Addr";
             // 
             // TB_Distance
             // 
@@ -229,11 +229,12 @@
             this.btn_DBFind.UseVisualStyleBackColor = true;
             this.btn_DBFind.Click += new System.EventHandler(this.btn_DBFind_Click);
             // 
-            // btn_찾기
+            // btn_find
             // 
-            resources.ApplyResources(this.btn_찾기, "btn_찾기");
-            this.btn_찾기.Name = "btn_찾기";
-            this.btn_찾기.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.btn_find, "btn_find");
+            this.btn_find.Name = "btn_find";
+            this.btn_find.UseVisualStyleBackColor = true;
+            this.btn_find.Click += new System.EventHandler(this.btn_find_Click);
             // 
             // Text_매매금액
             // 
@@ -340,7 +341,7 @@
 
         #endregion
         private System.Windows.Forms.Panel Panel_InitText;
-        private System.Windows.Forms.Button btn_찾기;
+        private System.Windows.Forms.Button btn_find;
         private System.Windows.Forms.Label Text_매매금액;
         private System.Windows.Forms.Button btn_건물추가;
         private System.Windows.Forms.Label label5;
@@ -351,7 +352,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TB_SellPrice;
         private System.Windows.Forms.TextBox TB_RoadWidth;
-        private System.Windows.Forms.TextBox TB_RoadAddr;
+        private System.Windows.Forms.TextBox TB_Addr;
         private System.Windows.Forms.TextBox TB_Distance;
         private System.Windows.Forms.TextBox TB_YearPercent;
         private System.Windows.Forms.TextBox TB_Income;

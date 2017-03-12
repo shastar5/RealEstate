@@ -429,25 +429,25 @@
   <data name="&gt;&gt;TB_RoadWidth.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-  <data name="TB_RoadAddr.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="TB_Addr.Location" type="System.Drawing.Point, System.Drawing">
     <value>127, 243</value>
   </data>
-  <data name="TB_RoadAddr.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="TB_Addr.Size" type="System.Drawing.Size, System.Drawing">
     <value>156, 29</value>
   </data>
-  <data name="TB_RoadAddr.TabIndex" type="System.Int32, mscorlib">
+  <data name="TB_Addr.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
   </data>
-  <data name="&gt;&gt;TB_RoadAddr.Name" xml:space="preserve">
-    <value>TB_RoadAddr</value>
+  <data name="&gt;&gt;TB_Addr.Name" xml:space="preserve">
+    <value>TB_Addr</value>
   </data>
-  <data name="&gt;&gt;TB_RoadAddr.Type" xml:space="preserve">
+  <data name="&gt;&gt;TB_Addr.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;TB_RoadAddr.Parent" xml:space="preserve">
+  <data name="&gt;&gt;TB_Addr.Parent" xml:space="preserve">
     <value>Panel_InitText</value>
   </data>
-  <data name="&gt;&gt;TB_RoadAddr.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;TB_Addr.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
   <data name="TB_Distance.Location" type="System.Drawing.Point, System.Drawing">
@@ -582,31 +582,31 @@
   <data name="&gt;&gt;btn_DBFind.ZOrder" xml:space="preserve">
     <value>17</value>
   </data>
-  <data name="btn_찾기.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="btn_find.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="btn_찾기.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btn_find.Location" type="System.Drawing.Point, System.Drawing">
     <value>208, 331</value>
   </data>
-  <data name="btn_찾기.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btn_find.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 31</value>
   </data>
-  <data name="btn_찾기.TabIndex" type="System.Int32, mscorlib">
+  <data name="btn_find.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="btn_찾기.Text" xml:space="preserve">
+  <data name="btn_find.Text" xml:space="preserve">
     <value>찾기</value>
   </data>
-  <data name="&gt;&gt;btn_찾기.Name" xml:space="preserve">
-    <value>btn_찾기</value>
+  <data name="&gt;&gt;btn_find.Name" xml:space="preserve">
+    <value>btn_find</value>
   </data>
-  <data name="&gt;&gt;btn_찾기.Type" xml:space="preserve">
+  <data name="&gt;&gt;btn_find.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btn_찾기.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btn_find.Parent" xml:space="preserve">
     <value>Panel_InitText</value>
   </data>
-  <data name="&gt;&gt;btn_찾기.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btn_find.ZOrder" xml:space="preserve">
     <value>18</value>
   </data>
   <data name="Text_매매금액.AutoSize" type="System.Boolean, mscorlib">
@@ -766,13 +766,13 @@
     <value>37, 244</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>68, 21</value>
+    <value>52, 21</value>
   </data>
   <data name="label6.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
   <data name="label6.Text" xml:space="preserve">
-    <value>도로명 :</value>
+    <value>주소 :</value>
   </data>
   <data name="&gt;&gt;label6.Name" xml:space="preserve">
     <value>label6</value>
