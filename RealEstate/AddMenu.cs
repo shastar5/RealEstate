@@ -67,7 +67,7 @@ namespace RealEstate
         private void setData()
         {
             addr = TB_Addr.Text.ToString();
-            roadAddr = TB_Addr.Text.ToString();
+            roadAddr = TB_RoadAddr.Text.ToString();
             area = TB_Area.Text.ToString();
             station = TB_Station.Text.ToString();
             useArea = TB_UseDistrict.Text.ToString();
@@ -86,19 +86,25 @@ namespace RealEstate
             tel = TB_Tel.Text.ToString();
             meno = TB_Memo.Text.ToString();
             
-            /*
-            deposit = double.Parse(TB_Deposit.Text.ToString());
-            Income = double.Parse(TB_Income.Text.ToString()); 
-            loan = double.Parse(TB_Loan.Text.ToString()); 
-            interest = double.Parse(TB_Interest.Text.ToString()); 
-            takeOverPrice = double.Parse(TB_PayedPrice.Text.ToString()); 
-            sellPrice = double.Parse(TB_SellPrice.Text.ToString()); 
-            payedPrice = double.Parse(TB_TakeOverPrice.Text.ToString()); 
-            yearPercent = double.Parse(TB_YearPercent.Text.ToString()); 
-            */
+            
+            deposit = checkNulls(TB_Deposit.Text.ToString());
+            Income = checkNulls(TB_Income.Text.ToString()); 
+            loan = checkNulls(TB_Loan.Text.ToString()); 
+            interest = checkNulls(TB_Interest.Text.ToString()); 
+            takeOverPrice = checkNulls(TB_PayedPrice.Text.ToString()); 
+            sellPrice = checkNulls(TB_SellPrice.Text.ToString()); 
+            payedPrice = checkNulls(TB_TakeOverPrice.Text.ToString()); 
+            yearPercent = checkNulls(TB_YearPercent.Text.ToString()); 
+            
 
         }
-
+        private double checkNulls(string num)
+        {
+            num.Trim(); //공백 제거
+            if (num.Equals(""))
+                return -9999; //빈값 처리
+            return double.Parse(num);
+        }
         private void saveData()
         {
             DBFile = "C:/Users/HUN/Desktop/DB.db";
@@ -280,6 +286,13 @@ namespace RealEstate
             }
         }
 
-      
+        private void typeOnlyNum(object sender, KeyPressEventArgs e)
+        {
+            //숫자,백스페이스,마이너스,소숫점 만 입력받는다.
+            if (!(Char.IsDigit(e.KeyChar)) && e.KeyChar != 8 && e.KeyChar != 45 && e.KeyChar != 46) //8:백스페이스,45:마이너스,46:소수점
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
