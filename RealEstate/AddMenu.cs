@@ -67,15 +67,11 @@ namespace RealEstate
             area = TB_Area.Text.ToString();
             station = TB_Station.Text.ToString();
             useArea = TB_UseDistrict.Text.ToString();
-            publicPrice = TB_PublicPrice.Text.ToString();
-            sumPP = TB_SumPP.Text.ToString();
             
             distance = TB_Distance.Text.ToString();
             roadWidth = TB_RoadWidth.Text.ToString();
 
             totalArea = TB_TotalArea.Text.ToString();
-            buildArea = TB_BuildArea.Text.ToString();
-            floorNum = TB_FloorNum.Text.ToString();
             completeYear = TB_CompleteYear.Text.ToString();
             parking = TB_Parking.Text.ToString();
             acHeating = TB_AC_Heating.Text.ToString();
@@ -95,6 +91,8 @@ namespace RealEstate
             yearPercent = double.Parse(TB_YearPercent.Text.ToString()); 
 
         }
+
+
         public AddMenu()
         {
             InitializeComponent();
@@ -105,6 +103,7 @@ namespace RealEstate
             AddComment(2, "dfdf");
             AddComment(3, "As");
             listView1.EndUpdate();
+            
         }
 
         // 코멘트에 더하기

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InitialFoam));
             this.Panel_InitText = new System.Windows.Forms.Panel();
+            this.DBLocation = new System.Windows.Forms.Label();
             this.radioButton6 = new System.Windows.Forms.RadioButton();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
@@ -62,7 +63,6 @@
             this.Page_완료 = new System.Windows.Forms.TabPage();
             this.Page_준비 = new System.Windows.Forms.TabPage();
             this.Init_탭컨트롤 = new System.Windows.Forms.TabControl();
-            this.DBLocation = new System.Windows.Forms.Label();
             this.Panel_InitText.SuspendLayout();
             this.Init_탭컨트롤.SuspendLayout();
             this.SuspendLayout();
@@ -99,6 +99,12 @@
             this.Panel_InitText.Controls.Add(this.label4);
             resources.ApplyResources(this.Panel_InitText, "Panel_InitText");
             this.Panel_InitText.Name = "Panel_InitText";
+            // 
+            // DBLocation
+            // 
+            resources.ApplyResources(this.DBLocation, "DBLocation");
+            this.DBLocation.Name = "DBLocation";
+            this.DBLocation.Click += new System.EventHandler(this.DBLocation_Click);
             // 
             // radioButton6
             // 
@@ -312,12 +318,6 @@
             this.Init_탭컨트롤.Name = "Init_탭컨트롤";
             this.Init_탭컨트롤.SelectedIndex = 0;
             // 
-            // DBLocation
-            // 
-            resources.ApplyResources(this.DBLocation, "DBLocation");
-            this.DBLocation.Name = "DBLocation";
-            this.DBLocation.Click += new System.EventHandler(this.DBLocation_Click);
-            // 
             // InitialFoam
             // 
             resources.ApplyResources(this, "$this");
@@ -329,6 +329,7 @@
             this.MaximizeBox = false;
             this.Name = "InitialFoam";
             this.ShowIcon = false;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InitialFoam_FormClosing);
             this.Load += new System.EventHandler(this.InitialFoam_Load);
             this.Panel_InitText.ResumeLayout(false);
             this.Panel_InitText.PerformLayout();
