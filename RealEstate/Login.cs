@@ -24,11 +24,25 @@ namespace RealEstate
             
         }
 
-        void EnterClicked(object sender, KeyEventArgs e)
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyData == Keys.Return)
+            if(KeyPressEventArgs.Equals(e.KeyChar, Keys.Return))
             {
-                button1_Click(this, e);
+                
+            }
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void button1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Return)
+            {
+                e.Handled = true;
+                MessageBox.Show("Return Key Pressed");
             }
         }
 
@@ -42,6 +56,7 @@ namespace RealEstate
                     {
                         init = new InitialFoam();
                         Hide();
+                        Owner = init;
                         init.ShowDialog();
                     }
                 }

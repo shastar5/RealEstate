@@ -152,6 +152,8 @@ namespace RealEstate
             saveData();
             test();
         }
+
+
         public AddMenu()
         {
             InitializeComponent();
@@ -162,6 +164,7 @@ namespace RealEstate
             AddComment(2, "dfdf");
             AddComment(3, "As");
             listView1.EndUpdate();
+            
         }
 
         // 코멘트에 더하기

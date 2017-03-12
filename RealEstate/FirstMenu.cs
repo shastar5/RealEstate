@@ -157,5 +157,10 @@ namespace RealEstate
         {
 
         }
+
+        private void InitialFoam_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Close();
+        }
     }
 }

@@ -32,15 +32,11 @@
             this.label9 = new System.Windows.Forms.Label();
             this.TB_Distance = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.TB_SumPP = new System.Windows.Forms.TextBox();
-            this.TB_PublicPrice = new System.Windows.Forms.TextBox();
             this.TB_UseDistrict = new System.Windows.Forms.TextBox();
             this.TB_Station = new System.Windows.Forms.TextBox();
             this.TB_RoadAddr = new System.Windows.Forms.TextBox();
             this.TB_Area = new System.Windows.Forms.TextBox();
             this.TB_Addr = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,16 +46,12 @@
             this.TB_EV = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.TB_AC_Heating = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.TB_Parking = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.TB_CompleteYear = new System.Windows.Forms.TextBox();
-            this.TB_BuildArea = new System.Windows.Forms.TextBox();
-            this.TB_FloorNum = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.listView1 = new System.Windows.Forms.ListView();
             this.번호 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -132,7 +124,8 @@
             // TB_RoadWidth
             // 
             this.TB_RoadWidth.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.TB_RoadWidth.Location = new System.Drawing.Point(122, 272);
+
+            this.TB_RoadWidth.Location = new System.Drawing.Point(122, 216);
             this.TB_RoadWidth.Name = "TB_RoadWidth";
             this.TB_RoadWidth.Size = new System.Drawing.Size(90, 27);
             this.TB_RoadWidth.TabIndex = 8;
@@ -141,7 +134,8 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label9.Location = new System.Drawing.Point(24, 272);
+
+            this.label9.Location = new System.Drawing.Point(24, 216);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(84, 21);
             this.label9.TabIndex = 15;
@@ -150,7 +144,8 @@
             // TB_Distance
             // 
             this.TB_Distance.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.TB_Distance.Location = new System.Drawing.Point(122, 244);
+
+            this.TB_Distance.Location = new System.Drawing.Point(122, 188);
             this.TB_Distance.Name = "TB_Distance";
             this.TB_Distance.Size = new System.Drawing.Size(90, 27);
             this.TB_Distance.TabIndex = 7;
@@ -159,32 +154,18 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label8.Location = new System.Drawing.Point(24, 244);
+
+            this.label8.Location = new System.Drawing.Point(24, 188);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(90, 21);
             this.label8.TabIndex = 13;
             this.label8.Text = "역과 거리 :";
             // 
-            // TB_SumPP
-            // 
-            this.TB_SumPP.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.TB_SumPP.Location = new System.Drawing.Point(122, 216);
-            this.TB_SumPP.Name = "TB_SumPP";
-            this.TB_SumPP.Size = new System.Drawing.Size(90, 27);
-            this.TB_SumPP.TabIndex = 6;
-            // 
-            // TB_PublicPrice
-            // 
-            this.TB_PublicPrice.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.TB_PublicPrice.Location = new System.Drawing.Point(122, 188);
-            this.TB_PublicPrice.Name = "TB_PublicPrice";
-            this.TB_PublicPrice.Size = new System.Drawing.Size(90, 27);
-            this.TB_PublicPrice.TabIndex = 5;
-            // 
+
             // TB_UseDistrict
             // 
             this.TB_UseDistrict.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.TB_UseDistrict.Location = new System.Drawing.Point(122, 160);
+            this.TB_UseDistrict.Location = new System.Drawing.Point(122, 132);
             this.TB_UseDistrict.Name = "TB_UseDistrict";
             this.TB_UseDistrict.Size = new System.Drawing.Size(90, 27);
             this.TB_UseDistrict.TabIndex = 4;
@@ -192,7 +173,8 @@
             // TB_Station
             // 
             this.TB_Station.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.TB_Station.Location = new System.Drawing.Point(122, 132);
+
+            this.TB_Station.Location = new System.Drawing.Point(122, 160);
             this.TB_Station.Name = "TB_Station";
             this.TB_Station.Size = new System.Drawing.Size(90, 27);
             this.TB_Station.TabIndex = 3;
@@ -221,32 +203,13 @@
             this.TB_Addr.Size = new System.Drawing.Size(274, 27);
             this.TB_Addr.TabIndex = 0;
             this.TB_Addr.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label7.Location = new System.Drawing.Point(24, 216);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(100, 21);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "공시지가합 :";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.Location = new System.Drawing.Point(24, 188);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(84, 21);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "공시지가 :";
-            // 
+            
+
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(24, 160);
+            this.label5.Location = new System.Drawing.Point(24, 132);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(84, 21);
             this.label5.TabIndex = 4;
@@ -256,7 +219,8 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(24, 132);
+
+            this.label4.Location = new System.Drawing.Point(24, 160);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 21);
             this.label4.TabIndex = 3;
@@ -278,9 +242,9 @@
             this.label2.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label2.Location = new System.Drawing.Point(24, 76);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 21);
+            this.label2.Size = new System.Drawing.Size(96, 21);
             this.label2.TabIndex = 1;
-            this.label2.Text = "도로명주소 :";
+            this.label2.Text = "도로명주소 ";
             // 
             // label1
             // 
@@ -303,7 +267,8 @@
             // TB_EV
             // 
             this.TB_EV.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.TB_EV.Location = new System.Drawing.Point(316, 274);
+
+            this.TB_EV.Location = new System.Drawing.Point(316, 218);
             this.TB_EV.Name = "TB_EV";
             this.TB_EV.Size = new System.Drawing.Size(80, 27);
             this.TB_EV.TabIndex = 15;
@@ -322,45 +287,27 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label16.Location = new System.Drawing.Point(218, 274);
+
+            this.label16.Location = new System.Drawing.Point(218, 218);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(44, 21);
             this.label16.TabIndex = 15;
             this.label16.Text = "E/V :";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label11.Location = new System.Drawing.Point(218, 134);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(84, 21);
-            this.label11.TabIndex = 3;
-            this.label11.Text = "건축면적 :";
-            // 
+   
             // TB_AC_Heating
             // 
             this.TB_AC_Heating.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.TB_AC_Heating.Location = new System.Drawing.Point(316, 246);
+            this.TB_AC_Heating.Location = new System.Drawing.Point(316, 190);
             this.TB_AC_Heating.Name = "TB_AC_Heating";
             this.TB_AC_Heating.Size = new System.Drawing.Size(80, 27);
             this.TB_AC_Heating.TabIndex = 14;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label12.Location = new System.Drawing.Point(218, 162);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(52, 21);
-            this.label12.TabIndex = 4;
-            this.label12.Text = "층수 :";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label15.Location = new System.Drawing.Point(218, 246);
+
+            this.label15.Location = new System.Drawing.Point(218, 190);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(74, 21);
             this.label15.TabIndex = 13;
@@ -370,7 +317,8 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label13.Location = new System.Drawing.Point(218, 190);
+
+            this.label13.Location = new System.Drawing.Point(218, 134);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(84, 21);
             this.label13.TabIndex = 5;
@@ -379,7 +327,8 @@
             // TB_Parking
             // 
             this.TB_Parking.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.TB_Parking.Location = new System.Drawing.Point(316, 218);
+
+            this.TB_Parking.Location = new System.Drawing.Point(316, 162);
             this.TB_Parking.Name = "TB_Parking";
             this.TB_Parking.Size = new System.Drawing.Size(80, 27);
             this.TB_Parking.TabIndex = 13;
@@ -388,7 +337,8 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label14.Location = new System.Drawing.Point(218, 218);
+
+            this.label14.Location = new System.Drawing.Point(218, 162);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(84, 21);
             this.label14.TabIndex = 6;
@@ -397,27 +347,13 @@
             // TB_CompleteYear
             // 
             this.TB_CompleteYear.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.TB_CompleteYear.Location = new System.Drawing.Point(316, 190);
+
+            this.TB_CompleteYear.Location = new System.Drawing.Point(316, 134);
             this.TB_CompleteYear.Name = "TB_CompleteYear";
             this.TB_CompleteYear.Size = new System.Drawing.Size(80, 27);
             this.TB_CompleteYear.TabIndex = 12;
             // 
-            // TB_BuildArea
-            // 
-            this.TB_BuildArea.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.TB_BuildArea.Location = new System.Drawing.Point(316, 134);
-            this.TB_BuildArea.Name = "TB_BuildArea";
-            this.TB_BuildArea.Size = new System.Drawing.Size(80, 27);
-            this.TB_BuildArea.TabIndex = 10;
-            // 
-            // TB_FloorNum
-            // 
-            this.TB_FloorNum.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.TB_FloorNum.Location = new System.Drawing.Point(316, 162);
-            this.TB_FloorNum.Name = "TB_FloorNum";
-            this.TB_FloorNum.Size = new System.Drawing.Size(80, 27);
-            this.TB_FloorNum.TabIndex = 11;
-            // 
+
             // panel3
             // 
             this.panel3.Controls.Add(this.listView1);
@@ -1004,6 +940,7 @@
             this.TB_BuildName.Name = "TB_BuildName";
             this.TB_BuildName.Size = new System.Drawing.Size(202, 27);
             this.TB_BuildName.TabIndex = 102;
+
             // 
             // label26
             // 
@@ -1041,11 +978,9 @@
             this.Controls.Add(this.label38);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.panel6);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.TB_Tel);
             this.Controls.Add(this.TB_AC_Heating);
-            this.Controls.Add(this.label12);
             this.Controls.Add(this.TB_Distance);
             this.Controls.Add(this.label37);
             this.Controls.Add(this.label15);
@@ -1056,11 +991,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.label36);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.TB_SumPP);
             this.Controls.Add(this.TB_CompleteYear);
-            this.Controls.Add(this.TB_BuildArea);
-            this.Controls.Add(this.TB_PublicPrice);
-            this.Controls.Add(this.TB_FloorNum);
             this.Controls.Add(this.TB_UseDistrict);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TB_Station);
@@ -1071,8 +1002,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.TB_Addr);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
             this.MaximizeBox = false;
             this.Name = "AddMenu";
             this.ShowIcon = false;
@@ -1093,14 +1022,10 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox TB_SumPP;
-        private System.Windows.Forms.TextBox TB_PublicPrice;
         private System.Windows.Forms.TextBox TB_UseDistrict;
         private System.Windows.Forms.TextBox TB_Station;
         private System.Windows.Forms.TextBox TB_RoadAddr;
@@ -1114,16 +1039,12 @@
         private System.Windows.Forms.TextBox TB_EV;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox TB_AC_Heating;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox TB_Parking;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox TB_CompleteYear;
-        private System.Windows.Forms.TextBox TB_BuildArea;
-        private System.Windows.Forms.TextBox TB_FloorNum;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Label label17;
