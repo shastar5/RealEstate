@@ -6,7 +6,7 @@ namespace RealEstate
     public partial class Login : Form
     {
         private string _id = "", _pw = "";
-        private InitialFoam init;
+        private FirstMenu firstMenu;
 
 
         public Login()
@@ -57,12 +57,12 @@ namespace RealEstate
             {
                 if (string.Equals(textBox2.Text.ToString(), "admin"))
                 {
-                    if (init == null)
+                    if (firstMenu == null)
                     {
-                        init = new InitialFoam();
+                        firstMenu = new FirstMenu();
                         Hide();
-                        Owner = init;
-                        init.ShowDialog();
+                        Owner = firstMenu;
+                        firstMenu.ShowDialog();
                     }
                 }
             }

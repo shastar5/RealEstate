@@ -1,6 +1,6 @@
 ﻿namespace RealEstate
 {
-    partial class InitialFoam
+    partial class FirstMenu
     {
         /// <summary>
         /// 필수 디자이너 변수입니다.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InitialFoam));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FirstMenu));
             this.Panel_InitText = new System.Windows.Forms.Panel();
             this.DBLocation = new System.Windows.Forms.Label();
             this.radioButton6 = new System.Windows.Forms.RadioButton();
@@ -50,7 +50,7 @@
             this.btn_DBFind = new System.Windows.Forms.Button();
             this.btn_find = new System.Windows.Forms.Button();
             this.Text_매매금액 = new System.Windows.Forms.Label();
-            this.btn_건물추가 = new System.Windows.Forms.Button();
+            this.btn_addBuilding = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -89,7 +89,7 @@
             this.Panel_InitText.Controls.Add(this.btn_DBFind);
             this.Panel_InitText.Controls.Add(this.btn_find);
             this.Panel_InitText.Controls.Add(this.Text_매매금액);
-            this.Panel_InitText.Controls.Add(this.btn_건물추가);
+            this.Panel_InitText.Controls.Add(this.btn_addBuilding);
             this.Panel_InitText.Controls.Add(this.label1);
             this.Panel_InitText.Controls.Add(this.label5);
             this.Panel_InitText.Controls.Add(this.label2);
@@ -99,13 +99,11 @@
             this.Panel_InitText.Controls.Add(this.label4);
             resources.ApplyResources(this.Panel_InitText, "Panel_InitText");
             this.Panel_InitText.Name = "Panel_InitText";
-            this.Panel_InitText.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_InitText_Paint);
             // 
             // DBLocation
             // 
             resources.ApplyResources(this.DBLocation, "DBLocation");
             this.DBLocation.Name = "DBLocation";
-            this.DBLocation.Click += new System.EventHandler(this.DBLocation_Click);
             // 
             // radioButton6
             // 
@@ -113,7 +111,7 @@
             this.radioButton6.Name = "radioButton6";
             this.radioButton6.TabStop = true;
             this.radioButton6.UseVisualStyleBackColor = true;
-            this.radioButton6.CheckedChanged += new System.EventHandler(this.radioButton6_CheckedChanged);
+            this.radioButton6.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
             // radioButton5
             // 
@@ -121,7 +119,7 @@
             this.radioButton5.Name = "radioButton5";
             this.radioButton5.TabStop = true;
             this.radioButton5.UseVisualStyleBackColor = true;
-            this.radioButton5.CheckedChanged += new System.EventHandler(this.radioButton5_CheckedChanged);
+            this.radioButton5.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
             // radioButton4
             // 
@@ -129,7 +127,7 @@
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.TabStop = true;
             this.radioButton4.UseVisualStyleBackColor = true;
-            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
+            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
             // radioButton3
             // 
@@ -137,7 +135,7 @@
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.TabStop = true;
             this.radioButton3.UseVisualStyleBackColor = true;
-            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
             // radioButton2
             // 
@@ -145,7 +143,7 @@
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.TabStop = true;
             this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
             // radioButton1
             // 
@@ -153,7 +151,7 @@
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.TabStop = true;
             this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
             // comboBox3
             // 
@@ -216,7 +214,6 @@
             // 
             resources.ApplyResources(this.TB_TakeOverPrice, "TB_TakeOverPrice");
             this.TB_TakeOverPrice.Name = "TB_TakeOverPrice";
-            this.TB_TakeOverPrice.TextChanged += new System.EventHandler(this.TB_TakeOverPrice_TextChanged);
             // 
             // TB_SellPrice
             // 
@@ -232,24 +229,22 @@
             // 
             // btn_find
             // 
-
             resources.ApplyResources(this.btn_find, "btn_find");
             this.btn_find.Name = "btn_find";
             this.btn_find.UseVisualStyleBackColor = true;
             this.btn_find.Click += new System.EventHandler(this.btn_find_Click);
-           
             // 
             // Text_매매금액
             // 
             resources.ApplyResources(this.Text_매매금액, "Text_매매금액");
             this.Text_매매금액.Name = "Text_매매금액";
             // 
-            // btn_건물추가
+            // btn_addBuilding
             // 
-            resources.ApplyResources(this.btn_건물추가, "btn_건물추가");
-            this.btn_건물추가.Name = "btn_건물추가";
-            this.btn_건물추가.UseVisualStyleBackColor = true;
-            this.btn_건물추가.Click += new System.EventHandler(this.btn_건물추가_Click);
+            resources.ApplyResources(this.btn_addBuilding, "btn_addBuilding");
+            this.btn_addBuilding.Name = "btn_addBuilding";
+            this.btn_addBuilding.UseVisualStyleBackColor = true;
+            this.btn_addBuilding.Click += new System.EventHandler(this.btn_addBuilding_Click);
             // 
             // label1
             // 
@@ -322,7 +317,7 @@
             this.Init_탭컨트롤.Name = "Init_탭컨트롤";
             this.Init_탭컨트롤.SelectedIndex = 0;
             // 
-            // InitialFoam
+            // FirstMenu
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -331,9 +326,8 @@
             this.Controls.Add(this.Init_탭컨트롤);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.MaximizeBox = false;
-            this.Name = "InitialFoam";
+            this.Name = "FirstMenu";
             this.ShowIcon = false;
-            this.Load += new System.EventHandler(this.InitialFoam_Load);
             this.Panel_InitText.ResumeLayout(false);
             this.Panel_InitText.PerformLayout();
             this.Init_탭컨트롤.ResumeLayout(false);
@@ -345,7 +339,7 @@
         private System.Windows.Forms.Panel Panel_InitText;
         private System.Windows.Forms.Button btn_find;
         private System.Windows.Forms.Label Text_매매금액;
-        private System.Windows.Forms.Button btn_건물추가;
+        private System.Windows.Forms.Button btn_addBuilding;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label6;

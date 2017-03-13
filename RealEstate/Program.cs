@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using RealEstate;
 
 namespace RealEstate
 {
@@ -14,10 +13,11 @@ namespace RealEstate
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //*
+            /*
             Application.Run(new Login());
             /*/
-            Application.Run(new AddMenu());
+            Application.Run(new FirstMenu());
+           //Application.Run(new AddMenu());
             //*/
             
         }

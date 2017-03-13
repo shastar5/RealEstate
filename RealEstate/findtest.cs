@@ -23,6 +23,8 @@ namespace RealEstate
         SQLiteDataReader dr;
         SQLiteParameter picture;
 
+        int type;
+        int state;
         double sellPrice;
         double Income;
         double yearPercent;
@@ -42,7 +44,7 @@ namespace RealEstate
         {
             this.DBFile = DBFile;
         }
-        public void setValue(double sellPrice, double Income, double yearPercent, double takeOverPrice,
+        public void setValue(int type, int state, double sellPrice, double Income, double yearPercent, double takeOverPrice,
             string distance, string addr, string roadwidth)
         {
             this.sellPrice = sellPrice;

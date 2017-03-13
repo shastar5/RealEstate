@@ -4,20 +4,30 @@ using System.Data.SQLite;
 
 namespace RealEstate
 {
-    public partial class InitialFoam : Form
+    public partial class FirstMenu : Form
     {
         string DBFile;
         String strConn;
         SQLiteConnection cn = new SQLiteConnection();
         SQLiteCommand cmd = new SQLiteCommand();
-  
+
+        int type = 0;
+        int state = 1;
+        double sellPrice;
+        double Income;
+        double yearPercent;
+        double takeOverPrice;
+        string distance;
+        string addr;
+        string roadwidth;
 
         //로인창으로 옮겨야함 deskpath;
         String deskPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory); //바탕화면 경로 가져오기
 
 
-        public InitialFoam()
+        public FirstMenu()
         {
+
             InitializeComponent();
 
             // Set tab control click event listener
@@ -43,8 +53,16 @@ namespace RealEstate
         }
         private void btn_find_Click(object sender, EventArgs e)
         {
-            findtest findtest = new findtest();
-            findtest.setDBfile(DBFile);
+            if (type == 0)
+            {
+                MessageBox.Show("찾을 건물 종류를 선택해주세요");
+            }
+            else
+            {
+                findtest findtest = new findtest();
+                findtest.setDBfile(DBFile);
+            }
+
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -56,37 +74,26 @@ namespace RealEstate
         {
             if (Init_탭컨트롤.SelectedTab == Page_준비)
             {
-
+                state = 1;
             }
 
             else if (Init_탭컨트롤.SelectedTab == Page_완료)
             {
-
+                state = 2;
             }
 
             else if (Init_탭컨트롤.SelectedTab == Page_보류)
             {
-
+                state = 3;
             }
 
             else if (Init_탭컨트롤.SelectedTab == Page_매매)
             {
-
+                state = 4;
             }
         }
 
-        private void btn_건물추가_Click(object sender, EventArgs e)
-        {
-            AddMenu addMenu = new AddMenu();
-            addMenu.setDBfile(DBFile);
-            addMenu.Show();
-
-            if(radioButton6.Checked == true)
-            {
-                
-            }
-        }
-
+       
         public Boolean getSangga(object sender, EventArgs e)
         {
             return false;
@@ -95,35 +102,44 @@ namespace RealEstate
         /*
          * 라디오버튼 체크 리스너
          */
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        private void radioButton_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (radioButton1.Checked)
+            {
+                type = 1;
+            }
+            else if (radioButton2.Checked)
+            {
+                type = 2;
+            }
+            else if (radioButton3.Checked)
+            {
+                type = 3;
+            }
+            else if (radioButton4.Checked)
+            {
+                type = 4;
+            }
+            else if (radioButton5.Checked)
+            {
+                type = 5;
+            }
+            else if(radioButton6.Checked)
+            {
+                type = 6;
+            }
         }
 
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        private void btn_addBuilding_Click(object sender, EventArgs e)
         {
+            AddMenu addMenu = new AddMenu();
+            addMenu.setDBfile(DBFile);
+            addMenu.Show();
 
-        }
+            if (radioButton6.Checked == true)
+            {
 
-        private void radioButton3_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton4_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton5_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-        
-        // 상가 라디오 버튼 클릭되었을 때
-        private void radioButton6_CheckedChanged(object sender, EventArgs e)
-        {
-            
+            }
         }
 
         private void btn_DBFind_Click(object sender, EventArgs e)
@@ -158,32 +174,11 @@ namespace RealEstate
             
         }
 
-        private void TB_TakeOverPrice_TextChanged(object sender, EventArgs e)
-        {
+        
 
-        }
+  
 
-        private void DBLocation_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void InitialFoam_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Panel_InitText_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void btn_찾기_Click(object sender, EventArgs e)
-        {
-            ManagerView mv = new ManagerView();
-            Hide();
-            mv.Show();
-        }
+       
     }
 
 }
