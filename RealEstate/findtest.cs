@@ -15,7 +15,11 @@ namespace RealEstate
     {
         void setValue(Findvalue findvalue);
     }
-    public partial class findtest : Form, DBInterface, FIndInterface
+    public interface UserTypeInterface
+    {
+        void setUserType(Boolean user);
+    }
+    public partial class findtest : Form, DBInterface, FIndInterface, UserTypeInterface
     {
         String strConn;
         SQLiteConnection cn = new SQLiteConnection();
@@ -25,6 +29,7 @@ namespace RealEstate
 
         Findvalue findvalue = new Findvalue();
         string DBFile = "";
+        Boolean userType;
         public findtest()
         {
             InitializeComponent();
@@ -53,6 +58,12 @@ namespace RealEstate
                 + findvalue.sellPriceSize.ToString() + findvalue.takeOverPrice.ToString() + findvalue.Income.ToString() + findvalue.yearPercent.ToString()
                 + findvalue.yearPercentSize.ToString()+ findvalue.distance.ToString()
                 + findvalue.addr.ToString() + findvalue.roadwidth.ToString() + findvalue.roadwidthSize.ToString();
+            if (userType == false)
+                MessageBox.Show("a");
+        }
+        public void setUserType(Boolean userType)
+        {
+            this.userType = userType;
         }
         private void showResult()
         {
@@ -67,11 +78,11 @@ namespace RealEstate
             {
                 string a = "";
                 int i;
-                for (i = 0; i < 25; i++)
+                for (i = 0; i < 27; i++)
                 {
                     a += rdr[i];
                 }
-                MessageBox.Show(a);
+                
             }
 
             rdr.Close();

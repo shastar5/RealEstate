@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FirstMenu));
             this.Panel_InitText = new System.Windows.Forms.Panel();
+            this.HiddenBox = new System.Windows.Forms.CheckBox();
             this.DBLocation = new System.Windows.Forms.Label();
             this.radioButton6 = new System.Windows.Forms.RadioButton();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
@@ -58,8 +59,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-
-            this.HiddenBox = new System.Windows.Forms.CheckBox();
             this.Page_sell = new System.Windows.Forms.TabPage();
             this.Page_wait = new System.Windows.Forms.TabPage();
             this.Page_complete = new System.Windows.Forms.TabPage();
@@ -102,6 +101,13 @@
             this.Panel_InitText.Controls.Add(this.label4);
             resources.ApplyResources(this.Panel_InitText, "Panel_InitText");
             this.Panel_InitText.Name = "Panel_InitText";
+            // 
+            // HiddenBox
+            // 
+            resources.ApplyResources(this.HiddenBox, "HiddenBox");
+            this.HiddenBox.Name = "HiddenBox";
+            this.HiddenBox.UseVisualStyleBackColor = true;
+            this.HiddenBox.CheckedChanged += new System.EventHandler(this.HiddenBox_CheckedChanged);
             // 
             // DBLocation
             // 
@@ -291,7 +297,6 @@
             // 
             resources.ApplyResources(this.Page_sell, "Page_sell");
             this.Page_sell.Name = "Page_sell";
-
             this.Page_sell.UseVisualStyleBackColor = true;
             // 
             // Page_wait
@@ -323,12 +328,7 @@
             this.Tab_control.Multiline = true;
             this.Tab_control.Name = "Tab_control";
             this.Tab_control.SelectedIndex = 0;
-            // 
-            // HiddenBox
-            // 
-            resources.ApplyResources(this.HiddenBox, "HiddenBox");
-            this.HiddenBox.Name = "HiddenBox";
-            this.HiddenBox.UseVisualStyleBackColor = true;
+            this.Tab_control.SelectedIndexChanged += new System.EventHandler(this.Tabs_SelectedIndexChanged);
             // 
             // FirstMenu
             // 

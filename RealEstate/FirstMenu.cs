@@ -23,6 +23,7 @@ namespace RealEstate
     public partial class FirstMenu : Form
     {
         string DBFile;
+        Boolean user;
         String strConn;
         SQLiteConnection cn = new SQLiteConnection();
         SQLiteCommand cmd = new SQLiteCommand();
@@ -46,7 +47,9 @@ namespace RealEstate
             findvalues.roadwidthSize = -1;
             findvalues.sellPriceSize = -1;
             findvalues.yearPercentSize = -1;
-           
+
+            //userType 손님용으로 초기화
+            user = true;
 
 
             //로그인 창 나오면 삭제해야함
@@ -88,6 +91,7 @@ namespace RealEstate
             findvalues.distance = TB_Distance.Text.ToString();
             findvalues.addr = TB_Addr.Text.ToString();
             findvalues.roadwidth = TB_RoadWidth.Text.ToString();
+            
         }
         private double checkNulls(string num)
         {
@@ -105,19 +109,10 @@ namespace RealEstate
             }
             else
             {
-                if(HiddenBox.Checked == true)
-                {
-                    ManagerView mv = new ManagerView();
-                    mv.Show();
-                }
-                else
-                {
-                    UserView uv = new UserView();
-                    uv.Show();
-                }
                 setData();
                 findtest findtest = new findtest();
                 findtest.setDBfile(DBFile);
+                findtest.setUserType(user);
                 findtest.setValue(findvalues);
                 findtest.Show();
                 
@@ -264,6 +259,18 @@ namespace RealEstate
             else if (CB_RoadWidth.SelectedIndex == 1)
             {
                 findvalues.roadwidthSize = 1;
+            }
+        }
+
+        private void HiddenBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (HiddenBox.Checked)
+            {
+                user = false;
+            }
+            else
+            {
+                user = true;
             }
         }
     }
