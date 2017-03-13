@@ -37,9 +37,9 @@
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox_매매 = new System.Windows.Forms.ComboBox();
+            this.CB_RoadWidth = new System.Windows.Forms.ComboBox();
+            this.CB_YearPercent = new System.Windows.Forms.ComboBox();
+            this.CB_sellPrice = new System.Windows.Forms.ComboBox();
             this.TB_RoadWidth = new System.Windows.Forms.TextBox();
             this.TB_Addr = new System.Windows.Forms.TextBox();
             this.TB_Distance = new System.Windows.Forms.TextBox();
@@ -58,13 +58,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.Page_매매 = new System.Windows.Forms.TabPage();
-            this.Page_보류 = new System.Windows.Forms.TabPage();
-            this.Page_완료 = new System.Windows.Forms.TabPage();
-            this.Page_준비 = new System.Windows.Forms.TabPage();
-            this.Init_탭컨트롤 = new System.Windows.Forms.TabControl();
+            this.Page_sell = new System.Windows.Forms.TabPage();
+            this.Page_wait = new System.Windows.Forms.TabPage();
+            this.Page_complete = new System.Windows.Forms.TabPage();
+            this.Page_prepare = new System.Windows.Forms.TabPage();
+            this.Tab_control = new System.Windows.Forms.TabControl();
             this.Panel_InitText.SuspendLayout();
-            this.Init_탭컨트롤.SuspendLayout();
+            this.Tab_control.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel_InitText
@@ -76,9 +76,9 @@
             this.Panel_InitText.Controls.Add(this.radioButton3);
             this.Panel_InitText.Controls.Add(this.radioButton2);
             this.Panel_InitText.Controls.Add(this.radioButton1);
-            this.Panel_InitText.Controls.Add(this.comboBox3);
-            this.Panel_InitText.Controls.Add(this.comboBox1);
-            this.Panel_InitText.Controls.Add(this.comboBox_매매);
+            this.Panel_InitText.Controls.Add(this.CB_RoadWidth);
+            this.Panel_InitText.Controls.Add(this.CB_YearPercent);
+            this.Panel_InitText.Controls.Add(this.CB_sellPrice);
             this.Panel_InitText.Controls.Add(this.TB_RoadWidth);
             this.Panel_InitText.Controls.Add(this.TB_Addr);
             this.Panel_InitText.Controls.Add(this.TB_Distance);
@@ -153,35 +153,38 @@
             this.radioButton1.UseVisualStyleBackColor = true;
             this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
-            // comboBox3
+            // CB_RoadWidth
             // 
-            this.comboBox3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            resources.GetString("comboBox3.Items"),
-            resources.GetString("comboBox3.Items1")});
-            resources.ApplyResources(this.comboBox3, "comboBox3");
-            this.comboBox3.Name = "comboBox3";
+            this.CB_RoadWidth.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.CB_RoadWidth.FormattingEnabled = true;
+            this.CB_RoadWidth.Items.AddRange(new object[] {
+            resources.GetString("CB_RoadWidth.Items"),
+            resources.GetString("CB_RoadWidth.Items1")});
+            resources.ApplyResources(this.CB_RoadWidth, "CB_RoadWidth");
+            this.CB_RoadWidth.Name = "CB_RoadWidth";
+            this.CB_RoadWidth.SelectedIndexChanged += new System.EventHandler(this.CB_RoadWidth_SelectedIndexChanged);
             // 
-            // comboBox1
+            // CB_YearPercent
             // 
-            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            resources.GetString("comboBox1.Items"),
-            resources.GetString("comboBox1.Items1")});
-            resources.ApplyResources(this.comboBox1, "comboBox1");
-            this.comboBox1.Name = "comboBox1";
+            this.CB_YearPercent.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.CB_YearPercent.FormattingEnabled = true;
+            this.CB_YearPercent.Items.AddRange(new object[] {
+            resources.GetString("CB_YearPercent.Items"),
+            resources.GetString("CB_YearPercent.Items1")});
+            resources.ApplyResources(this.CB_YearPercent, "CB_YearPercent");
+            this.CB_YearPercent.Name = "CB_YearPercent";
+            this.CB_YearPercent.SelectedIndexChanged += new System.EventHandler(this.CB_YearPercent_SelectedIndexChanged);
             // 
-            // comboBox_매매
+            // CB_sellPrice
             // 
-            this.comboBox_매매.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBox_매매.FormattingEnabled = true;
-            this.comboBox_매매.Items.AddRange(new object[] {
-            resources.GetString("comboBox_매매.Items"),
-            resources.GetString("comboBox_매매.Items1")});
-            resources.ApplyResources(this.comboBox_매매, "comboBox_매매");
-            this.comboBox_매매.Name = "comboBox_매매";
+            this.CB_sellPrice.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.CB_sellPrice.FormattingEnabled = true;
+            this.CB_sellPrice.Items.AddRange(new object[] {
+            resources.GetString("CB_sellPrice.Items"),
+            resources.GetString("CB_sellPrice.Items1")});
+            resources.ApplyResources(this.CB_sellPrice, "CB_sellPrice");
+            this.CB_sellPrice.Name = "CB_sellPrice";
+            this.CB_sellPrice.SelectedIndexChanged += new System.EventHandler(this.CB_sellPrice_SelectedIndexChanged);
             // 
             // TB_RoadWidth
             // 
@@ -281,41 +284,42 @@
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
             // 
-            // Page_매매
+            // Page_sell
             // 
-            resources.ApplyResources(this.Page_매매, "Page_매매");
-            this.Page_매매.Name = "Page_매매";
-            this.Page_매매.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.Page_sell, "Page_sell");
+            this.Page_sell.Name = "Page_sell";
+
+            this.Page_sell.UseVisualStyleBackColor = true;
             // 
-            // Page_보류
+            // Page_wait
             // 
-            resources.ApplyResources(this.Page_보류, "Page_보류");
-            this.Page_보류.Name = "Page_보류";
-            this.Page_보류.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.Page_wait, "Page_wait");
+            this.Page_wait.Name = "Page_wait";
+            this.Page_wait.UseVisualStyleBackColor = true;
             // 
-            // Page_완료
+            // Page_complete
             // 
-            resources.ApplyResources(this.Page_완료, "Page_완료");
-            this.Page_완료.Name = "Page_완료";
-            this.Page_완료.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.Page_complete, "Page_complete");
+            this.Page_complete.Name = "Page_complete";
+            this.Page_complete.UseVisualStyleBackColor = true;
             // 
-            // Page_준비
+            // Page_prepare
             // 
-            resources.ApplyResources(this.Page_준비, "Page_준비");
-            this.Page_준비.Name = "Page_준비";
-            this.Page_준비.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.Page_prepare, "Page_prepare");
+            this.Page_prepare.Name = "Page_prepare";
+            this.Page_prepare.UseVisualStyleBackColor = true;
             // 
-            // Init_탭컨트롤
+            // Tab_control
             // 
-            resources.ApplyResources(this.Init_탭컨트롤, "Init_탭컨트롤");
-            this.Init_탭컨트롤.Controls.Add(this.Page_준비);
-            this.Init_탭컨트롤.Controls.Add(this.Page_완료);
-            this.Init_탭컨트롤.Controls.Add(this.Page_보류);
-            this.Init_탭컨트롤.Controls.Add(this.Page_매매);
-            this.Init_탭컨트롤.HotTrack = true;
-            this.Init_탭컨트롤.Multiline = true;
-            this.Init_탭컨트롤.Name = "Init_탭컨트롤";
-            this.Init_탭컨트롤.SelectedIndex = 0;
+            resources.ApplyResources(this.Tab_control, "Tab_control");
+            this.Tab_control.Controls.Add(this.Page_prepare);
+            this.Tab_control.Controls.Add(this.Page_complete);
+            this.Tab_control.Controls.Add(this.Page_wait);
+            this.Tab_control.Controls.Add(this.Page_sell);
+            this.Tab_control.HotTrack = true;
+            this.Tab_control.Multiline = true;
+            this.Tab_control.Name = "Tab_control";
+            this.Tab_control.SelectedIndex = 0;
             // 
             // FirstMenu
             // 
@@ -323,14 +327,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.Controls.Add(this.Panel_InitText);
-            this.Controls.Add(this.Init_탭컨트롤);
+            this.Controls.Add(this.Tab_control);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.MaximizeBox = false;
             this.Name = "FirstMenu";
             this.ShowIcon = false;
             this.Panel_InitText.ResumeLayout(false);
             this.Panel_InitText.PerformLayout();
-            this.Init_탭컨트롤.ResumeLayout(false);
+            this.Tab_control.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -353,15 +357,15 @@
         private System.Windows.Forms.TextBox TB_YearPercent;
         private System.Windows.Forms.TextBox TB_Income;
         private System.Windows.Forms.TextBox TB_TakeOverPrice;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox_매매;
+        private System.Windows.Forms.ComboBox CB_RoadWidth;
+        private System.Windows.Forms.ComboBox CB_YearPercent;
+        private System.Windows.Forms.ComboBox CB_sellPrice;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabPage Page_매매;
-        private System.Windows.Forms.TabPage Page_보류;
-        private System.Windows.Forms.TabPage Page_완료;
-        private System.Windows.Forms.TabPage Page_준비;
-        private System.Windows.Forms.TabControl Init_탭컨트롤;
+        private System.Windows.Forms.TabPage Page_sell;
+        private System.Windows.Forms.TabPage Page_wait;
+        private System.Windows.Forms.TabPage Page_complete;
+        private System.Windows.Forms.TabPage Page_prepare;
+        private System.Windows.Forms.TabControl Tab_control;
         private System.Windows.Forms.RadioButton radioButton5;
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.RadioButton radioButton3;
