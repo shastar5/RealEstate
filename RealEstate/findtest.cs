@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
 namespace RealEstate
@@ -54,12 +47,12 @@ namespace RealEstate
             findvalue.addr = FV.addr;
             findvalue.roadwidth = FV.roadwidth;
             findvalue.roadwidthSize = FV.roadwidthSize;
+            /*
             label1.Text = findvalue.type.ToString() + findvalue.state.ToString() + findvalue.sellPrice.ToString()
                 + findvalue.sellPriceSize.ToString() + findvalue.takeOverPrice.ToString() + findvalue.Income.ToString() + findvalue.yearPercent.ToString()
                 + findvalue.yearPercentSize.ToString()+ findvalue.distance.ToString()
-                + findvalue.addr.ToString() + findvalue.roadwidth.ToString() + findvalue.roadwidthSize.ToString();
-            if (userType == false)
-                MessageBox.Show("a");
+                + findvalue.addr.ToString() + findvalue.roadwidth.ToString() + findvalue.roadwidthSize.ToString();*/
+            
         }
         public void setUserType(Boolean userType)
         {
@@ -70,22 +63,66 @@ namespace RealEstate
             strConn = "Data Source=" + DBFile + "; Version=3;";
             cn.ConnectionString = strConn;
             cn.Open();
-            String query = "select * from info1";
+            String query = "select * from info1 where state = ";
+            if (findvalue.type.Equals(1))
+            {
+                query += findvalue.state.ToString() + " and type not in (1)";
+            }
+            else
+            {
+                query += findvalue.state.ToString() + " and type = " + findvalue.type.ToString();
+            }
+            query = addDobuleToQuery1(query, "sellPrice", findvalue.sellPrice, findvalue.sellPriceSize);
+            query = addDobuleToQuery1(query, "yearPercent", findvalue.yearPercent, findvalue.yearPercentSize);
+            query = addDobuleToQuery1(query, "roadWidth", findvalue.roadwidth, findvalue.roadwidthSize);
+            
+            //size더 추가해야할듯?
+
+            string a = "";
+
 
             SQLiteCommand cmd = new SQLiteCommand(query, cn);
             SQLiteDataReader rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
-                string a = "";
                 int i;
                 for (i = 0; i < 27; i++)
                 {
                     a += rdr[i];
                 }
-                
+                label1.Text = a;
             }
 
             rdr.Close();
+            cn.Close();
+        }
+        private string addDobuleToQuery1(string query, string variableName, double variableValue, int variableSize)
+        {
+            if (variableSize.Equals(0))
+            {
+                query += " and " + variableName + " >= " + variableValue.ToString();
+            }
+            else if (variableSize.Equals(1))
+            {
+                query += " and " + variableName + " < " + variableValue.ToString();
+            }
+            else if(variableSize.Equals(2))
+            {
+                query += " and " + variableName + " = " + variableValue.ToString();
+            }
+            return query;
+        }
+        private string addDobuleToQuery2(string query, string variableName, double variableValue)
+        {
+            if (!variableValue.Equals(-9999))
+            {
+                addDobuleToQuery1(query, variableName, variableValue, 2);
+            }
+            return query;
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            showResult();
         }
     }
 }

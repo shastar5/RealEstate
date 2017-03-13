@@ -144,6 +144,8 @@
             this.TB_RoadWidth.Name = "TB_RoadWidth";
             this.TB_RoadWidth.Size = new System.Drawing.Size(90, 27);
             this.TB_RoadWidth.TabIndex = 8;
+            this.TB_RoadWidth.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
+
             // 
             // label9
             // 

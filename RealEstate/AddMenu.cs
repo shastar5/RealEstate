@@ -21,8 +21,8 @@ namespace RealEstate
         string area;
         string station;
         string useArea;
-        string distance;
-        string roadWidth;
+        double distance;
+        double roadWidth;
         string totalArea;
         string completeYear;
         string parking;
@@ -65,8 +65,8 @@ namespace RealEstate
             station = TB_Station.Text.ToString();
             useArea = TB_UseDistrict.Text.ToString();
             
-            distance = TB_Distance.Text.ToString();
-            roadWidth = TB_RoadWidth.Text.ToString();
+            distance = checkNulls(TB_Distance.Text.ToString());
+            roadWidth = checkNulls(TB_RoadWidth.Text.ToString());
 
             totalArea = TB_TotalArea.Text.ToString();
             completeYear = TB_CompleteYear.Text.ToString();

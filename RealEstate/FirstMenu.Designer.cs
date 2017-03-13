@@ -201,6 +201,7 @@
             this.TB_RoadWidth.ForeColor = System.Drawing.SystemColors.WindowFrame;
             resources.ApplyResources(this.TB_RoadWidth, "TB_RoadWidth");
             this.TB_RoadWidth.Name = "TB_RoadWidth";
+            this.TB_RoadWidth.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // TB_Addr
             // 
@@ -211,26 +212,31 @@
             // 
             resources.ApplyResources(this.TB_Distance, "TB_Distance");
             this.TB_Distance.Name = "TB_Distance";
+            this.TB_Distance.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // TB_YearPercent
             // 
             resources.ApplyResources(this.TB_YearPercent, "TB_YearPercent");
             this.TB_YearPercent.Name = "TB_YearPercent";
+            this.TB_YearPercent.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // TB_Income
             // 
             resources.ApplyResources(this.TB_Income, "TB_Income");
             this.TB_Income.Name = "TB_Income";
+            this.TB_Income.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // TB_TakeOverPrice
             // 
             resources.ApplyResources(this.TB_TakeOverPrice, "TB_TakeOverPrice");
             this.TB_TakeOverPrice.Name = "TB_TakeOverPrice";
+            this.TB_TakeOverPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // TB_SellPrice
             // 
             resources.ApplyResources(this.TB_SellPrice, "TB_SellPrice");
             this.TB_SellPrice.Name = "TB_SellPrice";
+            this.TB_SellPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // btn_DBFind
             // 

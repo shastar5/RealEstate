@@ -14,9 +14,9 @@ namespace RealEstate
         public double yearPercent;
         public int yearPercentSize;
         public double takeOverPrice;
-        public string distance;
+        public double distance;
         public string addr;
-        public string roadwidth;
+        public double roadwidth;
         public int roadwidthSize;
 
     }
@@ -60,7 +60,7 @@ namespace RealEstate
             cn.ConnectionString = strConn;
             cn.Open();
             string query = "Create table if not exists info1 (id INTEGER  PRIMARY KEY autoincrement, addr varchar(1000), roadAddr varchar(1000), "
-                + "area varchar(100), station varchar(100), useArea varchar(100), distance varchar(100), roadWidth varchar(100), "
+                + "area varchar(100), station varchar(100), useArea varchar(100), distance NUMERIC, roadWidth NUMERIC, "
                 + "totalArea varchar(100), completeYear varchar(100), parking varchar(100), acHeating varchar(100), EV varchar(100), "
                 + "buildingName varchar(100), owner varchar(100), tel varchar(100), meno varchar(100), deposit NUMERIC, income NUMERIC, loan NUMERIC, interest NUMERIC, takeOverPrice NUMERIC, "
                 + "sellPrice NUMERIC, payedPrice NUMERIC, yearPercent NUMERIC, type INTEGER, state INTEGER)";
@@ -88,10 +88,45 @@ namespace RealEstate
             findvalues.takeOverPrice = checkNulls(TB_TakeOverPrice.Text.ToString());
             findvalues.Income = checkNulls(TB_Income.Text.ToString());
             findvalues.yearPercent = checkNulls(TB_YearPercent.Text.ToString());
-            findvalues.distance = TB_Distance.Text.ToString();
+            findvalues.distance = checkNulls(TB_Distance.Text.ToString());
             findvalues.addr = TB_Addr.Text.ToString();
-            findvalues.roadwidth = TB_RoadWidth.Text.ToString();
+            findvalues.roadwidth = checkNulls(TB_RoadWidth.Text.ToString());
             
+        }
+        private Boolean checkException()
+        {
+            if(findvalues.sellPriceSize != -1 && TB_SellPrice.Text.Equals(""))
+            {
+                MessageBox.Show("매매가격을 정해주세요");
+                return false;
+            }
+            else if(findvalues.sellPriceSize == -1 && !TB_SellPrice.Text.Equals(""))
+            {
+                MessageBox.Show("매매가격 범위를 정해주세요");
+                return false;
+            }
+            if (findvalues.yearPercentSize != -1 && TB_YearPercent.Text.Equals(""))
+            {
+                MessageBox.Show("연수익율을 정해주세요");
+                return false;
+            }
+            else if (findvalues.yearPercentSize == -1 && !TB_YearPercent.Text.Equals(""))
+            {
+                MessageBox.Show("연수익율 범위를 정해주세요");
+                return false;
+            }
+            if (findvalues.roadwidthSize != -1 && TB_RoadWidth.Text.Equals(""))
+            {
+                MessageBox.Show("도로너비를 정해주세요");
+                return false;
+            }
+            else if (findvalues.roadwidthSize == -1 && !TB_RoadWidth.Text.Equals(""))
+            {
+                MessageBox.Show("도로너비 범위를 정해주세요");
+                return false;
+            }
+            
+            return true;
         }
         private double checkNulls(string num)
         {
@@ -100,16 +135,25 @@ namespace RealEstate
                 return -9999; //빈값 처리
             return double.Parse(num);
         }
+
+        private void typeOnlyNum(object sender, KeyPressEventArgs e)
+        {
+            //숫자,백스페이스,마이너스,소숫점 만 입력받는다.
+            if (!(Char.IsDigit(e.KeyChar)) && e.KeyChar != 8 && e.KeyChar != 45 && e.KeyChar != 46) //8:백스페이스,45:마이너스,46:소수점
+            {
+                e.Handled = true;
+            }
+        }
         private void btn_find_Click(object sender, EventArgs e)
         {
-          
+             setData();
             if (findvalues.type == -1)
             {
                 MessageBox.Show("찾을 건물 종류를 선택해주세요");
             }
-            else
+            else if(checkException())
             {
-                setData();
+                
                 findtest findtest = new findtest();
                 findtest.setDBfile(DBFile);
                 findtest.setUserType(user);
@@ -209,7 +253,7 @@ namespace RealEstate
                     cn.ConnectionString = strConn;
                     cn.Open();
                     string query = "Create table if not exists info1 (id INTEGER  PRIMARY KEY autoincrement, addr varchar(1000), roadAddr varchar(1000), "
-                        + "area varchar(100), station varchar(100), useArea varchar(100), distance varchar(100), roadWidth varchar(100), "
+                + "area varchar(100), station varchar(100), useArea varchar(100), distance NUMERIC, roadWidth NUMERIC, "
                         + "totalArea varchar(100), completeYear varchar(100), parking varchar(100), acHeating varchar(100), EV varchar(100), "
                         + "buildingName varchar(100), owner varchar(100), tel varchar(100), meno varchar(100), deposit NUMERIC, income NUMERIC, loan NUMERIC, interest NUMERIC, takeOverPrice NUMERIC, "
                         + "sellPrice NUMERIC, payedPrice NUMERIC, yearPercent NUMERIC, type INTEGER, state INTEGER)";
