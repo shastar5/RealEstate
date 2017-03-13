@@ -63,12 +63,14 @@
             this.Page_완료 = new System.Windows.Forms.TabPage();
             this.Page_준비 = new System.Windows.Forms.TabPage();
             this.Init_탭컨트롤 = new System.Windows.Forms.TabControl();
+            this.HiddenBox = new System.Windows.Forms.CheckBox();
             this.Panel_InitText.SuspendLayout();
             this.Init_탭컨트롤.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel_InitText
             // 
+            this.Panel_InitText.Controls.Add(this.HiddenBox);
             this.Panel_InitText.Controls.Add(this.DBLocation);
             this.Panel_InitText.Controls.Add(this.radioButton6);
             this.Panel_InitText.Controls.Add(this.radioButton5);
@@ -317,6 +319,12 @@
             this.Init_탭컨트롤.Name = "Init_탭컨트롤";
             this.Init_탭컨트롤.SelectedIndex = 0;
             // 
+            // HiddenBox
+            // 
+            resources.ApplyResources(this.HiddenBox, "HiddenBox");
+            this.HiddenBox.Name = "HiddenBox";
+            this.HiddenBox.UseVisualStyleBackColor = true;
+            // 
             // FirstMenu
             // 
             resources.ApplyResources(this, "$this");
@@ -370,6 +378,7 @@
         private System.Windows.Forms.Button btn_DBFind;
         private System.Windows.Forms.RadioButton radioButton6;
         private System.Windows.Forms.Label DBLocation;
+        private System.Windows.Forms.CheckBox HiddenBox;
     }
 }
 

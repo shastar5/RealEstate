@@ -162,7 +162,6 @@ namespace RealEstate
         private void panel6_Paint(object sender, PaintEventArgs e)
         {
         }
-
     }
 
 }

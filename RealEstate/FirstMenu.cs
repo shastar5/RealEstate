@@ -48,6 +48,18 @@ namespace RealEstate
                 + "sellPrice NUMERIC, payedPrice NUMERIC, yearPercent NUMERIC)";
             SQLiteCommand cmd = new SQLiteCommand(query, cn);
             cmd.ExecuteNonQuery();
+
+            try
+            {
+                query = "Create table if not exists info2 (id INTEGER  PRIMARY KEY autoincrement, buildingName varchar(2000), price NUMERIC, "
+                + "rental varchar(100), area NUMERIC, distanceToStation NUMERIC, monthlyIncome NUMERIC, yearlyIncome NUMERIC, roadWidth NUMERIC, isCorner Boolean)";
+                cmd = new SQLiteCommand(query, cn);
+                cmd.ExecuteNonQuery();
+            } catch(SQLiteException e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
             cn.Close();
 
         }
@@ -59,6 +71,16 @@ namespace RealEstate
             }
             else
             {
+                if(HiddenBox.Checked == true)
+                {
+                    ManagerView mv = new ManagerView();
+                    mv.Show();
+                }
+                else
+                {
+                    UserView uv = new UserView();
+                    uv.Show();
+                }
                 findtest findtest = new findtest();
                 findtest.setDBfile(DBFile);
             }

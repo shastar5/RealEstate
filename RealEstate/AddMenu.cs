@@ -11,7 +11,6 @@ namespace RealEstate
     public partial class AddMenu : Form, DBInterface
     {
         ShowPicture sp;
-
         //전체 보이는용 변수
         string DBFile;
         string addr;
@@ -42,12 +41,12 @@ namespace RealEstate
         double takeOverPrice;
         double yearPercent;
 
-
         String strConn;
         SQLiteConnection cn = new SQLiteConnection();
         SQLiteCommand cmd = new SQLiteCommand();
         SQLiteDataReader dr;
         SQLiteParameter picture;
+        DataGridView dgv;
 
         public void setDBfile(string DBFile) //DB파일위치 계승
         {
@@ -98,6 +97,7 @@ namespace RealEstate
         }
         private void saveData()
         {
+
             DBFile = "C:/Users/HUN/Desktop/DB.db";
 
             strConn = "Data Source=" + DBFile + "; Version=3;";
@@ -164,6 +164,36 @@ namespace RealEstate
             
         }
 
+
+        // DataGridView 설정
+        private void readDataGrid()
+        {
+            int i = 0, j = 0;
+            string DBFile;
+            string deskPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+
+            deskPath = deskPath.Replace("\\", "/"); //\\글자 /로 바꾸기
+            DBFile = deskPath + @"/DB.db";
+            strConn = "Data Source=" + DBFile + "; Version=3;";
+            cn.ConnectionString = strConn;
+            cn.Open();
+            SQLiteCommand sqlCMD;
+            sqlCMD = cn.CreateCommand();
+            sqlCMD.CommandText = "SELECT * FROM info2";
+            SQLiteDataReader sqlReader;
+            sqlReader = sqlCMD.ExecuteReader();
+            while(sqlReader.Read())
+            {
+                dgv.Rows.Add();
+                //dgv.Rows[i].Cells[j++].Value = sqlReader.Get;;
+
+                i++;
+            }
+
+
+            cn.Close();
+        }
+
         // 코멘트에 더하기
         private void AddComment(int idx, string content)
         {
@@ -199,7 +229,9 @@ namespace RealEstate
 
         private void AddMenu_Load(object sender, EventArgs e)
         {
+            dgv = ContentOfRentals;
 
+            readDataGrid();
         }
 
         private void panel4_Paint(object sender, PaintEventArgs e)
@@ -271,9 +303,12 @@ namespace RealEstate
             if(Sangga.Checked == true)
             {
                 panel6.Hide();
+                panel2.Visible = true;
+                panel2.Show();
             } else
             {
                 panel6.Show();
+                panel2.Hide();
             }
         }
 
@@ -284,6 +319,11 @@ namespace RealEstate
             {
                 e.Handled = true;
             }
+        }
+
+        private void AddMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
         }
     }
 }
