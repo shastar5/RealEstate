@@ -4,6 +4,7 @@ using System.Data.SQLite;
 
 namespace RealEstate
 {
+    //해야할것 라디오 버튼 매매 준비 이런거 상태 추가해야함
     public interface DBInterface
     {
         void setDBfile(String DBFile);
@@ -12,6 +13,8 @@ namespace RealEstate
     {
         ShowPicture sp;
         //전체 보이는용 변수
+        int type;
+        int state;
         string DBFile;
         string addr;
         string roadAddr;
@@ -98,26 +101,41 @@ namespace RealEstate
         private void saveData()
         {
 
-            DBFile = "C:/Users/HUN/Desktop/DB.db";
-
             strConn = "Data Source=" + DBFile + "; Version=3;";
             cn.ConnectionString = strConn;
             cn.Open();
-            string query = "Create table if not exists info1 (id INTEGER PRIMARY KEY, addr varchar(2000), roadAddr varchar(2000), "
-                + "area varchar(100), station varchar(100), useArea varchar(100), distance varchar(100), roadWidth varchar(100), "
-                + "totalArea varchar(100), completeYear varchar(100), parking varchar(100), acHeating varchar(100), EV varchar(100), "
-                + "buildingName varchar(100), owner varchar(100), tel varchar(100), meno varchar(100), deposit NUMERIC, income NUMERIC, loan NUMERIC, interest NUMERIC, takeOverPrice NUMERIC, "
-                + "sellPrice NUMERIC, payedPrice NUMERIC, yearPercent NUMERIC)";
-            query = "insert into info1(id, addr, roadAddr, area, station, useArea, distance, roadWidth, totalArea, completeYear,"
+            string query = "insert into info1(id, addr, roadAddr, area, station, useArea, distance, roadWidth, totalArea, completeYear,"
                 + " parking, acHeating, EV, buildingName, owner, tel, meno, deposit, income, loan, interest, takeOverPrice,"
-                + " sellPrice, payedPrice, yearPercent) values(null, '" + addr + "', '" + roadAddr + "', '" + area + "', '" + station + "', "
+                + " sellPrice, payedPrice, yearPercent, type, state) values(null, '" + addr + "', '" + roadAddr + "', '" + area + "', '" + station + "', "
                 + "'" + useArea + "', '" + distance + "', '" + roadWidth + "', '" + totalArea + "', '" + completeYear + "', '" + parking + "', "
                 + "'" + acHeating + "', '" + EV + "', '" + buildingName + "', '" + owner + "', '" + tel + "', '" + meno + "', " + deposit + ", "
-                + Income + ", " + loan + ", " + interest + ", " + takeOverPrice + ", " + sellPrice + ", " + payedPrice + ", " + yearPercent+ ")";
+                + Income + ", " + loan + ", " + interest + ", " + takeOverPrice + ", " + sellPrice + ", " + payedPrice + ", " + yearPercent+ ", " + type + ", " + state+ ")";
 
             SQLiteCommand cmd = new SQLiteCommand(query, cn);
             cmd.ExecuteNonQuery();
             cn.Close();
+        }
+        private void Tabs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Tab_control.SelectedTab == Page_prepare)
+            {
+                state = 1;
+            }
+
+            else if (Tab_control.SelectedTab == Page_complete)
+            {
+                state = 2;
+            }
+
+            else if (Tab_control.SelectedTab == Page_wait)
+            {
+                state = 3;
+            }
+
+            else if (Tab_control.SelectedTab == Page_sell)
+            {
+                state = 4;
+            }
         }
         void test()
         {
@@ -134,7 +152,7 @@ namespace RealEstate
             {
                 string a="";
                 int i;
-                for (i = 0; i < 25; i++)
+                for (i = 0; i < 27; i++)
                 {
                     a += rdr[i];
                 }
@@ -142,6 +160,7 @@ namespace RealEstate
             }
 
             rdr.Close();
+            cn.Close();
         }
         private void Btn_Save_Click(object sender, EventArgs e)
         {
@@ -154,6 +173,8 @@ namespace RealEstate
         public AddMenu()
         {
             InitializeComponent();
+            type = -1;
+            state = 1;
 
             listView1.View = View.Details;
             listView1.BeginUpdate();
@@ -234,10 +255,6 @@ namespace RealEstate
             readDataGrid();
         }
 
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
@@ -248,60 +265,39 @@ namespace RealEstate
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
+       
 
-        }
-
-        private void label19_Click(object sender, EventArgs e)
-        {
-            
-        }
+        
 
         private void listView2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void label36_Click(object sender, EventArgs e)
+        
+        
+
+        private void radioButton_CheckedChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void TB_Owner_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Dagagu_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Building_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SanggaHome_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void NewConstruction_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Sangga_CheckedChanged(object sender, EventArgs e)
-        {
-            if(Sangga.Checked == true)
+            if (Dagagu.Checked)
             {
+                type = 2;
+            }
+            else if (Building.Checked)
+            {
+                type = 3;
+            }
+            else if (SanggaHome.Checked)
+            {
+                type = 4;
+            }
+            else if (NewConstruction.Checked)
+            {
+                type = 5;
+            }
+            if (Sangga.Checked)
+            {
+                type = 6;
                 panel6.Hide();
                 panel2.Visible = true;
                 panel2.Show();

@@ -10,12 +10,12 @@ using System.Windows.Forms;
 using System.Data.SQLite;
 namespace RealEstate
 {
+  
     public interface FIndInterface
     {
-        void setValue(double sellPrice, double Income, double yearPercent, double takeOverPrice,
-            string distance, string addr, string roadwidth);
+        void setValue(Findvalue findvalue);
     }
-    public partial class findtest : Form, DBInterface
+    public partial class findtest : Form, DBInterface, FIndInterface
     {
         String strConn;
         SQLiteConnection cn = new SQLiteConnection();
@@ -23,16 +23,7 @@ namespace RealEstate
         SQLiteDataReader dr;
         SQLiteParameter picture;
 
-        int type;
-        int state;
-        double sellPrice;
-        double Income;
-        double yearPercent;
-        double takeOverPrice;
-        string distance;
-        string addr;
-        string roadwidth;
-
+        Findvalue findvalue = new Findvalue();
         string DBFile = "";
         public findtest()
         {
@@ -44,16 +35,24 @@ namespace RealEstate
         {
             this.DBFile = DBFile;
         }
-        public void setValue(int type, int state, double sellPrice, double Income, double yearPercent, double takeOverPrice,
-            string distance, string addr, string roadwidth)
+        public void setValue(Findvalue FV)
         {
-            this.sellPrice = sellPrice;
-            this.Income = Income;
-            this.yearPercent = yearPercent;
-            this.takeOverPrice = takeOverPrice;
-            this.distance = distance;
-            this.addr = addr;
-            this.roadwidth = roadwidth;
+            findvalue.type = FV.type;
+            findvalue.state = FV.state;
+            findvalue.sellPrice = FV.sellPrice;
+            findvalue.sellPriceSize = FV.sellPriceSize;
+            findvalue.Income = FV.Income;
+            findvalue.yearPercent = FV.yearPercent;
+            findvalue.yearPercentSize = FV.yearPercentSize;
+            findvalue.takeOverPrice = FV.takeOverPrice;
+            findvalue.distance = FV.distance;
+            findvalue.addr = FV.addr;
+            findvalue.roadwidth = FV.roadwidth;
+            findvalue.roadwidthSize = FV.roadwidthSize;
+            label1.Text = findvalue.type.ToString() + findvalue.state.ToString() + findvalue.sellPrice.ToString()
+                + findvalue.sellPriceSize.ToString() + findvalue.takeOverPrice.ToString() + findvalue.Income.ToString() + findvalue.yearPercent.ToString()
+                + findvalue.yearPercentSize.ToString()+ findvalue.distance.ToString()
+                + findvalue.addr.ToString() + findvalue.roadwidth.ToString() + findvalue.roadwidthSize.ToString();
         }
         private void showResult()
         {

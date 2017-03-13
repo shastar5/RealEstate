@@ -4,6 +4,22 @@ using System.Data.SQLite;
 
 namespace RealEstate
 {
+    public struct Findvalue
+    {
+        public int type;
+        public int state;
+        public double sellPrice;
+        public int sellPriceSize;
+        public double Income;
+        public double yearPercent;
+        public int yearPercentSize;
+        public double takeOverPrice;
+        public string distance;
+        public string addr;
+        public string roadwidth;
+        public int roadwidthSize;
+
+    }
     public partial class FirstMenu : Form
     {
         string DBFile;
@@ -11,18 +27,12 @@ namespace RealEstate
         SQLiteConnection cn = new SQLiteConnection();
         SQLiteCommand cmd = new SQLiteCommand();
 
-        int type = 0;
-        int state = 1;
-        double sellPrice;
-        double Income;
-        double yearPercent;
-        double takeOverPrice;
-        string distance;
-        string addr;
-        string roadwidth;
+        
 
         //로인창으로 옮겨야함 deskpath;
         String deskPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory); //바탕화면 경로 가져오기
+        Findvalue findvalues = new Findvalue();
+    
 
 
         public FirstMenu()
@@ -30,8 +40,13 @@ namespace RealEstate
 
             InitializeComponent();
 
-            // Set tab control click event listener
-            Init_탭컨트롤.SelectedIndexChanged += new EventHandler(Tabs_SelectedIndexChanged);
+            //findvalue 예외 처리를 위한 초기화
+            findvalues.type = -1;
+            findvalues.state = 1;
+            findvalues.roadwidthSize = -1;
+            findvalues.sellPriceSize = -1;
+            findvalues.yearPercentSize = -1;
+           
 
 
             //로그인 창 나오면 삭제해야함
@@ -41,11 +56,11 @@ namespace RealEstate
             strConn = "Data Source=" + DBFile + "; Version=3;";
             cn.ConnectionString = strConn;
             cn.Open();
-            string query = "Create table if not exists info1 (id INTEGER  PRIMARY KEY autoincrement, addr varchar(2000), roadAddr varchar(2000), "
+            string query = "Create table if not exists info1 (id INTEGER  PRIMARY KEY autoincrement, addr varchar(1000), roadAddr varchar(1000), "
                 + "area varchar(100), station varchar(100), useArea varchar(100), distance varchar(100), roadWidth varchar(100), "
                 + "totalArea varchar(100), completeYear varchar(100), parking varchar(100), acHeating varchar(100), EV varchar(100), "
                 + "buildingName varchar(100), owner varchar(100), tel varchar(100), meno varchar(100), deposit NUMERIC, income NUMERIC, loan NUMERIC, interest NUMERIC, takeOverPrice NUMERIC, "
-                + "sellPrice NUMERIC, payedPrice NUMERIC, yearPercent NUMERIC)";
+                + "sellPrice NUMERIC, payedPrice NUMERIC, yearPercent NUMERIC, type INTEGER, state INTEGER)";
             SQLiteCommand cmd = new SQLiteCommand(query, cn);
             cmd.ExecuteNonQuery();
 
@@ -63,9 +78,28 @@ namespace RealEstate
             cn.Close();
 
         }
+
+        private void setData()
+        {
+            findvalues.sellPrice = checkNulls(TB_SellPrice.Text.ToString());
+            findvalues.takeOverPrice = checkNulls(TB_TakeOverPrice.Text.ToString());
+            findvalues.Income = checkNulls(TB_Income.Text.ToString());
+            findvalues.yearPercent = checkNulls(TB_YearPercent.Text.ToString());
+            findvalues.distance = TB_Distance.Text.ToString();
+            findvalues.addr = TB_Addr.Text.ToString();
+            findvalues.roadwidth = TB_RoadWidth.Text.ToString();
+        }
+        private double checkNulls(string num)
+        {
+            num.Trim(); //공백 제거
+            if (num.Equals(""))
+                return -9999; //빈값 처리
+            return double.Parse(num);
+        }
         private void btn_find_Click(object sender, EventArgs e)
         {
-            if (type == 0)
+          
+            if (findvalues.type == -1)
             {
                 MessageBox.Show("찾을 건물 종류를 선택해주세요");
             }
@@ -81,8 +115,12 @@ namespace RealEstate
                     UserView uv = new UserView();
                     uv.Show();
                 }
+                setData();
                 findtest findtest = new findtest();
                 findtest.setDBfile(DBFile);
+                findtest.setValue(findvalues);
+                findtest.Show();
+                
             }
 
         }
@@ -94,61 +132,57 @@ namespace RealEstate
         // This is linked click event listener
         private void Tabs_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (Init_탭컨트롤.SelectedTab == Page_준비)
+            if (Tab_control.SelectedTab == Page_prepare)
             {
-                state = 1;
+                findvalues.state = 1;
             }
 
-            else if (Init_탭컨트롤.SelectedTab == Page_완료)
+            else if (Tab_control.SelectedTab == Page_complete)
             {
-                state = 2;
+                findvalues.state = 2;
             }
 
-            else if (Init_탭컨트롤.SelectedTab == Page_보류)
+            else if (Tab_control.SelectedTab == Page_wait)
             {
-                state = 3;
+                findvalues.state = 3;
             }
 
-            else if (Init_탭컨트롤.SelectedTab == Page_매매)
+            else if (Tab_control.SelectedTab == Page_sell)
             {
-                state = 4;
+                findvalues.state = 4;
             }
         }
 
        
-        public Boolean getSangga(object sender, EventArgs e)
-        {
-            return false;
-        }
 
-        /*
-         * 라디오버튼 체크 리스너
-         */
+
+        //라디오버튼 체크 리스너
+        
         private void radioButton_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButton1.Checked)
             {
-                type = 1;
+                findvalues.type = 1;
             }
             else if (radioButton2.Checked)
             {
-                type = 2;
+                findvalues.type = 2;
             }
             else if (radioButton3.Checked)
             {
-                type = 3;
+                findvalues.type = 3;
             }
             else if (radioButton4.Checked)
             {
-                type = 4;
+                findvalues.type = 4;
             }
             else if (radioButton5.Checked)
             {
-                type = 5;
+                findvalues.type = 5;
             }
             else if(radioButton6.Checked)
             {
-                type = 6;
+                findvalues.type = 6;
             }
         }
 
@@ -179,11 +213,11 @@ namespace RealEstate
                     strConn = "Data Source=" + DBFile + "; Version=3;";
                     cn.ConnectionString = strConn;
                     cn.Open();
-                    string query = "Create table if not exists info1 (id INTEGER  PRIMARY KEY autoincrement, addr varchar(2000), roadAddr varchar(2000), "
+                    string query = "Create table if not exists info1 (id INTEGER  PRIMARY KEY autoincrement, addr varchar(1000), roadAddr varchar(1000), "
                         + "area varchar(100), station varchar(100), useArea varchar(100), distance varchar(100), roadWidth varchar(100), "
                         + "totalArea varchar(100), completeYear varchar(100), parking varchar(100), acHeating varchar(100), EV varchar(100), "
                         + "buildingName varchar(100), owner varchar(100), tel varchar(100), meno varchar(100), deposit NUMERIC, income NUMERIC, loan NUMERIC, interest NUMERIC, takeOverPrice NUMERIC, "
-                        + "sellPrice NUMERIC, payedPrice NUMERIC, yearPercent NUMERIC)";
+                        + "sellPrice NUMERIC, payedPrice NUMERIC, yearPercent NUMERIC, type INTEGER, state INTEGER)";
                     SQLiteCommand cmd = new SQLiteCommand(query, cn);
                     cmd.ExecuteNonQuery();
                     cn.Close();
@@ -196,11 +230,42 @@ namespace RealEstate
             
         }
 
-        
+        //이상 미만 선택 리스너
+        private void CB_sellPrice_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(CB_sellPrice.SelectedIndex == 0)
+            {
+                findvalues.sellPriceSize = 0;
+            }
+            else if(CB_sellPrice.SelectedIndex == 1)
+            {
+                findvalues.sellPriceSize = 1;
+            }
+        }
 
-  
+        private void CB_YearPercent_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CB_YearPercent.SelectedIndex == 0)
+            {
+                findvalues.yearPercentSize = 0;
+            }
+            else if (CB_YearPercent.SelectedIndex == 1)
+            {
+                findvalues.yearPercentSize = 1;
+            }
+        }
 
-       
+        private void CB_RoadWidth_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CB_RoadWidth.SelectedIndex == 0)
+            {
+                findvalues.roadwidthSize = 0;
+            }
+            else if (CB_RoadWidth.SelectedIndex == 1)
+            {
+                findvalues.roadwidthSize = 1;
+            }
+        }
     }
 
 }

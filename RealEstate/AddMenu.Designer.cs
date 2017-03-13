@@ -94,11 +94,11 @@
             this.label41 = new System.Windows.Forms.Label();
             this.Btn_Save = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.Init_탭컨트롤 = new System.Windows.Forms.TabControl();
-            this.Page_준비 = new System.Windows.Forms.TabPage();
-            this.Page_완료 = new System.Windows.Forms.TabPage();
-            this.Page_보류 = new System.Windows.Forms.TabPage();
-            this.Page_매매 = new System.Windows.Forms.TabPage();
+            this.Tab_control = new System.Windows.Forms.TabControl();
+            this.Page_prepare = new System.Windows.Forms.TabPage();
+            this.Page_complete = new System.Windows.Forms.TabPage();
+            this.Page_wait = new System.Windows.Forms.TabPage();
+            this.Page_sell = new System.Windows.Forms.TabPage();
             this.NewConstruction = new System.Windows.Forms.RadioButton();
             this.SanggaHome = new System.Windows.Forms.RadioButton();
             this.Building = new System.Windows.Forms.RadioButton();
@@ -134,9 +134,7 @@
             this.panel6.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.Init_탭컨트롤.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ContentOfRentals)).BeginInit();
+            this.Tab_control.SuspendLayout();
             this.SuspendLayout();
             // 
             // TB_RoadWidth
@@ -215,7 +213,6 @@
             this.TB_Addr.Name = "TB_Addr";
             this.TB_Addr.Size = new System.Drawing.Size(274, 27);
             this.TB_Addr.TabIndex = 0;
-            this.TB_Addr.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label5
             // 
@@ -426,7 +423,6 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(384, 265);
             this.panel6.TabIndex = 19;
-            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
             // TB_YearPercent
             // 
@@ -516,6 +512,16 @@
             this.label18.Size = new System.Drawing.Size(68, 21);
             this.label18.TabIndex = 0;
             this.label18.Text = "보증금 :";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label19.Location = new System.Drawing.Point(12, 36);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(68, 21);
+            this.label19.TabIndex = 1;
+            this.label19.Text = "월수입 :";
             // 
             // label20
             // 
@@ -650,7 +656,6 @@
             this.label19.Size = new System.Drawing.Size(68, 21);
             this.label19.TabIndex = 1;
             this.label19.Text = "월수입 :";
-            this.label19.Click += new System.EventHandler(this.label19_Click);
             // 
             // TB_Income
             // 
@@ -670,7 +675,6 @@
             this.label36.Size = new System.Drawing.Size(68, 21);
             this.label36.TabIndex = 6;
             this.label36.Text = "소유주 :";
-            this.label36.Click += new System.EventHandler(this.label36_Click);
             // 
             // TB_Owner
             // 
@@ -679,7 +683,6 @@
             this.TB_Owner.Name = "TB_Owner";
             this.TB_Owner.Size = new System.Drawing.Size(202, 27);
             this.TB_Owner.TabIndex = 16;
-            this.TB_Owner.TextChanged += new System.EventHandler(this.TB_Owner_TextChanged);
             // 
             // label37
             // 
@@ -774,64 +777,65 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
-            // Init_탭컨트롤
+            // Tab_control
             // 
-            this.Init_탭컨트롤.Alignment = System.Windows.Forms.TabAlignment.Right;
-            this.Init_탭컨트롤.Controls.Add(this.Page_준비);
-            this.Init_탭컨트롤.Controls.Add(this.Page_완료);
-            this.Init_탭컨트롤.Controls.Add(this.Page_보류);
-            this.Init_탭컨트롤.Controls.Add(this.Page_매매);
-            this.Init_탭컨트롤.Font = new System.Drawing.Font("맑은 고딕", 9.75F);
-            this.Init_탭컨트롤.HotTrack = true;
-            this.Init_탭컨트롤.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.Init_탭컨트롤.ItemSize = new System.Drawing.Size(90, 30);
-            this.Init_탭컨트롤.Location = new System.Drawing.Point(866, 15);
-            this.Init_탭컨트롤.Multiline = true;
-            this.Init_탭컨트롤.Name = "Init_탭컨트롤";
-            this.Init_탭컨트롤.SelectedIndex = 0;
-            this.Init_탭컨트롤.Size = new System.Drawing.Size(36, 200);
-            this.Init_탭컨트롤.TabIndex = 28;
+            this.Tab_control.Alignment = System.Windows.Forms.TabAlignment.Right;
+            this.Tab_control.Controls.Add(this.Page_prepare);
+            this.Tab_control.Controls.Add(this.Page_complete);
+            this.Tab_control.Controls.Add(this.Page_wait);
+            this.Tab_control.Controls.Add(this.Page_sell);
+            this.Tab_control.Font = new System.Drawing.Font("맑은 고딕", 9.75F);
+            this.Tab_control.HotTrack = true;
+            this.Tab_control.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.Tab_control.ItemSize = new System.Drawing.Size(90, 30);
+            this.Tab_control.Location = new System.Drawing.Point(866, 15);
+            this.Tab_control.Multiline = true;
+            this.Tab_control.Name = "Tab_control";
+            this.Tab_control.SelectedIndex = 0;
+            this.Tab_control.Size = new System.Drawing.Size(36, 200);
+            this.Tab_control.TabIndex = 28;
+            this.Tab_control.SelectedIndexChanged += new System.EventHandler(this.Tabs_SelectedIndexChanged);
             // 
-            // Page_준비
+            // Page_prepare
             // 
-            this.Page_준비.Font = new System.Drawing.Font("맑은 고딕", 9.75F);
-            this.Page_준비.Location = new System.Drawing.Point(4, 4);
-            this.Page_준비.Name = "Page_준비";
-            this.Page_준비.Padding = new System.Windows.Forms.Padding(3);
-            this.Page_준비.Size = new System.Drawing.Size(0, 192);
-            this.Page_준비.TabIndex = 0;
-            this.Page_준비.Text = "준비";
-            this.Page_준비.UseVisualStyleBackColor = true;
+            this.Page_prepare.Font = new System.Drawing.Font("맑은 고딕", 9.75F);
+            this.Page_prepare.Location = new System.Drawing.Point(4, 4);
+            this.Page_prepare.Name = "Page_prepare";
+            this.Page_prepare.Padding = new System.Windows.Forms.Padding(3);
+            this.Page_prepare.Size = new System.Drawing.Size(0, 192);
+            this.Page_prepare.TabIndex = 0;
+            this.Page_prepare.Text = "준비";
+            this.Page_prepare.UseVisualStyleBackColor = true;
             // 
-            // Page_완료
+            // Page_complete
             // 
-            this.Page_완료.Location = new System.Drawing.Point(4, 4);
-            this.Page_완료.Name = "Page_완료";
-            this.Page_완료.Padding = new System.Windows.Forms.Padding(3);
-            this.Page_완료.Size = new System.Drawing.Size(0, 192);
-            this.Page_완료.TabIndex = 1;
-            this.Page_완료.Text = "완료";
-            this.Page_완료.UseVisualStyleBackColor = true;
+            this.Page_complete.Location = new System.Drawing.Point(4, 4);
+            this.Page_complete.Name = "Page_complete";
+            this.Page_complete.Padding = new System.Windows.Forms.Padding(3);
+            this.Page_complete.Size = new System.Drawing.Size(0, 192);
+            this.Page_complete.TabIndex = 1;
+            this.Page_complete.Text = "완료";
+            this.Page_complete.UseVisualStyleBackColor = true;
             // 
-            // Page_보류
+            // Page_wait
             // 
-            this.Page_보류.Location = new System.Drawing.Point(4, 4);
-            this.Page_보류.Name = "Page_보류";
-            this.Page_보류.Padding = new System.Windows.Forms.Padding(3);
-            this.Page_보류.Size = new System.Drawing.Size(0, 192);
-            this.Page_보류.TabIndex = 2;
-            this.Page_보류.Text = "보류";
-            this.Page_보류.UseVisualStyleBackColor = true;
+            this.Page_wait.Location = new System.Drawing.Point(4, 4);
+            this.Page_wait.Name = "Page_wait";
+            this.Page_wait.Padding = new System.Windows.Forms.Padding(3);
+            this.Page_wait.Size = new System.Drawing.Size(0, 192);
+            this.Page_wait.TabIndex = 2;
+            this.Page_wait.Text = "보류";
+            this.Page_wait.UseVisualStyleBackColor = true;
             // 
-            // Page_매매
+            // Page_sell
             // 
-            this.Page_매매.Location = new System.Drawing.Point(4, 4);
-            this.Page_매매.Name = "Page_매매";
-            this.Page_매매.Padding = new System.Windows.Forms.Padding(3);
-            this.Page_매매.Size = new System.Drawing.Size(0, 192);
-            this.Page_매매.TabIndex = 3;
-            this.Page_매매.Text = "매매";
-            this.Page_매매.UseVisualStyleBackColor = true;
+            this.Page_sell.Location = new System.Drawing.Point(4, 4);
+            this.Page_sell.Name = "Page_sell";
+            this.Page_sell.Padding = new System.Windows.Forms.Padding(3);
+            this.Page_sell.Size = new System.Drawing.Size(0, 192);
+            this.Page_sell.TabIndex = 3;
+            this.Page_sell.Text = "매매";
+            this.Page_sell.UseVisualStyleBackColor = true;
             // 
             // NewConstruction
             // 
@@ -844,7 +848,7 @@
             this.NewConstruction.TabStop = true;
             this.NewConstruction.Text = "신축부지";
             this.NewConstruction.UseVisualStyleBackColor = true;
-            this.NewConstruction.CheckedChanged += new System.EventHandler(this.NewConstruction_CheckedChanged);
+            this.NewConstruction.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
             // SanggaHome
             // 
@@ -857,7 +861,7 @@
             this.SanggaHome.TabStop = true;
             this.SanggaHome.Text = "상가주택";
             this.SanggaHome.UseVisualStyleBackColor = true;
-            this.SanggaHome.CheckedChanged += new System.EventHandler(this.SanggaHome_CheckedChanged);
+            this.SanggaHome.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
             // Building
             // 
@@ -870,7 +874,7 @@
             this.Building.TabStop = true;
             this.Building.Text = "빌딩";
             this.Building.UseVisualStyleBackColor = true;
-            this.Building.CheckedChanged += new System.EventHandler(this.Building_CheckedChanged);
+            this.Building.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
             // Dagagu
             // 
@@ -883,7 +887,7 @@
             this.Dagagu.TabStop = true;
             this.Dagagu.Text = "다가구";
             this.Dagagu.UseVisualStyleBackColor = true;
-            this.Dagagu.CheckedChanged += new System.EventHandler(this.Dagagu_CheckedChanged);
+            this.Dagagu.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
             // Sangga
             // 
@@ -896,7 +900,7 @@
             this.Sangga.TabStop = true;
             this.Sangga.Text = "상가";
             this.Sangga.UseVisualStyleBackColor = true;
-            this.Sangga.CheckedChanged += new System.EventHandler(this.Sangga_CheckedChanged);
+            this.Sangga.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
             // TB_BuildName
             // 
@@ -935,7 +939,6 @@
             this.panel2.Size = new System.Drawing.Size(384, 125);
             this.panel2.TabIndex = 19;
             this.panel2.Visible = false;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
             // label7
             // 
@@ -996,7 +999,6 @@
             this.label45.Size = new System.Drawing.Size(68, 21);
             this.label45.TabIndex = 1;
             this.label45.Text = "월수입 :";
-            this.label45.Click += new System.EventHandler(this.label19_Click);
             // 
             // label46
             // 
@@ -1135,7 +1137,7 @@
             this.Controls.Add(this.TB_BuildName);
             this.Controls.Add(this.label26);
             this.Controls.Add(this.Sangga);
-            this.Controls.Add(this.Init_탭컨트롤);
+            this.Controls.Add(this.Tab_control);
             this.Controls.Add(this.NewConstruction);
             this.Controls.Add(this.SanggaHome);
             this.Controls.Add(this.Building);
@@ -1190,10 +1192,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.Init_탭컨트롤.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ContentOfRentals)).EndInit();
+
+            this.Tab_control.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1266,11 +1266,11 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ColumnHeader 번호;
         private System.Windows.Forms.ColumnHeader 내용;
-        private System.Windows.Forms.TabControl Init_탭컨트롤;
-        private System.Windows.Forms.TabPage Page_준비;
-        private System.Windows.Forms.TabPage Page_완료;
-        private System.Windows.Forms.TabPage Page_보류;
-        private System.Windows.Forms.TabPage Page_매매;
+        private System.Windows.Forms.TabControl Tab_control;
+        private System.Windows.Forms.TabPage Page_prepare;
+        private System.Windows.Forms.TabPage Page_complete;
+        private System.Windows.Forms.TabPage Page_wait;
+        private System.Windows.Forms.TabPage Page_sell;
         private System.Windows.Forms.RadioButton NewConstruction;
         private System.Windows.Forms.RadioButton SanggaHome;
         private System.Windows.Forms.RadioButton Building;
