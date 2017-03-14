@@ -67,10 +67,10 @@ namespace RealEstate
             addr = TB_Addr.Text.ToString();
             roadAddr = TB_RoadAddr.Text.ToString();
             area = TB_Area.Text.ToString();
-            station = TB_Station.Text.ToString();
+            station = TB_Distance.Text.ToString();
             useArea = TB_UseDistrict.Text.ToString();
             
-            distance = checkNulls(TB_Distance.Text.ToString());
+            distance = checkNulls(TB_Station.Text.ToString());
             roadWidth = checkNulls(TB_RoadWidth.Text.ToString());
 
             totalArea = TB_TotalArea.Text.ToString();

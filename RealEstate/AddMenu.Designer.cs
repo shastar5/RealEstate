@@ -30,10 +30,10 @@
         {
             this.TB_RoadWidth = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.TB_Distance = new System.Windows.Forms.TextBox();
+            this.TB_Station = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.TB_UseDistrict = new System.Windows.Forms.TextBox();
-            this.TB_Station = new System.Windows.Forms.TextBox();
+            this.TB_Distance = new System.Windows.Forms.TextBox();
             this.TB_RoadAddr = new System.Windows.Forms.TextBox();
             this.TB_Area = new System.Windows.Forms.TextBox();
             this.TB_Addr = new System.Windows.Forms.TextBox();
@@ -157,15 +157,15 @@
             this.label9.TabIndex = 15;
             this.label9.Text = "도로너비 :";
             // 
-            // TB_Distance
+            // TB_Station
             // 
-            this.TB_Distance.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.TB_Distance.ImeMode = System.Windows.Forms.ImeMode.Hangul;
-            this.TB_Distance.Location = new System.Drawing.Point(122, 191);
-            this.TB_Distance.Name = "TB_Distance";
-            this.TB_Distance.Size = new System.Drawing.Size(90, 27);
-            this.TB_Distance.TabIndex = 7;
-            this.TB_Distance.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
+            this.TB_Station.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TB_Station.ImeMode = System.Windows.Forms.ImeMode.Hangul;
+            this.TB_Station.Location = new System.Drawing.Point(122, 191);
+            this.TB_Station.Name = "TB_Station";
+            this.TB_Station.Size = new System.Drawing.Size(90, 27);
+            this.TB_Station.TabIndex = 7;
+            this.TB_Station.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // label8
             // 
@@ -186,14 +186,14 @@
             this.TB_UseDistrict.Size = new System.Drawing.Size(90, 27);
             this.TB_UseDistrict.TabIndex = 4;
             // 
-            // TB_Station
+            // TB_Distance
             // 
-            this.TB_Station.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.TB_Station.ImeMode = System.Windows.Forms.ImeMode.Hangul;
-            this.TB_Station.Location = new System.Drawing.Point(122, 163);
-            this.TB_Station.Name = "TB_Station";
-            this.TB_Station.Size = new System.Drawing.Size(90, 27);
-            this.TB_Station.TabIndex = 3;
+            this.TB_Distance.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TB_Distance.ImeMode = System.Windows.Forms.ImeMode.Hangul;
+            this.TB_Distance.Location = new System.Drawing.Point(122, 163);
+            this.TB_Distance.Name = "TB_Distance";
+            this.TB_Distance.Size = new System.Drawing.Size(90, 27);
+            this.TB_Distance.TabIndex = 3;
             // 
             // TB_RoadAddr
             // 
@@ -1171,7 +1171,7 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.TB_Tel);
             this.Controls.Add(this.TB_AC_Heating);
-            this.Controls.Add(this.TB_Distance);
+            this.Controls.Add(this.TB_Station);
             this.Controls.Add(this.label37);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label13);
@@ -1184,7 +1184,7 @@
             this.Controls.Add(this.TB_CompleteYear);
             this.Controls.Add(this.TB_UseDistrict);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.TB_Station);
+            this.Controls.Add(this.TB_Distance);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.TB_RoadAddr);
             this.Controls.Add(this.label3);
@@ -1221,13 +1221,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TB_UseDistrict;
-        private System.Windows.Forms.TextBox TB_Station;
+        private System.Windows.Forms.TextBox TB_Distance;
         private System.Windows.Forms.TextBox TB_RoadAddr;
         private System.Windows.Forms.TextBox TB_Area;
         private System.Windows.Forms.TextBox TB_Addr;
         private System.Windows.Forms.TextBox TB_RoadWidth;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox TB_Distance;
+        private System.Windows.Forms.TextBox TB_Station;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox TB_TotalArea;
         private System.Windows.Forms.TextBox TB_EV;

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Data.SQLite;
-
 namespace RealEstate
 {
     public interface IdInterface
@@ -124,8 +123,14 @@ namespace RealEstate
                 TB_Area.Text = rdr[3].ToString();
                 TB_Station.Text = rdr[4].ToString();
                 TB_UseDistrict.Text = rdr[5].ToString();
-                TB_Distance.Text = rdr[6].ToString();
-                TB_RoadWidth.Text = rdr[7].ToString();
+                if (rdr[6].ToString().Equals("-9999"))
+                    TB_Distance.Text = "";
+                else
+                    TB_Distance.Text = rdr[6].ToString();
+                if (rdr[7].ToString().Equals("-9999"))
+                    TB_RoadWidth.Text = "";
+                else
+                    TB_RoadWidth.Text = rdr[7].ToString();
                 TB_TotalArea.Text = rdr[8].ToString();
                 TB_CompleteYear.Text = rdr[9].ToString();
                 TB_Parking.Text = rdr[10].ToString();
@@ -135,16 +140,53 @@ namespace RealEstate
                 TB_Owner.Text = rdr[14].ToString();
                 TB_Tel.Text = rdr[15].ToString();
                 TB_Memo.Text = rdr[16].ToString();
-                TB_Deposit.Text = rdr[17].ToString();
-                TB_Income.Text = rdr[18].ToString();
-                TB_Income2.Text = rdr[18].ToString();
-                TB_Loan.Text = rdr[19].ToString();
-                TB_Interest.Text = rdr[20].ToString();
-                TB_TakeOverPrice.Text = rdr[21].ToString();
 
-                TB_SellPrice.Text = rdr[22].ToString();
-                TB_PayedPrice.Text = rdr[23].ToString();
-                TB_YearPercent.Text = rdr[24].ToString();
+                if (rdr[17].ToString().Equals("-9999"))
+                    TB_Deposit.Text = "";
+                else
+                    TB_Deposit.Text = rdr[17].ToString();
+                
+                if (rdr[18].ToString().Equals("-9999"))
+                {
+                    TB_Income.Text = "";
+                    TB_Income2.Text = "";
+                }
+                else
+                {
+                    TB_Income.Text = rdr[18].ToString();
+                    TB_Income2.Text = rdr[18].ToString();
+                }
+
+                if (rdr[19].ToString().Equals("-9999"))
+                    TB_Loan.Text = "";
+                else
+                    TB_Loan.Text = rdr[19].ToString();
+
+                if (rdr[20].ToString().Equals("-9999"))
+                    TB_Interest.Text = "";
+                else
+                    TB_Interest.Text = rdr[20].ToString();
+
+                if (rdr[21].ToString().Equals("-9999"))
+                    TB_TakeOverPrice.Text = "";
+                else
+                    TB_TakeOverPrice.Text = rdr[21].ToString();
+
+                if (rdr[22].ToString().Equals("-9999"))
+                    TB_SellPrice.Text = "";
+                else
+                    TB_SellPrice.Text = rdr[22].ToString();
+
+                if (rdr[23].ToString().Equals("-9999"))
+                    TB_PayedPrice.Text = "";
+                else
+                    TB_PayedPrice.Text = rdr[23].ToString();
+
+                if (rdr[24].ToString().Equals("-9999"))
+                    TB_YearPercent.Text = "";
+                else
+                    TB_YearPercent.Text = rdr[24].ToString();
+
                 type = int.Parse(rdr[25].ToString());
 
                 panel6.Show();
@@ -187,9 +229,21 @@ namespace RealEstate
                         break;
                     
                 }
-                TB_Premium.Text = rdr[27].ToString();
-                TB_MonthlyPay.Text = rdr[28].ToString();
-                TB_Maintenance.Text = rdr[29].ToString();
+                if (rdr[27].ToString().Equals("-9999"))
+                    TB_Premium.Text = "";
+                else
+                    TB_Premium.Text = rdr[27].ToString();
+
+                if (rdr[28].ToString().Equals("-9999"))
+                    TB_MonthlyPay.Text = "";
+                else
+                    TB_MonthlyPay.Text = rdr[28].ToString();
+
+                if (rdr[29].ToString().Equals("-9999"))
+                    TB_Maintenance.Text = "";
+                else
+                    TB_Maintenance.Text = rdr[29].ToString();
+
                 isCorner = int.Parse(rdr[30].ToString());
                 if(isCorner==0)
                 {
@@ -257,7 +311,80 @@ namespace RealEstate
                 return -9999; //빈값 처리
             return double.Parse(num);
         }
-        private void radioButton_CheckedChanged(object sender, EventArgs e)
+
+        private void saveData()
+        {
+
+            strConn = "Data Source=" + DBFile + "; Version=3;";
+            cn.ConnectionString = strConn;
+            cn.Open();
+
+            SQLiteCommand cmd = new SQLiteCommand(cn);
+            cmd.CommandText =
+                "update info1 SET addr = @Addr , roadAddr = @RoadAddr, area = @Area, station = @Station, useArea = @UseArea, distance = @Distance, "
+                 + "roadWidth = @RoadWidth, totalArea = @TotalArea, completeYear = @CompleteYear, parking = @Parking, acHeating = @AcHeating, EV = @EV, "
+                 + "buildingName = @BuildingName, owner = @Owner, tel = @Tel, meno = @Meno, deposit = @Deposit, income = @Income, loan = @Loan, "
+                 + "interest = @Interest, takeOverPrice = @TakeOverPrice, sellPrice = @SellPrice, payedPrice = @PayedPrice, yearPercent = @YearPercent, "
+                 + "type = @Type, state = @State, premium = @Premium, monthlyPay = @MonthlyPay, maintenance = @Maintenance, isCorner = @IsCorner where id  = " + id;
+            cmd.Parameters.Add(new SQLiteParameter("@Addr") {Value = addr});
+            cmd.Parameters.Add(new SQLiteParameter("@RoadAddr") { Value = roadAddr });
+            cmd.Parameters.Add(new SQLiteParameter("@Area") {Value = area});
+            cmd.Parameters.Add(new SQLiteParameter("@Station") {Value = station});
+            cmd.Parameters.Add(new SQLiteParameter("@UseArea") {Value = useArea});
+            
+            cmd.Parameters.Add(new SQLiteParameter("@Distance") {Value = distance});
+            cmd.Parameters.Add(new SQLiteParameter("@RoadWidth") {Value = roadWidth});
+            cmd.Parameters.Add(new SQLiteParameter("@TotalArea") {Value = totalArea});
+            cmd.Parameters.Add(new SQLiteParameter("@CompleteYear") {Value = completeYear});
+            cmd.Parameters.Add(new SQLiteParameter("@Parking") {Value = parking});
+            cmd.Parameters.Add(new SQLiteParameter("@AcHeating") {Value = acHeating});
+            cmd.Parameters.Add(new SQLiteParameter("@EV") {Value = EV});
+            cmd.Parameters.Add(new SQLiteParameter("@BuildingName") { Value = buildingName });
+
+            cmd.Parameters.Add(new SQLiteParameter("@Owner") {Value = owner});
+            cmd.Parameters.Add(new SQLiteParameter("@Tel") {Value = tel});
+            cmd.Parameters.Add(new SQLiteParameter("@Meno") {Value = meno});
+            cmd.Parameters.Add(new SQLiteParameter("@Deposit") {Value = deposit});
+            cmd.Parameters.Add(new SQLiteParameter("@Income") {Value = Income});
+            cmd.Parameters.Add(new SQLiteParameter("@Loan") {Value = loan});
+            cmd.Parameters.Add(new SQLiteParameter("@Interest") {Value = interest});
+            cmd.Parameters.Add(new SQLiteParameter("@TakeOverPrice") {Value = takeOverPrice});
+            cmd.Parameters.Add(new SQLiteParameter("@SellPrice") {Value = sellPrice});
+            cmd.Parameters.Add(new SQLiteParameter("@PayedPrice") {Value = payedPrice});
+            cmd.Parameters.Add(new SQLiteParameter("@YearPercent") {Value = yearPercent});
+            cmd.Parameters.Add(new SQLiteParameter("@Type") {Value = type});
+            cmd.Parameters.Add(new SQLiteParameter("@State") {Value = state});
+            cmd.Parameters.Add(new SQLiteParameter("@Premium") {Value = premium});
+            cmd.Parameters.Add(new SQLiteParameter("@MonthlyPay") {Value = monthlyPay});
+            cmd.Parameters.Add(new SQLiteParameter("@Maintenance") {Value = maintenance});
+            cmd.Parameters.Add(new SQLiteParameter("@IsCorner") {Value = isCorner});
+
+            cmd.ExecuteNonQuery();
+            cn.Close();
+        }
+        private void Tabs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Tab_control.SelectedTab == Page_prepare)
+            {
+                state = 1;
+            }
+
+            else if (Tab_control.SelectedTab == Page_complete)
+            {
+                state = 2;
+            }
+
+            else if (Tab_control.SelectedTab == Page_wait)
+            {
+                state = 3;
+            }
+
+            else if (Tab_control.SelectedTab == Page_sell)
+            {
+                state = 4;
+            }
+        }
+            private void radioButton_CheckedChanged(object sender, EventArgs e)
         {
             if (Dagagu.Checked)
             {
@@ -323,6 +450,12 @@ namespace RealEstate
         private void ManagerView_Load(object sender, EventArgs e)
         {
             readData();
+        }
+
+        private void SaveData_Click(object sender, EventArgs e)
+        {
+            setData();
+            saveData();
         }
     }
 
