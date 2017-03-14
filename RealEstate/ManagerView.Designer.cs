@@ -35,7 +35,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.listView3 = new System.Windows.Forms.ListView();
             this.label40 = new System.Windows.Forms.Label();
-            this.listView2 = new System.Windows.Forms.ListView();
             this.TB_Memo = new System.Windows.Forms.TextBox();
             this.label38 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -96,10 +95,19 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.ContentOfRentals = new System.Windows.Forms.DataGridView();
+            this.floor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.floor_area = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.storeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.storeDeposit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.monthlyIncome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.managementPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.etc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ContentOfRentals)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -120,7 +128,6 @@
             this.SaveData.TabIndex = 109;
             this.SaveData.Text = "저장";
             this.SaveData.UseVisualStyleBackColor = true;
-            this.SaveData.Click += new System.EventHandler(this.SaveData_Click);
             // 
             // listView1
             // 
@@ -164,14 +171,6 @@
             this.label40.Size = new System.Drawing.Size(29, 12);
             this.label40.TabIndex = 0;
             this.label40.Text = "메모";
-            // 
-            // listView2
-            // 
-            this.listView2.Location = new System.Drawing.Point(403, 209);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(461, 316);
-            this.listView2.TabIndex = 110;
-            this.listView2.UseCompatibleStateImageBehavior = false;
             // 
             // TB_Memo
             // 
@@ -221,7 +220,6 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(384, 265);
             this.panel6.TabIndex = 76;
-            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
             // TB_YearPercent
             // 
@@ -430,7 +428,6 @@
             this.TB_Deposit.Name = "TB_Deposit";
             this.TB_Deposit.Size = new System.Drawing.Size(202, 27);
             this.TB_Deposit.TabIndex = 7;
-            this.TB_Deposit.TextChanged += new System.EventHandler(this.TB_Deposit_TextChanged);
             // 
             // TB_Income
             // 
@@ -485,7 +482,6 @@
             this.label15.Size = new System.Drawing.Size(74, 21);
             this.label15.TabIndex = 96;
             this.label15.Text = "냉/난방 :";
-            this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
             // TB_Owner
             // 
@@ -504,7 +500,6 @@
             this.label13.Size = new System.Drawing.Size(84, 21);
             this.label13.TabIndex = 75;
             this.label13.Text = "준공연도 :";
-            this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
             // TB_Parking
             // 
@@ -513,7 +508,6 @@
             this.TB_Parking.Name = "TB_Parking";
             this.TB_Parking.Size = new System.Drawing.Size(80, 27);
             this.TB_Parking.TabIndex = 93;
-            this.TB_Parking.TextChanged += new System.EventHandler(this.TB_Parking_TextChanged);
             // 
             // panel3
             // 
@@ -543,7 +537,6 @@
             this.label14.Size = new System.Drawing.Size(84, 21);
             this.label14.TabIndex = 78;
             this.label14.Text = "주차방식 :";
-            this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
             // TB_CompleteYear
             // 
@@ -552,7 +545,6 @@
             this.TB_CompleteYear.Name = "TB_CompleteYear";
             this.TB_CompleteYear.Size = new System.Drawing.Size(80, 27);
             this.TB_CompleteYear.TabIndex = 89;
-            this.TB_CompleteYear.TextChanged += new System.EventHandler(this.TB_CompleteYear_TextChanged);
             // 
             // TB_UseDistrict
             // 
@@ -602,7 +594,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(156, 176);
             this.pictureBox1.TabIndex = 111;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // TB_RoadWidth
             // 
@@ -611,7 +602,6 @@
             this.TB_RoadWidth.Name = "TB_RoadWidth";
             this.TB_RoadWidth.Size = new System.Drawing.Size(90, 27);
             this.TB_RoadWidth.TabIndex = 106;
-            this.TB_RoadWidth.TextChanged += new System.EventHandler(this.TB_RoadWidth_TextChanged);
             // 
             // label9
             // 
@@ -622,7 +612,6 @@
             this.label9.Size = new System.Drawing.Size(84, 21);
             this.label9.TabIndex = 101;
             this.label9.Text = "도로너비 :";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // TB_Distance
             // 
@@ -631,7 +620,6 @@
             this.TB_Distance.Name = "TB_Distance";
             this.TB_Distance.Size = new System.Drawing.Size(90, 27);
             this.TB_Distance.TabIndex = 97;
-            this.TB_Distance.TextChanged += new System.EventHandler(this.TB_Distance_TextChanged);
             // 
             // label8
             // 
@@ -642,7 +630,6 @@
             this.label8.Size = new System.Drawing.Size(90, 21);
             this.label8.TabIndex = 95;
             this.label8.Text = "역과 거리 :";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // TB_TotalArea
             // 
@@ -659,7 +646,6 @@
             this.TB_EV.Name = "TB_EV";
             this.TB_EV.Size = new System.Drawing.Size(80, 27);
             this.TB_EV.TabIndex = 105;
-            this.TB_EV.TextChanged += new System.EventHandler(this.TB_EV_TextChanged);
             // 
             // label10
             // 
@@ -680,7 +666,6 @@
             this.label16.Size = new System.Drawing.Size(44, 21);
             this.label16.TabIndex = 104;
             this.label16.Text = "E/V :";
-            this.label16.Click += new System.EventHandler(this.label16_Click);
             // 
             // TB_AC_Heating
             // 
@@ -689,7 +674,6 @@
             this.TB_AC_Heating.Name = "TB_AC_Heating";
             this.TB_AC_Heating.Size = new System.Drawing.Size(80, 27);
             this.TB_AC_Heating.TabIndex = 99;
-            this.TB_AC_Heating.TextChanged += new System.EventHandler(this.TB_AC_Heating_TextChanged);
             // 
             // label1
             // 
@@ -759,16 +743,70 @@
             this.label6.TabIndex = 112;
             this.label6.Text = "건물명";
             // 
+            // ContentOfRentals
+            // 
+            this.ContentOfRentals.AllowDrop = true;
+            this.ContentOfRentals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ContentOfRentals.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.floor,
+            this.floor_area,
+            this.storeName,
+            this.storeDeposit,
+            this.monthlyIncome,
+            this.managementPrice,
+            this.etc});
+            this.ContentOfRentals.Location = new System.Drawing.Point(403, 209);
+            this.ContentOfRentals.Name = "ContentOfRentals";
+            this.ContentOfRentals.RowHeadersVisible = false;
+            this.ContentOfRentals.RowTemplate.Height = 23;
+            this.ContentOfRentals.Size = new System.Drawing.Size(460, 311);
+            this.ContentOfRentals.TabIndex = 114;
+            // 
+            // floor
+            // 
+            this.floor.HeaderText = "층수";
+            this.floor.Name = "floor";
+            // 
+            // floor_area
+            // 
+            this.floor_area.HeaderText = "면적";
+            this.floor_area.Name = "floor_area";
+            // 
+            // storeName
+            // 
+            this.storeName.HeaderText = "상호명";
+            this.storeName.Name = "storeName";
+            // 
+            // storeDeposit
+            // 
+            this.storeDeposit.HeaderText = "보증금";
+            this.storeDeposit.Name = "storeDeposit";
+            // 
+            // monthlyIncome
+            // 
+            this.monthlyIncome.HeaderText = "월세";
+            this.monthlyIncome.Name = "monthlyIncome";
+            // 
+            // managementPrice
+            // 
+            this.managementPrice.HeaderText = "관리비";
+            this.managementPrice.Name = "managementPrice";
+            // 
+            // etc
+            // 
+            this.etc.HeaderText = "비고";
+            this.etc.Name = "etc";
+            // 
             // ManagerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(877, 703);
+            this.Controls.Add(this.ContentOfRentals);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.SaveData);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.listView2);
             this.Controls.Add(this.TB_Memo);
             this.Controls.Add(this.label38);
             this.Controls.Add(this.panel6);
@@ -808,7 +846,6 @@
             this.Name = "ManagerView";
             this.ShowIcon = false;
             this.Text = "관리자용";
-            this.Load += new System.EventHandler(this.ManagerView_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -816,6 +853,7 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ContentOfRentals)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -830,7 +868,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ListView listView3;
         private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.TextBox TB_Memo;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Panel panel6;
@@ -891,5 +928,13 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TextBox TB_PayedPrice;
         private System.Windows.Forms.Label label24;
+        public System.Windows.Forms.DataGridView ContentOfRentals;
+        private System.Windows.Forms.DataGridViewTextBoxColumn floor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn floor_area;
+        private System.Windows.Forms.DataGridViewTextBoxColumn storeName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn storeDeposit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn monthlyIncome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn managementPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn etc;
     }
 }

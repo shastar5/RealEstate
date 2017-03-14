@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Data.SQLite;
 
 namespace RealEstate
 {
@@ -31,6 +32,44 @@ namespace RealEstate
         double sellPrice;
         double payedPrice;
         double yearPercent;
+
+        // Database keyword declare
+        SQLiteCommand sqlCMD;
+        SQLiteConnection cn;
+        SQLiteDataReader sqlReader;
+        DataGridView dgv;
+
+        // DataGridView 설정
+        private void readDataGrid()
+        {
+            int i = 0, j = 0;
+            string DBFile;
+            string strConn = "";
+            string deskPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+
+            deskPath = deskPath.Replace("\\", "/"); //\\글자 /로 바꾸기
+            DBFile = deskPath + @"/DB.db";
+            strConn = "Data Source=" + DBFile + "; Version=3;";
+            cn.ConnectionString = strConn;
+
+            cn.Open();
+            sqlCMD = cn.CreateCommand();
+
+            // 이 부분 수정할 것. buildingID = ID로 수정해야됨
+            sqlCMD.CommandText = "SELECT * FROM info2 WHERE buildingID";
+            sqlReader = sqlCMD.ExecuteReader();
+            while (sqlReader.Read())
+            {
+                // Column이 7개니까
+                for (j = 0; j < 7; j++)
+                {
+                    dgv.Rows.Add();
+                    dgv.Rows[i].Cells[j].Value = sqlReader.GetValue(j++);
+                }
+            }
+
+            cn.Close();
+        }
 
         public void setDBfile(string DBFile) //DB파일위치 계승
         {
@@ -67,6 +106,8 @@ namespace RealEstate
         public ManagerView()
         {
             InitializeComponent();
+
+            dgv = ContentOfRentals;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -79,89 +120,8 @@ namespace RealEstate
             System.Diagnostics.Process.Start(addr);
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
 
-        }
 
-        private void SaveData_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TB_Deposit_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ManagerView_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label13_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TB_Parking_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label14_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TB_CompleteYear_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TB_EV_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label16_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TB_AC_Heating_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label15_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TB_RoadWidth_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TB_Distance_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-        }
     }
 
 }

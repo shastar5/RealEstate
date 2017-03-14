@@ -73,8 +73,8 @@ namespace RealEstate
 
             try
             {
-                query = "Create table if not exists info2 (id INTEGER  PRIMARY KEY autoincrement, buildingName varchar(2000), price NUMERIC, "
-                + "rental varchar(100), area NUMERIC, distanceToStation NUMERIC, monthlyIncome NUMERIC, yearlyIncome NUMERIC, roadWidth NUMERIC, isCorner INTEGER)";
+                query = "Create table if not exists info2 (id INTEGER  PRIMARY KEY autoincrement, buildingID INTEGER, floor NUMERIC, area NUMERIC, storeName varchar(100), "
+                + "deposit NUMERIC, monthlyIncome NUMERIC, managementPrice NUMERIC, etc NUMERIC, FOREIGN KEY(buildingID) REFERENCES info1(id))";
                 cmd = new SQLiteCommand(query, cn);
                 cmd.ExecuteNonQuery();
             } catch(SQLiteException e)
@@ -387,6 +387,11 @@ namespace RealEstate
             {
                 user = true;
             }
+        }
+
+        private void FirstMenu_Load(object sender, EventArgs e)
+        {
+
         }
     }
 

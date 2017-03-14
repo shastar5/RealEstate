@@ -40,6 +40,8 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.CB_RoadWidth = new System.Windows.Forms.ComboBox();
             this.CB_YearPercent = new System.Windows.Forms.ComboBox();
+            this.CB_Income = new System.Windows.Forms.ComboBox();
+            this.CB_TakeOverPrice = new System.Windows.Forms.ComboBox();
             this.CB_sellPrice = new System.Windows.Forms.ComboBox();
             this.TB_RoadWidth = new System.Windows.Forms.TextBox();
             this.TB_Addr = new System.Windows.Forms.TextBox();
@@ -64,8 +66,6 @@
             this.Page_complete = new System.Windows.Forms.TabPage();
             this.Page_prepare = new System.Windows.Forms.TabPage();
             this.Tab_control = new System.Windows.Forms.TabControl();
-            this.CB_TakeOverPrice = new System.Windows.Forms.ComboBox();
-            this.CB_Income = new System.Windows.Forms.ComboBox();
             this.Panel_InitText.SuspendLayout();
             this.Tab_control.SuspendLayout();
             this.SuspendLayout();
@@ -189,6 +189,30 @@
             resources.ApplyResources(this.CB_YearPercent, "CB_YearPercent");
             this.CB_YearPercent.Name = "CB_YearPercent";
             this.CB_YearPercent.SelectedIndexChanged += new System.EventHandler(this.CB_YearPercent_SelectedIndexChanged);
+            // 
+            // CB_Income
+            // 
+            this.CB_Income.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_Income.FormattingEnabled = true;
+            this.CB_Income.Items.AddRange(new object[] {
+            resources.GetString("CB_Income.Items"),
+            resources.GetString("CB_Income.Items1"),
+            resources.GetString("CB_Income.Items2")});
+            resources.ApplyResources(this.CB_Income, "CB_Income");
+            this.CB_Income.Name = "CB_Income";
+            this.CB_Income.SelectedIndexChanged += new System.EventHandler(this.CB_Income_SelectedIndexChanged);
+            // 
+            // CB_TakeOverPrice
+            // 
+            this.CB_TakeOverPrice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_TakeOverPrice.FormattingEnabled = true;
+            this.CB_TakeOverPrice.Items.AddRange(new object[] {
+            resources.GetString("CB_TakeOverPrice.Items"),
+            resources.GetString("CB_TakeOverPrice.Items1"),
+            resources.GetString("CB_TakeOverPrice.Items2")});
+            resources.ApplyResources(this.CB_TakeOverPrice, "CB_TakeOverPrice");
+            this.CB_TakeOverPrice.Name = "CB_TakeOverPrice";
+            this.CB_TakeOverPrice.SelectedIndexChanged += new System.EventHandler(this.CB_TakeOverPrice_SelectedIndexChanged);
             // 
             // CB_sellPrice
             // 
@@ -344,30 +368,6 @@
             this.Tab_control.SelectedIndex = 0;
             this.Tab_control.SelectedIndexChanged += new System.EventHandler(this.Tabs_SelectedIndexChanged);
             // 
-            // CB_TakeOverPrice
-            // 
-            this.CB_TakeOverPrice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CB_TakeOverPrice.FormattingEnabled = true;
-            this.CB_TakeOverPrice.Items.AddRange(new object[] {
-            resources.GetString("CB_TakeOverPrice.Items"),
-            resources.GetString("CB_TakeOverPrice.Items1"),
-            resources.GetString("CB_TakeOverPrice.Items2")});
-            resources.ApplyResources(this.CB_TakeOverPrice, "CB_TakeOverPrice");
-            this.CB_TakeOverPrice.Name = "CB_TakeOverPrice";
-            this.CB_TakeOverPrice.SelectedIndexChanged += new System.EventHandler(this.CB_TakeOverPrice_SelectedIndexChanged);
-            // 
-            // CB_Income
-            // 
-            this.CB_Income.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CB_Income.FormattingEnabled = true;
-            this.CB_Income.Items.AddRange(new object[] {
-            resources.GetString("CB_Income.Items"),
-            resources.GetString("CB_Income.Items1"),
-            resources.GetString("CB_Income.Items2")});
-            resources.ApplyResources(this.CB_Income, "CB_Income");
-            this.CB_Income.Name = "CB_Income";
-            this.CB_Income.SelectedIndexChanged += new System.EventHandler(this.CB_Income_SelectedIndexChanged);
-            // 
             // FirstMenu
             // 
             resources.ApplyResources(this, "$this");
@@ -379,6 +379,7 @@
             this.MaximizeBox = false;
             this.Name = "FirstMenu";
             this.ShowIcon = false;
+            this.Load += new System.EventHandler(this.FirstMenu_Load);
             this.Panel_InitText.ResumeLayout(false);
             this.Panel_InitText.PerformLayout();
             this.Tab_control.ResumeLayout(false);

@@ -155,7 +155,7 @@ namespace RealEstate
         }
         void test()
         {
-            DBFile = "C:/Users/HUN/Desktop/DB.db";
+            //DBFile = "C:/Users/HUN/Desktop/DB.db";
 
             strConn = "Data Source=" + DBFile + "; Version=3;";
             cn.ConnectionString = strConn;
@@ -209,35 +209,6 @@ namespace RealEstate
             
         }
 
-        // DataGridView 설정
-        private void readDataGrid()
-        {
-            int i = 0, j = 0;
-            string DBFile;
-            string deskPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-
-            deskPath = deskPath.Replace("\\", "/"); //\\글자 /로 바꾸기
-            DBFile = deskPath + @"/DB.db";
-            strConn = "Data Source=" + DBFile + "; Version=3;";
-            cn.ConnectionString = strConn;
-            cn.Open();
-            SQLiteCommand sqlCMD;
-            sqlCMD = cn.CreateCommand();
-            sqlCMD.CommandText = "SELECT * FROM info2";
-            SQLiteDataReader sqlReader;
-            sqlReader = sqlCMD.ExecuteReader();
-            while (sqlReader.Read())
-            {
-                for(j = 0; j<10;j++)
-                {
-                    dgv.Rows.Add();
-                    dgv.Rows[i].Cells[j].Value = sqlReader.GetValue(j++);
-                }
-            }
-
-            cn.Close();
-        }
-
         private void saveDataGrid()
         {
 
@@ -275,13 +246,12 @@ namespace RealEstate
         {
             
         }
+        
 
-        // AddMenu가 로드될 때 DataGridView를 읽어줌
         private void AddMenu_Load(object sender, EventArgs e)
         {
             dgv = ContentOfRentals;
-
-            readDataGrid();
+            
         }
 
 
@@ -361,6 +331,11 @@ namespace RealEstate
             {
                 isCorner = 0;
             }
+        }
+
+        private void ContentOfRentals_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
