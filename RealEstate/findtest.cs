@@ -140,5 +140,13 @@ namespace RealEstate
         {
             showResult();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ManagerView mangerview = new ManagerView();
+            mangerview.setDBfile(DBFile);
+            mangerview.setID(1);
+            mangerview.Show();
+        }
     }
 }
