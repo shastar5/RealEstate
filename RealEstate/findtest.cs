@@ -40,9 +40,11 @@ namespace RealEstate
             findvalue.sellPrice = FV.sellPrice;
             findvalue.sellPriceSize = FV.sellPriceSize;
             findvalue.Income = FV.Income;
+            findvalue.IncomeSize = FV.IncomeSize;
             findvalue.yearPercent = FV.yearPercent;
             findvalue.yearPercentSize = FV.yearPercentSize;
             findvalue.takeOverPrice = FV.takeOverPrice;
+            findvalue.takeOverPriceSize = FV.takeOverPriceSize;
             findvalue.distance = FV.distance;
             findvalue.addr = FV.addr;
             findvalue.roadwidth = FV.roadwidth;
@@ -73,29 +75,43 @@ namespace RealEstate
                 query += findvalue.state.ToString() + " and type = " + findvalue.type.ToString();
             }
             query = addDobuleToQuery1(query, "sellPrice", findvalue.sellPrice, findvalue.sellPriceSize);
+            query = addDobuleToQuery1(query, "takeOverPrice", findvalue.takeOverPrice, findvalue.takeOverPriceSize);
+            query = addDobuleToQuery1(query, "income", findvalue.Income, findvalue.IncomeSize);
             query = addDobuleToQuery1(query, "yearPercent", findvalue.yearPercent, findvalue.yearPercentSize);
+            if(findvalue.distance!=-9999)
+                query = addDobuleToQuery1(query, "distance", findvalue.distance, 2);
             query = addDobuleToQuery1(query, "roadWidth", findvalue.roadwidth, findvalue.roadwidthSize);
             
-            //size더 추가해야할듯?
 
             string a = "";
-
+            string b = "";
 
             SQLiteCommand cmd = new SQLiteCommand(query, cn);
             SQLiteDataReader rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
                 int i;
-                for (i = 0; i < 27; i++)
+                for (i = 0; i < 31; i++)
                 {
-                    a += rdr[i];
+                    a += "인덱스" +i + " : " + rdr[i] + " ";
+                    if (i % 10 == 0&&i!=0)
+                        a += "\n";
                 }
-                label1.Text = a;
+                a += "\n";
+                string c = "";
+                c += rdr["income"];
+                b += "번호 : " + rdr["id"] + " 매매 금액 : " + rdr["sellPrice"] + " 연면적 : " + rdr["totalArea"]
+                    + " 역과 거리 : " + rdr["distance"] + " 월수입 : " + rdr["income"] + " 연수입 : " + (double.Parse(c) * 12)
+                    + " 도로너비 : " + rdr["roadWidth"] + " 코너유무 : " + rdr["isCorner"];
+                b += "\n";
+
             }
+            label1.Text =b;
 
             rdr.Close();
             cn.Close();
         }
+        //만약 variableSize가 -1 이면 그 값을 지닌 변수는 where에 안넣음 0이면 이상 1이면 미만 2는 이내
         private string addDobuleToQuery1(string query, string variableName, double variableValue, int variableSize)
         {
             if (variableSize.Equals(0))
@@ -108,7 +124,7 @@ namespace RealEstate
             }
             else if(variableSize.Equals(2))
             {
-                query += " and " + variableName + " = " + variableValue.ToString();
+                query += " and " + variableName + " <= " + variableValue.ToString();
             }
             return query;
         }

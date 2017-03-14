@@ -11,9 +11,11 @@ namespace RealEstate
         public double sellPrice;
         public int sellPriceSize;
         public double Income;
+        public int IncomeSize;
         public double yearPercent;
         public int yearPercentSize;
         public double takeOverPrice;
+        public int takeOverPriceSize;
         public double distance;
         public string addr;
         public double roadwidth;
@@ -45,6 +47,8 @@ namespace RealEstate
             findvalues.type = -1;
             findvalues.state = 1;
             findvalues.roadwidthSize = -1;
+            findvalues.takeOverPriceSize = -1;
+            findvalues.IncomeSize = -1;
             findvalues.sellPriceSize = -1;
             findvalues.yearPercentSize = -1;
 
@@ -63,14 +67,14 @@ namespace RealEstate
                 + "area varchar(100), station varchar(100), useArea varchar(100), distance NUMERIC, roadWidth NUMERIC, "
                 + "totalArea varchar(100), completeYear varchar(100), parking varchar(100), acHeating varchar(100), EV varchar(100), "
                 + "buildingName varchar(100), owner varchar(100), tel varchar(100), meno varchar(100), deposit NUMERIC, income NUMERIC, loan NUMERIC, interest NUMERIC, takeOverPrice NUMERIC, "
-                + "sellPrice NUMERIC, payedPrice NUMERIC, yearPercent NUMERIC, type INTEGER, state INTEGER)";
+                + "sellPrice NUMERIC, payedPrice NUMERIC, yearPercent NUMERIC, type INTEGER, state INTEGER, premium NUMERIC, monthlyPay NUMERIC, maintenance NUMERIC, isCorner INTEGER)";
             SQLiteCommand cmd = new SQLiteCommand(query, cn);
             cmd.ExecuteNonQuery();
 
             try
             {
                 query = "Create table if not exists info2 (id INTEGER  PRIMARY KEY autoincrement, buildingName varchar(2000), price NUMERIC, "
-                + "rental varchar(100), area NUMERIC, distanceToStation NUMERIC, monthlyIncome NUMERIC, yearlyIncome NUMERIC, roadWidth NUMERIC, isCorner Boolean)";
+                + "rental varchar(100), area NUMERIC, distanceToStation NUMERIC, monthlyIncome NUMERIC, yearlyIncome NUMERIC, roadWidth NUMERIC, isCorner INTEGER)";
                 cmd = new SQLiteCommand(query, cn);
                 cmd.ExecuteNonQuery();
             } catch(SQLiteException e)
@@ -95,16 +99,37 @@ namespace RealEstate
         }
         private Boolean checkException()
         {
-            if(findvalues.sellPriceSize != -1 && TB_SellPrice.Text.Equals(""))
+            if (findvalues.sellPriceSize != -1 && TB_SellPrice.Text.Equals(""))
             {
-                MessageBox.Show("매매가격을 정해주세요");
+                MessageBox.Show("매매금액을 정해주세요");
                 return false;
             }
-            else if(findvalues.sellPriceSize == -1 && !TB_SellPrice.Text.Equals(""))
+            else if (findvalues.sellPriceSize == -1 && !TB_SellPrice.Text.Equals(""))
             {
-                MessageBox.Show("매매가격 범위를 정해주세요");
+                MessageBox.Show("매매금액 범위를 정해주세요");
                 return false;
             }
+            if (findvalues.takeOverPriceSize != -1 && TB_TakeOverPrice.Text.Equals(""))
+            {
+                MessageBox.Show("인수금액을 정해주세요");
+                return false;
+            }
+            else if (findvalues.takeOverPriceSize == -1 && !TB_TakeOverPrice.Text.Equals(""))
+            {
+                MessageBox.Show("인수금액 범위를 정해주세요");
+                return false;
+            }
+            if (findvalues.IncomeSize != -1 && TB_Income.Text.Equals(""))
+            {
+                MessageBox.Show("월 수입을 정해주세요");
+                return false;
+            }
+            else if (findvalues.IncomeSize == -1 && !TB_Income.Text.Equals(""))
+            {
+                MessageBox.Show("월 수입 범위를 정해주세요");
+                return false;
+            }
+
             if (findvalues.yearPercentSize != -1 && TB_YearPercent.Text.Equals(""))
             {
                 MessageBox.Show("연수익율을 정해주세요");
@@ -253,10 +278,10 @@ namespace RealEstate
                     cn.ConnectionString = strConn;
                     cn.Open();
                     string query = "Create table if not exists info1 (id INTEGER  PRIMARY KEY autoincrement, addr varchar(1000), roadAddr varchar(1000), "
-                + "area varchar(100), station varchar(100), useArea varchar(100), distance NUMERIC, roadWidth NUMERIC, "
+                           + "area varchar(100), station varchar(100), useArea varchar(100), distance NUMERIC, roadWidth NUMERIC, "
                         + "totalArea varchar(100), completeYear varchar(100), parking varchar(100), acHeating varchar(100), EV varchar(100), "
                         + "buildingName varchar(100), owner varchar(100), tel varchar(100), meno varchar(100), deposit NUMERIC, income NUMERIC, loan NUMERIC, interest NUMERIC, takeOverPrice NUMERIC, "
-                        + "sellPrice NUMERIC, payedPrice NUMERIC, yearPercent NUMERIC, type INTEGER, state INTEGER)";
+                        + "sellPrice NUMERIC, payedPrice NUMERIC, yearPercent NUMERIC, type INTEGER, state INTEGER, premium NUMERIC, monthlyPay NUMERIC, maintenance NUMERIC, isCorner INTEGER)";
                     SQLiteCommand cmd = new SQLiteCommand(query, cn);
                     cmd.ExecuteNonQuery();
                     cn.Close();
@@ -269,16 +294,53 @@ namespace RealEstate
             
         }
 
-        //이상 미만 선택 리스너
+        //이상 미만 선택 리스너  
+        // index : 0 blank return value -1 
+        // index : 1 and more return vaulue 0 
+        // index : 2 less return value 1   
         private void CB_sellPrice_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(CB_sellPrice.SelectedIndex == 0)
             {
-                findvalues.sellPriceSize = 0;
+                findvalues.sellPriceSize = -1;
             }
             else if(CB_sellPrice.SelectedIndex == 1)
             {
+                findvalues.sellPriceSize = 0;
+            }
+            else if (CB_sellPrice.SelectedIndex == 2)
+            {
                 findvalues.sellPriceSize = 1;
+            }
+        }
+        private void CB_TakeOverPrice_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CB_TakeOverPrice.SelectedIndex == 0)
+            {
+                findvalues.takeOverPriceSize = -1;
+            }
+            else if (CB_TakeOverPrice.SelectedIndex == 1)
+            {
+                findvalues.takeOverPriceSize = 0;
+            }
+            else if (CB_TakeOverPrice.SelectedIndex == 2)
+            {
+                findvalues.takeOverPriceSize = 1;
+            }
+        }
+        private void CB_Income_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CB_Income.SelectedIndex == 0)
+            {
+                findvalues.IncomeSize = -1;
+            }
+            else if (CB_Income.SelectedIndex == 1)
+            {
+                findvalues.IncomeSize = 0;
+            }
+            else if (CB_Income.SelectedIndex == 2)
+            {
+                findvalues.IncomeSize = 1;
             }
         }
 
@@ -286,9 +348,13 @@ namespace RealEstate
         {
             if (CB_YearPercent.SelectedIndex == 0)
             {
-                findvalues.yearPercentSize = 0;
+                findvalues.yearPercentSize = -1;
             }
             else if (CB_YearPercent.SelectedIndex == 1)
+            {
+                findvalues.yearPercentSize = 0;
+            }
+            else if (CB_YearPercent.SelectedIndex == 2)
             {
                 findvalues.yearPercentSize = 1;
             }
@@ -298,14 +364,19 @@ namespace RealEstate
         {
             if (CB_RoadWidth.SelectedIndex == 0)
             {
-                findvalues.roadwidthSize = 0;
+                findvalues.roadwidthSize = -1;
             }
             else if (CB_RoadWidth.SelectedIndex == 1)
+            {
+                findvalues.roadwidthSize = 0;
+            }
+            else if (CB_RoadWidth.SelectedIndex == 2)
             {
                 findvalues.roadwidthSize = 1;
             }
         }
 
+        //checkBox listener
         private void HiddenBox_CheckedChanged(object sender, EventArgs e)
         {
             if (HiddenBox.Checked)

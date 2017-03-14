@@ -29,6 +29,10 @@ namespace RealEstate
         string acHeating;
         string EV;
 
+        //상가
+        double premium;
+        double monthlyPay;
+        double maintenance;
 
         //관리자용 변수
         string buildingName;
@@ -43,6 +47,8 @@ namespace RealEstate
         double sellPrice;
         double takeOverPrice;
         double yearPercent;
+
+        int isCorner;
 
         String strConn;
         SQLiteConnection cn = new SQLiteConnection();
@@ -81,15 +87,24 @@ namespace RealEstate
             
             
             deposit = checkNulls(TB_Deposit.Text.ToString());
-            Income = checkNulls(TB_Income.Text.ToString()); 
+            if (type != 6)
+            {
+                Income = checkNulls(TB_Income.Text.ToString());
+            }
+            else
+            {
+                Income = checkNulls(TB_Income2.Text.ToString());
+            }
             loan = checkNulls(TB_Loan.Text.ToString()); 
             interest = checkNulls(TB_Interest.Text.ToString()); 
             takeOverPrice = checkNulls(TB_PayedPrice.Text.ToString()); 
             sellPrice = checkNulls(TB_SellPrice.Text.ToString()); 
             payedPrice = checkNulls(TB_TakeOverPrice.Text.ToString()); 
-            yearPercent = checkNulls(TB_YearPercent.Text.ToString()); 
-            
+            yearPercent = checkNulls(TB_YearPercent.Text.ToString());
 
+            premium = checkNulls(TB_Premium.Text.ToString());
+            monthlyPay = checkNulls(TB_MonthlyPay.Text.ToString());
+            maintenance = checkNulls(TB_Maintenance.Text.ToString());
         }
         private double checkNulls(string num)
         {
@@ -106,11 +121,12 @@ namespace RealEstate
             cn.Open();
             string query = "insert into info1(id, addr, roadAddr, area, station, useArea, distance, roadWidth, totalArea, completeYear,"
                 + " parking, acHeating, EV, buildingName, owner, tel, meno, deposit, income, loan, interest, takeOverPrice,"
-                + " sellPrice, payedPrice, yearPercent, type, state) values(null, '" + addr + "', '" + roadAddr + "', '" + area + "', '" + station + "', "
+                + " sellPrice, payedPrice, yearPercent, type, state, premium, monthlyPay, maintenance, isCorner) values(null, '" + addr + "', '" + roadAddr + "', '" + area + "', '" + station + "', "
                 + "'" + useArea + "', '" + distance + "', '" + roadWidth + "', '" + totalArea + "', '" + completeYear + "', '" + parking + "', "
                 + "'" + acHeating + "', '" + EV + "', '" + buildingName + "', '" + owner + "', '" + tel + "', '" + meno + "', " + deposit + ", "
-                + Income + ", " + loan + ", " + interest + ", " + takeOverPrice + ", " + sellPrice + ", " + payedPrice + ", " + yearPercent+ ", " + type + ", " + state+ ")";
-
+                + Income + ", " + loan + ", " + interest + ", " + takeOverPrice + ", " + sellPrice + ", " + payedPrice + ", " + yearPercent+ ", "
+                + type + ", " + state + ", " + premium + ", " + monthlyPay + ", " + maintenance + ", " + isCorner + ")";
+            
             SQLiteCommand cmd = new SQLiteCommand(query, cn);
             cmd.ExecuteNonQuery();
             cn.Close();
@@ -152,7 +168,7 @@ namespace RealEstate
             {
                 string a="";
                 int i;
-                for (i = 0; i < 27; i++)
+                for (i = 0; i < 31; i++)
                 {
                     a += rdr[i];
                 }
@@ -164,9 +180,16 @@ namespace RealEstate
         }
         private void Btn_Save_Click(object sender, EventArgs e)
         {
-            setData();
-            saveData();
-            test();
+            if (type == -1)
+            {
+                MessageBox.Show("건물 종류를 선택해주세요");
+            }
+            else
+            {
+                setData();
+                saveData();
+                test();
+            }
         }
 
 
@@ -175,6 +198,7 @@ namespace RealEstate
             InitializeComponent();
             type = -1;
             state = 1;
+            isCorner = 0;
 
             listView1.View = View.Details;
             listView1.BeginUpdate();
@@ -325,6 +349,18 @@ namespace RealEstate
         private void AddMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
 
+        }
+
+        private void CB_corner_CheckedChanged(object sender, EventArgs e)
+        {
+            if(CB_corner.Checked)
+            {
+                isCorner = 1;
+            }
+            else
+            {
+                isCorner = 0;
+            }
         }
     }
 }

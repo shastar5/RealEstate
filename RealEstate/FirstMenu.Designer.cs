@@ -64,6 +64,8 @@
             this.Page_complete = new System.Windows.Forms.TabPage();
             this.Page_prepare = new System.Windows.Forms.TabPage();
             this.Tab_control = new System.Windows.Forms.TabControl();
+            this.CB_TakeOverPrice = new System.Windows.Forms.ComboBox();
+            this.CB_Income = new System.Windows.Forms.ComboBox();
             this.Panel_InitText.SuspendLayout();
             this.Tab_control.SuspendLayout();
             this.SuspendLayout();
@@ -80,6 +82,8 @@
             this.Panel_InitText.Controls.Add(this.radioButton1);
             this.Panel_InitText.Controls.Add(this.CB_RoadWidth);
             this.Panel_InitText.Controls.Add(this.CB_YearPercent);
+            this.Panel_InitText.Controls.Add(this.CB_Income);
+            this.Panel_InitText.Controls.Add(this.CB_TakeOverPrice);
             this.Panel_InitText.Controls.Add(this.CB_sellPrice);
             this.Panel_InitText.Controls.Add(this.TB_RoadWidth);
             this.Panel_InitText.Controls.Add(this.TB_Addr);
@@ -164,33 +168,36 @@
             // 
             // CB_RoadWidth
             // 
-            this.CB_RoadWidth.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.CB_RoadWidth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_RoadWidth.FormattingEnabled = true;
             this.CB_RoadWidth.Items.AddRange(new object[] {
             resources.GetString("CB_RoadWidth.Items"),
-            resources.GetString("CB_RoadWidth.Items1")});
+            resources.GetString("CB_RoadWidth.Items1"),
+            resources.GetString("CB_RoadWidth.Items2")});
             resources.ApplyResources(this.CB_RoadWidth, "CB_RoadWidth");
             this.CB_RoadWidth.Name = "CB_RoadWidth";
             this.CB_RoadWidth.SelectedIndexChanged += new System.EventHandler(this.CB_RoadWidth_SelectedIndexChanged);
             // 
             // CB_YearPercent
             // 
-            this.CB_YearPercent.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.CB_YearPercent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_YearPercent.FormattingEnabled = true;
             this.CB_YearPercent.Items.AddRange(new object[] {
             resources.GetString("CB_YearPercent.Items"),
-            resources.GetString("CB_YearPercent.Items1")});
+            resources.GetString("CB_YearPercent.Items1"),
+            resources.GetString("CB_YearPercent.Items2")});
             resources.ApplyResources(this.CB_YearPercent, "CB_YearPercent");
             this.CB_YearPercent.Name = "CB_YearPercent";
             this.CB_YearPercent.SelectedIndexChanged += new System.EventHandler(this.CB_YearPercent_SelectedIndexChanged);
             // 
             // CB_sellPrice
             // 
-            this.CB_sellPrice.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.CB_sellPrice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_sellPrice.FormattingEnabled = true;
             this.CB_sellPrice.Items.AddRange(new object[] {
             resources.GetString("CB_sellPrice.Items"),
-            resources.GetString("CB_sellPrice.Items1")});
+            resources.GetString("CB_sellPrice.Items1"),
+            resources.GetString("CB_sellPrice.Items2")});
             resources.ApplyResources(this.CB_sellPrice, "CB_sellPrice");
             this.CB_sellPrice.Name = "CB_sellPrice";
             this.CB_sellPrice.SelectedIndexChanged += new System.EventHandler(this.CB_sellPrice_SelectedIndexChanged);
@@ -198,7 +205,7 @@
             // TB_RoadWidth
             // 
             this.TB_RoadWidth.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TB_RoadWidth.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.TB_RoadWidth.ForeColor = System.Drawing.SystemColors.WindowText;
             resources.ApplyResources(this.TB_RoadWidth, "TB_RoadWidth");
             this.TB_RoadWidth.Name = "TB_RoadWidth";
             this.TB_RoadWidth.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
@@ -234,6 +241,7 @@
             // 
             // TB_SellPrice
             // 
+            this.TB_SellPrice.ForeColor = System.Drawing.SystemColors.WindowText;
             resources.ApplyResources(this.TB_SellPrice, "TB_SellPrice");
             this.TB_SellPrice.Name = "TB_SellPrice";
             this.TB_SellPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
@@ -336,6 +344,30 @@
             this.Tab_control.SelectedIndex = 0;
             this.Tab_control.SelectedIndexChanged += new System.EventHandler(this.Tabs_SelectedIndexChanged);
             // 
+            // CB_TakeOverPrice
+            // 
+            this.CB_TakeOverPrice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_TakeOverPrice.FormattingEnabled = true;
+            this.CB_TakeOverPrice.Items.AddRange(new object[] {
+            resources.GetString("CB_TakeOverPrice.Items"),
+            resources.GetString("CB_TakeOverPrice.Items1"),
+            resources.GetString("CB_TakeOverPrice.Items2")});
+            resources.ApplyResources(this.CB_TakeOverPrice, "CB_TakeOverPrice");
+            this.CB_TakeOverPrice.Name = "CB_TakeOverPrice";
+            this.CB_TakeOverPrice.SelectedIndexChanged += new System.EventHandler(this.CB_TakeOverPrice_SelectedIndexChanged);
+            // 
+            // CB_Income
+            // 
+            this.CB_Income.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_Income.FormattingEnabled = true;
+            this.CB_Income.Items.AddRange(new object[] {
+            resources.GetString("CB_Income.Items"),
+            resources.GetString("CB_Income.Items1"),
+            resources.GetString("CB_Income.Items2")});
+            resources.ApplyResources(this.CB_Income, "CB_Income");
+            this.CB_Income.Name = "CB_Income";
+            this.CB_Income.SelectedIndexChanged += new System.EventHandler(this.CB_Income_SelectedIndexChanged);
+            // 
             // FirstMenu
             // 
             resources.ApplyResources(this, "$this");
@@ -390,6 +422,8 @@
         private System.Windows.Forms.RadioButton radioButton6;
         private System.Windows.Forms.Label DBLocation;
         private System.Windows.Forms.CheckBox HiddenBox;
+        private System.Windows.Forms.ComboBox CB_Income;
+        private System.Windows.Forms.ComboBox CB_TakeOverPrice;
     }
 }
 
