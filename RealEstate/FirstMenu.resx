@@ -340,9 +340,12 @@
     <value>7</value>
   </data>
   <data name="CB_RoadWidth.Items" xml:space="preserve">
-    <value>이상</value>
+    <value />
   </data>
   <data name="CB_RoadWidth.Items1" xml:space="preserve">
+    <value>이상</value>
+  </data>
+  <data name="CB_RoadWidth.Items2" xml:space="preserve">
     <value>미만</value>
   </data>
   <data name="CB_RoadWidth.Location" type="System.Drawing.Point, System.Drawing">
@@ -370,9 +373,12 @@
     <value>8</value>
   </data>
   <data name="CB_YearPercent.Items" xml:space="preserve">
-    <value>이상</value>
+    <value />
   </data>
   <data name="CB_YearPercent.Items1" xml:space="preserve">
+    <value>이상</value>
+  </data>
+  <data name="CB_YearPercent.Items2" xml:space="preserve">
     <value>미만</value>
   </data>
   <data name="CB_YearPercent.Location" type="System.Drawing.Point, System.Drawing">
@@ -399,10 +405,79 @@
   <data name="&gt;&gt;CB_YearPercent.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="CB_sellPrice.Items" xml:space="preserve">
+  <data name="CB_Income.Items" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CB_Income.Items1" xml:space="preserve">
     <value>이상</value>
   </data>
+  <data name="CB_Income.Items2" xml:space="preserve">
+    <value>미만</value>
+  </data>
+  <data name="CB_Income.Location" type="System.Drawing.Point, System.Drawing">
+    <value>289, 124</value>
+  </data>
+  <data name="CB_Income.MaxDropDownItems" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="CB_Income.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 29</value>
+  </data>
+  <data name="CB_Income.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="&gt;&gt;CB_Income.Name" xml:space="preserve">
+    <value>CB_Income</value>
+  </data>
+  <data name="&gt;&gt;CB_Income.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CB_Income.Parent" xml:space="preserve">
+    <value>Panel_InitText</value>
+  </data>
+  <data name="&gt;&gt;CB_Income.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="CB_TakeOverPrice.Items" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CB_TakeOverPrice.Items1" xml:space="preserve">
+    <value>이상</value>
+  </data>
+  <data name="CB_TakeOverPrice.Items2" xml:space="preserve">
+    <value>미만</value>
+  </data>
+  <data name="CB_TakeOverPrice.Location" type="System.Drawing.Point, System.Drawing">
+    <value>289, 87</value>
+  </data>
+  <data name="CB_TakeOverPrice.MaxDropDownItems" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="CB_TakeOverPrice.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 29</value>
+  </data>
+  <data name="CB_TakeOverPrice.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="&gt;&gt;CB_TakeOverPrice.Name" xml:space="preserve">
+    <value>CB_TakeOverPrice</value>
+  </data>
+  <data name="&gt;&gt;CB_TakeOverPrice.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CB_TakeOverPrice.Parent" xml:space="preserve">
+    <value>Panel_InitText</value>
+  </data>
+  <data name="&gt;&gt;CB_TakeOverPrice.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="CB_sellPrice.Items" xml:space="preserve">
+    <value />
+  </data>
   <data name="CB_sellPrice.Items1" xml:space="preserve">
+    <value>이상</value>
+  </data>
+  <data name="CB_sellPrice.Items2" xml:space="preserve">
     <value>미만</value>
   </data>
   <data name="CB_sellPrice.Location" type="System.Drawing.Point, System.Drawing">
@@ -427,10 +502,16 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;CB_sellPrice.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>12</value>
+  </data>
+  <data name="TB_RoadWidth.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Alpha</value>
   </data>
   <data name="TB_RoadWidth.Location" type="System.Drawing.Point, System.Drawing">
     <value>127, 283</value>
+  </data>
+  <data name="TB_RoadWidth.MaxLength" type="System.Int32, mscorlib">
+    <value>10</value>
   </data>
   <data name="TB_RoadWidth.Size" type="System.Drawing.Size, System.Drawing">
     <value>156, 29</value>
@@ -448,10 +529,16 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;TB_RoadWidth.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>13</value>
+  </data>
+  <data name="TB_Addr.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Hangul</value>
   </data>
   <data name="TB_Addr.Location" type="System.Drawing.Point, System.Drawing">
     <value>127, 243</value>
+  </data>
+  <data name="TB_Addr.MaxLength" type="System.Int32, mscorlib">
+    <value>10</value>
   </data>
   <data name="TB_Addr.Size" type="System.Drawing.Size, System.Drawing">
     <value>156, 29</value>
@@ -469,10 +556,16 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;TB_Addr.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>14</value>
+  </data>
+  <data name="TB_Distance.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Alpha</value>
   </data>
   <data name="TB_Distance.Location" type="System.Drawing.Point, System.Drawing">
     <value>127, 202</value>
+  </data>
+  <data name="TB_Distance.MaxLength" type="System.Int32, mscorlib">
+    <value>10</value>
   </data>
   <data name="TB_Distance.Size" type="System.Drawing.Size, System.Drawing">
     <value>156, 29</value>
@@ -490,10 +583,16 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;TB_Distance.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>15</value>
+  </data>
+  <data name="TB_YearPercent.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Alpha</value>
   </data>
   <data name="TB_YearPercent.Location" type="System.Drawing.Point, System.Drawing">
     <value>127, 164</value>
+  </data>
+  <data name="TB_YearPercent.MaxLength" type="System.Int32, mscorlib">
+    <value>10</value>
   </data>
   <data name="TB_YearPercent.Size" type="System.Drawing.Size, System.Drawing">
     <value>156, 29</value>
@@ -511,10 +610,16 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;TB_YearPercent.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>16</value>
+  </data>
+  <data name="TB_Income.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Alpha</value>
   </data>
   <data name="TB_Income.Location" type="System.Drawing.Point, System.Drawing">
     <value>127, 124</value>
+  </data>
+  <data name="TB_Income.MaxLength" type="System.Int32, mscorlib">
+    <value>10</value>
   </data>
   <data name="TB_Income.Size" type="System.Drawing.Size, System.Drawing">
     <value>156, 29</value>
@@ -532,10 +637,16 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;TB_Income.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>17</value>
+  </data>
+  <data name="TB_TakeOverPrice.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Alpha</value>
   </data>
   <data name="TB_TakeOverPrice.Location" type="System.Drawing.Point, System.Drawing">
     <value>127, 87</value>
+  </data>
+  <data name="TB_TakeOverPrice.MaxLength" type="System.Int32, mscorlib">
+    <value>10</value>
   </data>
   <data name="TB_TakeOverPrice.Size" type="System.Drawing.Size, System.Drawing">
     <value>156, 29</value>
@@ -553,16 +664,25 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;TB_TakeOverPrice.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>18</value>
+  </data>
+  <data name="TB_SellPrice.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Alpha</value>
   </data>
   <data name="TB_SellPrice.Location" type="System.Drawing.Point, System.Drawing">
     <value>127, 44</value>
+  </data>
+  <data name="TB_SellPrice.MaxLength" type="System.Int32, mscorlib">
+    <value>10</value>
   </data>
   <data name="TB_SellPrice.Size" type="System.Drawing.Size, System.Drawing">
     <value>156, 29</value>
   </data>
   <data name="TB_SellPrice.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
+  </data>
+  <data name="TB_SellPrice.WordWrap" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;TB_SellPrice.Name" xml:space="preserve">
     <value>TB_SellPrice</value>
@@ -574,7 +694,7 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;TB_SellPrice.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>19</value>
   </data>
   <data name="btn_DBFind.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -601,7 +721,7 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;btn_DBFind.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>20</value>
   </data>
   <data name="btn_find.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -628,7 +748,7 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;btn_find.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>21</value>
   </data>
   <data name="Text_매매금액.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -658,7 +778,7 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;Text_매매금액.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>22</value>
   </data>
   <data name="btn_addBuilding.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -685,7 +805,7 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;btn_addBuilding.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>23</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -715,7 +835,7 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>24</value>
   </data>
   <data name="label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -745,7 +865,7 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>23</value>
+    <value>25</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -775,7 +895,7 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>24</value>
+    <value>26</value>
   </data>
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -805,7 +925,7 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>25</value>
+    <value>27</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -835,7 +955,7 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>26</value>
+    <value>28</value>
   </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -865,7 +985,7 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>27</value>
+    <value>29</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -895,7 +1015,7 @@
     <value>Panel_InitText</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>28</value>
+    <value>30</value>
   </data>
   <data name="Panel_InitText.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 12</value>
