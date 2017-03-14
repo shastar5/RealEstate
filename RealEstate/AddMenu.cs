@@ -185,7 +185,6 @@ namespace RealEstate
             
         }
 
-
         // DataGridView 설정
         private void readDataGrid()
         {
@@ -203,16 +202,21 @@ namespace RealEstate
             sqlCMD.CommandText = "SELECT * FROM info2";
             SQLiteDataReader sqlReader;
             sqlReader = sqlCMD.ExecuteReader();
-            while(sqlReader.Read())
+            while (sqlReader.Read())
             {
-                dgv.Rows.Add();
-                //dgv.Rows[i].Cells[j++].Value = sqlReader.Get;;
-
-                i++;
+                for(j = 0; j<10;j++)
+                {
+                    dgv.Rows.Add();
+                    dgv.Rows[i].Cells[j].Value = sqlReader.GetValue(j++);
+                }
             }
 
-
             cn.Close();
+        }
+
+        private void saveDataGrid()
+        {
+
         }
 
         // 코멘트에 더하기
@@ -248,6 +252,7 @@ namespace RealEstate
             
         }
 
+        // AddMenu가 로드될 때 DataGridView를 읽어줌
         private void AddMenu_Load(object sender, EventArgs e)
         {
             dgv = ContentOfRentals;
