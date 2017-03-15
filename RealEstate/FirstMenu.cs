@@ -73,7 +73,7 @@ namespace RealEstate
 
             try
             {
-                query = "Create table if not exists info2 (id INTEGER  PRIMARY KEY autoincrement, buildingID INTEGER, floor NUMERIC, area NUMERIC, storeName varchar(100), "
+                query = "Create table if not exists info2 (id INTEGER PRIMARY KEY autoincrement, buildingID INTEGER, floor NUMERIC, area NUMERIC, storeName varchar(100), "
                 + "deposit NUMERIC, monthlyIncome NUMERIC, managementPrice NUMERIC, etc varchar(100), FOREIGN KEY(buildingID) REFERENCES info1(id))";
                 cmd = new SQLiteCommand(query, cn);
                 cmd.ExecuteNonQuery();

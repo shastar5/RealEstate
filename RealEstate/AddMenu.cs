@@ -62,8 +62,8 @@ namespace RealEstate
         private void readDataGrid()
         {
             /*
-             "Create table if not exists info2 (id INTEGER  PRIMARY KEY autoincrement, buildingID INTEGER, floor NUMERIC, area NUMERIC, storeName varchar(100), "
-             + "deposit NUMERIC, monthlyIncome NUMERIC, managementPrice NUMERIC, etc NUMERIC, FOREIGN KEY(buildingID) REFERENCES info1(id))";
+             "Create table if not exists info2 (0id INTEGER  PRIMARY KEY autoincrement, 1buildingID INTEGER,2 floor NUMERIC, 3area NUMERIC, 4storeName varchar(100), "
+             + "5deposit NUMERIC, 6monthlyIncome NUMERIC, 7managementPrice NUMERIC, 8etc NUMERIC, FOREIGN KEY(buildingID) REFERENCES info1(id))";
              */ 
 
             int i = 0, j = 0;
@@ -79,9 +79,12 @@ namespace RealEstate
 
                 while(reader.Read())
                 {
+                    j = 0;
                     dgv.Rows.Add();
 
-                    dgv.Rows[i].Cells[j++].Value = reader.GetInt32(2);
+                    dgv.Rows[i].Cells[j++].Value = reader.GetInt32(0);
+
+                    dgv.Rows[i].Cells[j++].Value = reader.GetDouble(2);
 
                     dgv.Rows[i].Cells[j++].Value = reader.GetDouble(3);
                     sumOfArea += reader.GetDouble(3);
@@ -97,7 +100,7 @@ namespace RealEstate
                     dgv.Rows[i].Cells[j++].Value = reader.GetDouble(7);
                     sumOfManage += reader.GetDouble(7);
 
-                    dgv.Rows[i].Cells[j].Value = reader.GetString(8);
+                    dgv.Rows[i].Cells[j].Value = reader.GetInt32(8);
 
                     i++;
                 }
@@ -108,35 +111,47 @@ namespace RealEstate
                 MessageBox.Show(e.ToString());
             }
 
+            if (dgv.Rows.Count <= 1)
+            {
+                dgv.Rows.Add();
+                i++;
+            }
             dgv.Rows[i].Cells[1].Value = sumOfArea;
             dgv.Rows[i].Cells[3].Value = sumOfDeposit;
             dgv.Rows[i].Cells[4].Value = sumOfIncome;
             dgv.Rows[i].Cells[5].Value = sumOfManage;
 
+
             dgv.Refresh();
         }
-        
+
         private void saveDataGrid()
         {
-            try
-            {
-                SQLiteCommand sqlCMD;
-                sqlCMD = new SQLiteCommand("SELECT * from info2", cn);
-                dt = new DataTable();
-                cn.ConnectionString = strConn;
-                cn.Open();
+            /*
+            "Create table if not exists info2 (id INTEGER  PRIMARY KEY autoincrement, buildingID INTEGER, floor NUMERIC, area NUMERIC, storeName varchar(100), "
+            + "deposit NUMERIC, monthlyIncome NUMERIC, managementPrice NUMERIC, etc NUMERIC, FOREIGN KEY(buildingID) REFERENCES info1(id))";
+            */
+            strConn = "Data Source=" + DBFile + "; Version=3;";
+            cn.ConnectionString = strConn;
 
-                using (SQLiteDataReader reader = sqlCMD.ExecuteReader())
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                using (SQLiteCommand cmd = new SQLiteCommand("INSERT INTO info2 VALUES(@id, @buildingID, @floor, @area, @storeName, @deposit, @monthlyIncome, @managementPrice, @etc)", cn))
                 {
-                    dt.Load(reader);
-                    //dgv.DataSource = dt;
-                }
+                    cmd.Parameters.AddWithValue("@id", row.Cells["id"].Value);
+                    cmd.Parameters.AddWithValue("@buildingID", 1);
+                    cmd.Parameters.AddWithValue("@floor", row.Cells["floor"].Value);
+                    cmd.Parameters.AddWithValue("@area", row.Cells["floor_area"].Value);
+                    cmd.Parameters.AddWithValue("@storeName", row.Cells["storeName"].Value);
+                    cmd.Parameters.AddWithValue("@deposit", row.Cells["storeDeposit"].Value);
+                    cmd.Parameters.AddWithValue("@monthlyIncome", row.Cells["monthlyIncome"].Value);
+                    cmd.Parameters.AddWithValue("@managementPrice", row.Cells["managementPrice"].Value);
+                    cmd.Parameters.AddWithValue("@etc", row.Cells["etc"].Value);
 
-                cn.Close();
-                dgv.Refresh();
-            } catch(Exception e)
-            {
-                MessageBox.Show(e.ToString());
+                    cn.Open();
+                    cmd.ExecuteNonQuery();
+                    cn.Close();
+                }
             }
         }
 
@@ -277,8 +292,7 @@ namespace RealEstate
                 //setData();
                 //saveData();
                 //test();
-                //saveDataGrid();
-                readDataGrid();
+                saveDataGrid();
             }
         }
 
@@ -336,6 +350,7 @@ namespace RealEstate
         {
             dgv = ContentOfRentals;
             dgv.AutoGenerateColumns = false;
+            readDataGrid();
         }
 
 
