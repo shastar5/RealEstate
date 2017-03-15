@@ -73,10 +73,210 @@ namespace RealEstate
             string addr = "http://map.daum.net/link/search/" + TB_Addr.Text;
             System.Diagnostics.Process.Start(addr);
         }
+        private void readData()
+        {
+            strConn = "Data Source=" + DBFile + "; Version=3;";
+            cn.ConnectionString = strConn;
+            cn.Open();
+            String query = "select * from info1 where id = " + id;
 
+            SQLiteCommand cmd = new SQLiteCommand(query, cn);
+            SQLiteDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                TB_Addr.Text = rdr[1].ToString();
+                TB_RoadAddr.Text = rdr[2].ToString();
+                TB_Area.Text = rdr[3].ToString();
+                TB_Station.Text = rdr[4].ToString();
+                TB_UseDistrict.Text = rdr[5].ToString();
+                if (rdr[6].ToString().Equals("-9999"))
+                    TB_Distance.Text = "";
+                else
+                    TB_Distance.Text = rdr[6].ToString();
+                if (rdr[7].ToString().Equals("-9999"))
+                    TB_RoadWidth.Text = "";
+                else
+                    TB_RoadWidth.Text = rdr[7].ToString();
+                TB_TotalArea.Text = rdr[8].ToString();
+                TB_CompleteYear.Text = rdr[9].ToString();
+                TB_Parking.Text = rdr[10].ToString();
+                TB_AC_Heating.Text = rdr[11].ToString();
+                TB_EV.Text = rdr[12].ToString();
+                //TB_BuildName.Text = rdr[13].ToString();
+                //TB_Owner.Text = rdr[14].ToString();
+                //TB_Tel.Text = rdr[15].ToString();
+                //TB_Memo.Text = rdr[16].ToString();
+
+                if (rdr[17].ToString().Equals("-9999"))
+                    TB_Deposit.Text = "";
+                else
+                    TB_Deposit.Text = rdr[17].ToString();
+
+                if (rdr[18].ToString().Equals("-9999"))
+                {
+                    TB_Income.Text = "";
+                    TB_Income2.Text = "";
+                }
+                else
+                {
+                    TB_Income.Text = rdr[18].ToString();
+                    TB_Income2.Text = rdr[18].ToString();
+                }
+
+                if (rdr[19].ToString().Equals("-9999"))
+                    TB_Loan.Text = "";
+                else
+                    TB_Loan.Text = rdr[19].ToString();
+
+                if (rdr[20].ToString().Equals("-9999"))
+                    TB_Interest.Text = "";
+                else
+                    TB_Interest.Text = rdr[20].ToString();
+
+                if (rdr[21].ToString().Equals("-9999"))
+                    TB_TakeOverPrice.Text = "";
+                else
+                    TB_TakeOverPrice.Text = rdr[21].ToString();
+
+                if (rdr[22].ToString().Equals("-9999"))
+                    TB_SellPrice.Text = "";
+                else
+                    TB_SellPrice.Text = rdr[22].ToString();
+                /*
+                if (rdr[23].ToString().Equals("-9999"))
+                    TB_PayedPrice.Text = "";
+                else
+                    TB_PayedPrice.Text = rdr[23].ToString();
+                */
+                if (rdr[24].ToString().Equals("-9999"))
+                    TB_YearPercent.Text = "";
+                else
+                    TB_YearPercent.Text = rdr[24].ToString();
+
+                type = int.Parse(rdr[25].ToString());
+
+                panel6.Show();
+                panel2.Hide();
+                switch (type)
+                {
+                    case 2:
+                        Dagagu.Checked = true;
+                        break;
+                    case 3:
+                        Building.Checked = true;
+                        break;
+                    case 4:
+                        SanggaHome.Checked = true;
+                        break;
+                    case 5:
+                        NewConstruction.Checked = true;
+                        break;
+                    case 6:
+                        Sangga.Checked = true;
+                        panel6.Hide();
+                        panel2.Visible = true;
+                        panel2.Show();
+                        break;
+                }
+                state = int.Parse(rdr[26].ToString());
+                switch (state)
+                {
+                    case 1:
+                        Tab_control.SelectedTab = Page_prepare;
+                        break;
+                    case 2:
+                        Tab_control.SelectedTab = Page_complete;
+                        break;
+                    case 3:
+                        Tab_control.SelectedTab = Page_wait;
+                        break;
+                    case 4:
+                        Tab_control.SelectedTab = Page_sell;
+                        break;
+
+                }
+                
+                if (rdr[27].ToString().Equals("-9999"))
+                    TB_Premium.Text = "";
+                else
+                    TB_Premium.Text = rdr[27].ToString();
+
+                if (rdr[28].ToString().Equals("-9999"))
+                    TB_MonthlyPay.Text = "";
+                else
+                    TB_MonthlyPay.Text = rdr[28].ToString();
+
+                if (rdr[29].ToString().Equals("-9999"))
+                    TB_Maintenance.Text = "";
+                else
+                    TB_Maintenance.Text = rdr[29].ToString();
+
+                isCorner = int.Parse(rdr[30].ToString());
+                if (isCorner == 0)
+                {
+                    CB_corner.Checked = false;
+                }
+                else
+                {
+                    CB_corner.Checked = true;
+                }
+
+            }
+
+
+            rdr.Close();
+            cn.Close();
+        }
+        private void btn_clicked(object sender, EventArgs e)
+        {
+            switch (state)
+            {
+                case 1:
+                    Tab_control.SelectedTab = Page_prepare;
+                    break;
+                case 2:
+                    Tab_control.SelectedTab = Page_complete;
+                    break;
+                case 3:
+                    Tab_control.SelectedTab = Page_wait;
+                    break;
+                case 4:
+                    Tab_control.SelectedTab = Page_sell;
+                    break;
+            }
+            switch (type)
+            {
+                case 2:
+                    Dagagu.Checked = true;
+                    break;
+                case 3:
+                    Building.Checked = true;
+                    break;
+                case 4:
+                    SanggaHome.Checked = true;
+                    break;
+                case 5:
+                    NewConstruction.Checked = true;
+                    break;
+                case 6:
+                    Sangga.Checked = true;
+                    panel6.Hide();
+                    panel2.Visible = true;
+                    panel2.Show();
+                    break;
+            }
+            if (isCorner == 0)
+            {
+                CB_corner.Checked = false;
+            }
+            else
+            {
+                CB_corner.Checked = true;
+            }
+        }
         private void UserView_Load(object sender, EventArgs e)
         {
-
+            readData();
         }
     }
 }

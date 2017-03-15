@@ -289,10 +289,11 @@ namespace RealEstate
             }
             else
             {
-                //setData();
-                //saveData();
-                //test();
-                saveDataGrid();
+                //readDataGrid();
+                //saveDataGrid();
+                setData();
+                saveData();
+                test();
             }
         }
 
