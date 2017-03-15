@@ -179,7 +179,7 @@ namespace RealEstate
             else if(checkException())
             {
                 
-                findtest findtest = new findtest();
+                FindView findtest = new FindView();
                 findtest.setDBfile(DBFile);
                 findtest.setUserType(user);
                 findtest.setValue(findvalues);

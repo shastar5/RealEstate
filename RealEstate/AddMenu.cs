@@ -143,7 +143,6 @@ namespace RealEstate
         public void setDBfile(string DBFile) //DB파일위치 계승
         {
             this.DBFile = DBFile;
-            TB_AC_Heating.Text = DBFile;
         }
 
         private void setData()
@@ -151,10 +150,10 @@ namespace RealEstate
             addr = TB_Addr.Text.ToString();
             roadAddr = TB_RoadAddr.Text.ToString();
             area = TB_Area.Text.ToString();
-            station = TB_Station.Text.ToString();
+            station = TB_Distance.Text.ToString();
             useArea = TB_UseDistrict.Text.ToString();
             
-            distance = checkNulls(TB_Distance.Text.ToString());
+            distance = checkNulls(TB_Station.Text.ToString());
             roadWidth = checkNulls(TB_RoadWidth.Text.ToString());
 
             totalArea = TB_TotalArea.Text.ToString();
@@ -179,10 +178,11 @@ namespace RealEstate
                 Income = checkNulls(TB_Income2.Text.ToString());
             }
             loan = checkNulls(TB_Loan.Text.ToString()); 
-            interest = checkNulls(TB_Interest.Text.ToString()); 
-            takeOverPrice = checkNulls(TB_PayedPrice.Text.ToString()); 
+            interest = checkNulls(TB_Interest.Text.ToString());
+            
+            takeOverPrice = checkNulls(TB_TakeOverPrice.Text.ToString()); 
             sellPrice = checkNulls(TB_SellPrice.Text.ToString()); 
-            payedPrice = checkNulls(TB_TakeOverPrice.Text.ToString()); 
+            payedPrice = checkNulls(TB_PayedPrice.Text.ToString()); 
             yearPercent = checkNulls(TB_YearPercent.Text.ToString());
 
             premium = checkNulls(TB_Premium.Text.ToString());
@@ -216,7 +216,7 @@ namespace RealEstate
             cmd.ExecuteNonQuery();
             cn.Close();
         }
-
+        
         private void Tabs_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (Tab_control.SelectedTab == Page_prepare)
