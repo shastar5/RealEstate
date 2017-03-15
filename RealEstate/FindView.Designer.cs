@@ -1,6 +1,6 @@
 ﻿namespace RealEstate
 {
-    partial class findtest
+    partial class FindView
     {
         /// <summary>
         /// Required designer variable.

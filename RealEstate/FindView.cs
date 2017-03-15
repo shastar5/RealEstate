@@ -12,7 +12,7 @@ namespace RealEstate
     {
         void setUserType(Boolean user);
     }
-    public partial class findtest : Form, DBInterface, FIndInterface, UserTypeInterface
+    public partial class FindView : Form, DBInterface, FIndInterface, UserTypeInterface
     {
         String strConn;
         SQLiteConnection cn = new SQLiteConnection();
@@ -23,13 +23,27 @@ namespace RealEstate
         Findvalue findvalue = new Findvalue();
         string DBFile = "";
         Boolean userType;
-        public findtest()
+        
+        enum findIndex
         {
-            InitializeComponent();
-            
+            ID,
+            SELLPRICE,
+            TOTALAREA,
+            DISTANCE,
+            INCOME,
+            YEARINCOME,
+            ROADWIDTH,
+            ISCORNER
         }
 
-        public void setDBfile(string DBFile) //DB파일위치 계승
+        public FindView()
+        {
+            InitializeComponent();
+
+        }
+    
+
+    public void setDBfile(string DBFile) //DB파일위치 계승
         {
             this.DBFile = DBFile;
         }
@@ -54,7 +68,7 @@ namespace RealEstate
                 + findvalue.sellPriceSize.ToString() + findvalue.takeOverPrice.ToString() + findvalue.Income.ToString() + findvalue.yearPercent.ToString()
                 + findvalue.yearPercentSize.ToString()+ findvalue.distance.ToString()
                 + findvalue.addr.ToString() + findvalue.roadwidth.ToString() + findvalue.roadwidthSize.ToString();*/
-            
+
         }
         public void setUserType(Boolean userType)
         {
@@ -62,6 +76,11 @@ namespace RealEstate
         }
         private void showResult()
         {
+            string[,] findResults = new string[1000, 8];
+            int Findcount = 0;
+            char[] token = { ' ', ',', '\n', '\t'};
+            string[] tokenResult;
+            Boolean addrFind = false;
             strConn = "Data Source=" + DBFile + "; Version=3;";
             cn.ConnectionString = strConn;
             cn.Open();
@@ -78,12 +97,11 @@ namespace RealEstate
             query = addDobuleToQuery1(query, "takeOverPrice", findvalue.takeOverPrice, findvalue.takeOverPriceSize);
             query = addDobuleToQuery1(query, "income", findvalue.Income, findvalue.IncomeSize);
             query = addDobuleToQuery1(query, "yearPercent", findvalue.yearPercent, findvalue.yearPercentSize);
-            if(findvalue.distance!=-9999)
+            if (findvalue.distance != -9999)
                 query = addDobuleToQuery1(query, "distance", findvalue.distance, 2);
             query = addDobuleToQuery1(query, "roadWidth", findvalue.roadwidth, findvalue.roadwidthSize);
-            
 
-            string a = "";
+
             string b = "";
 
             SQLiteCommand cmd = new SQLiteCommand(query, cn);
@@ -91,17 +109,35 @@ namespace RealEstate
             while (rdr.Read())
             {
                 int i;
-                for (i = 0; i < 31; i++)
+               
+                string c = rdr["income"].ToString();
+                tokenResult = rdr["addr"].ToString().Split(token);
+                foreach(var item in tokenResult)
                 {
-                    a += "인덱스" +i + " : " + rdr[i] + " ";
-                    if (i % 10 == 0&&i!=0)
-                        a += "\n";
+                    if (item.ToString().Contains(findvalue.addr)&&!findvalue.addr.Equals(""))
+                        addrFind = true;
                 }
-                a += "\n";
-                string c = "";
-                c += rdr["income"];
+                if (addrFind)
+                {
+                    findResults[Findcount, (int)findIndex.ID] = rdr["id"].ToString();
+                    findResults[Findcount, (int)findIndex.SELLPRICE] = checkValid(rdr["sellPrice"].ToString());
+                    findResults[Findcount, (int)findIndex.TOTALAREA] = checkValid(rdr["totalArea"].ToString());
+                    findResults[Findcount, (int)findIndex.DISTANCE] = checkValid(rdr["distance"].ToString());
+                    findResults[Findcount, (int)findIndex.INCOME] = checkValid(rdr["income"].ToString());
+                    if (findResults[Findcount, (int)findIndex.INCOME].Equals(""))
+                        findResults[Findcount, (int)findIndex.YEARINCOME] = "";
+                    else
+                        findResults[Findcount, (int)findIndex.YEARINCOME] = (double.Parse(findResults[Findcount, (int)findIndex.INCOME]) * 12).ToString();
+                    findResults[Findcount, (int)findIndex.ROADWIDTH] = checkValid(rdr["roadWidth"].ToString());
+                    findResults[Findcount, (int)findIndex.ISCORNER] = rdr["isCorner"].ToString();
+                    if (findResults[Findcount, (int)findIndex.ISCORNER].Equals("1"))
+                        findResults[Findcount, (int)findIndex.ISCORNER] = "Y";
+                    else
+                        findResults[Findcount, (int)findIndex.ISCORNER] = "N";
+                    Findcount++;
+                }
                 b += "번호 : " + rdr["id"] + " 매매 금액 : " + rdr["sellPrice"] + " 연면적 : " + rdr["totalArea"]
-                    + " 역과 거리 : " + rdr["distance"] + " 월수입 : " + rdr["income"] + " 연수입 : " + (double.Parse(c) * 12)
+                    + " 역과 거리 : " + rdr["distance"] + " 월수입 : " + rdr["income"] + " 연수입 : " + (double.Parse(c) * 12).ToString()
                     + " 도로너비 : " + rdr["roadWidth"] + " 코너유무 : " + rdr["isCorner"];
                 b += "\n";
 
@@ -110,6 +146,12 @@ namespace RealEstate
 
             rdr.Close();
             cn.Close();
+        }
+        private string checkValid(string num)
+        {
+            if (num.Equals("-9999"))
+                return "";
+            return num;
         }
         //만약 variableSize가 -1 이면 그 값을 지닌 변수는 where에 안넣음 0이면 이상 1이면 미만 2는 이내
         private string addDobuleToQuery1(string query, string variableName, double variableValue, int variableSize)
@@ -143,10 +185,21 @@ namespace RealEstate
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ManagerView mangerview = new ManagerView();
-            mangerview.setDBfile(DBFile);
-            mangerview.setID(1);
-            mangerview.Show();
+            if (userType)
+            {
+                UserView userview = new UserView();
+                userview.setDBfile(DBFile);
+                userview.setID(1);
+                userview.Show();
+            }
+            else
+            {
+                ManagerView mangerview = new ManagerView();
+                mangerview.setDBfile(DBFile);
+                mangerview.setID(1);
+                mangerview.Show();
+            }
+        
         }
     }
 }
