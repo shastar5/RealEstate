@@ -114,7 +114,7 @@ namespace RealEstate
                 tokenResult = rdr["addr"].ToString().Split(token);
                 foreach(var item in tokenResult)
                 {
-                    if (item.ToString().Contains(findvalue.addr)&&!findvalue.addr.Equals(""))
+                    if (item.ToString().Contains(findvalue.addr))
                         addrFind = true;
                 }
                 if (addrFind)
