@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Data.SQLite;
+using System.Data;
 
 namespace RealEstate
 {
@@ -37,11 +38,30 @@ namespace RealEstate
         SQLiteCommand sqlCMD;
         SQLiteConnection cn;
         SQLiteDataReader sqlReader;
+        SQLiteDataAdapter adapter;
         DataGridView dgv;
+        DataTable dt;
+
+        private void saveDataGrid()
+        {
+            dt = new DataTable();
+
+            cn.Open();
+            sqlCMD = cn.CreateCommand();
+
+            // 이 부분 수정할 것. buildingID = ID로 수정해야됨
+            sqlCMD.CommandText = string.Format("SELECT * FROM info2");
+            adapter = new SQLiteDataAdapter(sqlCMD);
+            adapter.Fill(dt);
+            adapter.Update(dt);
+
+            cn.Close();
+        }
 
         // DataGridView 설정
         private void readDataGrid()
         {
+            dt = new DataTable();
             int i = 0, j = 0;
             string DBFile;
             string strConn = "";
@@ -58,15 +78,13 @@ namespace RealEstate
             // 이 부분 수정할 것. buildingID = ID로 수정해야됨
             sqlCMD.CommandText = "SELECT * FROM info2 WHERE buildingID";
             sqlReader = sqlCMD.ExecuteReader();
-            while (sqlReader.Read())
-            {
-                // Column이 7개니까
-                for (j = 0; j < 7; j++)
-                {
-                    dgv.Rows.Add();
-                    dgv.Rows[i].Cells[j].Value = sqlReader.GetValue(j++);
-                }
-            }
+
+            adapter = new SQLiteDataAdapter(sqlCMD);
+            adapter.Fill(dt);
+            dgv.DataSource = dt;
+
+            // 오름차순으로 정렬
+            dgv.Sort(dgv.Columns[0], System.ComponentModel.ListSortDirection.Ascending);
 
             cn.Close();
         }

@@ -14,24 +14,6 @@ namespace RealEstate
             InitializeComponent();
         }
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if(KeyPressEventArgs.Equals(e.KeyChar, Keys.Return))
-            {
-                
-            }
-        }
-
         private void Button1_Click(object sender, EventArgs e)
         {
             throw new NotImplementedException();

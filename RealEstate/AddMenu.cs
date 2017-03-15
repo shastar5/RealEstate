@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Data.SQLite;
+using System.Data;
 
 namespace RealEstate
 {
@@ -53,9 +54,91 @@ namespace RealEstate
         String strConn;
         SQLiteConnection cn = new SQLiteConnection();
         SQLiteCommand cmd = new SQLiteCommand();
-        SQLiteDataReader dr;
-        SQLiteParameter picture;
+
         DataGridView dgv;
+        DataTable dt;
+
+        // DataGridView 설정
+        private void readDataGrid()
+        {
+            /*
+             "Create table if not exists info2 (id INTEGER  PRIMARY KEY autoincrement, buildingID INTEGER, floor NUMERIC, area NUMERIC, storeName varchar(100), "
+             + "deposit NUMERIC, monthlyIncome NUMERIC, managementPrice NUMERIC, etc NUMERIC, FOREIGN KEY(buildingID) REFERENCES info1(id))";
+             */ 
+
+            int i = 0, j = 0;
+            double sumOfArea = 0, sumOfDeposit = 0, sumOfIncome = 0, sumOfManage = 0;
+            strConn = "Data Source=" + DBFile + "; Version=3;";
+            cn.ConnectionString = strConn;
+            SQLiteCommand sqlCMD = new SQLiteCommand("select * from info2", cn);
+            SQLiteDataReader reader;
+            try
+            {
+                cn.Open();
+                reader = sqlCMD.ExecuteReader();
+
+                while(reader.Read())
+                {
+                    dgv.Rows.Add();
+
+                    dgv.Rows[i].Cells[j++].Value = reader.GetInt32(2);
+
+                    dgv.Rows[i].Cells[j++].Value = reader.GetDouble(3);
+                    sumOfArea += reader.GetDouble(3);
+
+                    dgv.Rows[i].Cells[j++].Value = reader.GetString(4);
+
+                    dgv.Rows[i].Cells[j++].Value = reader.GetDouble(5);
+                    sumOfDeposit += reader.GetDouble(5);
+
+                    dgv.Rows[i].Cells[j++].Value = reader.GetDouble(6);
+                    sumOfIncome += reader.GetDouble(6);
+
+                    dgv.Rows[i].Cells[j++].Value = reader.GetDouble(7);
+                    sumOfManage += reader.GetDouble(7);
+
+                    dgv.Rows[i].Cells[j].Value = reader.GetString(8);
+
+                    i++;
+                }
+                cn.Close();
+
+            } catch(Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+
+            dgv.Rows[i].Cells[1].Value = sumOfArea;
+            dgv.Rows[i].Cells[3].Value = sumOfDeposit;
+            dgv.Rows[i].Cells[4].Value = sumOfIncome;
+            dgv.Rows[i].Cells[5].Value = sumOfManage;
+
+            dgv.Refresh();
+        }
+        
+        private void saveDataGrid()
+        {
+            try
+            {
+                SQLiteCommand sqlCMD;
+                sqlCMD = new SQLiteCommand("SELECT * from info2", cn);
+                dt = new DataTable();
+                cn.ConnectionString = strConn;
+                cn.Open();
+
+                using (SQLiteDataReader reader = sqlCMD.ExecuteReader())
+                {
+                    dt.Load(reader);
+                    //dgv.DataSource = dt;
+                }
+
+                cn.Close();
+                dgv.Refresh();
+            } catch(Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
 
         public void setDBfile(string DBFile) //DB파일위치 계승
         {
@@ -106,6 +189,7 @@ namespace RealEstate
             monthlyPay = checkNulls(TB_MonthlyPay.Text.ToString());
             maintenance = checkNulls(TB_Maintenance.Text.ToString());
         }
+
         private double checkNulls(string num)
         {
             num.Trim(); //공백 제거
@@ -113,6 +197,7 @@ namespace RealEstate
                 return -9999; //빈값 처리
             return double.Parse(num);
         }
+
         private void saveData()
         {
 
@@ -131,6 +216,7 @@ namespace RealEstate
             cmd.ExecuteNonQuery();
             cn.Close();
         }
+
         private void Tabs_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (Tab_control.SelectedTab == Page_prepare)
@@ -153,6 +239,7 @@ namespace RealEstate
                 state = 4;
             }
         }
+
         void test()
         {
             //DBFile = "C:/Users/HUN/Desktop/DB.db";
@@ -172,12 +259,13 @@ namespace RealEstate
                 {
                     a += rdr[i];
                 }
-                MessageBox.Show(a);
+                //MessageBox.Show(a);
             }
 
             rdr.Close();
             cn.Close();
         }
+
         private void Btn_Save_Click(object sender, EventArgs e)
         {
             if (type == -1)
@@ -186,9 +274,11 @@ namespace RealEstate
             }
             else
             {
-                setData();
-                saveData();
-                test();
+                //setData();
+                //saveData();
+                //test();
+                //saveDataGrid();
+                readDataGrid();
             }
         }
 
@@ -206,14 +296,8 @@ namespace RealEstate
             AddComment(2, "dfdf");
             AddComment(3, "As");
             listView1.EndUpdate();
-            
-        }
-
-        private void saveDataGrid()
-        {
 
         }
-
         // 코멘트에 더하기
         private void AddComment(int idx, string content)
         {
@@ -251,7 +335,7 @@ namespace RealEstate
         private void AddMenu_Load(object sender, EventArgs e)
         {
             dgv = ContentOfRentals;
-            
+            dgv.AutoGenerateColumns = false;
         }
 
 

@@ -1194,7 +1194,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.panel2);
             this.MaximizeBox = false;
-            this.Name.Name = "Content";
+            //this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "추가";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddMenu_FormClosing);
