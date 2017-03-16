@@ -197,6 +197,7 @@ namespace RealEstate
                 ManagerView mangerview = new ManagerView();
                 mangerview.setDBfile(DBFile);
                 mangerview.setID(1);
+                // mangerview.loadPicture("picture1")
                 mangerview.Show();
             }
         

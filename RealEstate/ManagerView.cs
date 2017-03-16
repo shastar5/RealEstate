@@ -2,6 +2,8 @@
 using System.Windows.Forms;
 using System.Data.SQLite;
 using System.Data;
+using System.IO;
+using System.Drawing;
 
 namespace RealEstate
 {
@@ -52,6 +54,7 @@ namespace RealEstate
 
         int isCorner;
 
+        public int profilePictureID = -1;
         String strConn;
         SQLiteConnection cn = new SQLiteConnection();
         SQLiteCommand cmd = new SQLiteCommand();
@@ -465,16 +468,46 @@ namespace RealEstate
             string addr = "http://map.daum.net/link/search/" + TB_Addr.Text;
             System.Diagnostics.Process.Start(addr);
         }
-
+        public void loadPicture(string tableName)
+        {
+            if (profilePictureID != -1)
+            {
+                cn.Open();
+                string query = "select picture from " + tableName + " where id = " + profilePictureID;
+                cmd = new SQLiteCommand(query, cn);
+                SQLiteDataAdapter da = new SQLiteDataAdapter(cmd);
+                SQLiteCommandBuilder cbd = new SQLiteCommandBuilder(da);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                byte[] ap = (byte[])(ds.Tables[0].Rows[0]["picture"]);
+                MemoryStream ms = new MemoryStream(ap);
+                pictureBox1.Image = Image.FromStream(ms);
+                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                pictureBox1.BorderStyle = BorderStyle.Fixed3D;
+                ms.Close();
+                cn.Close();
+            }
+        }
         private void ManagerView_Load(object sender, EventArgs e)
         {
             readData();
+            loadPicture("picture" + id);
         }
 
         private void SaveData_Click(object sender, EventArgs e)
         {
             setData();
             saveData();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            ShowPicture showpicture = new ShowPicture();
+            showpicture.setDBfile(DBFile);
+            showpicture.Owner = this;
+            showpicture.tableID = id;
+            showpicture.setMode("managerMode");
+            showpicture.Show();
         }
     }
 

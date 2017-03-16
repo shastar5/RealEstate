@@ -224,12 +224,25 @@ namespace RealEstate
 
         private void btn_SavePicture_Click(object sender, EventArgs e)
         {
-            if(profilePictureID == -1)
+            if (profilePictureID == -1)
                 MessageBox.Show("프로필 사진을 정해주세요");
             else
             {
-                AddMenu addmenu = (AddMenu)this.Owner;
-                addmenu.loadPicture(tableName);
+                switch (mode)
+                {
+                    case "addMode":
+                        AddMenu addmenu = (AddMenu)this.Owner;
+                        addmenu.loadPicture(tableName);
+                        break;
+                    case "managerMode":
+                        ManagerView managerview = (ManagerView)this.Owner;
+                        managerview.loadPicture(tableName);
+                        break;
+                    case "userMode":
+                        UserView userview = (UserView)this.Owner;
+                        userview.loadPicture(tableName);
+                        break;
+                }
                 this.Close();
             }
         }
@@ -240,9 +253,25 @@ namespace RealEstate
             id = id.Replace("사진 ", "");
             if(!id.Equals(""))
             {
-                AddMenu addmenu = (AddMenu)this.Owner;
-                profilePictureID = int.Parse(id);
-                addmenu.profilePictureID = profilePictureID;
+                switch (mode)
+                {
+                    case "addMode":
+                        AddMenu addmenu = (AddMenu)this.Owner;
+                        profilePictureID = int.Parse(id);
+                        addmenu.profilePictureID = profilePictureID;
+                        break;
+                    case "managerMode":
+                        ManagerView managerview = (ManagerView)this.Owner;
+                        profilePictureID = int.Parse(id);
+                        managerview.profilePictureID = profilePictureID;
+                        break;
+                    case "userMode" :
+                        UserView userview = (UserView)this.Owner;
+                        profilePictureID = int.Parse(id);
+                        userview.profilePictureID = profilePictureID;
+                        break;
+                }
+               
                 label2.Text = "프로필 사진  : 사진 " + id;
                 MessageBox.Show("사진 " + id + "가 프로필 사진으로 지정되었습니다");
 
