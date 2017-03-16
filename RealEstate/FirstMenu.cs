@@ -71,6 +71,9 @@ namespace RealEstate
             SQLiteCommand cmd = new SQLiteCommand(query, cn);
             cmd.ExecuteNonQuery();
 
+            query = "Create table if not exists temp (id INTEGER  PRIMARY KEY autoincrement, picture image)";
+            cmd = new SQLiteCommand(query, cn);
+            cmd.ExecuteNonQuery();
             try
             {
                 query = "Create table if not exists info2 (id INTEGER PRIMARY KEY autoincrement, buildingID INTEGER, floor NUMERIC, area NUMERIC, storeName varchar(100), "

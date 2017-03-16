@@ -2,7 +2,8 @@
 using System.Windows.Forms;
 using System.Data.SQLite;
 using System.Data;
-using System.Linq;
+using System.IO;
+using System.Drawing;
 
 namespace RealEstate
 {
@@ -13,7 +14,7 @@ namespace RealEstate
     }
     public partial class AddMenu : Form, DBInterface
     {
-        ShowPicture sp;
+        
         //전체 보이는용 변수
         int type;
         int state;
@@ -51,7 +52,7 @@ namespace RealEstate
         double yearPercent;
 
         int isCorner;
-
+        public int profilePictureID=-1;
         String strConn;
         SQLiteConnection cn = new SQLiteConnection();
         SQLiteCommand cmd = new SQLiteCommand();
@@ -127,7 +128,6 @@ namespace RealEstate
 
             */
             int i;
-            SQLiteConnection cn = new SQLiteConnection();
             string strConn = "Data Source=" + DBFile + "; Version=3;";
             cn.ConnectionString = strConn;
             try
@@ -293,9 +293,10 @@ namespace RealEstate
             {
                 //readDataGrid();
                 saveDataGrid();
-                //setData();
-                //saveData();
-                //test();
+                setData();
+                saveData();
+                test();
+                ///저장시 temp테이블 picture로 옮기기
             }
         }
 
@@ -334,10 +335,7 @@ namespace RealEstate
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-     
-        }
+       
 
         // 코멘트 부분
 
@@ -351,20 +349,35 @@ namespace RealEstate
 
         private void AddMenu_Load(object sender, EventArgs e)
         {
+            strConn = "Data Source=" + DBFile + "; Version=3;";
+            cn.ConnectionString = strConn;
             dgv = ContentOfRentals;
             dgv.AutoGenerateColumns = false;
-            readDataGrid();
+            //readDataGrid();   //추가시 에러 발생원인
             dgv.Columns[0].ReadOnly = true;
         }
 
 
-        private void pictureBox1_Click_1(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
-            if(sp == null)
+            int tableID=0;
+            ShowPicture showpicture = new ShowPicture();
+            showpicture.setDBfile(DBFile);
+            showpicture.setMode("managerMode");
+            cn.Open();
+            string query = "select MAX(id) from info1";
+            SQLiteCommand cmd = new SQLiteCommand(query, cn);
+            SQLiteDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
             {
-                sp = new RealEstate.ShowPicture();
-                sp.Show();
+                if(!rdr[0].ToString().Equals(""))
+                    tableID = int.Parse(rdr[0].ToString());
             }
+            cn.Close();
+            tableID+=1;
+            showpicture.tableID = tableID;
+            showpicture.Owner = this;
+            showpicture.Show();
         }
 
        
@@ -439,6 +452,26 @@ namespace RealEstate
         private void ContentOfRentals_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+        public void loadPicture(string tableName)
+        {
+            if (profilePictureID != -1)
+            {
+                cn.Open();
+                string query = "select picture from "+tableName+" where id = " + profilePictureID;
+                cmd = new SQLiteCommand(query, cn);
+                SQLiteDataAdapter da = new SQLiteDataAdapter(cmd);
+                SQLiteCommandBuilder cbd = new SQLiteCommandBuilder(da);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                byte[] ap = (byte[])(ds.Tables[0].Rows[0]["picture"]);
+                MemoryStream ms = new MemoryStream(ap);
+                pictureBox1.Image = Image.FromStream(ms);
+                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                pictureBox1.BorderStyle = BorderStyle.Fixed3D;
+                ms.Close();
+                cn.Close();
+            }
         }
     }
 }
