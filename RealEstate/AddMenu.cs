@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.Data.SQLite;
 using System.Data;
+using System.Linq;
 
 namespace RealEstate
 {
@@ -64,10 +65,10 @@ namespace RealEstate
             /*
              "Create table if not exists info2 (0id INTEGER  PRIMARY KEY autoincrement, 1buildingID INTEGER,2 floor NUMERIC, 3area NUMERIC, 4storeName varchar(100), "
              + "5deposit NUMERIC, 6monthlyIncome NUMERIC, 7managementPrice NUMERIC, 8etc NUMERIC, FOREIGN KEY(buildingID) REFERENCES info1(id))";
-             */ 
+             */
 
-            int i = 0, j = 0;
-            double sumOfArea = 0, sumOfDeposit = 0, sumOfIncome = 0, sumOfManage = 0;
+            int i = 0;
+            int sumOfArea = 0, sumOfDeposit = 0, sumOfIncome = 0, sumOfManage = 0;
             strConn = "Data Source=" + DBFile + "; Version=3;";
             cn.ConnectionString = strConn;
             SQLiteCommand sqlCMD = new SQLiteCommand("select * from info2", cn);
@@ -79,47 +80,40 @@ namespace RealEstate
 
                 while(reader.Read())
                 {
-                    j = 0;
                     dgv.Rows.Add();
+                    dgv.Rows[i].Cells[0].Value = reader.GetInt32(0);
 
-                    dgv.Rows[i].Cells[j++].Value = reader.GetInt32(0);
+                    dgv.Rows[i].Cells[1].Value = reader.GetInt32(2);
 
-                    dgv.Rows[i].Cells[j++].Value = reader.GetDouble(2);
+                    dgv.Rows[i].Cells[2].Value = reader.GetInt32(3);
+                    sumOfArea += reader.GetInt32(3);
 
-                    dgv.Rows[i].Cells[j++].Value = reader.GetDouble(3);
-                    sumOfArea += reader.GetDouble(3);
+                    dgv.Rows[i].Cells[3].Value = reader.GetString(4);
 
-                    dgv.Rows[i].Cells[j++].Value = reader.GetString(4);
+                    dgv.Rows[i].Cells[4].Value = reader.GetInt32(5);
+                    sumOfDeposit += reader.GetInt32(5);
 
-                    dgv.Rows[i].Cells[j++].Value = reader.GetDouble(5);
-                    sumOfDeposit += reader.GetDouble(5);
+                    dgv.Rows[i].Cells[5].Value = reader.GetInt32(6);
+                    sumOfIncome += reader.GetInt32(6);
 
-                    dgv.Rows[i].Cells[j++].Value = reader.GetDouble(6);
-                    sumOfIncome += reader.GetDouble(6);
+                    dgv.Rows[i].Cells[6].Value = reader.GetInt32(7);
+                    sumOfManage += reader.GetInt32(7);
 
-                    dgv.Rows[i].Cells[j++].Value = reader.GetDouble(7);
-                    sumOfManage += reader.GetDouble(7);
-
-                    dgv.Rows[i].Cells[j].Value = reader.GetInt32(8);
-
+                    dgv.Rows[i].Cells[7].Value = reader.GetInt32(8);
                     i++;
                 }
                 cn.Close();
-
+                MessageBox.Show(i.ToString());
             } catch(Exception e)
             {
                 MessageBox.Show(e.ToString());
             }
-
-            if (dgv.Rows.Count <= 1)
-            {
-                dgv.Rows.Add();
-                i++;
-            }
-            dgv.Rows[i].Cells[1].Value = sumOfArea;
-            dgv.Rows[i].Cells[3].Value = sumOfDeposit;
-            dgv.Rows[i].Cells[4].Value = sumOfIncome;
-            dgv.Rows[i].Cells[5].Value = sumOfManage;
+            dgv.Rows.Add();
+            i = dgv.Rows.Count - 1;
+            dgv.Rows[i].Cells[2].Value = sumOfArea;
+            dgv.Rows[i].Cells[4].Value = sumOfDeposit;
+            dgv.Rows[i].Cells[5].Value = sumOfIncome;
+            dgv.Rows[i].Cells[6].Value = sumOfManage;
 
 
             dgv.Refresh();
@@ -130,28 +124,36 @@ namespace RealEstate
             /*
             "Create table if not exists info2 (id INTEGER  PRIMARY KEY autoincrement, buildingID INTEGER, floor NUMERIC, area NUMERIC, storeName varchar(100), "
             + "deposit NUMERIC, monthlyIncome NUMERIC, managementPrice NUMERIC, etc NUMERIC, FOREIGN KEY(buildingID) REFERENCES info1(id))";
+
             */
-            strConn = "Data Source=" + DBFile + "; Version=3;";
+            int i;
+            SQLiteConnection cn = new SQLiteConnection();
+            string strConn = "Data Source=" + DBFile + "; Version=3;";
             cn.ConnectionString = strConn;
-
-            foreach (DataGridViewRow row in dgv.Rows)
+            try
             {
-                using (SQLiteCommand cmd = new SQLiteCommand("INSERT INTO info2 VALUES(@id, @buildingID, @floor, @area, @storeName, @deposit, @monthlyIncome, @managementPrice, @etc)", cn))
+                SQLiteCommand cmd = new SQLiteCommand("INSERT INTO info2 VALUES(@id, @buildingID, @floor, @area, @storeName, @deposit, @monthlyIncome, @managementPrice, @etc)", cn);
+                cn.Open();
+                for (i = 0; i < dgv.Rows.Count; i++)
                 {
-                    cmd.Parameters.AddWithValue("@id", row.Cells["id"].Value);
+                    //cmd.Parameters.AddWithValue("@id", dgv.Rows[i].Cells["id"].Value);
+                    cmd.Parameters.AddWithValue("@id", null);
                     cmd.Parameters.AddWithValue("@buildingID", 1);
-                    cmd.Parameters.AddWithValue("@floor", row.Cells["floor"].Value);
-                    cmd.Parameters.AddWithValue("@area", row.Cells["floor_area"].Value);
-                    cmd.Parameters.AddWithValue("@storeName", row.Cells["storeName"].Value);
-                    cmd.Parameters.AddWithValue("@deposit", row.Cells["storeDeposit"].Value);
-                    cmd.Parameters.AddWithValue("@monthlyIncome", row.Cells["monthlyIncome"].Value);
-                    cmd.Parameters.AddWithValue("@managementPrice", row.Cells["managementPrice"].Value);
-                    cmd.Parameters.AddWithValue("@etc", row.Cells["etc"].Value);
+                    cmd.Parameters.AddWithValue("@floor", dgv.Rows[i].Cells["floor"].Value);
+                    cmd.Parameters.AddWithValue("@area", dgv.Rows[i].Cells["floor_area"].Value);
+                    cmd.Parameters.AddWithValue("@storeName", dgv.Rows[i].Cells["storeName"].Value);
+                    cmd.Parameters.AddWithValue("@deposit", dgv.Rows[i].Cells["storeDeposit"].Value);
+                    cmd.Parameters.AddWithValue("@monthlyIncome", dgv.Rows[i].Cells["monthlyIncome"].Value);
+                    cmd.Parameters.AddWithValue("@managementPrice", dgv.Rows[i].Cells["managementPrice"].Value);
+                    cmd.Parameters.AddWithValue("@etc", dgv.Rows[i].Cells["etc"].Value);
 
-                    cn.Open();
                     cmd.ExecuteNonQuery();
-                    cn.Close();
+
                 }
+                cn.Close();
+            } catch(Exception e)
+            {
+                MessageBox.Show(e.ToString());
             }
         }
 
@@ -290,10 +292,10 @@ namespace RealEstate
             else
             {
                 //readDataGrid();
-                //saveDataGrid();
-                setData();
-                saveData();
-                test();
+                saveDataGrid();
+                //setData();
+                //saveData();
+                //test();
             }
         }
 
@@ -352,6 +354,7 @@ namespace RealEstate
             dgv = ContentOfRentals;
             dgv.AutoGenerateColumns = false;
             readDataGrid();
+            dgv.Columns[0].ReadOnly = true;
         }
 
 
