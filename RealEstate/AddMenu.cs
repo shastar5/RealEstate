@@ -278,11 +278,9 @@ namespace RealEstate
             }
             else
             {
-                //readDataGrid();
+                setData();
+                saveData();
                 saveDataGrid();
-                //setData();
-                //saveData();
-                //test();
                 ///저장시 temp테이블 picture로 옮기기
             }
         }
