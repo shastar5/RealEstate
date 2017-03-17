@@ -129,6 +129,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_JustClose = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -859,7 +860,7 @@
             // 
             this.NewConstruction.AutoSize = true;
             this.NewConstruction.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.NewConstruction.Location = new System.Drawing.Point(341, 19);
+            this.NewConstruction.Location = new System.Drawing.Point(458, 19);
             this.NewConstruction.Name = "NewConstruction";
             this.NewConstruction.Size = new System.Drawing.Size(71, 16);
             this.NewConstruction.TabIndex = 32;
@@ -871,7 +872,7 @@
             // 
             this.SanggaHome.AutoSize = true;
             this.SanggaHome.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.SanggaHome.Location = new System.Drawing.Point(253, 19);
+            this.SanggaHome.Location = new System.Drawing.Point(370, 19);
             this.SanggaHome.Name = "SanggaHome";
             this.SanggaHome.Size = new System.Drawing.Size(71, 16);
             this.SanggaHome.TabIndex = 31;
@@ -883,7 +884,7 @@
             // 
             this.Building.AutoSize = true;
             this.Building.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Building.Location = new System.Drawing.Point(187, 19);
+            this.Building.Location = new System.Drawing.Point(304, 19);
             this.Building.Name = "Building";
             this.Building.Size = new System.Drawing.Size(47, 16);
             this.Building.TabIndex = 30;
@@ -895,7 +896,7 @@
             // 
             this.Dagagu.AutoSize = true;
             this.Dagagu.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Dagagu.Location = new System.Drawing.Point(105, 19);
+            this.Dagagu.Location = new System.Drawing.Point(222, 19);
             this.Dagagu.Name = "Dagagu";
             this.Dagagu.Size = new System.Drawing.Size(59, 16);
             this.Dagagu.TabIndex = 29;
@@ -907,7 +908,7 @@
             // 
             this.Sangga.AutoSize = true;
             this.Sangga.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Sangga.Location = new System.Drawing.Point(427, 19);
+            this.Sangga.Location = new System.Drawing.Point(544, 19);
             this.Sangga.Name = "Sangga";
             this.Sangga.Size = new System.Drawing.Size(47, 16);
             this.Sangga.TabIndex = 100;
@@ -999,7 +1000,7 @@
             // CB_corner
             // 
             this.CB_corner.AutoSize = true;
-            this.CB_corner.Location = new System.Drawing.Point(500, 19);
+            this.CB_corner.Location = new System.Drawing.Point(617, 19);
             this.CB_corner.Name = "CB_corner";
             this.CB_corner.Size = new System.Drawing.Size(76, 16);
             this.CB_corner.TabIndex = 104;
@@ -1148,6 +1149,17 @@
             this.panel2.TabIndex = 19;
             this.panel2.Visible = false;
             // 
+            // btn_JustClose
+            // 
+            this.btn_JustClose.Location = new System.Drawing.Point(107, 12);
+            this.btn_JustClose.Name = "btn_JustClose";
+            this.btn_JustClose.Size = new System.Drawing.Size(90, 29);
+            this.btn_JustClose.TabIndex = 99;
+            this.btn_JustClose.TabStop = false;
+            this.btn_JustClose.Text = "저장 안하기";
+            this.btn_JustClose.UseVisualStyleBackColor = true;
+            this.btn_JustClose.Click += new System.EventHandler(this.btn_JustClose_Click);
+            // 
             // AddMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -1166,6 +1178,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.TB_TotalArea);
+            this.Controls.Add(this.btn_JustClose);
             this.Controls.Add(this.Btn_Save);
             this.Controls.Add(this.TB_Memo);
             this.Controls.Add(this.TB_EV);
@@ -1324,5 +1337,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn monthlyIncome;
         private System.Windows.Forms.DataGridViewTextBoxColumn managementPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn etc;
+        private System.Windows.Forms.Button btn_JustClose;
     }
 }

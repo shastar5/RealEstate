@@ -54,7 +54,12 @@ namespace RealEstate
             {
                 case "addMode":
                     //table name is temp
-                    tableName = "temp";
+                    cn.Open();
+                    tableName = "picture" + tableID.ToString();
+                    query = "Create table if not exists " + tableName + " (id INTEGER  PRIMARY KEY autoincrement, picture image)";
+                    cmd = new SQLiteCommand(query, cn);
+                    cmd.ExecuteNonQuery();
+                    cn.Close();
                     break;
                 case "managerMode":
                     cn.Open();

@@ -4,6 +4,7 @@ using System.Data.SQLite;
 using System.Data;
 using System.IO;
 using System.Drawing;
+using System.Runtime.InteropServices;
 
 namespace RealEstate
 {
@@ -14,7 +15,16 @@ namespace RealEstate
     }
     public partial class AddMenu : Form, DBInterface
     {
-        
+        private const int SC_CLOSE = 0xF060;
+        private const int MF_ENABLED = 0x0;
+        private const int MF_GRAYED = 0x1;
+        private const int MF_DISABLED = 0x2;
+
+        [DllImport("user32.dll")]
+        private static extern IntPtr GetSystemMenu(IntPtr hWnd, bool bRevert);
+        [DllImport("user32.dll")]
+        private static extern int EnableMenuItem(IntPtr hMenu, int wIDEnableItem, int wEnable);
+
         //전체 보이는용 변수
         int type;
         int state;
@@ -59,7 +69,10 @@ namespace RealEstate
 
         DataGridView dgv;
 
+
+
         // DataGridView 설정
+
         private void readDataGrid()
         {
             /*
@@ -330,7 +343,9 @@ namespace RealEstate
                 setData();
                 saveData();
                 saveDataGrid();
-                ///저장시 temp테이블 picture로 옮기기
+                MessageBox.Show("저장 완료 했습니다.");
+                this.Close();
+                
             }
         }
 
@@ -338,6 +353,8 @@ namespace RealEstate
         public AddMenu()
         {
             InitializeComponent();
+            EnableMenuItem(GetSystemMenu(this.Handle, false), SC_CLOSE, MF_GRAYED);
+
             type = -1;
             state = 1;
             isCorner = 0;
@@ -378,6 +395,11 @@ namespace RealEstate
 
         private void AddMenu_Load(object sender, EventArgs e)
         {
+            cn = new SQLiteConnection();
+            cmd = new SQLiteCommand();
+            strConn = "Data Source=" + DBFile + "; Version=3;";
+            cn.ConnectionString = strConn;
+
             dgv = ContentOfRentals;
             dgv.AutoGenerateColumns = false;
             dgv.Columns[0].ReadOnly = true;
@@ -391,6 +413,8 @@ namespace RealEstate
             ShowPicture showpicture = new ShowPicture();
             showpicture.setDBfile(DBFile);
             showpicture.setMode("addMode");
+            strConn = "Data Source=" + DBFile + "; Version=3;";
+            cn.ConnectionString = strConn;
             cn.Open();
             string query = "select MAX(id) from info1";
             SQLiteCommand cmd = new SQLiteCommand(query, cn);
@@ -406,7 +430,24 @@ namespace RealEstate
             showpicture.Owner = this;
             showpicture.Show();
         }
-
+        private void notSaveClose()
+        {
+            int tableID = 0;
+            cn.Open();
+            string query = "select MAX(id) from info1";
+            SQLiteCommand cmd = new SQLiteCommand(query, cn);
+            SQLiteDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                if (!rdr[0].ToString().Equals(""))
+                    tableID = int.Parse(rdr[0].ToString());
+            }
+            rdr.Close();
+            tableID += 1;
+            cmd.CommandText = "drop table if exists picture" + tableID;
+            cmd.ExecuteNonQuery();
+            cn.Close();
+        }
        
 
         
@@ -498,6 +539,18 @@ namespace RealEstate
                 pictureBox1.BorderStyle = BorderStyle.Fixed3D;
                 ms.Close();
                 cn.Close();
+            }
+
+        }
+
+        private void btn_JustClose_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("저장하지않고 종료하겠습니까?", "알림", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if (dr == DialogResult.OK)
+            {
+                notSaveClose();
+                this.Close();
+
             }
 
         }
