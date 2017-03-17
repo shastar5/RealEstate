@@ -275,7 +275,7 @@ namespace RealEstate
                 {
                     CB_corner.Checked = true;
                 }
-               
+               profilePictureID = int.Parse(rdr[31].ToString());
             }
 
 
@@ -347,7 +347,7 @@ namespace RealEstate
                  + "roadWidth = @RoadWidth, totalArea = @TotalArea, completeYear = @CompleteYear, parking = @Parking, acHeating = @AcHeating, EV = @EV, "
                  + "buildingName = @BuildingName, owner = @Owner, tel = @Tel, meno = @Meno, deposit = @Deposit, income = @Income, loan = @Loan, "
                  + "interest = @Interest, takeOverPrice = @TakeOverPrice, sellPrice = @SellPrice, payedPrice = @PayedPrice, yearPercent = @YearPercent, "
-                 + "type = @Type, state = @State, premium = @Premium, monthlyPay = @MonthlyPay, maintenance = @Maintenance, isCorner = @IsCorner where id  = " + id;
+                 + "type = @Type, state = @State, premium = @Premium, monthlyPay = @MonthlyPay, maintenance = @Maintenance, isCorner = @IsCorner, profilePictureID = @ProfilePictureID where id  = " + id;
             cmd.Parameters.Add(new SQLiteParameter("@Addr") {Value = addr});
             cmd.Parameters.Add(new SQLiteParameter("@RoadAddr") { Value = roadAddr });
             cmd.Parameters.Add(new SQLiteParameter("@Area") {Value = area});
@@ -380,6 +380,8 @@ namespace RealEstate
             cmd.Parameters.Add(new SQLiteParameter("@MonthlyPay") {Value = monthlyPay});
             cmd.Parameters.Add(new SQLiteParameter("@Maintenance") {Value = maintenance});
             cmd.Parameters.Add(new SQLiteParameter("@IsCorner") {Value = isCorner});
+            cmd.Parameters.Add(new SQLiteParameter("@ProfilePictureID") { Value = profilePictureID });
+
 
             cmd.ExecuteNonQuery();
             cn.Close();
@@ -479,6 +481,7 @@ namespace RealEstate
                 SQLiteCommandBuilder cbd = new SQLiteCommandBuilder(da);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
+                cn.Close();
                 byte[] ap = (byte[])(ds.Tables[0].Rows[0]["picture"]);
                 MemoryStream ms = new MemoryStream(ap);
                 pictureBox1.Image = Image.FromStream(ms);
@@ -486,6 +489,10 @@ namespace RealEstate
                 pictureBox1.BorderStyle = BorderStyle.Fixed3D;
                 ms.Close();
                 cn.Close();
+            }
+            else
+            {
+                pictureBox1.Image = null;
             }
         }
         private void ManagerView_Load(object sender, EventArgs e)
@@ -499,16 +506,31 @@ namespace RealEstate
             setData();
             saveData();
         }
+        private void readProfilePicture()
+        {
+            cn.Open();
+            String query = "select profilePictureID from info1 where id = " + id;
 
+            SQLiteCommand cmd = new SQLiteCommand(query, cn);
+            SQLiteDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                profilePictureID = int.Parse(rdr[0].ToString());
+            }
+            cn.Close();
+        }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            readProfilePicture();
             ShowPicture showpicture = new ShowPicture();
             showpicture.setDBfile(DBFile);
             showpicture.Owner = this;
             showpicture.tableID = id;
+            showpicture.profilePictureID = profilePictureID;
             showpicture.setMode("managerMode");
             showpicture.Show();
         }
+        
     }
 
 }

@@ -160,6 +160,8 @@ namespace RealEstate
 
                 type = int.Parse(rdr[25].ToString());
 
+                profilePictureID = int.Parse(rdr[31].ToString());
+
                 panel6.Show();
                 panel2.Hide();
                 switch (type)
@@ -312,6 +314,7 @@ namespace RealEstate
             showpicture.setDBfile(DBFile);
             showpicture.Owner = this;
             showpicture.tableID = id;
+            showpicture.profilePictureID = profilePictureID;
             showpicture.setMode("userMode");
             showpicture.Show();
         }
