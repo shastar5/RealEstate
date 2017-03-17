@@ -4,6 +4,7 @@ using System.Data.SQLite;
 using System.Data;
 using System.IO;
 using System.Drawing;
+using System.Runtime.InteropServices;
 
 namespace RealEstate
 {
@@ -13,6 +14,16 @@ namespace RealEstate
     }
     public partial class ManagerView : Form, DBInterface, IdInterface
     {
+        private const int SC_CLOSE = 0xF060;
+        private const int MF_ENABLED = 0x0;
+        private const int MF_GRAYED = 0x1;
+        private const int MF_DISABLED = 0x2;
+
+        [DllImport("user32.dll")]
+        private static extern IntPtr GetSystemMenu(IntPtr hWnd, bool bRevert);
+        [DllImport("user32.dll")]
+        private static extern int EnableMenuItem(IntPtr hMenu, int wIDEnableItem, int wEnable);
+
 
         ShowPicture sp;
         int id; // 선택한 건물 id
@@ -127,6 +138,7 @@ namespace RealEstate
         public ManagerView()
         {
             InitializeComponent();
+            EnableMenuItem(GetSystemMenu(this.Handle, false), SC_CLOSE, MF_GRAYED);
             dgv = ContentOfRentals;
         }
         private void readData()
