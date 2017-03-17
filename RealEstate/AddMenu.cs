@@ -74,6 +74,8 @@ namespace RealEstate
                 SQLiteConnection con = new SQLiteConnection();
                 strConn = "Data Source=" + DBFile + "; Version=3;";
                 con.ConnectionString = strConn;
+
+                // 여기 select * from info2 where id=? 로 고쳐
                 SQLiteCommand sqlCMD = new SQLiteCommand("select * from info2", con);
                 SQLiteDataReader reader;
                 con.Open();
@@ -104,6 +106,31 @@ namespace RealEstate
             {
                 MessageBox.Show(e.ToString());
             }
+            
+            // Get sum of each column and add additional column and shows
+            double sumofArea = 0, sumofDeposit = 0, sumofMonthlyIncome = 0, sumofManagementPrice = 0;
+            
+            for(i=0;i<dgv.Rows.Count-1;++i)
+            {
+                if (dgv.Rows[i].Cells[2].Value != DBNull.Value)
+                    sumofArea += Convert.ToDouble(dgv.Rows[i].Cells[2].Value);
+                if (dgv.Rows[i].Cells[4].Value != DBNull.Value)
+                    sumofDeposit += Convert.ToDouble(dgv.Rows[i].Cells[4].Value);
+                if (dgv.Rows[i].Cells[5].Value != DBNull.Value)
+                    sumofMonthlyIncome += Convert.ToDouble(dgv.Rows[i].Cells[5].Value);
+                if (dgv.Rows[i].Cells[6].Value != DBNull.Value)
+                    sumofManagementPrice += Convert.ToDouble(dgv.Rows[i].Cells[6].Value);
+            }
+            
+            dgv.Rows.Add();
+            i = dgv.Rows.Count-1;
+
+            dgv.Rows[i].Cells[0].Value = "합계";
+            dgv.Rows[i].Cells[2].Value = sumofArea;
+            dgv.Rows[i].Cells[4].Value = sumofDeposit;
+            dgv.Rows[i].Cells[5].Value = sumofMonthlyIncome;
+            dgv.Rows[i].Cells[6].Value = sumofManagementPrice;
+            
             dgv.Refresh();
         }
 
@@ -114,18 +141,22 @@ namespace RealEstate
             + "deposit NUMERIC, monthlyIncome NUMERIC, managementPrice NUMERIC, etc NUMERIC, FOREIGN KEY(buildingID) REFERENCES info1(id))";
 
             */
-            int i;
+            int i, rowCount = 0;
+
+            // Get RowCount
+            rowCount = dgv.Rows.Count;
+
             SQLiteConnection con = new SQLiteConnection();
             con.ConnectionString = strConn;
             try
             {
                 SQLiteCommand cmd = new SQLiteCommand("INSERT INTO info2 VALUES(@id, @buildingID, @floor, @area, @storeName, @deposit, @monthlyIncome, @managementPrice, @etc)", con);
                 con.Open();
-                for (i = 0; i < dgv.Rows.Count; i++)
+                for (i = 0; i < rowCount; i++)
                 {
                     //cmd.Parameters.AddWithValue("@id", dgv.Rows[i].Cells["id"].Value);
-                    cmd.Parameters.AddWithValue("@id", i);
-                    cmd.Parameters.AddWithValue("@buildingID", 1);
+                    cmd.Parameters.AddWithValue("@id", null);
+                    cmd.Parameters.AddWithValue("@buildingID", getid());
                     cmd.Parameters.AddWithValue("@floor", dgv.Rows[i].Cells["floor"].Value);
                     cmd.Parameters.AddWithValue("@area", dgv.Rows[i].Cells["floor_area"].Value);
                     cmd.Parameters.AddWithValue("@storeName", dgv.Rows[i].Cells["storeName"].Value);
@@ -244,6 +275,24 @@ namespace RealEstate
             }
         }
 
+        private int getid()
+        {
+            int tableID = 0;
+
+            cn.Open();
+            string query = "select MAX(id) from info1";
+            SQLiteCommand cmd = new SQLiteCommand(query, cn);
+            SQLiteDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                if (!rdr[0].ToString().Equals(""))
+                    tableID = int.Parse(rdr[0].ToString());
+            }
+            cn.Close();
+
+            return tableID;
+        }
+
         void test()
         {
             //DBFile = "C:/Users/HUN/Desktop/DB.db";
@@ -294,13 +343,6 @@ namespace RealEstate
             isCorner = 0;
 
             strConn = "Data Source=" + DBFile + "; Version=3;";
-
-            listView1.View = View.Details;
-            listView1.BeginUpdate();
-            AddComment(1, "asdf");
-            AddComment(2, "dfdf");
-            AddComment(3, "As");
-            listView1.EndUpdate();
 
         }
         // 코멘트에 더하기
