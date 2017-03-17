@@ -210,11 +210,11 @@ namespace RealEstate
             cn.Open();
             string query = "insert into info1(id, addr, roadAddr, area, station, useArea, distance, roadWidth, totalArea, completeYear,"
                 + " parking, acHeating, EV, buildingName, owner, tel, meno, deposit, income, loan, interest, takeOverPrice,"
-                + " sellPrice, payedPrice, yearPercent, type, state, premium, monthlyPay, maintenance, isCorner) values(null, '" + addr + "', '" + roadAddr + "', '" + area + "', '" + station + "', "
+                + " sellPrice, payedPrice, yearPercent, type, state, premium, monthlyPay, maintenance, isCorner, profilePictureID) values(null, '" + addr + "', '" + roadAddr + "', '" + area + "', '" + station + "', "
                 + "'" + useArea + "', '" + distance + "', '" + roadWidth + "', '" + totalArea + "', '" + completeYear + "', '" + parking + "', "
                 + "'" + acHeating + "', '" + EV + "', '" + buildingName + "', '" + owner + "', '" + tel + "', '" + meno + "', " + deposit + ", "
                 + Income + ", " + loan + ", " + interest + ", " + takeOverPrice + ", " + sellPrice + ", " + payedPrice + ", " + yearPercent+ ", "
-                + type + ", " + state + ", " + premium + ", " + monthlyPay + ", " + maintenance + ", " + isCorner + ")";
+                + type + ", " + state + ", " + premium + ", " + monthlyPay + ", " + maintenance + ", " + isCorner + ", " +profilePictureID +")";
             
             SQLiteCommand cmd = new SQLiteCommand(query, cn);
             cmd.ExecuteNonQuery();
@@ -350,7 +350,7 @@ namespace RealEstate
             int tableID=0;
             ShowPicture showpicture = new ShowPicture();
             showpicture.setDBfile(DBFile);
-            showpicture.setMode("managerMode");
+            showpicture.setMode("addMode");
             cn.Open();
             string query = "select MAX(id) from info1";
             SQLiteCommand cmd = new SQLiteCommand(query, cn);
@@ -459,6 +459,7 @@ namespace RealEstate
                 ms.Close();
                 cn.Close();
             }
+
         }
     }
 }

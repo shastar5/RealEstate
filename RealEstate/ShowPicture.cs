@@ -24,7 +24,7 @@ namespace RealEstate
         string imageName;
         public int tableID=0;
         int imageCount=0;
-        int profilePictureID=-1;
+        public int profilePictureID=-1;
         string mode; // 추가 1 관리자 수정 2 유저 보기용
         String strConn;
         SQLiteConnection cn = new SQLiteConnection();
@@ -179,6 +179,27 @@ namespace RealEstate
             cn.Close();
             pictureBox1.Image = null;
             label1.Text = "";
+            if(id.Equals(profilePictureID.ToString())) {
+                label2.Text = "프로필 사진이 없습니다.";
+                profilePictureID = -1;
+                
+                
+                if (mode.Equals("managerMode"))
+                {
+                    cn.Open();
+                    cmd.CommandText = "update info1 SET profilePictureID = -1 where id = " + tableID;
+                    cmd.ExecuteNonQuery();
+                    cn.Close();
+                    ManagerView managerview = new ManagerView();
+                    managerview.profilePictureID = profilePictureID;
+                }
+                else if(mode.Equals("addMode"))
+                {
+                    AddMenu addmenu = new AddMenu();
+                    addmenu.profilePictureID = profilePictureID;
+                }
+
+            }
             MessageBox.Show("사진 " + id + "가 삭제되었습니다.");
             loadData();
 
@@ -224,7 +245,10 @@ namespace RealEstate
 
         private void btn_SavePicture_Click(object sender, EventArgs e)
         {
-            if (profilePictureID == -1)
+            if (listBox1.Items.Count == 0||mode.Equals("userMode"))
+                 this.Close();
+            //if you do not save any photo, then close
+            else if(profilePictureID == -1)
                 MessageBox.Show("프로필 사진을 정해주세요");
             else
             {
@@ -237,6 +261,7 @@ namespace RealEstate
                     case "managerMode":
                         ManagerView managerview = (ManagerView)this.Owner;
                         managerview.loadPicture(tableName);
+                        
                         break;
                     case "userMode":
                         UserView userview = (UserView)this.Owner;
@@ -259,11 +284,18 @@ namespace RealEstate
                         AddMenu addmenu = (AddMenu)this.Owner;
                         profilePictureID = int.Parse(id);
                         addmenu.profilePictureID = profilePictureID;
+                        addmenu.loadPicture(tableName);
                         break;
                     case "managerMode":
                         ManagerView managerview = (ManagerView)this.Owner;
                         profilePictureID = int.Parse(id);
+
+                        cn.Open();
+                        cmd.CommandText = "update info1 SET profilePictureID = " + profilePictureID + " where id = " + tableID;
+                        cmd.ExecuteNonQuery();
+                        cn.Close();
                         managerview.profilePictureID = profilePictureID;
+                        managerview.loadPicture(tableName);
                         break;
                     case "userMode" :
                         UserView userview = (UserView)this.Owner;
