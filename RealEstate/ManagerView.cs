@@ -69,62 +69,10 @@ namespace RealEstate
         String strConn;
         SQLiteConnection cn = new SQLiteConnection();
         SQLiteCommand cmd = new SQLiteCommand();
-        SQLiteDataReader dr;
-        SQLiteParameter picture;
 
         // Database keyword declare
-        SQLiteCommand sqlCMD;
-        SQLiteDataReader sqlReader;
-        SQLiteDataAdapter adapter;
+        int countofrows = 0;
         DataGridView dgv;
-        DataTable dt;
-
-        private void saveDataGrid()
-        {
-            dt = new DataTable();
-
-            cn.Open();
-            sqlCMD = cn.CreateCommand();
-
-            // 이 부분 수정할 것. buildingID = ID로 수정해야됨
-            sqlCMD.CommandText = string.Format("SELECT * FROM info2");
-            adapter = new SQLiteDataAdapter(sqlCMD);
-            adapter.Fill(dt);
-            adapter.Update(dt);
-
-            cn.Close();
-        }
-
-        // DataGridView 설정
-        private void readDataGrid()
-        {
-            dt = new DataTable();
-            int i = 0, j = 0;
-            string DBFile;
-            string strConn = "";
-            string deskPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-
-            deskPath = deskPath.Replace("\\", "/"); //\\글자 /로 바꾸기
-            DBFile = deskPath + @"/DB.db";
-            strConn = "Data Source=" + DBFile + "; Version=3;";
-            cn.ConnectionString = strConn;
-
-            cn.Open();
-            sqlCMD = cn.CreateCommand();
-
-            // 이 부분 수정할 것. buildingID = ID로 수정해야됨
-            sqlCMD.CommandText = "SELECT * FROM info2 WHERE buildingID";
-            sqlReader = sqlCMD.ExecuteReader();
-
-            adapter = new SQLiteDataAdapter(sqlCMD);
-            adapter.Fill(dt);
-            dgv.DataSource = dt;
-
-            // 오름차순으로 정렬
-            dgv.Sort(dgv.Columns[0], System.ComponentModel.ListSortDirection.Ascending);
-
-            cn.Close();
-        }
 
         public void setDBfile(string DBFile) //DB파일위치 계승
         {
@@ -141,6 +89,7 @@ namespace RealEstate
             EnableMenuItem(GetSystemMenu(this.Handle, false), SC_CLOSE, MF_GRAYED);
             dgv = ContentOfRentals;
         }
+
         private void readData()
         {
             strConn = "Data Source=" + DBFile + "; Version=3;";
@@ -294,6 +243,7 @@ namespace RealEstate
             rdr.Close();
             cn.Close();
         }
+
         private void setData()
         {
             addr = TB_Addr.Text.ToString();
@@ -338,12 +288,162 @@ namespace RealEstate
             monthlyPay = checkNulls(TB_MonthlyPay.Text.ToString());
             maintenance = checkNulls(TB_Maintenance.Text.ToString());
         }
+
         private double checkNulls(string num)
         {
             num.Trim(); //공백 제거
             if (num.Equals(""))
                 return -9999; //빈값 처리
             return double.Parse(num);
+        }
+
+        private void updateDataGrid()
+        {
+            /*
+            "Create table if not exists info2 (id INTEGER  PRIMARY KEY autoincrement, buildingID INTEGER, floor NUMERIC, area NUMERIC, storeName varchar(100), "
+            + "deposit NUMERIC, monthlyIncome NUMERIC, managementPrice NUMERIC, etc NUMERIC, FOREIGN KEY(buildingID) REFERENCES info1(id))";
+
+            */
+            int i, rowCount = 0, rowNum;
+
+            // Get RowCount
+            rowCount = dgv.Rows.Count;
+
+            SQLiteConnection con = new SQLiteConnection();
+            con.ConnectionString = strConn;
+            string sql = "UPDATE info2 SET floor = @floor, area = @area, storeName = @storeName," +
+                " deposit = @deposit, monthlyIncome = @monthlyIncome, managementPrice = @managementPrice, etc = @etc where id = @id AND buildingID = " + id;
+            try
+            {
+                SQLiteCommand cmd = new SQLiteCommand(sql, con);
+                con.Open();
+
+                // 업데이트가 필요한 위치를 찾아서 저장함
+                for(rowNum =0;rowNum<rowCount;++rowNum)
+                {
+                    if (dgv.Rows[rowNum].Cells[0].Value == null)
+                        break;
+                }
+
+                for (i = 0; i < rowNum; ++i)
+                {
+                    cmd.Parameters.AddWithValue("@floor", dgv.Rows[i].Cells["floor"].Value);
+                    cmd.Parameters.AddWithValue("@area", dgv.Rows[i].Cells["floor_area"].Value);
+                    cmd.Parameters.AddWithValue("@storeName", dgv.Rows[i].Cells["storeName"].Value);
+                    cmd.Parameters.AddWithValue("@deposit", dgv.Rows[i].Cells["storeDeposit"].Value);
+                    cmd.Parameters.AddWithValue("@monthlyIncome", dgv.Rows[i].Cells["monthlyIncome"].Value);
+                    cmd.Parameters.AddWithValue("@managementPrice", dgv.Rows[i].Cells["managementPrice"].Value);
+                    cmd.Parameters.AddWithValue("@etc", dgv.Rows[i].Cells["etc"].Value);
+                    cmd.Parameters.AddWithValue("@id", dgv.Rows[i].Cells["_id"].Value);
+
+                    cmd.ExecuteNonQuery();
+
+                }
+                con.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        private void readDataGrid()
+        {
+            /*
+             "Create table if not exists info2 (0id INTEGER  PRIMARY KEY autoincrement, 1buildingID INTEGER,2 floor NUMERIC, 3area NUMERIC, 4storeName varchar(100), "
+             + "5deposit NUMERIC, 6monthlyIncome NUMERIC, 7managementPrice NUMERIC, 8etc NUMERIC, FOREIGN KEY(buildingID) REFERENCES info1(id))";
+             */
+
+            int i = 0;
+            string sql = "select * from info2 where buildingId =" + id;
+            try
+            {
+                SQLiteConnection con = new SQLiteConnection();
+                strConn = "Data Source=" + DBFile + "; Version=3;";
+                con.ConnectionString = strConn;
+
+                // 여기 select * from info2 where id=? 로 고쳐
+                SQLiteCommand sqlCMD = new SQLiteCommand(sql, con);
+                SQLiteDataReader reader;
+                con.Open();
+                reader = sqlCMD.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    dgv.Rows.Add();
+                    dgv.Rows[i].Cells[0].Value = reader.GetValue(0);
+
+                    dgv.Rows[i].Cells[1].Value = reader.GetValue(2);
+
+                    dgv.Rows[i].Cells[2].Value = reader.GetValue(3);
+
+                    dgv.Rows[i].Cells[3].Value = reader.GetValue(4);
+
+                    dgv.Rows[i].Cells[4].Value = reader.GetValue(5);
+
+                    dgv.Rows[i].Cells[5].Value = reader.GetValue(6);
+
+                    dgv.Rows[i].Cells[6].Value = reader.GetValue(7);
+
+                    dgv.Rows[i].Cells[7].Value = reader.GetValue(8);
+                    i++;
+                }
+                con.Close();
+                countofrows = i;
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+
+            // Get sum of each column and add additional column and shows
+            double sumofArea = 0, sumofDeposit = 0, sumofMonthlyIncome = 0, sumofManagementPrice = 0;
+
+            for (i = 0; i < dgv.Rows.Count - 1; ++i)
+            {
+                if (dgv.Rows[i].Cells[2].Value != DBNull.Value)
+                    sumofArea += Convert.ToDouble(dgv.Rows[i].Cells[2].Value);
+                if (dgv.Rows[i].Cells[4].Value != DBNull.Value)
+                    sumofDeposit += Convert.ToDouble(dgv.Rows[i].Cells[4].Value);
+                if (dgv.Rows[i].Cells[5].Value != DBNull.Value)
+                    sumofMonthlyIncome += Convert.ToDouble(dgv.Rows[i].Cells[5].Value);
+                if (dgv.Rows[i].Cells[6].Value != DBNull.Value)
+                    sumofManagementPrice += Convert.ToDouble(dgv.Rows[i].Cells[6].Value);
+            }
+
+            dgv.Rows.Add();
+            i = dgv.Rows.Count - 1;
+
+            dgv.Rows[i].Cells[0].Value = "합계";
+            dgv.Rows[i].Cells[2].Value = sumofArea;
+            dgv.Rows[i].Cells[4].Value = sumofDeposit;
+            dgv.Rows[i].Cells[5].Value = sumofMonthlyIncome;
+            dgv.Rows[i].Cells[6].Value = sumofManagementPrice;
+
+            dgv.Refresh();
+        }
+
+        private int getid()
+        {
+            int tableID = 0;
+
+            cn.Open();
+            string query = "select MAX(id) from info2";
+            SQLiteCommand cmd = new SQLiteCommand(query, cn);
+            SQLiteDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                if (!rdr[0].ToString().Equals(""))
+                    tableID = int.Parse(rdr[0].ToString());
+            }
+            cn.Close();
+
+            return tableID;
+        }
+
+        private void InsertRowsDataGridView()
+        {
+
         }
 
         private void saveData()
@@ -398,6 +498,7 @@ namespace RealEstate
             cmd.ExecuteNonQuery();
             cn.Close();
         }
+
         private void Tabs_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (Tab_control.SelectedTab == Page_prepare)
@@ -420,6 +521,7 @@ namespace RealEstate
                 state = 4;
             }
         }
+
             private void radioButton_CheckedChanged(object sender, EventArgs e)
         {
             if (Dagagu.Checked)
@@ -460,6 +562,7 @@ namespace RealEstate
                 e.Handled = true;
             }
         }
+
         private void CB_corner_CheckedChanged(object sender, EventArgs e)
         {
             if (CB_corner.Checked)
@@ -482,6 +585,7 @@ namespace RealEstate
             string addr = "http://map.daum.net/link/search/" + TB_Addr.Text;
             System.Diagnostics.Process.Start(addr);
         }
+
         public void loadPicture(string tableName)
         {
             if (profilePictureID != -1)
@@ -507,8 +611,10 @@ namespace RealEstate
                 pictureBox1.Image = null;
             }
         }
+
         private void ManagerView_Load(object sender, EventArgs e)
         {
+            readDataGrid();
             readData();
             loadPicture("picture" + id);
         }
@@ -517,9 +623,12 @@ namespace RealEstate
         {
             setData();
             saveData();
+            updateDataGrid();
+            InsertRowsDataGridView();
             MessageBox.Show("저장 완료 했습니다.");
             this.Close();
         }
+
         private void readProfilePicture()
         {
             cn.Open();
@@ -533,6 +642,7 @@ namespace RealEstate
             }
             cn.Close();
         }
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             readProfilePicture();
@@ -544,8 +654,7 @@ namespace RealEstate
             showpicture.setMode("managerMode");
             showpicture.Show();
         }
-
-        
+ 
     }
 
 }

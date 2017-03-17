@@ -69,84 +69,6 @@ namespace RealEstate
 
         DataGridView dgv;
 
-
-
-        // DataGridView 설정
-
-        private void readDataGrid()
-        {
-            /*
-             "Create table if not exists info2 (0id INTEGER  PRIMARY KEY autoincrement, 1buildingID INTEGER,2 floor NUMERIC, 3area NUMERIC, 4storeName varchar(100), "
-             + "5deposit NUMERIC, 6monthlyIncome NUMERIC, 7managementPrice NUMERIC, 8etc NUMERIC, FOREIGN KEY(buildingID) REFERENCES info1(id))";
-             */
-
-            int i = 0;
-
-            try
-            {
-                SQLiteConnection con = new SQLiteConnection();
-                strConn = "Data Source=" + DBFile + "; Version=3;";
-                con.ConnectionString = strConn;
-
-                // 여기 select * from info2 where id=? 로 고쳐
-                SQLiteCommand sqlCMD = new SQLiteCommand("select * from info2", con);
-                SQLiteDataReader reader;
-                con.Open();
-                reader = sqlCMD.ExecuteReader();
-
-                while(reader.Read())
-                {
-                    dgv.Rows.Add();
-                    dgv.Rows[i].Cells[0].Value = reader.GetValue(0);
-
-                    dgv.Rows[i].Cells[1].Value = reader.GetValue(2);
-
-                    dgv.Rows[i].Cells[2].Value = reader.GetValue(3);
-
-                    dgv.Rows[i].Cells[3].Value = reader.GetValue(4);
-
-                    dgv.Rows[i].Cells[4].Value = reader.GetValue(5);
-
-                    dgv.Rows[i].Cells[5].Value = reader.GetValue(6);
-
-                    dgv.Rows[i].Cells[6].Value = reader.GetValue(7);
-
-                    dgv.Rows[i].Cells[7].Value = reader.GetValue(8);
-                    i++;
-                }
-                con.Close();
-            } catch(SQLiteException e)
-            {
-                MessageBox.Show(e.ToString());
-            }
-            
-            // Get sum of each column and add additional column and shows
-            double sumofArea = 0, sumofDeposit = 0, sumofMonthlyIncome = 0, sumofManagementPrice = 0;
-            
-            for(i=0;i<dgv.Rows.Count-1;++i)
-            {
-                if (dgv.Rows[i].Cells[2].Value != DBNull.Value)
-                    sumofArea += Convert.ToDouble(dgv.Rows[i].Cells[2].Value);
-                if (dgv.Rows[i].Cells[4].Value != DBNull.Value)
-                    sumofDeposit += Convert.ToDouble(dgv.Rows[i].Cells[4].Value);
-                if (dgv.Rows[i].Cells[5].Value != DBNull.Value)
-                    sumofMonthlyIncome += Convert.ToDouble(dgv.Rows[i].Cells[5].Value);
-                if (dgv.Rows[i].Cells[6].Value != DBNull.Value)
-                    sumofManagementPrice += Convert.ToDouble(dgv.Rows[i].Cells[6].Value);
-            }
-            
-            dgv.Rows.Add();
-            i = dgv.Rows.Count-1;
-
-            dgv.Rows[i].Cells[0].Value = "합계";
-            dgv.Rows[i].Cells[2].Value = sumofArea;
-            dgv.Rows[i].Cells[4].Value = sumofDeposit;
-            dgv.Rows[i].Cells[5].Value = sumofMonthlyIncome;
-            dgv.Rows[i].Cells[6].Value = sumofManagementPrice;
-            
-            dgv.Refresh();
-        }
-
         private void saveDataGrid()
         {
             /*
@@ -381,11 +303,7 @@ namespace RealEstate
 
         }
 
-       
-
         // 코멘트 부분
-
-      
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -403,7 +321,6 @@ namespace RealEstate
             dgv = ContentOfRentals;
             dgv.AutoGenerateColumns = false;
             dgv.Columns[0].ReadOnly = true;
-            readDataGrid();
         }
 
 
