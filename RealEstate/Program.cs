@@ -17,7 +17,6 @@ namespace RealEstate
             Application.Run(new Login());
             /*/
             Application.Run(new FirstMenu());
-           //Application.Run(new AddMenu());
             //*/
             
         }

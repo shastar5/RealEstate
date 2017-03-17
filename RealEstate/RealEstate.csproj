@@ -123,6 +123,12 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BigPicture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BigPicture.Designer.cs">
+      <DependentUpon>BigPicture.cs</DependentUpon>
+    </Compile>
     <Compile Include="FindView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +175,9 @@
     </Compile>
     <EmbeddedResource Include="AddMenu.resx">
       <DependentUpon>AddMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BigPicture.resx">
+      <DependentUpon>BigPicture.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FindView.resx">
       <DependentUpon>FindView.cs</DependentUpon>

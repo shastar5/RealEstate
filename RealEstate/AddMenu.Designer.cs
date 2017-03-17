@@ -145,7 +145,7 @@
             this.TB_RoadWidth.Location = new System.Drawing.Point(122, 219);
             this.TB_RoadWidth.Name = "TB_RoadWidth";
             this.TB_RoadWidth.Size = new System.Drawing.Size(90, 27);
-            this.TB_RoadWidth.TabIndex = 8;
+            this.TB_RoadWidth.TabIndex = 6;
             this.TB_RoadWidth.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // label9
@@ -165,7 +165,7 @@
             this.TB_Station.Location = new System.Drawing.Point(122, 191);
             this.TB_Station.Name = "TB_Station";
             this.TB_Station.Size = new System.Drawing.Size(90, 27);
-            this.TB_Station.TabIndex = 7;
+            this.TB_Station.TabIndex = 5;
             this.TB_Station.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // label8
@@ -185,7 +185,7 @@
             this.TB_UseDistrict.Location = new System.Drawing.Point(122, 135);
             this.TB_UseDistrict.Name = "TB_UseDistrict";
             this.TB_UseDistrict.Size = new System.Drawing.Size(90, 27);
-            this.TB_UseDistrict.TabIndex = 4;
+            this.TB_UseDistrict.TabIndex = 3;
             // 
             // TB_Distance
             // 
@@ -194,7 +194,7 @@
             this.TB_Distance.Location = new System.Drawing.Point(122, 163);
             this.TB_Distance.Name = "TB_Distance";
             this.TB_Distance.Size = new System.Drawing.Size(90, 27);
-            this.TB_Distance.TabIndex = 3;
+            this.TB_Distance.TabIndex = 4;
             // 
             // TB_RoadAddr
             // 
@@ -280,7 +280,7 @@
             this.TB_TotalArea.Location = new System.Drawing.Point(316, 109);
             this.TB_TotalArea.Name = "TB_TotalArea";
             this.TB_TotalArea.Size = new System.Drawing.Size(80, 27);
-            this.TB_TotalArea.TabIndex = 9;
+            this.TB_TotalArea.TabIndex = 7;
             // 
             // TB_EV
             // 
@@ -289,7 +289,7 @@
             this.TB_EV.Location = new System.Drawing.Point(316, 221);
             this.TB_EV.Name = "TB_EV";
             this.TB_EV.Size = new System.Drawing.Size(80, 27);
-            this.TB_EV.TabIndex = 15;
+            this.TB_EV.TabIndex = 11;
             // 
             // label10
             // 
@@ -318,7 +318,7 @@
             this.TB_AC_Heating.Location = new System.Drawing.Point(316, 193);
             this.TB_AC_Heating.Name = "TB_AC_Heating";
             this.TB_AC_Heating.Size = new System.Drawing.Size(80, 27);
-            this.TB_AC_Heating.TabIndex = 14;
+            this.TB_AC_Heating.TabIndex = 10;
             // 
             // label15
             // 
@@ -347,7 +347,7 @@
             this.TB_Parking.Location = new System.Drawing.Point(316, 165);
             this.TB_Parking.Name = "TB_Parking";
             this.TB_Parking.Size = new System.Drawing.Size(80, 27);
-            this.TB_Parking.TabIndex = 13;
+            this.TB_Parking.TabIndex = 9;
             // 
             // label14
             // 
@@ -366,7 +366,7 @@
             this.TB_CompleteYear.Location = new System.Drawing.Point(316, 137);
             this.TB_CompleteYear.Name = "TB_CompleteYear";
             this.TB_CompleteYear.Size = new System.Drawing.Size(80, 27);
-            this.TB_CompleteYear.TabIndex = 12;
+            this.TB_CompleteYear.TabIndex = 8;
             // 
             // panel3
             // 
@@ -386,6 +386,7 @@
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(353, 126);
             this.listView1.TabIndex = 1;
+            this.listView1.TabStop = false;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
@@ -436,7 +437,7 @@
             this.panel6.Location = new System.Drawing.Point(12, 265);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(384, 265);
-            this.panel6.TabIndex = 19;
+            this.panel6.TabIndex = 16;
             // 
             // TB_YearPercent
             // 
@@ -445,7 +446,7 @@
             this.TB_YearPercent.Location = new System.Drawing.Point(110, 204);
             this.TB_YearPercent.Name = "TB_YearPercent";
             this.TB_YearPercent.Size = new System.Drawing.Size(202, 27);
-            this.TB_YearPercent.TabIndex = 23;
+            this.TB_YearPercent.TabIndex = 7;
             this.TB_YearPercent.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // label34
@@ -565,7 +566,7 @@
             this.TB_TakeOverPrice.Location = new System.Drawing.Point(110, 176);
             this.TB_TakeOverPrice.Name = "TB_TakeOverPrice";
             this.TB_TakeOverPrice.Size = new System.Drawing.Size(202, 27);
-            this.TB_TakeOverPrice.TabIndex = 22;
+            this.TB_TakeOverPrice.TabIndex = 6;
             this.TB_TakeOverPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // label22
@@ -585,7 +586,7 @@
             this.TB_SellPrice.Location = new System.Drawing.Point(110, 148);
             this.TB_SellPrice.Name = "TB_SellPrice";
             this.TB_SellPrice.Size = new System.Drawing.Size(202, 27);
-            this.TB_SellPrice.TabIndex = 21;
+            this.TB_SellPrice.TabIndex = 5;
             this.TB_SellPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // label23
@@ -605,7 +606,7 @@
             this.TB_PayedPrice.Location = new System.Drawing.Point(110, 120);
             this.TB_PayedPrice.Name = "TB_PayedPrice";
             this.TB_PayedPrice.Size = new System.Drawing.Size(202, 27);
-            this.TB_PayedPrice.TabIndex = 20;
+            this.TB_PayedPrice.TabIndex = 4;
             this.TB_PayedPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // label24
@@ -625,7 +626,7 @@
             this.TB_Interest.Location = new System.Drawing.Point(110, 92);
             this.TB_Interest.Name = "TB_Interest";
             this.TB_Interest.Size = new System.Drawing.Size(202, 27);
-            this.TB_Interest.TabIndex = 19;
+            this.TB_Interest.TabIndex = 3;
             this.TB_Interest.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // TB_Deposit
@@ -645,7 +646,7 @@
             this.TB_Loan.Location = new System.Drawing.Point(110, 64);
             this.TB_Loan.Name = "TB_Loan";
             this.TB_Loan.Size = new System.Drawing.Size(202, 27);
-            this.TB_Loan.TabIndex = 18;
+            this.TB_Loan.TabIndex = 2;
             this.TB_Loan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // label28
@@ -675,7 +676,7 @@
             this.TB_Income.Location = new System.Drawing.Point(110, 36);
             this.TB_Income.Name = "TB_Income";
             this.TB_Income.Size = new System.Drawing.Size(202, 27);
-            this.TB_Income.TabIndex = 17;
+            this.TB_Income.TabIndex = 1;
             this.TB_Income.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // label36
@@ -695,7 +696,7 @@
             this.TB_Owner.Location = new System.Drawing.Point(500, 82);
             this.TB_Owner.Name = "TB_Owner";
             this.TB_Owner.Size = new System.Drawing.Size(202, 27);
-            this.TB_Owner.TabIndex = 16;
+            this.TB_Owner.TabIndex = 13;
             // 
             // label37
             // 
@@ -714,7 +715,7 @@
             this.TB_Tel.Location = new System.Drawing.Point(500, 110);
             this.TB_Tel.Name = "TB_Tel";
             this.TB_Tel.Size = new System.Drawing.Size(202, 27);
-            this.TB_Tel.TabIndex = 17;
+            this.TB_Tel.TabIndex = 14;
             // 
             // label38
             // 
@@ -733,7 +734,7 @@
             this.TB_Memo.Location = new System.Drawing.Point(500, 138);
             this.TB_Memo.Name = "TB_Memo";
             this.TB_Memo.Size = new System.Drawing.Size(202, 27);
-            this.TB_Memo.TabIndex = 18;
+            this.TB_Memo.TabIndex = 15;
             // 
             // panel1
             // 
@@ -750,6 +751,7 @@
             this.listView3.Name = "listView3";
             this.listView3.Size = new System.Drawing.Size(458, 126);
             this.listView3.TabIndex = 1;
+            this.listView3.TabStop = false;
             this.listView3.UseCompatibleStateImageBehavior = false;
             // 
             // label40
@@ -809,6 +811,7 @@
             this.Tab_control.SelectedIndex = 0;
             this.Tab_control.Size = new System.Drawing.Size(36, 200);
             this.Tab_control.TabIndex = 28;
+            this.Tab_control.TabStop = false;
             this.Tab_control.SelectedIndexChanged += new System.EventHandler(this.Tabs_SelectedIndexChanged);
             // 
             // Page_prepare
@@ -860,7 +863,6 @@
             this.NewConstruction.Name = "NewConstruction";
             this.NewConstruction.Size = new System.Drawing.Size(71, 16);
             this.NewConstruction.TabIndex = 32;
-            this.NewConstruction.TabStop = true;
             this.NewConstruction.Text = "신축부지";
             this.NewConstruction.UseVisualStyleBackColor = true;
             this.NewConstruction.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
@@ -873,7 +875,6 @@
             this.SanggaHome.Name = "SanggaHome";
             this.SanggaHome.Size = new System.Drawing.Size(71, 16);
             this.SanggaHome.TabIndex = 31;
-            this.SanggaHome.TabStop = true;
             this.SanggaHome.Text = "상가주택";
             this.SanggaHome.UseVisualStyleBackColor = true;
             this.SanggaHome.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
@@ -886,7 +887,6 @@
             this.Building.Name = "Building";
             this.Building.Size = new System.Drawing.Size(47, 16);
             this.Building.TabIndex = 30;
-            this.Building.TabStop = true;
             this.Building.Text = "빌딩";
             this.Building.UseVisualStyleBackColor = true;
             this.Building.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
@@ -899,7 +899,6 @@
             this.Dagagu.Name = "Dagagu";
             this.Dagagu.Size = new System.Drawing.Size(59, 16);
             this.Dagagu.TabIndex = 29;
-            this.Dagagu.TabStop = true;
             this.Dagagu.Text = "다가구";
             this.Dagagu.UseVisualStyleBackColor = true;
             this.Dagagu.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
@@ -912,7 +911,6 @@
             this.Sangga.Name = "Sangga";
             this.Sangga.Size = new System.Drawing.Size(47, 16);
             this.Sangga.TabIndex = 100;
-            this.Sangga.TabStop = true;
             this.Sangga.Text = "상가";
             this.Sangga.UseVisualStyleBackColor = true;
             this.Sangga.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
@@ -924,7 +922,7 @@
             this.TB_BuildName.Location = new System.Drawing.Point(500, 50);
             this.TB_BuildName.Name = "TB_BuildName";
             this.TB_BuildName.Size = new System.Drawing.Size(202, 27);
-            this.TB_BuildName.TabIndex = 102;
+            this.TB_BuildName.TabIndex = 12;
             // 
             // label26
             // 
@@ -955,6 +953,7 @@
             this.ContentOfRentals.RowTemplate.Height = 23;
             this.ContentOfRentals.Size = new System.Drawing.Size(460, 311);
             this.ContentOfRentals.TabIndex = 103;
+            this.ContentOfRentals.TabStop = false;
             this.ContentOfRentals.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ContentOfRentals_CellContentClick);
             // 
             // id
@@ -1004,6 +1003,7 @@
             this.CB_corner.Name = "CB_corner";
             this.CB_corner.Size = new System.Drawing.Size(76, 16);
             this.CB_corner.TabIndex = 104;
+            this.CB_corner.TabStop = false;
             this.CB_corner.Text = "코너 존재";
             this.CB_corner.UseVisualStyleBackColor = true;
             this.CB_corner.CheckedChanged += new System.EventHandler(this.CB_corner_CheckedChanged);

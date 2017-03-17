@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FirstMenu));
             this.Panel_InitText = new System.Windows.Forms.Panel();
             this.HiddenBox = new System.Windows.Forms.CheckBox();
-            this.DBLocation = new System.Windows.Forms.Label();
             this.radioButton6 = new System.Windows.Forms.RadioButton();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
@@ -66,6 +65,7 @@
             this.Page_complete = new System.Windows.Forms.TabPage();
             this.Page_prepare = new System.Windows.Forms.TabPage();
             this.Tab_control = new System.Windows.Forms.TabControl();
+            this.DBLocation = new System.Windows.Forms.Label();
             this.Panel_InitText.SuspendLayout();
             this.Tab_control.SuspendLayout();
             this.SuspendLayout();
@@ -110,19 +110,14 @@
             // 
             resources.ApplyResources(this.HiddenBox, "HiddenBox");
             this.HiddenBox.Name = "HiddenBox";
+            this.HiddenBox.TabStop = false;
             this.HiddenBox.UseVisualStyleBackColor = true;
             this.HiddenBox.CheckedChanged += new System.EventHandler(this.HiddenBox_CheckedChanged);
-            // 
-            // DBLocation
-            // 
-            resources.ApplyResources(this.DBLocation, "DBLocation");
-            this.DBLocation.Name = "DBLocation";
             // 
             // radioButton6
             // 
             resources.ApplyResources(this.radioButton6, "radioButton6");
             this.radioButton6.Name = "radioButton6";
-            this.radioButton6.TabStop = true;
             this.radioButton6.UseVisualStyleBackColor = true;
             this.radioButton6.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
@@ -130,7 +125,6 @@
             // 
             resources.ApplyResources(this.radioButton5, "radioButton5");
             this.radioButton5.Name = "radioButton5";
-            this.radioButton5.TabStop = true;
             this.radioButton5.UseVisualStyleBackColor = true;
             this.radioButton5.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
@@ -138,7 +132,6 @@
             // 
             resources.ApplyResources(this.radioButton4, "radioButton4");
             this.radioButton4.Name = "radioButton4";
-            this.radioButton4.TabStop = true;
             this.radioButton4.UseVisualStyleBackColor = true;
             this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
@@ -146,7 +139,6 @@
             // 
             resources.ApplyResources(this.radioButton3, "radioButton3");
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.TabStop = true;
             this.radioButton3.UseVisualStyleBackColor = true;
             this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
@@ -154,7 +146,6 @@
             // 
             resources.ApplyResources(this.radioButton2, "radioButton2");
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.TabStop = true;
             this.radioButton2.UseVisualStyleBackColor = true;
             this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
@@ -162,7 +153,6 @@
             // 
             resources.ApplyResources(this.radioButton1, "radioButton1");
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.TabStop = true;
             this.radioButton1.UseVisualStyleBackColor = true;
             this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
@@ -188,6 +178,7 @@
             resources.GetString("CB_YearPercent.Items2")});
             resources.ApplyResources(this.CB_YearPercent, "CB_YearPercent");
             this.CB_YearPercent.Name = "CB_YearPercent";
+            this.CB_YearPercent.TabStop = false;
             this.CB_YearPercent.SelectedIndexChanged += new System.EventHandler(this.CB_YearPercent_SelectedIndexChanged);
             // 
             // CB_Income
@@ -200,6 +191,7 @@
             resources.GetString("CB_Income.Items2")});
             resources.ApplyResources(this.CB_Income, "CB_Income");
             this.CB_Income.Name = "CB_Income";
+            this.CB_Income.TabStop = false;
             this.CB_Income.SelectedIndexChanged += new System.EventHandler(this.CB_Income_SelectedIndexChanged);
             // 
             // CB_TakeOverPrice
@@ -212,6 +204,7 @@
             resources.GetString("CB_TakeOverPrice.Items2")});
             resources.ApplyResources(this.CB_TakeOverPrice, "CB_TakeOverPrice");
             this.CB_TakeOverPrice.Name = "CB_TakeOverPrice";
+            this.CB_TakeOverPrice.TabStop = false;
             this.CB_TakeOverPrice.SelectedIndexChanged += new System.EventHandler(this.CB_TakeOverPrice_SelectedIndexChanged);
             // 
             // CB_sellPrice
@@ -224,6 +217,7 @@
             resources.GetString("CB_sellPrice.Items2")});
             resources.ApplyResources(this.CB_sellPrice, "CB_sellPrice");
             this.CB_sellPrice.Name = "CB_sellPrice";
+            this.CB_sellPrice.TabStop = false;
             this.CB_sellPrice.SelectedIndexChanged += new System.EventHandler(this.CB_sellPrice_SelectedIndexChanged);
             // 
             // TB_RoadWidth
@@ -274,6 +268,7 @@
             // 
             resources.ApplyResources(this.btn_DBFind, "btn_DBFind");
             this.btn_DBFind.Name = "btn_DBFind";
+            this.btn_DBFind.TabStop = false;
             this.btn_DBFind.UseVisualStyleBackColor = true;
             this.btn_DBFind.Click += new System.EventHandler(this.btn_DBFind_Click);
             // 
@@ -281,6 +276,7 @@
             // 
             resources.ApplyResources(this.btn_find, "btn_find");
             this.btn_find.Name = "btn_find";
+            this.btn_find.TabStop = false;
             this.btn_find.UseVisualStyleBackColor = true;
             this.btn_find.Click += new System.EventHandler(this.btn_find_Click);
             // 
@@ -293,6 +289,7 @@
             // 
             resources.ApplyResources(this.btn_addBuilding, "btn_addBuilding");
             this.btn_addBuilding.Name = "btn_addBuilding";
+            this.btn_addBuilding.TabStop = false;
             this.btn_addBuilding.UseVisualStyleBackColor = true;
             this.btn_addBuilding.Click += new System.EventHandler(this.btn_addBuilding_Click);
             // 
@@ -366,7 +363,13 @@
             this.Tab_control.Multiline = true;
             this.Tab_control.Name = "Tab_control";
             this.Tab_control.SelectedIndex = 0;
+            this.Tab_control.TabStop = false;
             this.Tab_control.SelectedIndexChanged += new System.EventHandler(this.Tabs_SelectedIndexChanged);
+            // 
+            // DBLocation
+            // 
+            resources.ApplyResources(this.DBLocation, "DBLocation");
+            this.DBLocation.Name = "DBLocation";
             // 
             // FirstMenu
             // 
@@ -421,10 +424,10 @@
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Button btn_DBFind;
         private System.Windows.Forms.RadioButton radioButton6;
-        private System.Windows.Forms.Label DBLocation;
         private System.Windows.Forms.CheckBox HiddenBox;
         private System.Windows.Forms.ComboBox CB_Income;
         private System.Windows.Forms.ComboBox CB_TakeOverPrice;
+        private System.Windows.Forms.Label DBLocation;
     }
 }
 

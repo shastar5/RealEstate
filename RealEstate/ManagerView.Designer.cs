@@ -141,7 +141,8 @@
             this.button1.Location = new System.Drawing.Point(98, 6);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(67, 29);
-            this.button1.TabIndex = 64;
+            this.button1.TabIndex = 35;
+            this.button1.TabStop = false;
             this.button1.Text = "지도";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -151,7 +152,8 @@
             this.SaveData.Location = new System.Drawing.Point(26, 6);
             this.SaveData.Name = "SaveData";
             this.SaveData.Size = new System.Drawing.Size(67, 29);
-            this.SaveData.TabIndex = 109;
+            this.SaveData.TabIndex = 14;
+            this.SaveData.TabStop = false;
             this.SaveData.Text = "저장";
             this.SaveData.UseVisualStyleBackColor = true;
             this.SaveData.Click += new System.EventHandler(this.SaveData_Click);
@@ -161,7 +163,7 @@
             this.listView1.Location = new System.Drawing.Point(16, 25);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(353, 126);
-            this.listView1.TabIndex = 1;
+            this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // label17
@@ -170,7 +172,7 @@
             this.label17.Location = new System.Drawing.Point(14, 10);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(41, 12);
-            this.label17.TabIndex = 0;
+            this.label17.TabIndex = 1;
             this.label17.Text = "코멘트";
             // 
             // panel1
@@ -180,14 +182,14 @@
             this.panel1.Location = new System.Drawing.Point(403, 533);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(461, 163);
-            this.panel1.TabIndex = 70;
+            this.panel1.TabIndex = 15;
             // 
             // listView3
             // 
             this.listView3.Location = new System.Drawing.Point(0, 25);
             this.listView3.Name = "listView3";
             this.listView3.Size = new System.Drawing.Size(461, 126);
-            this.listView3.TabIndex = 1;
+            this.listView3.TabIndex = 0;
             this.listView3.UseCompatibleStateImageBehavior = false;
             // 
             // label40
@@ -196,7 +198,7 @@
             this.label40.Location = new System.Drawing.Point(206, 10);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(29, 12);
-            this.label40.TabIndex = 0;
+            this.label40.TabIndex = 1;
             this.label40.Text = "메모";
             // 
             // TB_Memo
@@ -206,7 +208,7 @@
             this.TB_Memo.Location = new System.Drawing.Point(501, 124);
             this.TB_Memo.Name = "TB_Memo";
             this.TB_Memo.Size = new System.Drawing.Size(202, 27);
-            this.TB_Memo.TabIndex = 107;
+            this.TB_Memo.TabIndex = 15;
             // 
             // label38
             // 
@@ -215,7 +217,7 @@
             this.label38.Location = new System.Drawing.Point(403, 124);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(52, 21);
-            this.label38.TabIndex = 100;
+            this.label38.TabIndex = 16;
             this.label38.Text = "메모 :";
             // 
             // TB_Tel
@@ -225,7 +227,7 @@
             this.TB_Tel.Location = new System.Drawing.Point(501, 96);
             this.TB_Tel.Name = "TB_Tel";
             this.TB_Tel.Size = new System.Drawing.Size(202, 27);
-            this.TB_Tel.TabIndex = 98;
+            this.TB_Tel.TabIndex = 14;
             // 
             // label37
             // 
@@ -234,7 +236,7 @@
             this.label37.Location = new System.Drawing.Point(403, 96);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(68, 21);
-            this.label37.TabIndex = 94;
+            this.label37.TabIndex = 17;
             this.label37.Text = "연락처 :";
             // 
             // label41
@@ -244,7 +246,7 @@
             this.label41.Location = new System.Drawing.Point(582, 179);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(112, 21);
-            this.label41.TabIndex = 102;
+            this.label41.TabIndex = 18;
             this.label41.Text = "세부 임대내역";
             // 
             // label15
@@ -254,7 +256,7 @@
             this.label15.Location = new System.Drawing.Point(219, 181);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(74, 21);
-            this.label15.TabIndex = 96;
+            this.label15.TabIndex = 19;
             this.label15.Text = "냉/난방 :";
             // 
             // TB_Owner
@@ -264,7 +266,7 @@
             this.TB_Owner.Location = new System.Drawing.Point(501, 68);
             this.TB_Owner.Name = "TB_Owner";
             this.TB_Owner.Size = new System.Drawing.Size(202, 27);
-            this.TB_Owner.TabIndex = 92;
+            this.TB_Owner.TabIndex = 13;
             // 
             // label13
             // 
@@ -273,7 +275,7 @@
             this.label13.Location = new System.Drawing.Point(219, 125);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(84, 21);
-            this.label13.TabIndex = 75;
+            this.label13.TabIndex = 21;
             this.label13.Text = "준공연도 :";
             // 
             // TB_Parking
@@ -283,7 +285,7 @@
             this.TB_Parking.Location = new System.Drawing.Point(317, 153);
             this.TB_Parking.Name = "TB_Parking";
             this.TB_Parking.Size = new System.Drawing.Size(80, 27);
-            this.TB_Parking.TabIndex = 93;
+            this.TB_Parking.TabIndex = 9;
             // 
             // panel3
             // 
@@ -292,7 +294,7 @@
             this.panel3.Location = new System.Drawing.Point(13, 533);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(384, 163);
-            this.panel3.TabIndex = 69;
+            this.panel3.TabIndex = 22;
             // 
             // label36
             // 
@@ -301,7 +303,7 @@
             this.label36.Location = new System.Drawing.Point(403, 68);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(68, 21);
-            this.label36.TabIndex = 80;
+            this.label36.TabIndex = 23;
             this.label36.Text = "소유주 :";
             // 
             // label14
@@ -311,7 +313,7 @@
             this.label14.Location = new System.Drawing.Point(219, 153);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(84, 21);
-            this.label14.TabIndex = 78;
+            this.label14.TabIndex = 24;
             this.label14.Text = "주차방식 :";
             // 
             // TB_CompleteYear
@@ -321,7 +323,7 @@
             this.TB_CompleteYear.Location = new System.Drawing.Point(317, 125);
             this.TB_CompleteYear.Name = "TB_CompleteYear";
             this.TB_CompleteYear.Size = new System.Drawing.Size(80, 27);
-            this.TB_CompleteYear.TabIndex = 89;
+            this.TB_CompleteYear.TabIndex = 8;
             // 
             // TB_UseDistrict
             // 
@@ -330,7 +332,7 @@
             this.TB_UseDistrict.Location = new System.Drawing.Point(123, 125);
             this.TB_UseDistrict.Name = "TB_UseDistrict";
             this.TB_UseDistrict.Size = new System.Drawing.Size(90, 27);
-            this.TB_UseDistrict.TabIndex = 88;
+            this.TB_UseDistrict.TabIndex = 3;
             // 
             // TB_Distance
             // 
@@ -339,7 +341,7 @@
             this.TB_Distance.Location = new System.Drawing.Point(123, 153);
             this.TB_Distance.Name = "TB_Distance";
             this.TB_Distance.Size = new System.Drawing.Size(90, 27);
-            this.TB_Distance.TabIndex = 85;
+            this.TB_Distance.TabIndex = 4;
             this.TB_Distance.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // TB_RoadAddr
@@ -349,7 +351,7 @@
             this.TB_RoadAddr.Location = new System.Drawing.Point(123, 67);
             this.TB_RoadAddr.Name = "TB_RoadAddr";
             this.TB_RoadAddr.Size = new System.Drawing.Size(274, 27);
-            this.TB_RoadAddr.TabIndex = 84;
+            this.TB_RoadAddr.TabIndex = 1;
             // 
             // TB_Area
             // 
@@ -358,7 +360,7 @@
             this.TB_Area.Location = new System.Drawing.Point(123, 95);
             this.TB_Area.Name = "TB_Area";
             this.TB_Area.Size = new System.Drawing.Size(90, 27);
-            this.TB_Area.TabIndex = 83;
+            this.TB_Area.TabIndex = 2;
             // 
             // TB_Addr
             // 
@@ -367,7 +369,7 @@
             this.TB_Addr.Location = new System.Drawing.Point(123, 39);
             this.TB_Addr.Name = "TB_Addr";
             this.TB_Addr.Size = new System.Drawing.Size(274, 27);
-            this.TB_Addr.TabIndex = 81;
+            this.TB_Addr.TabIndex = 0;
             // 
             // pictureBox1
             // 
@@ -375,7 +377,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(708, 4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(156, 176);
-            this.pictureBox1.TabIndex = 111;
+            this.pictureBox1.TabIndex = 25;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
@@ -386,7 +388,7 @@
             this.TB_RoadWidth.Location = new System.Drawing.Point(123, 209);
             this.TB_RoadWidth.Name = "TB_RoadWidth";
             this.TB_RoadWidth.Size = new System.Drawing.Size(90, 27);
-            this.TB_RoadWidth.TabIndex = 106;
+            this.TB_RoadWidth.TabIndex = 6;
             this.TB_RoadWidth.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // label9
@@ -396,7 +398,7 @@
             this.label9.Location = new System.Drawing.Point(25, 209);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(84, 21);
-            this.label9.TabIndex = 101;
+            this.label9.TabIndex = 26;
             this.label9.Text = "도로너비 :";
             // 
             // TB_Station
@@ -406,7 +408,7 @@
             this.TB_Station.Location = new System.Drawing.Point(123, 181);
             this.TB_Station.Name = "TB_Station";
             this.TB_Station.Size = new System.Drawing.Size(90, 27);
-            this.TB_Station.TabIndex = 97;
+            this.TB_Station.TabIndex = 5;
             // 
             // label8
             // 
@@ -415,7 +417,7 @@
             this.label8.Location = new System.Drawing.Point(24, 153);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(90, 21);
-            this.label8.TabIndex = 95;
+            this.label8.TabIndex = 27;
             this.label8.Text = "역과 거리 :";
             // 
             // TB_TotalArea
@@ -425,7 +427,7 @@
             this.TB_TotalArea.Location = new System.Drawing.Point(317, 97);
             this.TB_TotalArea.Name = "TB_TotalArea";
             this.TB_TotalArea.Size = new System.Drawing.Size(80, 27);
-            this.TB_TotalArea.TabIndex = 82;
+            this.TB_TotalArea.TabIndex = 7;
             // 
             // TB_EV
             // 
@@ -434,7 +436,7 @@
             this.TB_EV.Location = new System.Drawing.Point(317, 209);
             this.TB_EV.Name = "TB_EV";
             this.TB_EV.Size = new System.Drawing.Size(80, 27);
-            this.TB_EV.TabIndex = 105;
+            this.TB_EV.TabIndex = 11;
             // 
             // label10
             // 
@@ -443,7 +445,7 @@
             this.label10.Location = new System.Drawing.Point(219, 97);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(68, 21);
-            this.label10.TabIndex = 67;
+            this.label10.TabIndex = 28;
             this.label10.Text = "연면적 :";
             // 
             // label16
@@ -453,7 +455,7 @@
             this.label16.Location = new System.Drawing.Point(219, 210);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(44, 21);
-            this.label16.TabIndex = 104;
+            this.label16.TabIndex = 29;
             this.label16.Text = "E/V :";
             // 
             // TB_AC_Heating
@@ -463,7 +465,7 @@
             this.TB_AC_Heating.Location = new System.Drawing.Point(317, 181);
             this.TB_AC_Heating.Name = "TB_AC_Heating";
             this.TB_AC_Heating.Size = new System.Drawing.Size(80, 27);
-            this.TB_AC_Heating.TabIndex = 99;
+            this.TB_AC_Heating.TabIndex = 10;
             // 
             // label1
             // 
@@ -472,7 +474,7 @@
             this.label1.Location = new System.Drawing.Point(25, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 21);
-            this.label1.TabIndex = 65;
+            this.label1.TabIndex = 30;
             this.label1.Text = "주소 :";
             // 
             // label2
@@ -482,7 +484,7 @@
             this.label2.Location = new System.Drawing.Point(25, 67);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 21);
-            this.label2.TabIndex = 66;
+            this.label2.TabIndex = 31;
             this.label2.Text = "도로명주소 :";
             // 
             // label3
@@ -492,7 +494,7 @@
             this.label3.Location = new System.Drawing.Point(25, 95);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 21);
-            this.label3.TabIndex = 68;
+            this.label3.TabIndex = 32;
             this.label3.Text = "면적 :";
             // 
             // label4
@@ -502,7 +504,7 @@
             this.label4.Location = new System.Drawing.Point(25, 181);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 21);
-            this.label4.TabIndex = 71;
+            this.label4.TabIndex = 33;
             this.label4.Text = "주변역 :";
             // 
             // label5
@@ -512,7 +514,7 @@
             this.label5.Location = new System.Drawing.Point(25, 125);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(84, 21);
-            this.label5.TabIndex = 73;
+            this.label5.TabIndex = 34;
             this.label5.Text = "용도지역 :";
             // 
             // TB_BuildName
@@ -522,7 +524,7 @@
             this.TB_BuildName.Location = new System.Drawing.Point(501, 39);
             this.TB_BuildName.Name = "TB_BuildName";
             this.TB_BuildName.Size = new System.Drawing.Size(202, 27);
-            this.TB_BuildName.TabIndex = 113;
+            this.TB_BuildName.TabIndex = 12;
             // 
             // label6
             // 
@@ -531,7 +533,7 @@
             this.label6.Location = new System.Drawing.Point(403, 39);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 21);
-            this.label6.TabIndex = 112;
+            this.label6.TabIndex = 13;
             this.label6.Text = "건물명";
             // 
             // ContentOfRentals
@@ -551,7 +553,8 @@
             this.ContentOfRentals.RowHeadersVisible = false;
             this.ContentOfRentals.RowTemplate.Height = 23;
             this.ContentOfRentals.Size = new System.Drawing.Size(460, 311);
-            this.ContentOfRentals.TabIndex = 114;
+            this.ContentOfRentals.TabIndex = 9;
+            this.ContentOfRentals.TabStop = false;
             // 
             // floor
             // 
@@ -594,7 +597,8 @@
             this.CB_corner.Location = new System.Drawing.Point(569, 12);
             this.CB_corner.Name = "CB_corner";
             this.CB_corner.Size = new System.Drawing.Size(76, 16);
-            this.CB_corner.TabIndex = 120;
+            this.CB_corner.TabIndex = 3;
+            this.CB_corner.TabStop = false;
             this.CB_corner.Text = "코너 존재";
             this.CB_corner.UseVisualStyleBackColor = true;
             this.CB_corner.CheckedChanged += new System.EventHandler(this.CB_corner_CheckedChanged);
@@ -606,8 +610,7 @@
             this.Sangga.Location = new System.Drawing.Point(496, 12);
             this.Sangga.Name = "Sangga";
             this.Sangga.Size = new System.Drawing.Size(47, 16);
-            this.Sangga.TabIndex = 119;
-            this.Sangga.TabStop = true;
+            this.Sangga.TabIndex = 4;
             this.Sangga.Text = "상가";
             this.Sangga.UseVisualStyleBackColor = true;
             this.Sangga.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
@@ -619,8 +622,7 @@
             this.NewConstruction.Location = new System.Drawing.Point(410, 12);
             this.NewConstruction.Name = "NewConstruction";
             this.NewConstruction.Size = new System.Drawing.Size(71, 16);
-            this.NewConstruction.TabIndex = 118;
-            this.NewConstruction.TabStop = true;
+            this.NewConstruction.TabIndex = 5;
             this.NewConstruction.Text = "신축부지";
             this.NewConstruction.UseVisualStyleBackColor = true;
             this.NewConstruction.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
@@ -632,8 +634,7 @@
             this.SanggaHome.Location = new System.Drawing.Point(322, 12);
             this.SanggaHome.Name = "SanggaHome";
             this.SanggaHome.Size = new System.Drawing.Size(71, 16);
-            this.SanggaHome.TabIndex = 117;
-            this.SanggaHome.TabStop = true;
+            this.SanggaHome.TabIndex = 6;
             this.SanggaHome.Text = "상가주택";
             this.SanggaHome.UseVisualStyleBackColor = true;
             this.SanggaHome.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
@@ -645,8 +646,7 @@
             this.Building.Location = new System.Drawing.Point(256, 12);
             this.Building.Name = "Building";
             this.Building.Size = new System.Drawing.Size(47, 16);
-            this.Building.TabIndex = 116;
-            this.Building.TabStop = true;
+            this.Building.TabIndex = 7;
             this.Building.Text = "빌딩";
             this.Building.UseVisualStyleBackColor = true;
             this.Building.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
@@ -658,8 +658,7 @@
             this.Dagagu.Location = new System.Drawing.Point(174, 12);
             this.Dagagu.Name = "Dagagu";
             this.Dagagu.Size = new System.Drawing.Size(59, 16);
-            this.Dagagu.TabIndex = 115;
-            this.Dagagu.TabStop = true;
+            this.Dagagu.TabIndex = 8;
             this.Dagagu.Text = "다가구";
             this.Dagagu.UseVisualStyleBackColor = true;
             this.Dagagu.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
@@ -680,7 +679,8 @@
             this.Tab_control.Name = "Tab_control";
             this.Tab_control.SelectedIndex = 0;
             this.Tab_control.Size = new System.Drawing.Size(36, 200);
-            this.Tab_control.TabIndex = 121;
+            this.Tab_control.TabIndex = 2;
+            this.Tab_control.TabStop = false;
             this.Tab_control.SelectedIndexChanged += new System.EventHandler(this.Tabs_SelectedIndexChanged);
             // 
             // Page_prepare
@@ -731,7 +731,7 @@
             this.TB_MonthlyPay.Location = new System.Drawing.Point(110, 64);
             this.TB_MonthlyPay.Name = "TB_MonthlyPay";
             this.TB_MonthlyPay.Size = new System.Drawing.Size(202, 27);
-            this.TB_MonthlyPay.TabIndex = 18;
+            this.TB_MonthlyPay.TabIndex = 26;
             this.TB_MonthlyPay.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // TB_Income2
@@ -741,7 +741,7 @@
             this.TB_Income2.Location = new System.Drawing.Point(110, 36);
             this.TB_Income2.Name = "TB_Income2";
             this.TB_Income2.Size = new System.Drawing.Size(202, 27);
-            this.TB_Income2.TabIndex = 17;
+            this.TB_Income2.TabIndex = 25;
             this.TB_Income2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // TB_Premium
@@ -751,7 +751,7 @@
             this.TB_Premium.Location = new System.Drawing.Point(110, 8);
             this.TB_Premium.Name = "TB_Premium";
             this.TB_Premium.Size = new System.Drawing.Size(202, 27);
-            this.TB_Premium.TabIndex = 0;
+            this.TB_Premium.TabIndex = 24;
             this.TB_Premium.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // TB_Maintenance
@@ -761,7 +761,7 @@
             this.TB_Maintenance.Location = new System.Drawing.Point(110, 92);
             this.TB_Maintenance.Name = "TB_Maintenance";
             this.TB_Maintenance.Size = new System.Drawing.Size(202, 27);
-            this.TB_Maintenance.TabIndex = 19;
+            this.TB_Maintenance.TabIndex = 27;
             this.TB_Maintenance.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // label48
@@ -771,7 +771,7 @@
             this.label48.Location = new System.Drawing.Point(12, 92);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(68, 21);
-            this.label48.TabIndex = 3;
+            this.label48.TabIndex = 7;
             this.label48.Text = "관리비 :";
             // 
             // label46
@@ -781,7 +781,7 @@
             this.label46.Location = new System.Drawing.Point(12, 64);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(52, 21);
-            this.label46.TabIndex = 2;
+            this.label46.TabIndex = 6;
             this.label46.Text = "월세 :";
             // 
             // label45
@@ -791,7 +791,7 @@
             this.label45.Location = new System.Drawing.Point(12, 36);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(68, 21);
-            this.label45.TabIndex = 1;
+            this.label45.TabIndex = 5;
             this.label45.Text = "월수입 :";
             // 
             // label44
@@ -801,7 +801,7 @@
             this.label44.Location = new System.Drawing.Point(12, 9);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(68, 21);
-            this.label44.TabIndex = 0;
+            this.label44.TabIndex = 4;
             this.label44.Text = "권리금 :";
             // 
             // label43
@@ -811,7 +811,7 @@
             this.label43.Location = new System.Drawing.Point(313, 12);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(42, 21);
-            this.label43.TabIndex = 0;
+            this.label43.TabIndex = 3;
             this.label43.Text = "만원";
             // 
             // label39
@@ -821,7 +821,7 @@
             this.label39.Location = new System.Drawing.Point(313, 64);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(42, 21);
-            this.label39.TabIndex = 0;
+            this.label39.TabIndex = 2;
             this.label39.Text = "만원";
             // 
             // label12
@@ -831,7 +831,7 @@
             this.label12.Location = new System.Drawing.Point(313, 38);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(42, 21);
-            this.label12.TabIndex = 0;
+            this.label12.TabIndex = 1;
             this.label12.Text = "만원";
             // 
             // label7
@@ -871,10 +871,10 @@
             this.panel6.Controls.Add(this.TB_Income);
             this.panel6.Controls.Add(this.TB_Loan);
             this.panel6.ImeMode = System.Windows.Forms.ImeMode.Hangul;
-            this.panel6.Location = new System.Drawing.Point(12, 243);
+            this.panel6.Location = new System.Drawing.Point(13, 242);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(384, 265);
-            this.panel6.TabIndex = 76;
+            this.panel6.TabIndex = 16;
             // 
             // TB_YearPercent
             // 
@@ -883,7 +883,7 @@
             this.TB_YearPercent.Location = new System.Drawing.Point(110, 204);
             this.TB_YearPercent.Name = "TB_YearPercent";
             this.TB_YearPercent.Size = new System.Drawing.Size(202, 27);
-            this.TB_YearPercent.TabIndex = 14;
+            this.TB_YearPercent.TabIndex = 7;
             this.TB_YearPercent.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // label34
@@ -893,7 +893,7 @@
             this.label34.Location = new System.Drawing.Point(313, 204);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(23, 21);
-            this.label34.TabIndex = 0;
+            this.label34.TabIndex = 24;
             this.label34.Text = "%";
             // 
             // label30
@@ -903,7 +903,7 @@
             this.label30.Location = new System.Drawing.Point(313, 94);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(42, 21);
-            this.label30.TabIndex = 0;
+            this.label30.TabIndex = 25;
             this.label30.Text = "만원";
             // 
             // label33
@@ -913,7 +913,7 @@
             this.label33.Location = new System.Drawing.Point(313, 148);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(42, 21);
-            this.label33.TabIndex = 0;
+            this.label33.TabIndex = 26;
             this.label33.Text = "만원";
             // 
             // label28
@@ -923,7 +923,7 @@
             this.label28.Location = new System.Drawing.Point(313, 38);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(42, 21);
-            this.label28.TabIndex = 0;
+            this.label28.TabIndex = 27;
             this.label28.Text = "만원";
             // 
             // label32
@@ -933,7 +933,7 @@
             this.label32.Location = new System.Drawing.Point(313, 178);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(42, 21);
-            this.label32.TabIndex = 0;
+            this.label32.TabIndex = 28;
             this.label32.Text = "만원";
             // 
             // label29
@@ -943,7 +943,7 @@
             this.label29.Location = new System.Drawing.Point(313, 64);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(42, 21);
-            this.label29.TabIndex = 0;
+            this.label29.TabIndex = 29;
             this.label29.Text = "만원";
             // 
             // label31
@@ -953,7 +953,7 @@
             this.label31.Location = new System.Drawing.Point(313, 122);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(42, 21);
-            this.label31.TabIndex = 0;
+            this.label31.TabIndex = 30;
             this.label31.Text = "만원";
             // 
             // label27
@@ -963,7 +963,7 @@
             this.label27.Location = new System.Drawing.Point(313, 12);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(42, 21);
-            this.label27.TabIndex = 0;
+            this.label27.TabIndex = 31;
             this.label27.Text = "만원";
             // 
             // label18
@@ -973,7 +973,7 @@
             this.label18.Location = new System.Drawing.Point(12, 9);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(68, 21);
-            this.label18.TabIndex = 0;
+            this.label18.TabIndex = 32;
             this.label18.Text = "보증금 :";
             // 
             // label19
@@ -983,7 +983,7 @@
             this.label19.Location = new System.Drawing.Point(12, 36);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(68, 21);
-            this.label19.TabIndex = 1;
+            this.label19.TabIndex = 33;
             this.label19.Text = "월수익 :";
             // 
             // label20
@@ -993,7 +993,7 @@
             this.label20.Location = new System.Drawing.Point(12, 64);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(52, 21);
-            this.label20.TabIndex = 2;
+            this.label20.TabIndex = 34;
             this.label20.Text = "융자 :";
             // 
             // label25
@@ -1003,7 +1003,7 @@
             this.label25.Location = new System.Drawing.Point(12, 204);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(68, 21);
-            this.label25.TabIndex = 13;
+            this.label25.TabIndex = 35;
             this.label25.Text = "연수익 :";
             // 
             // label21
@@ -1013,7 +1013,7 @@
             this.label21.Location = new System.Drawing.Point(12, 92);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(52, 21);
-            this.label21.TabIndex = 3;
+            this.label21.TabIndex = 36;
             this.label21.Text = "이자 :";
             // 
             // TB_TakeOverPrice
@@ -1023,7 +1023,7 @@
             this.TB_TakeOverPrice.Location = new System.Drawing.Point(110, 176);
             this.TB_TakeOverPrice.Name = "TB_TakeOverPrice";
             this.TB_TakeOverPrice.Size = new System.Drawing.Size(202, 27);
-            this.TB_TakeOverPrice.TabIndex = 12;
+            this.TB_TakeOverPrice.TabIndex = 6;
             this.TB_TakeOverPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // label22
@@ -1033,7 +1033,7 @@
             this.label22.Location = new System.Drawing.Point(12, 178);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(84, 21);
-            this.label22.TabIndex = 4;
+            this.label22.TabIndex = 37;
             this.label22.Text = "인수금액 :";
             // 
             // TB_SellPrice
@@ -1043,7 +1043,7 @@
             this.TB_SellPrice.Location = new System.Drawing.Point(110, 148);
             this.TB_SellPrice.Name = "TB_SellPrice";
             this.TB_SellPrice.Size = new System.Drawing.Size(202, 27);
-            this.TB_SellPrice.TabIndex = 11;
+            this.TB_SellPrice.TabIndex = 5;
             this.TB_SellPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // label23
@@ -1053,7 +1053,7 @@
             this.label23.Location = new System.Drawing.Point(12, 148);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(84, 21);
-            this.label23.TabIndex = 5;
+            this.label23.TabIndex = 38;
             this.label23.Text = "매매가격 :";
             // 
             // TB_PayedPrice
@@ -1063,7 +1063,7 @@
             this.TB_PayedPrice.Location = new System.Drawing.Point(110, 120);
             this.TB_PayedPrice.Name = "TB_PayedPrice";
             this.TB_PayedPrice.Size = new System.Drawing.Size(202, 27);
-            this.TB_PayedPrice.TabIndex = 10;
+            this.TB_PayedPrice.TabIndex = 4;
             this.TB_PayedPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // label24
@@ -1073,7 +1073,7 @@
             this.label24.Location = new System.Drawing.Point(12, 122);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(84, 21);
-            this.label24.TabIndex = 6;
+            this.label24.TabIndex = 39;
             this.label24.Text = "입금가격 :";
             // 
             // TB_Interest
@@ -1083,7 +1083,7 @@
             this.TB_Interest.Location = new System.Drawing.Point(110, 92);
             this.TB_Interest.Name = "TB_Interest";
             this.TB_Interest.Size = new System.Drawing.Size(202, 27);
-            this.TB_Interest.TabIndex = 9;
+            this.TB_Interest.TabIndex = 3;
             this.TB_Interest.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // TB_Deposit
@@ -1093,7 +1093,7 @@
             this.TB_Deposit.Location = new System.Drawing.Point(110, 8);
             this.TB_Deposit.Name = "TB_Deposit";
             this.TB_Deposit.Size = new System.Drawing.Size(202, 27);
-            this.TB_Deposit.TabIndex = 7;
+            this.TB_Deposit.TabIndex = 0;
             this.TB_Deposit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // TB_Income
@@ -1103,7 +1103,7 @@
             this.TB_Income.Location = new System.Drawing.Point(110, 36);
             this.TB_Income.Name = "TB_Income";
             this.TB_Income.Size = new System.Drawing.Size(202, 27);
-            this.TB_Income.TabIndex = 8;
+            this.TB_Income.TabIndex = 1;
             this.TB_Income.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // TB_Loan
@@ -1113,7 +1113,7 @@
             this.TB_Loan.Location = new System.Drawing.Point(110, 64);
             this.TB_Loan.Name = "TB_Loan";
             this.TB_Loan.Size = new System.Drawing.Size(202, 27);
-            this.TB_Loan.TabIndex = 8;
+            this.TB_Loan.TabIndex = 2;
             this.TB_Loan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // panel2
@@ -1133,7 +1133,7 @@
             this.panel2.Location = new System.Drawing.Point(12, 243);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(384, 125);
-            this.panel2.TabIndex = 123;
+            this.panel2.TabIndex = 1;
             this.panel2.Visible = false;
             // 
             // ManagerView

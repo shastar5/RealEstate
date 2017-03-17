@@ -310,5 +310,25 @@ namespace RealEstate
             }
 
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex.ToString().Equals("-1"))
+            {
+                MessageBox.Show("사진을 선택해주세요");
+            }
+            else
+            {
+                string query = "";
+                string openPictureID = listBox1.SelectedItem.ToString();
+                openPictureID = openPictureID.Replace("사진 ", "");
+                query = "select picture from " + tableName + " where id =" + openPictureID;
+                BigPicture bigpicture = new BigPicture();
+                bigpicture.Owner = this;
+                bigpicture.query = query;
+                bigpicture.setDBfile(DBFile);
+                bigpicture.Show();
+            }
+        }
     }
 }

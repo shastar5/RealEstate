@@ -530,6 +530,7 @@ namespace RealEstate
             showpicture.setMode("managerMode");
             showpicture.Show();
         }
+
         
     }
 

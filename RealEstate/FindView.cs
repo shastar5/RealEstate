@@ -23,10 +23,11 @@ namespace RealEstate
         Findvalue findvalue = new Findvalue();
         string DBFile = "";
         Boolean userType;
-        
+        int dataGridRowID=-1;
         enum findIndex
         {
             ID,
+            BUILDINGNAME,
             SELLPRICE,
             TOTALAREA,
             DISTANCE,
@@ -76,7 +77,7 @@ namespace RealEstate
         }
         private void showResult()
         {
-            string[,] findResults = new string[1000, 8];
+            string[,] findResults = new string[1000, 9];
             int Findcount = 0;
             char[] token = { ' ', ',', '\n', '\t'};
             string[] tokenResult;
@@ -102,13 +103,11 @@ namespace RealEstate
             query = addDobuleToQuery1(query, "roadWidth", findvalue.roadwidth, findvalue.roadwidthSize);
 
 
-            string b = "";
 
             SQLiteCommand cmd = new SQLiteCommand(query, cn);
             SQLiteDataReader rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
-                int i;
                
                 string c = rdr["income"].ToString();
                 tokenResult = rdr["addr"].ToString().Split(token);
@@ -120,6 +119,7 @@ namespace RealEstate
                 if (addrFind)
                 {
                     findResults[Findcount, (int)findIndex.ID] = rdr["id"].ToString();
+                    findResults[Findcount, (int)findIndex.BUILDINGNAME] = checkValid(rdr["buildingName"].ToString());
                     findResults[Findcount, (int)findIndex.SELLPRICE] = checkValid(rdr["sellPrice"].ToString());
                     findResults[Findcount, (int)findIndex.TOTALAREA] = checkValid(rdr["totalArea"].ToString());
                     findResults[Findcount, (int)findIndex.DISTANCE] = checkValid(rdr["distance"].ToString());
@@ -134,15 +134,12 @@ namespace RealEstate
                         findResults[Findcount, (int)findIndex.ISCORNER] = "Y";
                     else
                         findResults[Findcount, (int)findIndex.ISCORNER] = "N";
+                    string[] row = { findResults[Findcount, 0], findResults[Findcount, 1], findResults[Findcount, 2], findResults[Findcount, 3]
+                        , findResults[Findcount,4], findResults[Findcount,5], findResults[Findcount,6], findResults[Findcount,7], findResults[Findcount,8]};
+                    dataGridView1.Rows.Add(row);
                     Findcount++;
                 }
-                b += "번호 : " + rdr["id"] + " 매매 금액 : " + rdr["sellPrice"] + " 연면적 : " + rdr["totalArea"]
-                    + " 역과 거리 : " + rdr["distance"] + " 월수입 : " + rdr["income"] + " 연수입 : " + (double.Parse(c) * 12).ToString()
-                    + " 도로너비 : " + rdr["roadWidth"] + " 코너유무 : " + rdr["isCorner"];
-                b += "\n";
-
             }
-            label1.Text =b;
 
             rdr.Close();
             cn.Close();
@@ -185,22 +182,55 @@ namespace RealEstate
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (userType)
+
+            string id; 
+            if(dataGridRowID==-1)
             {
+                MessageBox.Show("자세히 볼 부동산을 선택해주세요");
+            }
+            else if (userType)
+            { 
+                id = dataGridView1.Rows[dataGridRowID].Cells[0].Value.ToString();
                 UserView userview = new UserView();
                 userview.setDBfile(DBFile);
-                userview.setID(1);
+                userview.setID(int.Parse(id));
                 userview.Show();
             }
             else
             {
+                id = dataGridView1.Rows[dataGridRowID].Cells[0].Value.ToString();
                 ManagerView mangerview = new ManagerView();
                 mangerview.setDBfile(DBFile);
-                mangerview.setID(1);
-                // mangerview.loadPicture("picture1")
+                mangerview.setID(int.Parse(id));
                 mangerview.Show();
             }
+          
+            
+        }
         
+        private void FindView_Load(object sender, EventArgs e)
+        {
+            dataGridView1.ColumnCount = 9;
+            dataGridView1.Columns[0].Name = "번호";
+            dataGridView1.Columns[1].Name = "건물명";
+            dataGridView1.Columns[2].Name = "매매금액";
+            dataGridView1.Columns[3].Name = "연면적";
+            dataGridView1.Columns[4].Name = "역과의 거리";
+            dataGridView1.Columns[5].Name = "월수입";
+            dataGridView1.Columns[6].Name = "연수입";
+            dataGridView1.Columns[7].Name = "도로너비";
+            dataGridView1.Columns[8].Name = "코너유무";
+
+            dataGridView1.ReadOnly = true;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.CurrentCell = dataGridView1.TopLeftHeaderCell;
+            showResult();
+            dataGridView1.ClearSelection();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dataGridRowID = e.RowIndex;
         }
     }
 }
