@@ -58,7 +58,6 @@ namespace RealEstate
         SQLiteCommand cmd = new SQLiteCommand();
 
         DataGridView dgv;
-        DataTable dt;
 
         // DataGridView 설정
         private void readDataGrid()
@@ -69,54 +68,42 @@ namespace RealEstate
              */
 
             int i = 0;
-            int sumOfArea = 0, sumOfDeposit = 0, sumOfIncome = 0, sumOfManage = 0;
-            strConn = "Data Source=" + DBFile + "; Version=3;";
-            cn.ConnectionString = strConn;
-            SQLiteCommand sqlCMD = new SQLiteCommand("select * from info2", cn);
-            SQLiteDataReader reader;
+
             try
             {
-                cn.Open();
+                SQLiteConnection con = new SQLiteConnection();
+                strConn = "Data Source=" + DBFile + "; Version=3;";
+                con.ConnectionString = strConn;
+                SQLiteCommand sqlCMD = new SQLiteCommand("select * from info2", con);
+                SQLiteDataReader reader;
+                con.Open();
                 reader = sqlCMD.ExecuteReader();
 
                 while(reader.Read())
                 {
                     dgv.Rows.Add();
-                    dgv.Rows[i].Cells[0].Value = reader.GetInt32(0);
+                    dgv.Rows[i].Cells[0].Value = reader.GetValue(0);
 
-                    dgv.Rows[i].Cells[1].Value = reader.GetInt32(2);
+                    dgv.Rows[i].Cells[1].Value = reader.GetValue(2);
 
-                    dgv.Rows[i].Cells[2].Value = reader.GetInt32(3);
-                    sumOfArea += reader.GetInt32(3);
+                    dgv.Rows[i].Cells[2].Value = reader.GetValue(3);
 
-                    dgv.Rows[i].Cells[3].Value = reader.GetString(4);
+                    dgv.Rows[i].Cells[3].Value = reader.GetValue(4);
 
-                    dgv.Rows[i].Cells[4].Value = reader.GetInt32(5);
-                    sumOfDeposit += reader.GetInt32(5);
+                    dgv.Rows[i].Cells[4].Value = reader.GetValue(5);
 
-                    dgv.Rows[i].Cells[5].Value = reader.GetInt32(6);
-                    sumOfIncome += reader.GetInt32(6);
+                    dgv.Rows[i].Cells[5].Value = reader.GetValue(6);
 
-                    dgv.Rows[i].Cells[6].Value = reader.GetInt32(7);
-                    sumOfManage += reader.GetInt32(7);
+                    dgv.Rows[i].Cells[6].Value = reader.GetValue(7);
 
-                    dgv.Rows[i].Cells[7].Value = reader.GetInt32(8);
+                    dgv.Rows[i].Cells[7].Value = reader.GetValue(8);
                     i++;
                 }
-                cn.Close();
-                MessageBox.Show(i.ToString());
-            } catch(Exception e)
+                con.Close();
+            } catch(SQLiteException e)
             {
                 MessageBox.Show(e.ToString());
             }
-            dgv.Rows.Add();
-            i = dgv.Rows.Count - 1;
-            dgv.Rows[i].Cells[2].Value = sumOfArea;
-            dgv.Rows[i].Cells[4].Value = sumOfDeposit;
-            dgv.Rows[i].Cells[5].Value = sumOfIncome;
-            dgv.Rows[i].Cells[6].Value = sumOfManage;
-
-
             dgv.Refresh();
         }
 
@@ -128,16 +115,16 @@ namespace RealEstate
 
             */
             int i;
-            string strConn = "Data Source=" + DBFile + "; Version=3;";
-            cn.ConnectionString = strConn;
+            SQLiteConnection con = new SQLiteConnection();
+            con.ConnectionString = strConn;
             try
             {
-                SQLiteCommand cmd = new SQLiteCommand("INSERT INTO info2 VALUES(@id, @buildingID, @floor, @area, @storeName, @deposit, @monthlyIncome, @managementPrice, @etc)", cn);
-                cn.Open();
+                SQLiteCommand cmd = new SQLiteCommand("INSERT INTO info2 VALUES(@id, @buildingID, @floor, @area, @storeName, @deposit, @monthlyIncome, @managementPrice, @etc)", con);
+                con.Open();
                 for (i = 0; i < dgv.Rows.Count; i++)
                 {
                     //cmd.Parameters.AddWithValue("@id", dgv.Rows[i].Cells["id"].Value);
-                    cmd.Parameters.AddWithValue("@id", null);
+                    cmd.Parameters.AddWithValue("@id", i);
                     cmd.Parameters.AddWithValue("@buildingID", 1);
                     cmd.Parameters.AddWithValue("@floor", dgv.Rows[i].Cells["floor"].Value);
                     cmd.Parameters.AddWithValue("@area", dgv.Rows[i].Cells["floor_area"].Value);
@@ -150,7 +137,7 @@ namespace RealEstate
                     cmd.ExecuteNonQuery();
 
                 }
-                cn.Close();
+                con.Close();
             } catch(Exception e)
             {
                 MessageBox.Show(e.ToString());
@@ -291,11 +278,9 @@ namespace RealEstate
             }
             else
             {
-                //readDataGrid();
-                saveDataGrid();
                 setData();
                 saveData();
-                test();
+                saveDataGrid();
                 ///저장시 temp테이블 picture로 옮기기
             }
         }
@@ -307,6 +292,8 @@ namespace RealEstate
             type = -1;
             state = 1;
             isCorner = 0;
+
+            strConn = "Data Source=" + DBFile + "; Version=3;";
 
             listView1.View = View.Details;
             listView1.BeginUpdate();
@@ -349,12 +336,10 @@ namespace RealEstate
 
         private void AddMenu_Load(object sender, EventArgs e)
         {
-            strConn = "Data Source=" + DBFile + "; Version=3;";
-            cn.ConnectionString = strConn;
             dgv = ContentOfRentals;
             dgv.AutoGenerateColumns = false;
-            //readDataGrid();   //추가시 에러 발생원인
             dgv.Columns[0].ReadOnly = true;
+            readDataGrid();
         }
 
 
