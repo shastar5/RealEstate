@@ -281,7 +281,9 @@ namespace RealEstate
                 setData();
                 saveData();
                 saveDataGrid();
-                ///저장시 temp테이블 picture로 옮기기
+                MessageBox.Show("저장 완료 했습니다.");
+                this.Close();
+                
             }
         }
 
@@ -336,6 +338,9 @@ namespace RealEstate
 
         private void AddMenu_Load(object sender, EventArgs e)
         {
+            cn = new SQLiteConnection();
+            cmd = new SQLiteCommand();
+            
             dgv = ContentOfRentals;
             dgv.AutoGenerateColumns = false;
             dgv.Columns[0].ReadOnly = true;
@@ -349,6 +354,8 @@ namespace RealEstate
             ShowPicture showpicture = new ShowPicture();
             showpicture.setDBfile(DBFile);
             showpicture.setMode("addMode");
+            strConn = "Data Source=" + DBFile + "; Version=3;";
+            cn.ConnectionString = strConn;
             cn.Open();
             string query = "select MAX(id) from info1";
             SQLiteCommand cmd = new SQLiteCommand(query, cn);

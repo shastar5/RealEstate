@@ -505,6 +505,8 @@ namespace RealEstate
         {
             setData();
             saveData();
+            MessageBox.Show("저장 완료 했습니다.");
+            this.Close();
         }
         private void readProfilePicture()
         {
