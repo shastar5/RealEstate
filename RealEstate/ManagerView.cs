@@ -788,6 +788,47 @@ namespace RealEstate
                 }
             }
         }
+        private void updateTB()
+        {
+            double UpdateSellPrice = checkNulls(TB_SellPrice.Text.ToString());
+            double UpdateDeposit = checkNulls(TB_Deposit.Text.ToString());
+            double UpdateLoan = checkNulls(TB_Loan.Text.ToString());
+            double UpdateTakeOverPrice = -9999;
+            double UpdateIncome;
+            double UpdateYearPercent;
+
+            if (UpdateSellPrice != -9999 && UpdateDeposit != -9999 && UpdateLoan != -9999)
+            {
+                UpdateTakeOverPrice = UpdateSellPrice - UpdateDeposit - UpdateLoan;
+                TB_TakeOverPrice.Text = UpdateTakeOverPrice.ToString();
+            }
+            else
+                TB_TakeOverPrice.Text = "";
+
+            if (type != 6)
+            {
+                UpdateIncome = checkNulls(TB_Income.Text.ToString());
+            }
+            else
+            {
+                UpdateIncome = checkNulls(TB_Income2.Text.ToString());
+            }
+            if (UpdateTakeOverPrice != -9999 && UpdateIncome != -9999)
+            {
+
+                UpdateYearPercent = UpdateIncome / UpdateTakeOverPrice * 12 * 100;
+                UpdateYearPercent = Math.Ceiling(UpdateYearPercent / 0.1) * 0.1;
+                TB_YearPercent.Text = UpdateYearPercent.ToString();
+            }
+            else
+                TB_YearPercent.Text = "";
+        }
+        
+
+        private void TB_NUMTextChanged(object sender, EventArgs e)
+        {
+            updateTB();
+        }
     }
 
 }
