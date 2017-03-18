@@ -63,6 +63,8 @@ namespace RealEstate
 
         int isCorner;
         public int profilePictureID=-1;
+
+        int ErrorStr2Num;
         String strConn;
         SQLiteConnection cn = new SQLiteConnection();
         SQLiteCommand cmd = new SQLiteCommand();
@@ -161,10 +163,20 @@ namespace RealEstate
 
         private double checkNulls(string num)
         {
+            double number= 0;
             num.Trim(); //공백 제거
             if (num.Equals(""))
                 return -9999; //빈값 처리
-            return double.Parse(num);
+            try
+            {
+                number = double.Parse(num);
+            }
+            catch(Exception ex)
+            {
+                ErrorStr2Num = -1;
+            }
+            return number;
+
         }
 
         private void saveData()
@@ -255,6 +267,7 @@ namespace RealEstate
 
         private void Btn_Save_Click(object sender, EventArgs e)
         {
+            ErrorStr2Num = 0;
             if (type == -1)
             {
                 MessageBox.Show("건물 종류를 선택해주세요");
@@ -262,11 +275,15 @@ namespace RealEstate
             else
             {
                 setData();
-                saveData();
-                saveDataGrid();
-                MessageBox.Show("저장 완료 했습니다.");
-                this.Close();
-                
+                if (ErrorStr2Num == 0)
+                {
+                    saveData();
+                    saveDataGrid();
+                    MessageBox.Show("저장 완료 했습니다.");
+                    this.Close();
+                }
+                else
+                    MessageBox.Show("숫자 입력란에 숫자만 넣어주세요. 다시 확인해주세요 ");
             }
         }
 

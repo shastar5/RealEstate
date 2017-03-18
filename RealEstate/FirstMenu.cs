@@ -35,8 +35,8 @@ namespace RealEstate
         //로인창으로 옮겨야함 deskpath;
         String deskPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory); //바탕화면 경로 가져오기
         Findvalue findvalues = new Findvalue();
-    
 
+        int ErrorStr2Num;
 
         public FirstMenu()
         {
@@ -158,10 +158,19 @@ namespace RealEstate
         }
         private double checkNulls(string num)
         {
+            double number = 0;
             num.Trim(); //공백 제거
             if (num.Equals(""))
                 return -9999; //빈값 처리
-            return double.Parse(num);
+            try
+            {
+                number = double.Parse(num);
+            }
+            catch (Exception ex)
+            {
+                ErrorStr2Num = -1;
+            }
+            return number;
         }
 
         private void typeOnlyNum(object sender, KeyPressEventArgs e)
@@ -174,8 +183,9 @@ namespace RealEstate
         }
         private void btn_find_Click(object sender, EventArgs e)
         {
-             setData();
+            ErrorStr2Num = 0;
             int isOpen = 0;
+            setData();
             foreach (Form form in Application.OpenForms)
             {
                 if (form.Name.Equals( "FindView"))
@@ -194,13 +204,17 @@ namespace RealEstate
             }
             else if(checkException())
             {
-                
-                FindView findtest = new FindView();
-                findtest.setDBfile(DBFile);
-                findtest.setUserType(user);
-                findtest.setValue(findvalues);
-                findtest.Show();
-                
+                if (ErrorStr2Num == 0)
+                {
+                    FindView findtest = new FindView();
+                    findtest.setDBfile(DBFile);
+                    findtest.setUserType(user);
+                    findtest.setValue(findvalues);
+                    findtest.Show();
+                }
+                else
+                    MessageBox.Show("숫자 입력란에 숫자만 넣어주세요. 다시 확인해주세요 ");
+
             }
 
         }
