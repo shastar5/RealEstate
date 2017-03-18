@@ -108,8 +108,7 @@ namespace RealEstate
             SQLiteDataReader rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
-               
-                string c = rdr["income"].ToString();
+                addrFind = false;
                 tokenResult = rdr["addr"].ToString().Split(token);
                 foreach(var item in tokenResult)
                 {
