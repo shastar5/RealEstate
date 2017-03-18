@@ -686,6 +686,9 @@ namespace RealEstate
             readDataGrid();
             readData();
             loadPicture("picture" + id);
+            dgv.Rows[0].ReadOnly = true;
+            for(int i=0;i<dgv.ColumnCount;++i)
+                dgv.AutoResizeColumn(i);
         }
 
         private void SaveData_Click(object sender, EventArgs e)

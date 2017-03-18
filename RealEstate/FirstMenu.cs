@@ -85,6 +85,15 @@ namespace RealEstate
                 MessageBox.Show(e.Message);
             }
 
+            query = "Create table if not exists comment (id INTEGER PRIMARY KEY AUTOINCREMENT, content varchar(1000), buildingID INTEGER, FOREIGN KEY(buildingID) REFERENCES info1(id))";
+            cmd = new SQLiteCommand(query, cn);
+            cmd.ExecuteNonQuery();
+
+            query = "Create table if not exists memo (id INTEGER PRIMARY KEY AUTOINCREMENT, dt datetime default current_timestamp , memo varchar(1000)), " +
+                "buildingID INTEGER, FOREIGN KEY(buildingID) REFERENCES info1(id))";
+            cmd = new SQLiteCommand(query, cn);
+            cmd.ExecuteNonQuery();
+
             cn.Close();
 
             radioButton1.Checked = true;

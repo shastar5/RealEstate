@@ -69,7 +69,7 @@ namespace RealEstate
         SQLiteConnection cn = new SQLiteConnection();
         SQLiteCommand cmd = new SQLiteCommand();
 
-        DataGridView dgv;
+        DataGridView dgv, commentview, memoview;
 
         private void saveDataGrid()
         {
@@ -229,32 +229,6 @@ namespace RealEstate
             return tableID;
         }
 
-        void test()
-        {
-            //DBFile = "C:/Users/HUN/Desktop/DB.db";
-
-            strConn = "Data Source=" + DBFile + "; Version=3;";
-            cn.ConnectionString = strConn;
-            cn.Open();
-            String query = "select * from info1";
-
-            SQLiteCommand cmd = new SQLiteCommand(query, cn);
-            SQLiteDataReader rdr = cmd.ExecuteReader();
-            while (rdr.Read())
-            {
-                string a="";
-                int i;
-                for (i = 0; i < 31; i++)
-                {
-                    a += rdr[i];
-                }
-                //MessageBox.Show(a);
-            }
-
-            rdr.Close();
-            cn.Close();
-        }
-
         private void Btn_Save_Click(object sender, EventArgs e)
         {
             ErrorStr2Num = 0;
@@ -300,6 +274,14 @@ namespace RealEstate
 
             dgv = ContentOfRentals;
             dgv.AutoGenerateColumns = false;
+
+            commentview = commentGridView;
+            commentview.AutoGenerateColumns = false;
+            commentview.Columns[0].ReadOnly = true;
+
+            memoview = memoGridView;
+            memoview.AutoGenerateColumns = false;
+            memoview.Columns[0].ReadOnly = true;
         }
 
 
@@ -488,6 +470,59 @@ namespace RealEstate
                 if (oneCell.Selected)
                 {
                     dgv.Rows.RemoveAt(oneCell.RowIndex);
+                }
+            }
+        }
+
+        private void insertComment()
+        {
+            /*
+            query = "Create table if not exists comment (id INTEGER PRIMARY KEY AUTOINCREMENT, content varchar(1000), buildingID INTEGER, FOREIGN KEY(buildingID) REFERENCES info1(id))";
+            cmd = new SQLiteCommand(query, cn);
+            cmd.ExecuteNonQuery();
+
+            query = "Create table if not exists memo (id INTEGER PRIMARY KEY AUTOINCREMENT, dt datetime default current_timestamp , memo varchar(1000)), " +
+                "buildingID INTEGER, FOREIGN KEY(buildingID) REFERENCES info1(id))";
+            cmd = new SQLiteCommand(query, cn);
+            cmd.ExecuteNonQuery();
+            */
+
+
+            SQLiteConnection con = new SQLiteConnection();
+            con.ConnectionString = strConn;
+            try
+            {
+                SQLiteCommand cmd = new SQLiteCommand("INSERT INTO comment VALUES(@id, @content, @buildingID)", con);
+                con.Open();
+                for (int i = 0; i < commentview.Rows.Count; ++i)
+                {
+                    cmd.Parameters.AddWithValue("@id", null);
+                    cmd.Parameters.AddWithValue("@content", commentview.Rows[i].Cells["Content"].Value);
+                    cmd.Parameters.AddWithValue("@buildingID", getid());
+
+                    cmd.ExecuteNonQuery();
+
+                }
+                con.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        private void addcoment_Click(object sender, EventArgs e)
+        {
+            commentview.Rows.Add();
+        }
+
+        private void deletecomment_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewCell oneCell in commentview.SelectedCells)
+            {
+                if (oneCell.Selected)
+                {
+                    commentview.Rows.RemoveAt(oneCell.RowIndex);
                 }
             }
         }

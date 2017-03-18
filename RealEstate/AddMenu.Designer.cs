@@ -53,9 +53,9 @@
             this.label14 = new System.Windows.Forms.Label();
             this.TB_CompleteYear = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.번호 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.내용 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.deletecomment = new System.Windows.Forms.Button();
+            this.addcoment = new System.Windows.Forms.Button();
+            this.commentGridView = new System.Windows.Forms.DataGridView();
             this.label17 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.TB_YearPercent = new System.Windows.Forms.TextBox();
@@ -89,7 +89,11 @@
             this.label38 = new System.Windows.Forms.Label();
             this.TB_Memo = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.listView3 = new System.Windows.Forms.ListView();
+            this.deleteMemo = new System.Windows.Forms.Button();
+            this.addMemo = new System.Windows.Forms.Button();
+            this.memoGridView = new System.Windows.Forms.DataGridView();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.memo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label40 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
             this.Btn_Save = new System.Windows.Forms.Button();
@@ -131,9 +135,13 @@
             this.btn_JustClose = new System.Windows.Forms.Button();
             this.addRow = new System.Windows.Forms.Button();
             this.deleteRow = new System.Windows.Forms.Button();
+            this.order = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Content = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.commentGridView)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.memoGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Tab_control.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ContentOfRentals)).BeginInit();
@@ -372,38 +380,53 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.listView1);
+            this.panel3.Controls.Add(this.deletecomment);
+            this.panel3.Controls.Add(this.addcoment);
+            this.panel3.Controls.Add(this.commentGridView);
             this.panel3.Controls.Add(this.label17);
-            this.panel3.Location = new System.Drawing.Point(12, 540);
+            this.panel3.Location = new System.Drawing.Point(12, 512);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(384, 163);
+            this.panel3.Size = new System.Drawing.Size(384, 191);
             this.panel3.TabIndex = 99;
             // 
-            // listView1
+            // deletecomment
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.번호,
-            this.내용});
-            this.listView1.Location = new System.Drawing.Point(16, 25);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(353, 126);
-            this.listView1.TabIndex = 1;
-            this.listView1.TabStop = false;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.deletecomment.Location = new System.Drawing.Point(304, 6);
+            this.deletecomment.Name = "deletecomment";
+            this.deletecomment.Size = new System.Drawing.Size(75, 23);
+            this.deletecomment.TabIndex = 3;
+            this.deletecomment.Text = "삭제";
+            this.deletecomment.UseVisualStyleBackColor = true;
+            this.deletecomment.Click += new System.EventHandler(this.deletecomment_Click);
             // 
-            // 번호
+            // addcoment
             // 
-            this.번호.Text = "번호";
+            this.addcoment.Location = new System.Drawing.Point(223, 6);
+            this.addcoment.Name = "addcoment";
+            this.addcoment.Size = new System.Drawing.Size(75, 23);
+            this.addcoment.TabIndex = 2;
+            this.addcoment.Text = "추가";
+            this.addcoment.UseVisualStyleBackColor = true;
+            this.addcoment.Click += new System.EventHandler(this.addcoment_Click);
             // 
-            // 내용
+            // commentGridView
             // 
-            this.내용.Text = "내용";
-            this.내용.Width = 285;
+            this.commentGridView.AllowUserToAddRows = false;
+            this.commentGridView.AllowUserToDeleteRows = false;
+            this.commentGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.commentGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.order,
+            this.Content});
+            this.commentGridView.Location = new System.Drawing.Point(3, 35);
+            this.commentGridView.Name = "commentGridView";
+            this.commentGridView.RowTemplate.Height = 23;
+            this.commentGridView.Size = new System.Drawing.Size(377, 153);
+            this.commentGridView.TabIndex = 1;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(14, 10);
+            this.label17.Location = new System.Drawing.Point(3, 11);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(41, 12);
             this.label17.TabIndex = 0;
@@ -437,7 +460,7 @@
             this.panel6.Controls.Add(this.TB_Income);
             this.panel6.Location = new System.Drawing.Point(12, 265);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(384, 265);
+            this.panel6.Size = new System.Drawing.Size(384, 241);
             this.panel6.TabIndex = 16;
             // 
             // TB_YearPercent
@@ -747,26 +770,59 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.listView3);
+            this.panel1.Controls.Add(this.deleteMemo);
+            this.panel1.Controls.Add(this.addMemo);
+            this.panel1.Controls.Add(this.memoGridView);
             this.panel1.Controls.Add(this.label40);
-            this.panel1.Location = new System.Drawing.Point(402, 540);
+            this.panel1.Location = new System.Drawing.Point(402, 529);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(461, 163);
+            this.panel1.Size = new System.Drawing.Size(468, 174);
             this.panel1.TabIndex = 99;
             // 
-            // listView3
+            // deleteMemo
             // 
-            this.listView3.Location = new System.Drawing.Point(0, 25);
-            this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(458, 126);
-            this.listView3.TabIndex = 1;
-            this.listView3.TabStop = false;
-            this.listView3.UseCompatibleStateImageBehavior = false;
+            this.deleteMemo.Location = new System.Drawing.Point(389, 0);
+            this.deleteMemo.Name = "deleteMemo";
+            this.deleteMemo.Size = new System.Drawing.Size(75, 23);
+            this.deleteMemo.TabIndex = 3;
+            this.deleteMemo.Text = "삭제";
+            this.deleteMemo.UseVisualStyleBackColor = true;
+            // 
+            // addMemo
+            // 
+            this.addMemo.Location = new System.Drawing.Point(305, 0);
+            this.addMemo.Name = "addMemo";
+            this.addMemo.Size = new System.Drawing.Size(75, 23);
+            this.addMemo.TabIndex = 2;
+            this.addMemo.Text = "추가";
+            this.addMemo.UseVisualStyleBackColor = true;
+            // 
+            // memoGridView
+            // 
+            this.memoGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.memoGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.date,
+            this.memo});
+            this.memoGridView.Location = new System.Drawing.Point(4, 25);
+            this.memoGridView.Name = "memoGridView";
+            this.memoGridView.RowTemplate.Height = 23;
+            this.memoGridView.Size = new System.Drawing.Size(461, 145);
+            this.memoGridView.TabIndex = 1;
+            // 
+            // date
+            // 
+            this.date.HeaderText = "날짜";
+            this.date.Name = "date";
+            // 
+            // memo
+            // 
+            this.memo.HeaderText = "메모";
+            this.memo.Name = "memo";
             // 
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(206, 10);
+            this.label40.Location = new System.Drawing.Point(213, 5);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(29, 12);
             this.label40.TabIndex = 0;
@@ -957,7 +1013,7 @@
             this.monthlyIncome,
             this.managementPrice,
             this.etc});
-            this.ContentOfRentals.Location = new System.Drawing.Point(406, 219);
+            this.ContentOfRentals.Location = new System.Drawing.Point(406, 212);
             this.ContentOfRentals.Name = "ContentOfRentals";
             this.ContentOfRentals.RowHeadersVisible = false;
             this.ContentOfRentals.RowTemplate.Height = 23;
@@ -1183,6 +1239,17 @@
             this.deleteRow.UseVisualStyleBackColor = true;
             this.deleteRow.Click += new System.EventHandler(this.deleteRow_Click);
             // 
+            // order
+            // 
+            this.order.HeaderText = "번호";
+            this.order.Name = "order";
+            this.order.Visible = false;
+            // 
+            // Content
+            // 
+            this.Content.HeaderText = "내용";
+            this.Content.Name = "Content";
+            // 
             // AddMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -1245,10 +1312,12 @@
             this.Load += new System.EventHandler(this.AddMenu_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.commentGridView)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.memoGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Tab_control.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ContentOfRentals)).EndInit();
@@ -1285,7 +1354,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox TB_CompleteYear;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TextBox TB_YearPercent;
@@ -1319,13 +1387,10 @@
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.TextBox TB_Memo;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ListView listView3;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Button Btn_Save;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ColumnHeader 번호;
-        private System.Windows.Forms.ColumnHeader 내용;
         private System.Windows.Forms.TabControl Tab_control;
         private System.Windows.Forms.TabPage Page_prepare;
         private System.Windows.Forms.TabPage Page_complete;
@@ -1364,5 +1429,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn monthlyIncome;
         private System.Windows.Forms.DataGridViewTextBoxColumn managementPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn etc;
+        private System.Windows.Forms.DataGridView commentGridView;
+        private System.Windows.Forms.Button deletecomment;
+        private System.Windows.Forms.Button addcoment;
+        private System.Windows.Forms.DataGridView memoGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn memo;
+        private System.Windows.Forms.Button deleteMemo;
+        private System.Windows.Forms.Button addMemo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn order;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Content;
     }
 }

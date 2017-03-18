@@ -306,6 +306,8 @@ namespace RealEstate
             readData();
             loadPicture("picture" + id);
             readDataGrid();
+            for (int i = 0; i < dgv.ColumnCount; ++i)
+                dgv.AutoResizeColumn(i);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
