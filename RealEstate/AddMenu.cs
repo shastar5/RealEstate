@@ -73,23 +73,13 @@ namespace RealEstate
 
         private void saveDataGrid()
         {
-            /*
-            "Create table if not exists info2 (id INTEGER  PRIMARY KEY autoincrement, buildingID INTEGER, floor NUMERIC, area NUMERIC, storeName varchar(100), "
-            + "deposit NUMERIC, monthlyIncome NUMERIC, managementPrice NUMERIC, etc NUMERIC, FOREIGN KEY(buildingID) REFERENCES info1(id))";
-
-            */
-            int i, rowCount = 0;
-
-            // Get RowCount
-            rowCount = dgv.Rows.Count;
-
             SQLiteConnection con = new SQLiteConnection();
             con.ConnectionString = strConn;
             try
             {
                 SQLiteCommand cmd = new SQLiteCommand("INSERT INTO info2 VALUES(@id, @buildingID, @floor, @area, @storeName, @deposit, @monthlyIncome, @managementPrice, @etc)", con);
                 con.Open();
-                for (i = 0; i < rowCount; i++)
+                for (int i = 0; i < dgv.Rows.Count; i++)
                 {
                     cmd.Parameters.AddWithValue("@id", null);
                     cmd.Parameters.AddWithValue("@buildingID", getid());
@@ -300,33 +290,7 @@ namespace RealEstate
             strConn = "Data Source=" + DBFile + "; Version=3;";
 
         }
-        // 코멘트에 더하기
-        private void AddComment(int idx, string content)
-        {
-            ListViewItem lvi = new ListViewItem(idx.ToString());
-            lvi.SubItems.Add(content);
-            listView1.Items.Add(lvi);
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        // 코멘트 부분
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
         
-
         private void AddMenu_Load(object sender, EventArgs e)
         {
             cn = new SQLiteConnection();
@@ -336,7 +300,6 @@ namespace RealEstate
 
             dgv = ContentOfRentals;
             dgv.AutoGenerateColumns = false;
-            dgv.Columns[0].ReadOnly = true;
         }
 
 
@@ -382,17 +345,6 @@ namespace RealEstate
             cn.Close();
         }
        
-
-        
-
-        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        
-        
-
         private void radioButton_CheckedChanged(object sender, EventArgs e)
         {
             if (Dagagu.Checked)
@@ -431,11 +383,6 @@ namespace RealEstate
             {
                 e.Handled = true;
             }
-        }
-
-        private void AddMenu_FormClosing(object sender, FormClosingEventArgs e)
-        {
-
         }
 
         private void CB_corner_CheckedChanged(object sender, EventArgs e)
@@ -527,6 +474,22 @@ namespace RealEstate
         private void TB_NUMTextChanged(object sender, EventArgs e)
         {
             updateTB();
+        }
+
+        private void addRow_Click(object sender, EventArgs e)
+        {
+            dgv.Rows.Add();
+        }
+
+        private void deleteRow_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewCell oneCell in dgv.SelectedCells)
+            {
+                if (oneCell.Selected)
+                {
+                    dgv.Rows.RemoveAt(oneCell.RowIndex);
+                }
+            }
         }
     }
 }

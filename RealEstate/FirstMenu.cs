@@ -87,6 +87,8 @@ namespace RealEstate
 
             cn.Close();
 
+            radioButton1.Checked = true;
+
         }
 
         private void setData()
@@ -220,7 +222,6 @@ namespace RealEstate
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-
         }
 
         // This is linked click event listener

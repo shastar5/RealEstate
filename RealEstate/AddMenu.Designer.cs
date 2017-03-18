@@ -107,7 +107,6 @@
             this.TB_BuildName = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.ContentOfRentals = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.floor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.floor_area = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.storeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -130,6 +129,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_JustClose = new System.Windows.Forms.Button();
+            this.addRow = new System.Windows.Forms.Button();
+            this.deleteRow = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -389,7 +390,6 @@
             this.listView1.TabIndex = 1;
             this.listView1.TabStop = false;
             this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // 번호
             // 
@@ -946,9 +946,10 @@
             // ContentOfRentals
             // 
             this.ContentOfRentals.AllowDrop = true;
+            this.ContentOfRentals.AllowUserToAddRows = false;
+            this.ContentOfRentals.AllowUserToDeleteRows = false;
             this.ContentOfRentals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ContentOfRentals.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
             this.floor,
             this.floor_area,
             this.storeName,
@@ -962,13 +963,7 @@
             this.ContentOfRentals.RowTemplate.Height = 23;
             this.ContentOfRentals.Size = new System.Drawing.Size(460, 311);
             this.ContentOfRentals.TabIndex = 103;
-            this.ContentOfRentals.TabStop = false;
             this.ContentOfRentals.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ContentOfRentals_CellContentClick);
-            // 
-            // id
-            // 
-            this.id.HeaderText = "번호";
-            this.id.Name = "id";
             // 
             // floor
             // 
@@ -1168,11 +1163,33 @@
             this.btn_JustClose.UseVisualStyleBackColor = true;
             this.btn_JustClose.Click += new System.EventHandler(this.btn_JustClose_Click);
             // 
+            // addRow
+            // 
+            this.addRow.Location = new System.Drawing.Point(406, 187);
+            this.addRow.Name = "addRow";
+            this.addRow.Size = new System.Drawing.Size(75, 23);
+            this.addRow.TabIndex = 105;
+            this.addRow.Text = "추가";
+            this.addRow.UseVisualStyleBackColor = true;
+            this.addRow.Click += new System.EventHandler(this.addRow_Click);
+            // 
+            // deleteRow
+            // 
+            this.deleteRow.Location = new System.Drawing.Point(487, 187);
+            this.deleteRow.Name = "deleteRow";
+            this.deleteRow.Size = new System.Drawing.Size(75, 23);
+            this.deleteRow.TabIndex = 106;
+            this.deleteRow.Text = "삭제";
+            this.deleteRow.UseVisualStyleBackColor = true;
+            this.deleteRow.Click += new System.EventHandler(this.deleteRow_Click);
+            // 
             // AddMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(914, 714);
+            this.Controls.Add(this.deleteRow);
+            this.Controls.Add(this.addRow);
             this.Controls.Add(this.CB_corner);
             this.Controls.Add(this.ContentOfRentals);
             this.Controls.Add(this.TB_BuildName);
@@ -1225,7 +1242,6 @@
             this.Name = "AddMenu";
             this.ShowIcon = false;
             this.Text = "추가";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddMenu_FormClosing);
             this.Load += new System.EventHandler(this.AddMenu_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -1338,7 +1354,9 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.Button btn_JustClose;
+        private System.Windows.Forms.Button addRow;
+        private System.Windows.Forms.Button deleteRow;
         private System.Windows.Forms.DataGridViewTextBoxColumn floor;
         private System.Windows.Forms.DataGridViewTextBoxColumn floor_area;
         private System.Windows.Forms.DataGridViewTextBoxColumn storeName;
@@ -1346,6 +1364,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn monthlyIncome;
         private System.Windows.Forms.DataGridViewTextBoxColumn managementPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn etc;
-        private System.Windows.Forms.Button btn_JustClose;
     }
 }

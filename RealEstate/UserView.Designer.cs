@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listView2 = new System.Windows.Forms.ListView();
             this.panel6 = new System.Windows.Forms.Panel();
             this.TB_YearPercent = new System.Windows.Forms.TextBox();
             this.label34 = new System.Windows.Forms.Label();
@@ -105,20 +104,21 @@
             this.TB_Premium = new System.Windows.Forms.TextBox();
             this.TB_Income2 = new System.Windows.Forms.TextBox();
             this.TB_MonthlyPay = new System.Windows.Forms.TextBox();
+            this.ContentOfRentals = new System.Windows.Forms.DataGridView();
+            this.floor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.floor_area = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.storeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.storeDeposit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.monthlyIncome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.managementPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.etc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Tab_control.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ContentOfRentals)).BeginInit();
             this.SuspendLayout();
-            // 
-            // listView2
-            // 
-            this.listView2.Location = new System.Drawing.Point(398, 326);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(461, 316);
-            this.listView2.TabIndex = 158;
-            this.listView2.UseCompatibleStateImageBehavior = false;
             // 
             // panel6
             // 
@@ -911,11 +911,70 @@
             this.TB_MonthlyPay.Size = new System.Drawing.Size(93, 27);
             this.TB_MonthlyPay.TabIndex = 18;
             // 
+            // ContentOfRentals
+            // 
+            this.ContentOfRentals.AllowDrop = true;
+            this.ContentOfRentals.AllowUserToAddRows = false;
+            this.ContentOfRentals.AllowUserToDeleteRows = false;
+            this.ContentOfRentals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ContentOfRentals.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.floor,
+            this.floor_area,
+            this.storeName,
+            this.storeDeposit,
+            this.monthlyIncome,
+            this.managementPrice,
+            this.etc});
+            this.ContentOfRentals.Location = new System.Drawing.Point(398, 327);
+            this.ContentOfRentals.Name = "ContentOfRentals";
+            this.ContentOfRentals.ReadOnly = true;
+            this.ContentOfRentals.RowHeadersVisible = false;
+            this.ContentOfRentals.RowTemplate.Height = 23;
+            this.ContentOfRentals.Size = new System.Drawing.Size(467, 316);
+            this.ContentOfRentals.TabIndex = 170;
+            this.ContentOfRentals.TabStop = false;
+            // 
+            // floor
+            // 
+            this.floor.HeaderText = "층수";
+            this.floor.Name = "floor";
+            // 
+            // floor_area
+            // 
+            this.floor_area.HeaderText = "면적";
+            this.floor_area.Name = "floor_area";
+            // 
+            // storeName
+            // 
+            this.storeName.HeaderText = "상호명";
+            this.storeName.Name = "storeName";
+            // 
+            // storeDeposit
+            // 
+            this.storeDeposit.HeaderText = "보증금";
+            this.storeDeposit.Name = "storeDeposit";
+            // 
+            // monthlyIncome
+            // 
+            this.monthlyIncome.HeaderText = "월세";
+            this.monthlyIncome.Name = "monthlyIncome";
+            // 
+            // managementPrice
+            // 
+            this.managementPrice.HeaderText = "관리비";
+            this.managementPrice.Name = "managementPrice";
+            // 
+            // etc
+            // 
+            this.etc.HeaderText = "비고";
+            this.etc.Name = "etc";
+            // 
             // UserView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(877, 655);
+            this.Controls.Add(this.ContentOfRentals);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.Tab_control);
@@ -925,7 +984,6 @@
             this.Controls.Add(this.SanggaHome);
             this.Controls.Add(this.Building);
             this.Controls.Add(this.Dagagu);
-            this.Controls.Add(this.listView2);
             this.Controls.Add(this.label41);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label13);
@@ -965,13 +1023,13 @@
             this.Tab_control.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ContentOfRentals)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TextBox TB_YearPercent;
         private System.Windows.Forms.Label label34;
@@ -1048,5 +1106,13 @@
         private System.Windows.Forms.TextBox TB_Premium;
         private System.Windows.Forms.TextBox TB_Income2;
         private System.Windows.Forms.TextBox TB_MonthlyPay;
+        public System.Windows.Forms.DataGridView ContentOfRentals;
+        private System.Windows.Forms.DataGridViewTextBoxColumn floor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn floor_area;
+        private System.Windows.Forms.DataGridViewTextBoxColumn storeName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn storeDeposit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn monthlyIncome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn managementPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn etc;
     }
 }

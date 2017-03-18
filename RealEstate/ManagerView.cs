@@ -357,7 +357,7 @@ namespace RealEstate
                     cmd.Parameters.AddWithValue("@id", dgv.Rows[i].Cells["_id"].Value);
 
                     cmd.ExecuteNonQuery();
-
+                    
                 }
 
                 
@@ -425,19 +425,12 @@ namespace RealEstate
                 {
                     dgv.Rows.Add();
                     dgv.Rows[i].Cells[0].Value = reader.GetValue(0);
-
                     dgv.Rows[i].Cells[1].Value = reader.GetValue(2);
-
                     dgv.Rows[i].Cells[2].Value = reader.GetValue(3);
-
                     dgv.Rows[i].Cells[3].Value = reader.GetValue(4);
-
                     dgv.Rows[i].Cells[4].Value = reader.GetValue(5);
-
                     dgv.Rows[i].Cells[5].Value = reader.GetValue(6);
-
                     dgv.Rows[i].Cells[6].Value = reader.GetValue(7);
-
                     dgv.Rows[i].Cells[7].Value = reader.GetValue(8);
                     i++;
                 }
@@ -458,46 +451,28 @@ namespace RealEstate
             // Get sum of each column and add additional column and shows
             double sumofArea = 0, sumofDeposit = 0, sumofMonthlyIncome = 0, sumofManagementPrice = 0;
 
-            for (i = 0; i < dgv.Rows.Count - 1; ++i)
+            for (i = 0; i < dgv.Rows.Count; ++i)
             {
-                if (dgv.Rows[i].Cells[2].Value != DBNull.Value)
-                    sumofArea += Convert.ToDouble(dgv.Rows[i].Cells[2].Value);
+                if (dgv.Rows[i].Cells[1].Value != DBNull.Value)
+                    sumofArea += Convert.ToDouble(dgv.Rows[i].Cells[1].Value);
+                if (dgv.Rows[i].Cells[3].Value != DBNull.Value)
+                    sumofDeposit += Convert.ToDouble(dgv.Rows[i].Cells[3].Value);
                 if (dgv.Rows[i].Cells[4].Value != DBNull.Value)
-                    sumofDeposit += Convert.ToDouble(dgv.Rows[i].Cells[4].Value);
+                    sumofMonthlyIncome += Convert.ToDouble(dgv.Rows[i].Cells[4].Value);
                 if (dgv.Rows[i].Cells[5].Value != DBNull.Value)
-                    sumofMonthlyIncome += Convert.ToDouble(dgv.Rows[i].Cells[5].Value);
-                if (dgv.Rows[i].Cells[6].Value != DBNull.Value)
-                    sumofManagementPrice += Convert.ToDouble(dgv.Rows[i].Cells[6].Value);
+                    sumofManagementPrice += Convert.ToDouble(dgv.Rows[i].Cells[5].Value);
             }
 
             i = countofrows;
 
             dgv.Rows.Add();
             dgv.Rows[i].Cells[0].Value = "합계";
-            dgv.Rows[i].Cells[2].Value = sumofArea;
-            dgv.Rows[i].Cells[4].Value = sumofDeposit;
-            dgv.Rows[i].Cells[5].Value = sumofMonthlyIncome;
-            dgv.Rows[i].Cells[6].Value = sumofManagementPrice;
+            dgv.Rows[i].Cells[1].Value = sumofArea;
+            dgv.Rows[i].Cells[3].Value = sumofDeposit;
+            dgv.Rows[i].Cells[4].Value = sumofMonthlyIncome;
+            dgv.Rows[i].Cells[5].Value = sumofManagementPrice;
 
             dgv.Refresh();
-        }
-
-        private int getid()
-        {
-            int tableID = 0;
-
-            cn.Open();
-            string query = "select MAX(id) from info2";
-            SQLiteCommand cmd = new SQLiteCommand(query, cn);
-            SQLiteDataReader rdr = cmd.ExecuteReader();
-            while (rdr.Read())
-            {
-                if (!rdr[0].ToString().Equals(""))
-                    tableID = int.Parse(rdr[0].ToString());
-            }
-            cn.Close();
-
-            return tableID;
         }
 
         private void InsertRowsDataGridView()
@@ -516,17 +491,20 @@ namespace RealEstate
                 while(toinsert.Count > 0)
                 {
                     int i = toinsert.Pop() - 1;
-                    cmd.Parameters.AddWithValue("@id", null);
-                    cmd.Parameters.AddWithValue("@buildingID", id);
-                    cmd.Parameters.AddWithValue("@floor", dgv.Rows[i].Cells["floor"].Value);
-                    cmd.Parameters.AddWithValue("@area", dgv.Rows[i].Cells["floor_area"].Value);
-                    cmd.Parameters.AddWithValue("@storeName", dgv.Rows[i].Cells["storeName"].Value);
-                    cmd.Parameters.AddWithValue("@deposit", dgv.Rows[i].Cells["storeDeposit"].Value);
-                    cmd.Parameters.AddWithValue("@monthlyIncome", dgv.Rows[i].Cells["monthlyIncome"].Value);
-                    cmd.Parameters.AddWithValue("@managementPrice", dgv.Rows[i].Cells["managementPrice"].Value);
-                    cmd.Parameters.AddWithValue("@etc", dgv.Rows[i].Cells["etc"].Value);
+                    if (dgv.Rows.Count != 0)
+                    {
+                        cmd.Parameters.AddWithValue("@id", null);
+                        cmd.Parameters.AddWithValue("@buildingID", id);
+                        cmd.Parameters.AddWithValue("@floor", dgv.Rows[i].Cells["floor"].Value);
+                        cmd.Parameters.AddWithValue("@area", dgv.Rows[i].Cells["floor_area"].Value);
+                        cmd.Parameters.AddWithValue("@storeName", dgv.Rows[i].Cells["storeName"].Value);
+                        cmd.Parameters.AddWithValue("@deposit", dgv.Rows[i].Cells["storeDeposit"].Value);
+                        cmd.Parameters.AddWithValue("@monthlyIncome", dgv.Rows[i].Cells["monthlyIncome"].Value);
+                        cmd.Parameters.AddWithValue("@managementPrice", dgv.Rows[i].Cells["managementPrice"].Value);
+                        cmd.Parameters.AddWithValue("@etc", dgv.Rows[i].Cells["etc"].Value);
 
-                    cmd.ExecuteNonQuery();
+                        cmd.ExecuteNonQuery();
+                    }
 
                 }
                 con.Close();
