@@ -50,26 +50,7 @@ namespace RealEstate
         }
         public void setValue(Findvalue FV)
         {
-            findvalue.type = FV.type;
-            findvalue.state = FV.state;
-            findvalue.sellPrice = FV.sellPrice;
-            findvalue.sellPriceSize = FV.sellPriceSize;
-            findvalue.Income = FV.Income;
-            findvalue.IncomeSize = FV.IncomeSize;
-            findvalue.yearPercent = FV.yearPercent;
-            findvalue.yearPercentSize = FV.yearPercentSize;
-            findvalue.takeOverPrice = FV.takeOverPrice;
-            findvalue.takeOverPriceSize = FV.takeOverPriceSize;
-            findvalue.distance = FV.distance;
-            findvalue.addr = FV.addr;
-            findvalue.roadwidth = FV.roadwidth;
-            findvalue.roadwidthSize = FV.roadwidthSize;
-            /*
-            label1.Text = findvalue.type.ToString() + findvalue.state.ToString() + findvalue.sellPrice.ToString()
-                + findvalue.sellPriceSize.ToString() + findvalue.takeOverPrice.ToString() + findvalue.Income.ToString() + findvalue.yearPercent.ToString()
-                + findvalue.yearPercentSize.ToString()+ findvalue.distance.ToString()
-                + findvalue.addr.ToString() + findvalue.roadwidth.ToString() + findvalue.roadwidthSize.ToString();*/
-
+            findvalue = FV;
         }
         public void setUserType(Boolean userType)
         {
@@ -139,7 +120,7 @@ namespace RealEstate
                     Findcount++;
                 }
             }
-
+            MessageBox.Show("검색 조건에 맞는 " + Findcount + "개의 부동산을 찾았습니다.");
             rdr.Close();
             cn.Close();
         }
@@ -213,10 +194,12 @@ namespace RealEstate
                 ManagerView mangerview = new ManagerView();
                 mangerview.setDBfile(DBFile);
                 mangerview.setID(int.Parse(id));
+                mangerview.setValue(findvalue);
                 mangerview.Show();
+                this.Close();
             }
-          
-            
+
+
         }
         
         private void FindView_Load(object sender, EventArgs e)
@@ -238,7 +221,6 @@ namespace RealEstate
             showResult();
             dataGridView1.ClearSelection();
         }
-
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             dataGridRowID = e.RowIndex;

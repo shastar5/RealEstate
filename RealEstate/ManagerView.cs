@@ -13,7 +13,7 @@ namespace RealEstate
     {
         void setID(int id);
     }
-    public partial class ManagerView : Form, DBInterface, IdInterface
+    public partial class ManagerView : Form, DBInterface, IdInterface, FIndInterface
     {
         private const int SC_CLOSE = 0xF060;
         private const int MF_ENABLED = 0x0;
@@ -70,11 +70,13 @@ namespace RealEstate
 
         int ErrorStr2Num;
 
+        Findvalue findvalue = new Findvalue();
         String strConn;
         SQLiteConnection cn = new SQLiteConnection();
         SQLiteCommand cmd = new SQLiteCommand();
 
         // Database keyword declare
+
         int countofrows = 0;
         DataGridView dgv;
         Stack<int> todo = new Stack<int>();
@@ -88,7 +90,10 @@ namespace RealEstate
         {
             this.id = id;
         }
-
+        public void setValue(Findvalue FV)
+        {
+            findvalue = FV;
+        }
         public ManagerView()
         {
             InitializeComponent();
@@ -716,6 +721,11 @@ namespace RealEstate
                 InsertRowsDataGridView();
                 MessageBox.Show("저장 완료 했습니다.");
                 this.Close();
+                FindView findtest = new FindView();
+                findtest.setDBfile(DBFile);
+                findtest.setUserType(false);
+                findtest.setValue(findvalue);
+                findtest.Show();
             }
             else
                 MessageBox.Show("숫자 입력란에 숫자만 넣어주세요. 다시 확인해주세요 ");
