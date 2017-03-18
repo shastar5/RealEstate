@@ -35,12 +35,11 @@
             // 
             // button2
             // 
-            this.button2.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button2.Location = new System.Drawing.Point(2, 444);
+            this.button2.Location = new System.Drawing.Point(292, 252);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(949, 45);
+            this.button2.Size = new System.Drawing.Size(311, 45);
             this.button2.TabIndex = 2;
-            this.button2.Text = "상세 정보 보기";
+            this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -48,10 +47,10 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(2, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(949, 429);
+            this.dataGridView1.Size = new System.Drawing.Size(929, 234);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -59,15 +58,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(953, 493);
+            this.ClientSize = new System.Drawing.Size(953, 309);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button2);
             this.Name = "FindView";
-<<<<<<< HEAD
-            this.ShowIcon = false;
-=======
->>>>>>> 3f1397c71e256be46a73c71a590d6b9b3f935ba6
-            this.Text = "찾기";
+            this.Text = "findtest";
             this.Load += new System.EventHandler(this.FindView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

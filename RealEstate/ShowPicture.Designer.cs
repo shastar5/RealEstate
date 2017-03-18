@@ -133,7 +133,7 @@
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "ShowPicture";
-            this.Text = "ShowPicture";
+            this.Text = "사진추가/삭제";
             this.Load += new System.EventHandler(this.ShowPicture_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

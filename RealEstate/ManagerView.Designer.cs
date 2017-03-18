@@ -895,6 +895,7 @@
             this.TB_YearPercent.Name = "TB_YearPercent";
             this.TB_YearPercent.Size = new System.Drawing.Size(202, 27);
             this.TB_YearPercent.TabIndex = 7;
+            this.TB_YearPercent.TextChanged += new System.EventHandler(this.TB_NUMTextChanged);
             this.TB_YearPercent.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // label34
@@ -1035,6 +1036,7 @@
             this.TB_TakeOverPrice.Name = "TB_TakeOverPrice";
             this.TB_TakeOverPrice.Size = new System.Drawing.Size(202, 27);
             this.TB_TakeOverPrice.TabIndex = 6;
+            this.TB_TakeOverPrice.TextChanged += new System.EventHandler(this.TB_NUMTextChanged);
             this.TB_TakeOverPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // label22
@@ -1055,6 +1057,7 @@
             this.TB_SellPrice.Name = "TB_SellPrice";
             this.TB_SellPrice.Size = new System.Drawing.Size(202, 27);
             this.TB_SellPrice.TabIndex = 5;
+            this.TB_SellPrice.TextChanged += new System.EventHandler(this.TB_NUMTextChanged);
             this.TB_SellPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // label23
@@ -1075,6 +1078,7 @@
             this.TB_PayedPrice.Name = "TB_PayedPrice";
             this.TB_PayedPrice.Size = new System.Drawing.Size(202, 27);
             this.TB_PayedPrice.TabIndex = 4;
+            this.TB_PayedPrice.TextChanged += new System.EventHandler(this.TB_NUMTextChanged);
             this.TB_PayedPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // label24
@@ -1095,6 +1099,7 @@
             this.TB_Interest.Name = "TB_Interest";
             this.TB_Interest.Size = new System.Drawing.Size(202, 27);
             this.TB_Interest.TabIndex = 3;
+            this.TB_Interest.TextChanged += new System.EventHandler(this.TB_NUMTextChanged);
             this.TB_Interest.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // TB_Deposit
@@ -1105,6 +1110,7 @@
             this.TB_Deposit.Name = "TB_Deposit";
             this.TB_Deposit.Size = new System.Drawing.Size(202, 27);
             this.TB_Deposit.TabIndex = 0;
+            this.TB_Deposit.TextChanged += new System.EventHandler(this.TB_NUMTextChanged);
             this.TB_Deposit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // TB_Income
@@ -1115,6 +1121,7 @@
             this.TB_Income.Name = "TB_Income";
             this.TB_Income.Size = new System.Drawing.Size(202, 27);
             this.TB_Income.TabIndex = 1;
+            this.TB_Income.TextChanged += new System.EventHandler(this.TB_NUMTextChanged);
             this.TB_Income.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // TB_Loan
@@ -1125,6 +1132,7 @@
             this.TB_Loan.Name = "TB_Loan";
             this.TB_Loan.Size = new System.Drawing.Size(202, 27);
             this.TB_Loan.TabIndex = 2;
+            this.TB_Loan.TextChanged += new System.EventHandler(this.TB_NUMTextChanged);
             this.TB_Loan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
             // panel2
@@ -1225,7 +1233,7 @@
             this.MaximizeBox = false;
             this.Name = "ManagerView";
             this.ShowIcon = false;
-            this.Text = "관리자용";
+            this.Text = "관리자용 상세정보";
             this.Load += new System.EventHandler(this.ManagerView_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

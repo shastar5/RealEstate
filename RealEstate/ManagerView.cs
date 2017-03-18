@@ -13,7 +13,7 @@ namespace RealEstate
     {
         void setID(int id);
     }
-    public partial class ManagerView : Form, DBInterface, IdInterface
+    public partial class ManagerView : Form, DBInterface, IdInterface, FIndInterface
     {
         private const int SC_CLOSE = 0xF060;
         private const int MF_ENABLED = 0x0;
@@ -67,11 +67,16 @@ namespace RealEstate
         int isCorner;
 
         public int profilePictureID = -1;
+
+        int ErrorStr2Num;
+
+        Findvalue findvalue = new Findvalue();
         String strConn;
         SQLiteConnection cn = new SQLiteConnection();
         SQLiteCommand cmd = new SQLiteCommand();
 
         // Database keyword declare
+
         int countofrows = 0;
         DataGridView dgv;
         Stack<int> todo = new Stack<int>();
@@ -85,7 +90,10 @@ namespace RealEstate
         {
             this.id = id;
         }
-
+        public void setValue(Findvalue FV)
+        {
+            findvalue = FV;
+        }
         public ManagerView()
         {
             InitializeComponent();
@@ -294,10 +302,19 @@ namespace RealEstate
 
         private double checkNulls(string num)
         {
+            double number = 0;
             num.Trim(); //공백 제거
             if (num.Equals(""))
                 return -9999; //빈값 처리
-            return double.Parse(num);
+            try
+            {
+                number = double.Parse(num);
+            }
+            catch (Exception ex)
+            {
+                ErrorStr2Num = -1;
+            }
+            return number;
         }
 
         private void updateDataGrid()
@@ -695,12 +712,24 @@ namespace RealEstate
 
         private void SaveData_Click(object sender, EventArgs e)
         {
+            ErrorStr2Num = 0;
             setData();
-            saveData();
-            updateDataGrid();
-            InsertRowsDataGridView();
-            MessageBox.Show("저장 완료 했습니다.");
-            this.Close();
+            if (ErrorStr2Num == 0)
+            {
+                saveData();
+                updateDataGrid();
+                InsertRowsDataGridView();
+                MessageBox.Show("저장 완료 했습니다.");
+                this.Close();
+                FindView findtest = new FindView();
+                findtest.setDBfile(DBFile);
+                findtest.setUserType(false);
+                findtest.setValue(findvalue);
+                findtest.Show();
+            }
+            else
+                MessageBox.Show("숫자 입력란에 숫자만 넣어주세요. 다시 확인해주세요 ");
+
         }
 
         private void readProfilePicture()
@@ -719,14 +748,26 @@ namespace RealEstate
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            readProfilePicture();
-            ShowPicture showpicture = new ShowPicture();
-            showpicture.setDBfile(DBFile);
-            showpicture.Owner = this;
-            showpicture.tableID = id;
-            showpicture.profilePictureID = profilePictureID;
-            showpicture.setMode("managerMode");
-            showpicture.Show();
+            int isOpen = 0;
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.Name.Equals("ShowPicture"))
+                {
+                    isOpen = 1;
+                    MessageBox.Show("사진추가/삭제 창이 이미 열려 있습니다.");
+                }
+            }
+            if (isOpen == 0)
+            {
+                readProfilePicture();
+                ShowPicture showpicture = new ShowPicture();
+                showpicture.setDBfile(DBFile);
+                showpicture.Owner = this;
+                showpicture.tableID = id;
+                showpicture.profilePictureID = profilePictureID;
+                showpicture.setMode("managerMode");
+                showpicture.Show();
+            }
         }
 
         private void deleteSum()
@@ -756,6 +797,47 @@ namespace RealEstate
                     dgv.Rows.RemoveAt(oneCell.RowIndex);
                 }
             }
+        }
+        private void updateTB()
+        {
+            double UpdateSellPrice = checkNulls(TB_SellPrice.Text.ToString());
+            double UpdateDeposit = checkNulls(TB_Deposit.Text.ToString());
+            double UpdateLoan = checkNulls(TB_Loan.Text.ToString());
+            double UpdateTakeOverPrice = -9999;
+            double UpdateIncome;
+            double UpdateYearPercent;
+
+            if (UpdateSellPrice != -9999 && UpdateDeposit != -9999 && UpdateLoan != -9999)
+            {
+                UpdateTakeOverPrice = UpdateSellPrice - UpdateDeposit - UpdateLoan;
+                TB_TakeOverPrice.Text = UpdateTakeOverPrice.ToString();
+            }
+            else
+                TB_TakeOverPrice.Text = "";
+
+            if (type != 6)
+            {
+                UpdateIncome = checkNulls(TB_Income.Text.ToString());
+            }
+            else
+            {
+                UpdateIncome = checkNulls(TB_Income2.Text.ToString());
+            }
+            if (UpdateTakeOverPrice != -9999 && UpdateIncome != -9999)
+            {
+
+                UpdateYearPercent = UpdateIncome / UpdateTakeOverPrice * 12 * 100;
+                UpdateYearPercent = Math.Ceiling(UpdateYearPercent / 0.1) * 0.1;
+                TB_YearPercent.Text = UpdateYearPercent.ToString();
+            }
+            else
+                TB_YearPercent.Text = "";
+        }
+        
+
+        private void TB_NUMTextChanged(object sender, EventArgs e)
+        {
+            updateTB();
         }
     }
 

@@ -955,7 +955,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button1);
             this.Name = "UserView";
-            this.Text = "UserView";
+            this.Text = "상세정보";
             this.Load += new System.EventHandler(this.UserView_Load);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
