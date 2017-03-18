@@ -71,6 +71,14 @@
             this.TB_BuildName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.ContentOfRentals = new System.Windows.Forms.DataGridView();
+            this._id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.floor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.floor_area = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.storeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.storeDeposit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.monthlyIncome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.managementPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.etc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CB_corner = new System.Windows.Forms.CheckBox();
             this.Sangga = new System.Windows.Forms.RadioButton();
             this.NewConstruction = new System.Windows.Forms.RadioButton();
@@ -120,14 +128,8 @@
             this.TB_Income = new System.Windows.Forms.TextBox();
             this.TB_Loan = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this._id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.floor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.floor_area = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.storeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.storeDeposit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.monthlyIncome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.managementPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.etc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.add_row = new System.Windows.Forms.Button();
+            this.delete_row = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -540,6 +542,8 @@
             // ContentOfRentals
             // 
             this.ContentOfRentals.AllowDrop = true;
+            this.ContentOfRentals.AllowUserToAddRows = false;
+            this.ContentOfRentals.AllowUserToDeleteRows = false;
             this.ContentOfRentals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ContentOfRentals.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this._id,
@@ -557,6 +561,46 @@
             this.ContentOfRentals.Size = new System.Drawing.Size(460, 311);
             this.ContentOfRentals.TabIndex = 9;
             this.ContentOfRentals.TabStop = false;
+            // 
+            // _id
+            // 
+            this._id.HeaderText = "번호";
+            this._id.Name = "_id";
+            // 
+            // floor
+            // 
+            this.floor.HeaderText = "층수";
+            this.floor.Name = "floor";
+            // 
+            // floor_area
+            // 
+            this.floor_area.HeaderText = "면적";
+            this.floor_area.Name = "floor_area";
+            // 
+            // storeName
+            // 
+            this.storeName.HeaderText = "상호명";
+            this.storeName.Name = "storeName";
+            // 
+            // storeDeposit
+            // 
+            this.storeDeposit.HeaderText = "보증금";
+            this.storeDeposit.Name = "storeDeposit";
+            // 
+            // monthlyIncome
+            // 
+            this.monthlyIncome.HeaderText = "월세";
+            this.monthlyIncome.Name = "monthlyIncome";
+            // 
+            // managementPrice
+            // 
+            this.managementPrice.HeaderText = "관리비";
+            this.managementPrice.Name = "managementPrice";
+            // 
+            // etc
+            // 
+            this.etc.HeaderText = "비고";
+            this.etc.Name = "etc";
             // 
             // CB_corner
             // 
@@ -1103,51 +1147,33 @@
             this.panel2.TabIndex = 1;
             this.panel2.Visible = false;
             // 
-            // _id
+            // add_row
             // 
-            this._id.HeaderText = "번호";
-            this._id.Name = "_id";
+            this.add_row.Location = new System.Drawing.Point(403, 180);
+            this.add_row.Name = "add_row";
+            this.add_row.Size = new System.Drawing.Size(75, 23);
+            this.add_row.TabIndex = 36;
+            this.add_row.Text = "추가";
+            this.add_row.UseVisualStyleBackColor = true;
+            this.add_row.Click += new System.EventHandler(this.add_row_Click);
             // 
-            // floor
+            // delete_row
             // 
-            this.floor.HeaderText = "층수";
-            this.floor.Name = "floor";
-            // 
-            // floor_area
-            // 
-            this.floor_area.HeaderText = "면적";
-            this.floor_area.Name = "floor_area";
-            // 
-            // storeName
-            // 
-            this.storeName.HeaderText = "상호명";
-            this.storeName.Name = "storeName";
-            // 
-            // storeDeposit
-            // 
-            this.storeDeposit.HeaderText = "보증금";
-            this.storeDeposit.Name = "storeDeposit";
-            // 
-            // monthlyIncome
-            // 
-            this.monthlyIncome.HeaderText = "월세";
-            this.monthlyIncome.Name = "monthlyIncome";
-            // 
-            // managementPrice
-            // 
-            this.managementPrice.HeaderText = "관리비";
-            this.managementPrice.Name = "managementPrice";
-            // 
-            // etc
-            // 
-            this.etc.HeaderText = "비고";
-            this.etc.Name = "etc";
+            this.delete_row.Location = new System.Drawing.Point(484, 180);
+            this.delete_row.Name = "delete_row";
+            this.delete_row.Size = new System.Drawing.Size(75, 23);
+            this.delete_row.TabIndex = 37;
+            this.delete_row.Text = "삭제";
+            this.delete_row.UseVisualStyleBackColor = true;
+            this.delete_row.Click += new System.EventHandler(this.delete_row_Click);
             // 
             // ManagerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(922, 703);
+            this.Controls.Add(this.delete_row);
+            this.Controls.Add(this.add_row);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.Tab_control);
@@ -1319,5 +1345,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn monthlyIncome;
         private System.Windows.Forms.DataGridViewTextBoxColumn managementPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn etc;
+        private System.Windows.Forms.Button add_row;
+        private System.Windows.Forms.Button delete_row;
     }
 }

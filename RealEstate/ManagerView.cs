@@ -5,6 +5,7 @@ using System.Data;
 using System.IO;
 using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Collections.Generic;
 
 namespace RealEstate
 {
@@ -73,6 +74,8 @@ namespace RealEstate
         // Database keyword declare
         int countofrows = 0;
         DataGridView dgv;
+        Stack<int> todo = new Stack<int>();
+        Stack<int> toinsert = new Stack<int>();
 
         public void setDBfile(string DBFile) //DB파일위치 계승
         {
@@ -339,12 +342,45 @@ namespace RealEstate
                     cmd.ExecuteNonQuery();
 
                 }
+
+                
                 con.Close();
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
             }
+        }
+
+        private void deleteDataGrid()
+        {
+            SQLiteConnection con = new SQLiteConnection();
+            con.ConnectionString = strConn;
+            string sql = "DELETE FROM info2 WHERE id = @id AND buildingID = " + id;
+            cmd = new SQLiteCommand(sql, con);
+            con.Open();
+            int count = todo.Count;
+
+            while (todo.Count > 0)
+            {
+                for(int i=0;i<count;++i)
+                {
+                    int num = todo.Pop();
+
+                    cmd.Parameters.AddWithValue("@floor", dgv.Rows[num].Cells["floor"].Value);
+                    cmd.Parameters.AddWithValue("@area", dgv.Rows[num].Cells["floor_area"].Value);
+                    cmd.Parameters.AddWithValue("@storeName", dgv.Rows[num].Cells["storeName"].Value);
+                    cmd.Parameters.AddWithValue("@deposit", dgv.Rows[num].Cells["storeDeposit"].Value);
+                    cmd.Parameters.AddWithValue("@monthlyIncome", dgv.Rows[num].Cells["monthlyIncome"].Value);
+                    cmd.Parameters.AddWithValue("@managementPrice", dgv.Rows[num].Cells["managementPrice"].Value);
+                    cmd.Parameters.AddWithValue("@etc", dgv.Rows[num].Cells["etc"].Value);
+                    cmd.Parameters.AddWithValue("@id", dgv.Rows[num].Cells["_id"].Value);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+            con.Close();
         }
 
         private void readDataGrid()
@@ -396,6 +432,12 @@ namespace RealEstate
                 MessageBox.Show(e.ToString());
             }
 
+            showSum();
+        }
+
+        private void showSum()
+        {
+            int i;
             // Get sum of each column and add additional column and shows
             double sumofArea = 0, sumofDeposit = 0, sumofMonthlyIncome = 0, sumofManagementPrice = 0;
 
@@ -411,9 +453,9 @@ namespace RealEstate
                     sumofManagementPrice += Convert.ToDouble(dgv.Rows[i].Cells[6].Value);
             }
 
-            dgv.Rows.Add();
-            i = dgv.Rows.Count - 1;
+            i = countofrows;
 
+            dgv.Rows.Add();
             dgv.Rows[i].Cells[0].Value = "합계";
             dgv.Rows[i].Cells[2].Value = sumofArea;
             dgv.Rows[i].Cells[4].Value = sumofDeposit;
@@ -443,7 +485,43 @@ namespace RealEstate
 
         private void InsertRowsDataGridView()
         {
+            /*
+            "Create table if not exists info2 (id INTEGER  PRIMARY KEY autoincrement, buildingID INTEGER, floor NUMERIC, area NUMERIC, storeName varchar(100), "
+            + "deposit NUMERIC, monthlyIncome NUMERIC, managementPrice NUMERIC, etc NUMERIC, FOREIGN KEY(buildingID) REFERENCES info1(id))";
+            */
+            int i, rowCount = 0;
 
+            // Get RowCount
+            rowCount = dgv.Rows.Count;
+
+            SQLiteConnection con = new SQLiteConnection();
+            con.ConnectionString = strConn;
+            try
+            {
+                SQLiteCommand cmd = new SQLiteCommand("INSERT INTO info2 VALUES(@id, @buildingID, @floor, @area, @storeName, @deposit, @monthlyIncome, @managementPrice, @etc)", con);
+                con.Open();
+                for (i = 0; i < rowCount; i++)
+                {
+                    //cmd.Parameters.AddWithValue("@id", dgv.Rows[i].Cells["id"].Value);
+                    cmd.Parameters.AddWithValue("@id", null);
+                    cmd.Parameters.AddWithValue("@buildingID", getid());
+                    cmd.Parameters.AddWithValue("@floor", dgv.Rows[i].Cells["floor"].Value);
+                    cmd.Parameters.AddWithValue("@area", dgv.Rows[i].Cells["floor_area"].Value);
+                    cmd.Parameters.AddWithValue("@storeName", dgv.Rows[i].Cells["storeName"].Value);
+                    cmd.Parameters.AddWithValue("@deposit", dgv.Rows[i].Cells["storeDeposit"].Value);
+                    cmd.Parameters.AddWithValue("@monthlyIncome", dgv.Rows[i].Cells["monthlyIncome"].Value);
+                    cmd.Parameters.AddWithValue("@managementPrice", dgv.Rows[i].Cells["managementPrice"].Value);
+                    cmd.Parameters.AddWithValue("@etc", dgv.Rows[i].Cells["etc"].Value);
+
+                    cmd.ExecuteNonQuery();
+
+                }
+                con.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
         }
 
         private void saveData()
@@ -654,7 +732,35 @@ namespace RealEstate
             showpicture.setMode("managerMode");
             showpicture.Show();
         }
- 
+
+        private void deleteSum()
+        {
+            if (dgv.Rows.Count > 1)
+            {
+                dgv.Rows.RemoveAt(dgv.Rows.Count - 2);
+            }
+        }
+
+        private void add_row_Click(object sender, EventArgs e)
+        {
+            toinsert.Push(dgv.Rows.Add());
+            deleteSum();
+            countofrows++;
+            showSum();
+        }
+
+        private void delete_row_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewCell oneCell in dgv.SelectedCells)
+            {
+                if (oneCell.Selected)
+                {
+                    todo.Push(oneCell.RowIndex);
+                    deleteDataGrid();
+                    dgv.Rows.RemoveAt(oneCell.RowIndex);
+                }
+            }
+        }
     }
 
 }
