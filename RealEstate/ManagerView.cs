@@ -489,22 +489,18 @@ namespace RealEstate
             "Create table if not exists info2 (id INTEGER  PRIMARY KEY autoincrement, buildingID INTEGER, floor NUMERIC, area NUMERIC, storeName varchar(100), "
             + "deposit NUMERIC, monthlyIncome NUMERIC, managementPrice NUMERIC, etc NUMERIC, FOREIGN KEY(buildingID) REFERENCES info1(id))";
             */
-            int i, rowCount = 0;
-
-            // Get RowCount
-            rowCount = dgv.Rows.Count;
-
             SQLiteConnection con = new SQLiteConnection();
             con.ConnectionString = strConn;
             try
             {
                 SQLiteCommand cmd = new SQLiteCommand("INSERT INTO info2 VALUES(@id, @buildingID, @floor, @area, @storeName, @deposit, @monthlyIncome, @managementPrice, @etc)", con);
                 con.Open();
-                for (i = 0; i < rowCount; i++)
+
+                while(toinsert.Count > 0)
                 {
-                    //cmd.Parameters.AddWithValue("@id", dgv.Rows[i].Cells["id"].Value);
+                    int i = toinsert.Pop() - 1;
                     cmd.Parameters.AddWithValue("@id", null);
-                    cmd.Parameters.AddWithValue("@buildingID", getid());
+                    cmd.Parameters.AddWithValue("@buildingID", id);
                     cmd.Parameters.AddWithValue("@floor", dgv.Rows[i].Cells["floor"].Value);
                     cmd.Parameters.AddWithValue("@area", dgv.Rows[i].Cells["floor_area"].Value);
                     cmd.Parameters.AddWithValue("@storeName", dgv.Rows[i].Cells["storeName"].Value);

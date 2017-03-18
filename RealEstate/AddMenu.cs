@@ -89,7 +89,6 @@ namespace RealEstate
                 con.Open();
                 for (i = 0; i < rowCount; i++)
                 {
-                    //cmd.Parameters.AddWithValue("@id", dgv.Rows[i].Cells["id"].Value);
                     cmd.Parameters.AddWithValue("@id", null);
                     cmd.Parameters.AddWithValue("@buildingID", getid());
                     cmd.Parameters.AddWithValue("@floor", dgv.Rows[i].Cells["floor"].Value);
