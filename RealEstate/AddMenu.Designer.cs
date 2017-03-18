@@ -1214,7 +1214,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.panel2);
             this.MaximizeBox = false;
-            //this.Name = "AddMenu";
+            this.Name = "AddMenu";
             this.ShowIcon = false;
             this.Text = "추가";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddMenu_FormClosing);
@@ -1314,7 +1314,7 @@
         private System.Windows.Forms.RadioButton Sangga;
         private System.Windows.Forms.TextBox TB_BuildName;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Names;
         public System.Windows.Forms.DataGridView ContentOfRentals;
         private System.Windows.Forms.CheckBox CB_corner;
         private System.Windows.Forms.TextBox TB_MonthlyPay;

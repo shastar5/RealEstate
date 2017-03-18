@@ -745,7 +745,7 @@
     <value>2</value>
   </data>
   <data name="btn_find.Text" xml:space="preserve">
-    <value>찾기</value>
+    <value>검색</value>
   </data>
   <data name="&gt;&gt;btn_find.Name" xml:space="preserve">
     <value>btn_find</value>

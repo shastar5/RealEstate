@@ -175,9 +175,22 @@ namespace RealEstate
         private void btn_find_Click(object sender, EventArgs e)
         {
              setData();
+            int isOpen = 0;
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.Name.Equals( "FindView"))
+                {
+                    isOpen = 1;
+                }
+            }
+            
             if (findvalues.type == -1)
             {
                 MessageBox.Show("찾을 건물 종류를 선택해주세요");
+            }
+            else if (isOpen == 1)
+            {
+                MessageBox.Show("검색 창이 이미 열려 있습니다.");
             }
             else if(checkException())
             {
@@ -255,14 +268,22 @@ namespace RealEstate
 
         private void btn_addBuilding_Click(object sender, EventArgs e)
         {
-            AddMenu addMenu = new AddMenu();
-            addMenu.setDBfile(DBFile);
-            addMenu.Show();
-
-            if (radioButton6.Checked == true)
+            int isOpen = 0;
+            foreach (Form form in Application.OpenForms)
             {
-
+                if (form.Name.Equals( "AddMenu"))
+                {
+                    isOpen = 1;
+                    MessageBox.Show("추가 창이 이미 열려 있습니다.");
+                }
             }
+            if (isOpen == 0)
+            {
+                AddMenu addMenu = new AddMenu();
+                addMenu.setDBfile(DBFile);
+                addMenu.Show();
+            }
+
         }
 
         private void btn_DBFind_Click(object sender, EventArgs e)

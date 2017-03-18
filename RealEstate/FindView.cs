@@ -182,11 +182,23 @@ namespace RealEstate
 
         private void button2_Click(object sender, EventArgs e)
         {
-
-            string id; 
+            int isOpen = 0;
+            string id;
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.Name.Equals("ManagerView") || form.Name.Equals("UserView"))
+                {
+                    isOpen = 1;
+                }
+            }
+           
             if(dataGridRowID==-1)
             {
                 MessageBox.Show("자세히 볼 부동산을 선택해주세요");
+            }
+            else if (isOpen == 1)
+            {
+                MessageBox.Show("상세 정보 창이 이미 열려 있습니다.");
             }
             else if (userType)
             { 

@@ -1225,7 +1225,7 @@
             this.MaximizeBox = false;
             this.Name = "ManagerView";
             this.ShowIcon = false;
-            this.Text = "관리자용";
+            this.Text = "관리자용 상세정보";
             this.Load += new System.EventHandler(this.ManagerView_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

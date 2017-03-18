@@ -49,7 +49,7 @@
             this.ClientSize = new System.Drawing.Size(427, 251);
             this.Controls.Add(this.pictureBox1);
             this.Name = "BigPicture";
-            this.Text = "BigPicture";
+            this.Text = "그림확대";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.BigPicture_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

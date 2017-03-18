@@ -719,14 +719,26 @@ namespace RealEstate
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            readProfilePicture();
-            ShowPicture showpicture = new ShowPicture();
-            showpicture.setDBfile(DBFile);
-            showpicture.Owner = this;
-            showpicture.tableID = id;
-            showpicture.profilePictureID = profilePictureID;
-            showpicture.setMode("managerMode");
-            showpicture.Show();
+            int isOpen = 0;
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.Name.Equals("ShowPicture"))
+                {
+                    isOpen = 1;
+                    MessageBox.Show("사진추가/삭제 창이 이미 열려 있습니다.");
+                }
+            }
+            if (isOpen == 0)
+            {
+                readProfilePicture();
+                ShowPicture showpicture = new ShowPicture();
+                showpicture.setDBfile(DBFile);
+                showpicture.Owner = this;
+                showpicture.tableID = id;
+                showpicture.profilePictureID = profilePictureID;
+                showpicture.setMode("managerMode");
+                showpicture.Show();
+            }
         }
 
         private void deleteSum()

@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FirstMenu));
             this.Panel_InitText = new System.Windows.Forms.Panel();
             this.HiddenBox = new System.Windows.Forms.CheckBox();
+            this.DBLocation = new System.Windows.Forms.Label();
             this.radioButton6 = new System.Windows.Forms.RadioButton();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
@@ -65,7 +66,6 @@
             this.Page_complete = new System.Windows.Forms.TabPage();
             this.Page_prepare = new System.Windows.Forms.TabPage();
             this.Tab_control = new System.Windows.Forms.TabControl();
-            this.DBLocation = new System.Windows.Forms.Label();
             this.Panel_InitText.SuspendLayout();
             this.Tab_control.SuspendLayout();
             this.SuspendLayout();
@@ -113,6 +113,11 @@
             this.HiddenBox.TabStop = false;
             this.HiddenBox.UseVisualStyleBackColor = true;
             this.HiddenBox.CheckedChanged += new System.EventHandler(this.HiddenBox_CheckedChanged);
+            // 
+            // DBLocation
+            // 
+            resources.ApplyResources(this.DBLocation, "DBLocation");
+            this.DBLocation.Name = "DBLocation";
             // 
             // radioButton6
             // 
@@ -365,11 +370,6 @@
             this.Tab_control.SelectedIndex = 0;
             this.Tab_control.TabStop = false;
             this.Tab_control.SelectedIndexChanged += new System.EventHandler(this.Tabs_SelectedIndexChanged);
-            // 
-            // DBLocation
-            // 
-            resources.ApplyResources(this.DBLocation, "DBLocation");
-            this.DBLocation.Name = "DBLocation";
             // 
             // FirstMenu
             // 
