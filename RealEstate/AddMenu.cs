@@ -243,6 +243,8 @@ namespace RealEstate
                 {
                     saveData();
                     saveDataGrid();
+                    insertComment();
+                    insertMemo();
                     MessageBox.Show("저장 완료 했습니다.");
                     this.Close();
                 }
@@ -477,14 +479,8 @@ namespace RealEstate
         private void insertComment()
         {
             /*
-            query = "Create table if not exists comment (id INTEGER PRIMARY KEY AUTOINCREMENT, content varchar(1000), buildingID INTEGER, FOREIGN KEY(buildingID) REFERENCES info1(id))";
-            cmd = new SQLiteCommand(query, cn);
-            cmd.ExecuteNonQuery();
-
-            query = "Create table if not exists memo (id INTEGER PRIMARY KEY AUTOINCREMENT, dt datetime default current_timestamp , memo varchar(1000)), " +
-                "buildingID INTEGER, FOREIGN KEY(buildingID) REFERENCES info1(id))";
-            cmd = new SQLiteCommand(query, cn);
-            cmd.ExecuteNonQuery();
+            query = "Create table if not exists comment (id INTEGER PRIMARY KEY AUTOINCREMENT, 
+            content varchar(1000), buildingID INTEGER, FOREIGN KEY(buildingID) REFERENCES info1(id))";
             */
 
 
@@ -511,6 +507,48 @@ namespace RealEstate
             }
         }
 
+        private void insertMemo()
+        {
+            /*
+            query = "Create table if not exists memo (id INTEGER PRIMARY KEY AUTOINCREMENT, dt datetime default current_timestamp , memo varchar(1000)), " +
+            "buildingID INTEGER, FOREIGN KEY(buildingID) REFERENCES info1(id))";
+            */
+            SQLiteConnection con = new SQLiteConnection();
+            con.ConnectionString = strConn;
+            try
+            {
+                SQLiteCommand cmd = new SQLiteCommand("INSERT INTO memo VALUES(@id, @memo, @buildingID)", con);
+                con.Open();
+                for (int i = 0; i < memoview.Rows.Count; ++i)
+                {
+                    cmd.Parameters.AddWithValue("@id", null);
+                    cmd.Parameters.AddWithValue("@content", memoview.Rows[i].Cells["memo"].Value);
+                    cmd.Parameters.AddWithValue("@buildingID", getid());
+
+                    cmd.ExecuteNonQuery();
+
+                }
+                con.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+
+        }
+
+        private void addMemo_Click(object sender, EventArgs e)
+        {
+            memoview.Rows.Add();
+        }
+
+        private void deleteMemo_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewCell oneCell in memoview.SelectedCells)
+                if (oneCell.Selected)
+                    memoview.Rows.RemoveAt(oneCell.RowIndex);
+        }
+
         private void addcoment_Click(object sender, EventArgs e)
         {
             commentview.Rows.Add();
@@ -519,12 +557,9 @@ namespace RealEstate
         private void deletecomment_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewCell oneCell in commentview.SelectedCells)
-            {
                 if (oneCell.Selected)
-                {
                     commentview.Rows.RemoveAt(oneCell.RowIndex);
-                }
-            }
+
         }
     }
 }

@@ -56,6 +56,8 @@
             this.deletecomment = new System.Windows.Forms.Button();
             this.addcoment = new System.Windows.Forms.Button();
             this.commentGridView = new System.Windows.Forms.DataGridView();
+            this.order = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Content = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label17 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.TB_YearPercent = new System.Windows.Forms.TextBox();
@@ -135,8 +137,6 @@
             this.btn_JustClose = new System.Windows.Forms.Button();
             this.addRow = new System.Windows.Forms.Button();
             this.deleteRow = new System.Windows.Forms.Button();
-            this.order = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Content = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.commentGridView)).BeginInit();
             this.panel6.SuspendLayout();
@@ -422,6 +422,17 @@
             this.commentGridView.RowTemplate.Height = 23;
             this.commentGridView.Size = new System.Drawing.Size(377, 153);
             this.commentGridView.TabIndex = 1;
+            // 
+            // order
+            // 
+            this.order.HeaderText = "번호";
+            this.order.Name = "order";
+            this.order.Visible = false;
+            // 
+            // Content
+            // 
+            this.Content.HeaderText = "내용";
+            this.Content.Name = "Content";
             // 
             // label17
             // 
@@ -787,6 +798,7 @@
             this.deleteMemo.TabIndex = 3;
             this.deleteMemo.Text = "삭제";
             this.deleteMemo.UseVisualStyleBackColor = true;
+            this.deleteMemo.Click += new System.EventHandler(this.deleteMemo_Click);
             // 
             // addMemo
             // 
@@ -796,6 +808,7 @@
             this.addMemo.TabIndex = 2;
             this.addMemo.Text = "추가";
             this.addMemo.UseVisualStyleBackColor = true;
+            this.addMemo.Click += new System.EventHandler(this.addMemo_Click);
             // 
             // memoGridView
             // 
@@ -1238,17 +1251,6 @@
             this.deleteRow.Text = "삭제";
             this.deleteRow.UseVisualStyleBackColor = true;
             this.deleteRow.Click += new System.EventHandler(this.deleteRow_Click);
-            // 
-            // order
-            // 
-            this.order.HeaderText = "번호";
-            this.order.Name = "order";
-            this.order.Visible = false;
-            // 
-            // Content
-            // 
-            this.Content.HeaderText = "내용";
-            this.Content.Name = "Content";
             // 
             // AddMenu
             // 
