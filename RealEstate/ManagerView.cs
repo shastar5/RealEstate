@@ -78,9 +78,20 @@ namespace RealEstate
         // Database keyword declare
 
         int countofrows = 0;
-        DataGridView dgv;
+        DataGridView dgv, commentview, memoview;
+        // dgv's stack
         Stack<int> todo = new Stack<int>();
         Stack<int> toinsert = new Stack<int>();
+
+        // comment's stack
+        Stack<int> commentupdate = new Stack<int>();
+        Stack<int> commentadded = new Stack<int>(); 
+        Stack<int> commentdelete = new Stack<int>();
+
+        // memo's stack
+        Stack<int> memoupdate = new Stack<int>();
+        Stack<int> memoadded = new Stack<int>();
+        Stack<int> memodelete = new Stack<int>();
 
         public void setDBfile(string DBFile) //DB파일위치 계승
         {
@@ -99,6 +110,21 @@ namespace RealEstate
             InitializeComponent();
             EnableMenuItem(GetSystemMenu(this.Handle, false), SC_CLOSE, MF_GRAYED);
             dgv = ContentOfRentals;
+
+            commentview = commentGridView;
+            commentview.AutoGenerateColumns = false;
+            commentview.RowHeadersVisible = false;
+            commentview.Columns[0].ReadOnly = true;
+            commentview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            memoview = memoGridView;
+            memoview.RowHeadersVisible = false;
+            memoview.AutoGenerateColumns = false;
+            memoview.Columns[0].ReadOnly = true;
+            memoview.Columns[1].ReadOnly = true;
+            memoview.Columns[0].Width = (int)(memoview.Width * 0.15);
+            memoview.Columns[1].Width = (int)(memoview.Width * 0.33);
+            memoview.Columns[2].Width = memoview.Width - memoview.Columns[0].Width -memoview.Columns[1].Width;
         }
 
         private void readData()
@@ -339,6 +365,8 @@ namespace RealEstate
                 con.Open();
 
                 // 업데이트가 필요한 위치를 찾아서 저장함
+                // 버그 있을것 같은데.. 추후 테스트 하면서 확인할 것
+                // 버그가 있으면, 처음에 readDataGrid()에서 primary index number stack에 쌓은 후에 업데이트는 stack.pop해가면서 해주고 insert는 따로 해줄 것
                 for(rowNum =0;rowNum<rowCount;++rowNum)
                 {
                     if (dgv.Rows[rowNum].Cells[0].Value == null)
@@ -368,6 +396,75 @@ namespace RealEstate
                 MessageBox.Show(e.ToString());
             }
         }
+
+        private void updatecomment()
+        {
+            int i = 0;
+            SQLiteConnection con = new SQLiteConnection();
+            con.ConnectionString = strConn;
+            string sql = "UPDATE comment SET content = @content WHERE id = @id AND buildingID = " + id;
+            try
+            {
+                SQLiteCommand cmd = new SQLiteCommand(sql, con);
+                con.Open();
+                
+                for (i = 0;i < commentview.Rows.Count;++i)
+                {
+                    if (commentview.Rows[i].Cells[0].Value != null)
+                        commentupdate.Push(i);
+                }
+
+                for (i = 0; i < commentupdate.Count; ++i)
+                {
+                    int temp = commentupdate.Pop();
+                    cmd.Parameters.AddWithValue("@content", commentview.Rows[temp].Cells["Content"].Value);
+                    cmd.Parameters.AddWithValue("@id", commentview.Rows[temp].Cells["order"].Value);
+
+                    cmd.ExecuteNonQuery();
+
+                }
+                con.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        private void updatememo()
+        {
+            int i = 0;
+            SQLiteConnection con = new SQLiteConnection();
+            con.ConnectionString = strConn;
+            string sql = "UPDATE memo SET c_date = @c_date, memo = @memo WHERE id = @id AND buildingID = " + id;
+            try
+            {
+                SQLiteCommand cmd = new SQLiteCommand(sql, con);
+                con.Open();
+
+                for (i = 0; i < memoview.Rows.Count; ++i)
+                {
+                    if (memoview.Rows[i].Cells[0].Value != null)
+                        memoupdate.Push(i);
+                }
+
+                for (i = 0; i < memoupdate.Count; ++i)
+                {
+                    int temp = memoupdate.Pop();
+                    cmd.Parameters.AddWithValue("@c_date", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@id", memoview.Rows[temp].Cells["memo"].Value);
+
+                    cmd.ExecuteNonQuery();
+
+                }
+                con.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
 
         private void deleteDataGrid()
         {
@@ -451,6 +548,8 @@ namespace RealEstate
             // Get sum of each column and add additional column and shows
             double sumofArea = 0, sumofDeposit = 0, sumofMonthlyIncome = 0, sumofManagementPrice = 0;
 
+            if (dgv.Rows.Count == 0)
+                return;
             for (i = 0; i < dgv.Rows.Count; ++i)
             {
                 if (dgv.Rows[i].Cells[1].Value != DBNull.Value)
@@ -685,10 +784,82 @@ namespace RealEstate
         {
             readDataGrid();
             readData();
+            readcomment();
+            readmemo();
             loadPicture("picture" + id);
-            dgv.Rows[0].ReadOnly = true;
-            for(int i=0;i<dgv.ColumnCount;++i)
-                dgv.AutoResizeColumn(i);
+            if (dgv.Rows.Count > 0)
+            {
+                dgv.Rows[0].ReadOnly = true;
+                for (int i = 0; i < dgv.ColumnCount; ++i)
+                    dgv.AutoResizeColumn(i);
+            }
+        }
+         
+        private void readcomment()
+        {
+            /*
+            query = "Create table if not exists comment (id INTEGER PRIMARY KEY AUTOINCREMENT, content varchar(1000), buildingID INTEGER, FOREIGN KEY(buildingID) REFERENCES info1(id))";
+            cmd = new SQLiteCommand(query, cn);
+            cmd.ExecuteNonQuery();
+
+            query = "Create table if not exists memo (id INTEGER PRIMARY KEY AUTOINCREMENT, c_date DATE DEFAULT CURRENT_TIMESTAMP, memo varchar(1000)" +
+                ", buildingID INTEGER, FOREIGN KEY(buildingID) REFERENCES info1(id))";
+             */
+            int i = 0;
+            string sql = "select * from comment where buildingId =" + id;
+            try
+            {
+                SQLiteConnection con = new SQLiteConnection();
+                strConn = "Data Source=" + DBFile + "; Version=3;";
+                con.ConnectionString = strConn;
+
+                SQLiteCommand sqlCMD = new SQLiteCommand(sql, con);
+                SQLiteDataReader reader;
+                con.Open();
+                reader = sqlCMD.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    commentview.Rows.Add();
+                    commentview.Rows[i].Cells[0].Value = reader.GetValue(0);
+                    commentview.Rows[i++].Cells[1].Value = reader.GetValue(1);
+                }
+                con.Close();
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        private void readmemo()
+        {
+            int i = 0;
+            string sql = "select * from memo where buildingId =" + id;
+            try
+            {
+                SQLiteConnection con = new SQLiteConnection();
+                strConn = "Data Source=" + DBFile + "; Version=3;";
+                con.ConnectionString = strConn;
+
+                SQLiteCommand sqlCMD = new SQLiteCommand(sql, con);
+                SQLiteDataReader reader;
+                con.Open();
+                reader = sqlCMD.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    memoview.Rows.Add();
+                    memoview.Rows[i].Cells[0].Value = reader.GetValue(0);
+                    memoview.Rows[i].Cells[1].Value = reader.GetValue(1);
+                    memoview.Rows[i++].Cells[2].Value = reader.GetValue(2);
+                }
+                con.Close();
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
         }
 
         private void SaveData_Click(object sender, EventArgs e)
@@ -700,6 +871,12 @@ namespace RealEstate
                 saveData();
                 updateDataGrid();
                 InsertRowsDataGridView();
+
+                updatecomment();
+                insertComment();
+                updatememo();
+                insertMemo();
+
                 MessageBox.Show("저장 완료 했습니다.");
                 this.Close();
                 FindView findtest = new FindView();
@@ -779,6 +956,133 @@ namespace RealEstate
                 }
             }
         }
+
+        private void addMemo_Click(object sender, EventArgs e)
+        {
+            memoadded.Push(memoview.Rows.Add());
+        }
+
+        private void deleteMemo_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewCell oneCell in memoview.SelectedCells)
+                if (oneCell.Selected)
+                {
+                    memodelete.Push(oneCell.RowIndex);
+                    deletememo();
+                    memoview.Rows.RemoveAt(oneCell.RowIndex);
+                }
+        }
+
+        private void deletememo()
+        {
+            SQLiteConnection con = new SQLiteConnection();
+            con.ConnectionString = strConn;
+            string sql = "DELETE FROM memo WHERE id = @id AND buildingID = " + id;
+            cmd = new SQLiteCommand(sql, con);
+            con.Open();
+
+            while (memodelete.Count > 0)
+            {
+                cmd.Parameters.AddWithValue("@id", memoview.Rows[memodelete.Pop()].Cells["memoid"].Value);
+                cmd.ExecuteNonQuery();
+            }
+
+            con.Close();
+        }
+
+        private void deleteComment()
+        {
+            SQLiteConnection con = new SQLiteConnection();
+            con.ConnectionString = strConn;
+            string sql = "DELETE FROM comment WHERE id = @id AND buildingID = " + id;
+            cmd = new SQLiteCommand(sql, con);
+            con.Open();
+
+            while (commentdelete.Count > 0)
+            {
+                cmd.Parameters.AddWithValue("@id", commentview.Rows[commentdelete.Pop()].Cells["order"].Value);
+                cmd.ExecuteNonQuery();
+            }
+
+            con.Close();
+        }
+
+        private void insertComment()
+        {
+            SQLiteConnection con = new SQLiteConnection();
+            con.ConnectionString = strConn;
+            try
+            {
+                SQLiteCommand cmd = new SQLiteCommand("INSERT INTO comment VALUES (@id, @content, @buildingID)", con);
+                con.Open();
+
+                while (commentadded.Count > 0)
+                {
+                    int i = commentadded.Pop();
+                    if (commentview.Rows.Count != 0)
+                    {
+                        cmd.Parameters.AddWithValue("@id", null);
+                        cmd.Parameters.AddWithValue("@buildingID", id);
+                        cmd.Parameters.AddWithValue("@content", commentview.Rows[i].Cells["Content"].Value);
+
+                        cmd.ExecuteNonQuery();
+                    }
+
+                }
+                con.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        private void insertMemo()
+        {
+            SQLiteConnection con = new SQLiteConnection();
+            con.ConnectionString = strConn;
+            try
+            {
+                SQLiteCommand cmd = new SQLiteCommand("INSERT INTO memo VALUES(@id, @c_date, @memo, @buildingID)", con);
+                con.Open();
+
+                while (memoadded.Count > 0)
+                {
+                    int i = memoadded.Pop();
+                    if (memoview.Rows.Count != 0)
+                    {
+                        cmd.Parameters.AddWithValue("@id", null);
+                        cmd.Parameters.AddWithValue("@c_date", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@content", memoview.Rows[i].Cells["memo"].Value);
+                        cmd.Parameters.AddWithValue("@buildingID", id);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                con.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        private void addcomment_Click(object sender, EventArgs e)
+        {
+            commentadded.Push(commentview.Rows.Add());
+        }
+
+        private void deletecomment_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewCell oneCell in commentview.SelectedCells)
+                if (oneCell.Selected)
+                {
+                    commentdelete.Push(oneCell.RowIndex);
+                    deleteComment();
+                    commentview.Rows.RemoveAt(oneCell.RowIndex);
+                }
+        }
+
         private void updateTB()
         {
             double UpdateSellPrice = checkNulls(TB_SellPrice.Text.ToString());
@@ -815,7 +1119,6 @@ namespace RealEstate
                 TB_YearPercent.Text = "";
         }
         
-
         private void TB_NUMTextChanged(object sender, EventArgs e)
         {
             updateTB();

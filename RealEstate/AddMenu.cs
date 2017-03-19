@@ -279,11 +279,16 @@ namespace RealEstate
 
             commentview = commentGridView;
             commentview.AutoGenerateColumns = false;
+            commentview.RowHeadersVisible = false;
             commentview.Columns[0].ReadOnly = true;
+            commentview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             memoview = memoGridView;
+            memoview.RowHeadersVisible = false;
             memoview.AutoGenerateColumns = false;
             memoview.Columns[0].ReadOnly = true;
+            memoview.Columns[0].Width = memoview.Width / 4;
+            memoview.Columns[1].Width = memoview.Width - memoview.Columns[0].Width - 1;
         }
 
 
@@ -510,19 +515,20 @@ namespace RealEstate
         private void insertMemo()
         {
             /*
-            query = "Create table if not exists memo (id INTEGER PRIMARY KEY AUTOINCREMENT, dt datetime default current_timestamp , memo varchar(1000)), " +
-            "buildingID INTEGER, FOREIGN KEY(buildingID) REFERENCES info1(id))";
+            query = "Create table if not exists memo (id INTEGER PRIMARY KEY AUTOINCREMENT, c_date DATE DEFAULT CURRENT_TIMESTAMP, memo varchar(1000)" +
+                ", buildingID INTEGER, FOREIGN KEY(buildingID) REFERENCES info1(id))";
             */
             SQLiteConnection con = new SQLiteConnection();
             con.ConnectionString = strConn;
             try
             {
-                SQLiteCommand cmd = new SQLiteCommand("INSERT INTO memo VALUES(@id, @memo, @buildingID)", con);
+                SQLiteCommand cmd = new SQLiteCommand("INSERT INTO memo VALUES(@id, @c_date, @memo, @buildingID)", con);
                 con.Open();
                 for (int i = 0; i < memoview.Rows.Count; ++i)
                 {
                     cmd.Parameters.AddWithValue("@id", null);
-                    cmd.Parameters.AddWithValue("@content", memoview.Rows[i].Cells["memo"].Value);
+                    cmd.Parameters.AddWithValue("@c_date", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@memo", memoview.Rows[i].Cells["memo"].Value);
                     cmd.Parameters.AddWithValue("@buildingID", getid());
 
                     cmd.ExecuteNonQuery();
@@ -559,7 +565,6 @@ namespace RealEstate
             foreach (DataGridViewCell oneCell in commentview.SelectedCells)
                 if (oneCell.Selected)
                     commentview.Rows.RemoveAt(oneCell.RowIndex);
-
         }
     }
 }

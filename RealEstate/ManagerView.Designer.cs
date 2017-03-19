@@ -30,11 +30,6 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.SaveData = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.label17 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.listView3 = new System.Windows.Forms.ListView();
-            this.label40 = new System.Windows.Forms.Label();
             this.TB_Memo = new System.Windows.Forms.TextBox();
             this.label38 = new System.Windows.Forms.Label();
             this.TB_Tel = new System.Windows.Forms.TextBox();
@@ -44,7 +39,6 @@
             this.TB_Owner = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.TB_Parking = new System.Windows.Forms.TextBox();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.label36 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.TB_CompleteYear = new System.Windows.Forms.TextBox();
@@ -71,6 +65,14 @@
             this.TB_BuildName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.ContentOfRentals = new System.Windows.Forms.DataGridView();
+            this._id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.floor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.floor_area = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.storeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.storeDeposit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.monthlyIncome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.managementPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.etc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CB_corner = new System.Windows.Forms.CheckBox();
             this.Sangga = new System.Windows.Forms.RadioButton();
             this.NewConstruction = new System.Windows.Forms.RadioButton();
@@ -122,21 +124,30 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.add_row = new System.Windows.Forms.Button();
             this.delete_row = new System.Windows.Forms.Button();
-            this._id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.floor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.floor_area = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.storeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.storeDeposit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.monthlyIncome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.managementPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.etc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.deletecomment = new System.Windows.Forms.Button();
+            this.addcoment = new System.Windows.Forms.Button();
+            this.commentGridView = new System.Windows.Forms.DataGridView();
+            this.label11 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.deleteMemo = new System.Windows.Forms.Button();
+            this.addMemo = new System.Windows.Forms.Button();
+            this.memoGridView = new System.Windows.Forms.DataGridView();
+            this.label40 = new System.Windows.Forms.Label();
+            this.order = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Content = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.memoid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.memo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ContentOfRentals)).BeginInit();
             this.Tab_control.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.commentGridView)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.memoGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -160,49 +171,6 @@
             this.SaveData.Text = "저장";
             this.SaveData.UseVisualStyleBackColor = true;
             this.SaveData.Click += new System.EventHandler(this.SaveData_Click);
-            // 
-            // listView1
-            // 
-            this.listView1.Location = new System.Drawing.Point(16, 25);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(353, 126);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(14, 10);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(41, 12);
-            this.label17.TabIndex = 1;
-            this.label17.Text = "코멘트";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.listView3);
-            this.panel1.Controls.Add(this.label40);
-            this.panel1.Location = new System.Drawing.Point(403, 533);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(461, 163);
-            this.panel1.TabIndex = 15;
-            // 
-            // listView3
-            // 
-            this.listView3.Location = new System.Drawing.Point(0, 25);
-            this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(461, 126);
-            this.listView3.TabIndex = 0;
-            this.listView3.UseCompatibleStateImageBehavior = false;
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(206, 10);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(29, 12);
-            this.label40.TabIndex = 1;
-            this.label40.Text = "메모";
             // 
             // TB_Memo
             // 
@@ -289,15 +257,6 @@
             this.TB_Parking.Name = "TB_Parking";
             this.TB_Parking.Size = new System.Drawing.Size(80, 27);
             this.TB_Parking.TabIndex = 9;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.listView1);
-            this.panel3.Controls.Add(this.label17);
-            this.panel3.Location = new System.Drawing.Point(13, 533);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(384, 163);
-            this.panel3.TabIndex = 22;
             // 
             // label36
             // 
@@ -561,6 +520,46 @@
             this.ContentOfRentals.Size = new System.Drawing.Size(460, 311);
             this.ContentOfRentals.TabIndex = 9;
             this.ContentOfRentals.TabStop = false;
+            // 
+            // _id
+            // 
+            this._id.HeaderText = "번호";
+            this._id.Name = "_id";
+            // 
+            // floor
+            // 
+            this.floor.HeaderText = "층수";
+            this.floor.Name = "floor";
+            // 
+            // floor_area
+            // 
+            this.floor_area.HeaderText = "면적";
+            this.floor_area.Name = "floor_area";
+            // 
+            // storeName
+            // 
+            this.storeName.HeaderText = "상호명";
+            this.storeName.Name = "storeName";
+            // 
+            // storeDeposit
+            // 
+            this.storeDeposit.HeaderText = "보증금";
+            this.storeDeposit.Name = "storeDeposit";
+            // 
+            // monthlyIncome
+            // 
+            this.monthlyIncome.HeaderText = "월세";
+            this.monthlyIncome.Name = "monthlyIncome";
+            // 
+            // managementPrice
+            // 
+            this.managementPrice.HeaderText = "관리비";
+            this.managementPrice.Name = "managementPrice";
+            // 
+            // etc
+            // 
+            this.etc.HeaderText = "비고";
+            this.etc.Name = "etc";
             // 
             // CB_corner
             // 
@@ -1135,51 +1134,147 @@
             this.delete_row.UseVisualStyleBackColor = true;
             this.delete_row.Click += new System.EventHandler(this.delete_row_Click);
             // 
-            // _id
+            // panel4
             // 
-            this._id.HeaderText = "번호";
-            this._id.Name = "_id";
+            this.panel4.Controls.Add(this.deletecomment);
+            this.panel4.Controls.Add(this.addcoment);
+            this.panel4.Controls.Add(this.commentGridView);
+            this.panel4.Controls.Add(this.label11);
+            this.panel4.Location = new System.Drawing.Point(13, 513);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(384, 191);
+            this.panel4.TabIndex = 100;
             // 
-            // floor
+            // deletecomment
             // 
-            this.floor.HeaderText = "층수";
-            this.floor.Name = "floor";
+            this.deletecomment.Location = new System.Drawing.Point(304, 6);
+            this.deletecomment.Name = "deletecomment";
+            this.deletecomment.Size = new System.Drawing.Size(75, 23);
+            this.deletecomment.TabIndex = 3;
+            this.deletecomment.Text = "삭제";
+            this.deletecomment.UseVisualStyleBackColor = true;
+            this.deletecomment.Click += new System.EventHandler(this.deletecomment_Click);
             // 
-            // floor_area
+            // addcoment
             // 
-            this.floor_area.HeaderText = "면적";
-            this.floor_area.Name = "floor_area";
+            this.addcoment.Location = new System.Drawing.Point(223, 6);
+            this.addcoment.Name = "addcoment";
+            this.addcoment.Size = new System.Drawing.Size(75, 23);
+            this.addcoment.TabIndex = 2;
+            this.addcoment.Text = "추가";
+            this.addcoment.UseVisualStyleBackColor = true;
+            this.addcoment.Click += new System.EventHandler(this.addcomment_Click);
             // 
-            // storeName
+            // commentGridView
             // 
-            this.storeName.HeaderText = "상호명";
-            this.storeName.Name = "storeName";
+            this.commentGridView.AllowUserToAddRows = false;
+            this.commentGridView.AllowUserToDeleteRows = false;
+            this.commentGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.commentGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.order,
+            this.Content});
+            this.commentGridView.Location = new System.Drawing.Point(3, 35);
+            this.commentGridView.Name = "commentGridView";
+            this.commentGridView.RowTemplate.Height = 23;
+            this.commentGridView.Size = new System.Drawing.Size(377, 153);
+            this.commentGridView.TabIndex = 1;
             // 
-            // storeDeposit
+            // label11
             // 
-            this.storeDeposit.HeaderText = "보증금";
-            this.storeDeposit.Name = "storeDeposit";
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(3, 11);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(41, 12);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "코멘트";
             // 
-            // monthlyIncome
+            // panel1
             // 
-            this.monthlyIncome.HeaderText = "월세";
-            this.monthlyIncome.Name = "monthlyIncome";
+            this.panel1.Controls.Add(this.deleteMemo);
+            this.panel1.Controls.Add(this.addMemo);
+            this.panel1.Controls.Add(this.memoGridView);
+            this.panel1.Controls.Add(this.label40);
+            this.panel1.Location = new System.Drawing.Point(398, 526);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(468, 178);
+            this.panel1.TabIndex = 100;
             // 
-            // managementPrice
+            // deleteMemo
             // 
-            this.managementPrice.HeaderText = "관리비";
-            this.managementPrice.Name = "managementPrice";
+            this.deleteMemo.Location = new System.Drawing.Point(389, 3);
+            this.deleteMemo.Name = "deleteMemo";
+            this.deleteMemo.Size = new System.Drawing.Size(75, 23);
+            this.deleteMemo.TabIndex = 3;
+            this.deleteMemo.Text = "삭제";
+            this.deleteMemo.UseVisualStyleBackColor = true;
+            this.deleteMemo.Click += new System.EventHandler(this.deleteMemo_Click);
             // 
-            // etc
+            // addMemo
             // 
-            this.etc.HeaderText = "비고";
-            this.etc.Name = "etc";
+            this.addMemo.Location = new System.Drawing.Point(305, 3);
+            this.addMemo.Name = "addMemo";
+            this.addMemo.Size = new System.Drawing.Size(75, 23);
+            this.addMemo.TabIndex = 2;
+            this.addMemo.Text = "추가";
+            this.addMemo.UseVisualStyleBackColor = true;
+            this.addMemo.Click += new System.EventHandler(this.addMemo_Click);
+            // 
+            // memoGridView
+            // 
+            this.memoGridView.AllowUserToAddRows = false;
+            this.memoGridView.AllowUserToDeleteRows = false;
+            this.memoGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.memoGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.memoid,
+            this.date,
+            this.memo});
+            this.memoGridView.Location = new System.Drawing.Point(4, 29);
+            this.memoGridView.Name = "memoGridView";
+            this.memoGridView.RowTemplate.Height = 23;
+            this.memoGridView.Size = new System.Drawing.Size(461, 145);
+            this.memoGridView.TabIndex = 1;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(213, 9);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(29, 12);
+            this.label40.TabIndex = 0;
+            this.label40.Text = "메모";
+            // 
+            // order
+            // 
+            this.order.HeaderText = "번호";
+            this.order.Name = "order";
+            // 
+            // Content
+            // 
+            this.Content.HeaderText = "내용";
+            this.Content.Name = "Content";
+            // 
+            // memoid
+            // 
+            this.memoid.HeaderText = "번호";
+            this.memoid.Name = "memoid";
+            // 
+            // date
+            // 
+            this.date.HeaderText = "날짜";
+            this.date.Name = "date";
+            // 
+            // memo
+            // 
+            this.memo.HeaderText = "메모";
+            this.memo.Name = "memo";
             // 
             // ManagerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(922, 703);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.delete_row);
             this.Controls.Add(this.add_row);
             this.Controls.Add(this.panel6);
@@ -1195,7 +1290,6 @@
             this.Controls.Add(this.TB_BuildName);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.SaveData);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.TB_Memo);
             this.Controls.Add(this.label38);
             this.Controls.Add(this.TB_Tel);
@@ -1205,7 +1299,6 @@
             this.Controls.Add(this.TB_Owner);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.TB_Parking);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.label36);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.TB_CompleteYear);
@@ -1235,10 +1328,6 @@
             this.ShowIcon = false;
             this.Text = "관리자용 상세정보";
             this.Load += new System.EventHandler(this.ManagerView_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ContentOfRentals)).EndInit();
             this.Tab_control.ResumeLayout(false);
@@ -1246,6 +1335,12 @@
             this.panel6.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.commentGridView)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.memoGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1255,11 +1350,6 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button SaveData;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ListView listView3;
-        private System.Windows.Forms.Label label40;
         private System.Windows.Forms.TextBox TB_Memo;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.TextBox TB_Tel;
@@ -1269,7 +1359,6 @@
         private System.Windows.Forms.TextBox TB_Owner;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox TB_Parking;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox TB_CompleteYear;
@@ -1355,5 +1444,20 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn monthlyIncome;
         private System.Windows.Forms.DataGridViewTextBoxColumn managementPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn etc;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button deletecomment;
+        private System.Windows.Forms.Button addcoment;
+        private System.Windows.Forms.DataGridView commentGridView;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button deleteMemo;
+        private System.Windows.Forms.Button addMemo;
+        private System.Windows.Forms.DataGridView memoGridView;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.DataGridViewTextBoxColumn order;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Content;
+        private System.Windows.Forms.DataGridViewTextBoxColumn memoid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn memo;
     }
 }

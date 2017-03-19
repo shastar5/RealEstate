@@ -54,9 +54,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.TB_Parking = new System.Windows.Forms.TextBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.label17 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.TB_CompleteYear = new System.Windows.Forms.TextBox();
             this.TB_UseDistrict = new System.Windows.Forms.TextBox();
@@ -112,12 +109,18 @@
             this.monthlyIncome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.managementPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.etc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.commentGridView = new System.Windows.Forms.DataGridView();
+            this.order = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Content = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel6.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Tab_control.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ContentOfRentals)).BeginInit();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.commentGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // panel6
@@ -389,32 +392,6 @@
             this.TB_Parking.Name = "TB_Parking";
             this.TB_Parking.Size = new System.Drawing.Size(80, 27);
             this.TB_Parking.TabIndex = 141;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.listView1);
-            this.panel3.Controls.Add(this.label17);
-            this.panel3.Location = new System.Drawing.Point(5, 433);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(384, 210);
-            this.panel3.TabIndex = 117;
-            // 
-            // listView1
-            // 
-            this.listView1.Location = new System.Drawing.Point(16, 28);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(353, 170);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(14, 13);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(41, 12);
-            this.label17.TabIndex = 0;
-            this.label17.Text = "코멘트";
             // 
             // label14
             // 
@@ -938,42 +915,93 @@
             // 
             this.floor.HeaderText = "층수";
             this.floor.Name = "floor";
+            this.floor.ReadOnly = true;
             // 
             // floor_area
             // 
             this.floor_area.HeaderText = "면적";
             this.floor_area.Name = "floor_area";
+            this.floor_area.ReadOnly = true;
             // 
             // storeName
             // 
             this.storeName.HeaderText = "상호명";
             this.storeName.Name = "storeName";
+            this.storeName.ReadOnly = true;
             // 
             // storeDeposit
             // 
             this.storeDeposit.HeaderText = "보증금";
             this.storeDeposit.Name = "storeDeposit";
+            this.storeDeposit.ReadOnly = true;
             // 
             // monthlyIncome
             // 
             this.monthlyIncome.HeaderText = "월세";
             this.monthlyIncome.Name = "monthlyIncome";
+            this.monthlyIncome.ReadOnly = true;
             // 
             // managementPrice
             // 
             this.managementPrice.HeaderText = "관리비";
             this.managementPrice.Name = "managementPrice";
+            this.managementPrice.ReadOnly = true;
             // 
             // etc
             // 
             this.etc.HeaderText = "비고";
             this.etc.Name = "etc";
+            this.etc.ReadOnly = true;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.commentGridView);
+            this.panel4.Controls.Add(this.label11);
+            this.panel4.Location = new System.Drawing.Point(12, 452);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(384, 191);
+            this.panel4.TabIndex = 171;
+            // 
+            // commentGridView
+            // 
+            this.commentGridView.AllowUserToAddRows = false;
+            this.commentGridView.AllowUserToDeleteRows = false;
+            this.commentGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.commentGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.order,
+            this.Content});
+            this.commentGridView.Location = new System.Drawing.Point(3, 35);
+            this.commentGridView.Name = "commentGridView";
+            this.commentGridView.RowTemplate.Height = 23;
+            this.commentGridView.Size = new System.Drawing.Size(377, 153);
+            this.commentGridView.TabIndex = 1;
+            // 
+            // order
+            // 
+            this.order.HeaderText = "번호";
+            this.order.Name = "order";
+            this.order.Visible = false;
+            // 
+            // Content
+            // 
+            this.Content.HeaderText = "내용";
+            this.Content.Name = "Content";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(3, 11);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(41, 12);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "코멘트";
             // 
             // UserView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(877, 655);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.ContentOfRentals);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel6);
@@ -988,7 +1016,6 @@
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.TB_Parking);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.TB_CompleteYear);
             this.Controls.Add(this.TB_UseDistrict);
@@ -1017,13 +1044,14 @@
             this.Load += new System.EventHandler(this.UserView_Load);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Tab_control.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ContentOfRentals)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.commentGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1056,9 +1084,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox TB_Parking;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox TB_CompleteYear;
         private System.Windows.Forms.TextBox TB_UseDistrict;
@@ -1114,5 +1139,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn monthlyIncome;
         private System.Windows.Forms.DataGridViewTextBoxColumn managementPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn etc;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.DataGridView commentGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn order;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Content;
+        private System.Windows.Forms.Label label11;
     }
 }

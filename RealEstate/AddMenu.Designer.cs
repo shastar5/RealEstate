@@ -812,6 +812,8 @@
             // 
             // memoGridView
             // 
+            this.memoGridView.AllowUserToAddRows = false;
+            this.memoGridView.AllowUserToDeleteRows = false;
             this.memoGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.memoGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.date,

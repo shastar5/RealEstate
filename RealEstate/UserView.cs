@@ -52,13 +52,19 @@ namespace RealEstate
         SQLiteCommand cmd = new SQLiteCommand();
 
         // Database keyword declare
-        DataGridView dgv;
+        DataGridView dgv, commentview;
 
         public UserView()
         {
             InitializeComponent();
 
             dgv = ContentOfRentals;
+
+            commentview = commentGridView;
+            commentview.AutoGenerateColumns = false;
+            commentview.RowHeadersVisible = false;
+            commentview.Columns[0].ReadOnly = true;
+            commentview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
         }
         public void setDBfile(string DBFile) //DB파일위치 계승
@@ -306,6 +312,8 @@ namespace RealEstate
             readData();
             loadPicture("picture" + id);
             readDataGrid();
+            readcomment();
+
             for (int i = 0; i < dgv.ColumnCount; ++i)
                 dgv.AutoResizeColumn(i);
         }
@@ -378,6 +386,8 @@ namespace RealEstate
 
         private void showSum()
         {
+            if (dgv.Rows.Count == 0)
+                return;
             int i;
             // Get sum of each column and add additional column and shows
             double sumofArea = 0, sumofDeposit = 0, sumofMonthlyIncome = 0, sumofManagementPrice = 0;
@@ -403,6 +413,42 @@ namespace RealEstate
             dgv.Rows[i].Cells[5].Value = sumofManagementPrice;
 
             dgv.Refresh();
+        }
+
+        private void readcomment()
+        {
+            /*
+            query = "Create table if not exists comment (id INTEGER PRIMARY KEY AUTOINCREMENT, content varchar(1000), buildingID INTEGER, FOREIGN KEY(buildingID) REFERENCES info1(id))";
+            cmd = new SQLiteCommand(query, cn);
+            cmd.ExecuteNonQuery();
+
+            query = "Create table if not exists memo (id INTEGER PRIMARY KEY AUTOINCREMENT, c_date DATE DEFAULT CURRENT_TIMESTAMP, memo varchar(1000)" +
+                ", buildingID INTEGER, FOREIGN KEY(buildingID) REFERENCES info1(id))";
+             */
+            int i = 0;
+            string sql = "select * from comment where buildingId =" + id;
+            try
+            {
+                SQLiteConnection con = new SQLiteConnection();
+                strConn = "Data Source=" + DBFile + "; Version=3;";
+                con.ConnectionString = strConn;
+
+                SQLiteCommand sqlCMD = new SQLiteCommand(sql, con);
+                SQLiteDataReader reader;
+                con.Open();
+                reader = sqlCMD.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    commentview.Rows.Add();
+                    commentview.Rows[i++].Cells[1].Value = reader.GetValue(1);
+                }
+                con.Close();
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
         }
     }
 }
