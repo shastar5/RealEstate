@@ -1053,7 +1053,7 @@ namespace RealEstate
                     {
                         cmd.Parameters.AddWithValue("@id", null);
                         cmd.Parameters.AddWithValue("@c_date", DateTime.Now);
-                        cmd.Parameters.AddWithValue("@content", memoview.Rows[i].Cells["memo"].Value);
+                        cmd.Parameters.AddWithValue("@memo", memoview.Rows[i].Cells["memo"].Value);
                         cmd.Parameters.AddWithValue("@buildingID", id);
 
                         cmd.ExecuteNonQuery();
