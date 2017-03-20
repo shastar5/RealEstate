@@ -85,12 +85,12 @@ namespace RealEstate
 
         // comment's stack
         Stack<int> commentupdate = new Stack<int>();
-        Stack<int> commentadded = new Stack<int>(); 
+        Queue<int> commentadded = new Queue<int>(); 
         Stack<int> commentdelete = new Stack<int>();
 
         // memo's stack
         Stack<int> memoupdate = new Stack<int>();
-        Stack<int> memoadded = new Stack<int>();
+        Queue<int> memoadded = new Queue<int>();
         Stack<int> memodelete = new Stack<int>();
 
         public void setDBfile(string DBFile) //DB파일위치 계승
@@ -414,7 +414,8 @@ namespace RealEstate
                         commentupdate.Push(i);
                 }
 
-                for (i = 0; i < commentupdate.Count; ++i)
+                int iterate = commentupdate.Count;
+                for (i = 0; i < iterate; ++i)
                 {
                     int temp = commentupdate.Pop();
                     cmd.Parameters.AddWithValue("@content", commentview.Rows[temp].Cells["Content"].Value);
@@ -448,11 +449,13 @@ namespace RealEstate
                         memoupdate.Push(i);
                 }
 
-                for (i = 0; i < memoupdate.Count; ++i)
+                int iterate = memoupdate.Count;
+                for (i = 0; i < iterate; ++i)
                 {
                     int temp = memoupdate.Pop();
                     cmd.Parameters.AddWithValue("@c_date", DateTime.Now);
-                    cmd.Parameters.AddWithValue("@id", memoview.Rows[temp].Cells["memo"].Value);
+                    cmd.Parameters.AddWithValue("@memo", memoview.Rows[temp].Cells[2].Value);
+                    cmd.Parameters.AddWithValue("@id", id);
 
                     cmd.ExecuteNonQuery();
 
@@ -552,24 +555,24 @@ namespace RealEstate
                 return;
             for (i = 0; i < dgv.Rows.Count; ++i)
             {
-                if (dgv.Rows[i].Cells[1].Value != DBNull.Value)
-                    sumofArea += Convert.ToDouble(dgv.Rows[i].Cells[1].Value);
-                if (dgv.Rows[i].Cells[3].Value != DBNull.Value)
-                    sumofDeposit += Convert.ToDouble(dgv.Rows[i].Cells[3].Value);
+                if (dgv.Rows[i].Cells[2].Value != DBNull.Value)
+                    sumofArea += Convert.ToDouble(dgv.Rows[i].Cells[2].Value);
                 if (dgv.Rows[i].Cells[4].Value != DBNull.Value)
-                    sumofMonthlyIncome += Convert.ToDouble(dgv.Rows[i].Cells[4].Value);
+                    sumofDeposit += Convert.ToDouble(dgv.Rows[i].Cells[4].Value);
                 if (dgv.Rows[i].Cells[5].Value != DBNull.Value)
-                    sumofManagementPrice += Convert.ToDouble(dgv.Rows[i].Cells[5].Value);
+                    sumofMonthlyIncome += Convert.ToDouble(dgv.Rows[i].Cells[5].Value);
+                if (dgv.Rows[i].Cells[6].Value != DBNull.Value)
+                    sumofManagementPrice += Convert.ToDouble(dgv.Rows[i].Cells[6].Value);
             }
 
             i = countofrows;
 
             dgv.Rows.Add();
             dgv.Rows[i].Cells[0].Value = "합계";
-            dgv.Rows[i].Cells[1].Value = sumofArea;
-            dgv.Rows[i].Cells[3].Value = sumofDeposit;
-            dgv.Rows[i].Cells[4].Value = sumofMonthlyIncome;
-            dgv.Rows[i].Cells[5].Value = sumofManagementPrice;
+            dgv.Rows[i].Cells[2].Value = sumofArea;
+            dgv.Rows[i].Cells[4].Value = sumofDeposit;
+            dgv.Rows[i].Cells[5].Value = sumofMonthlyIncome;
+            dgv.Rows[i].Cells[6].Value = sumofManagementPrice;
 
             dgv.Refresh();
         }
@@ -959,7 +962,7 @@ namespace RealEstate
 
         private void addMemo_Click(object sender, EventArgs e)
         {
-            memoadded.Push(memoview.Rows.Add());
+            memoadded.Enqueue(memoview.Rows.Add());
         }
 
         private void deleteMemo_Click(object sender, EventArgs e)
@@ -1016,9 +1019,11 @@ namespace RealEstate
                 SQLiteCommand cmd = new SQLiteCommand("INSERT INTO comment VALUES (@id, @content, @buildingID)", con);
                 con.Open();
 
-                while (commentadded.Count > 0)
+                int iterate = commentadded.Count;
+
+                for(int j=0;j<iterate;++j)
                 {
-                    int i = commentadded.Pop();
+                    int i = commentadded.Dequeue();
                     if (commentview.Rows.Count != 0)
                     {
                         cmd.Parameters.AddWithValue("@id", null);
@@ -1046,9 +1051,10 @@ namespace RealEstate
                 SQLiteCommand cmd = new SQLiteCommand("INSERT INTO memo VALUES(@id, @c_date, @memo, @buildingID)", con);
                 con.Open();
 
-                while (memoadded.Count > 0)
+                int iterate = memoadded.Count;
+                for(int j = 0;j<iterate;++j)
                 {
-                    int i = memoadded.Pop();
+                    int i = memoadded.Dequeue();
                     if (memoview.Rows.Count != 0)
                     {
                         cmd.Parameters.AddWithValue("@id", null);
@@ -1069,7 +1075,7 @@ namespace RealEstate
 
         private void addcomment_Click(object sender, EventArgs e)
         {
-            commentadded.Push(commentview.Rows.Add());
+            commentadded.Enqueue(commentview.Rows.Add());
         }
 
         private void deletecomment_Click(object sender, EventArgs e)
