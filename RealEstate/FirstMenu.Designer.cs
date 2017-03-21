@@ -66,12 +66,14 @@
             this.Page_complete = new System.Windows.Forms.TabPage();
             this.Page_prepare = new System.Windows.Forms.TabPage();
             this.Tab_control = new System.Windows.Forms.TabControl();
+            this.btn_Back_UP = new System.Windows.Forms.Button();
             this.Panel_InitText.SuspendLayout();
             this.Tab_control.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel_InitText
             // 
+            this.Panel_InitText.Controls.Add(this.btn_Back_UP);
             this.Panel_InitText.Controls.Add(this.HiddenBox);
             this.Panel_InitText.Controls.Add(this.DBLocation);
             this.Panel_InitText.Controls.Add(this.radioButton6);
@@ -371,6 +373,13 @@
             this.Tab_control.TabStop = false;
             this.Tab_control.SelectedIndexChanged += new System.EventHandler(this.Tabs_SelectedIndexChanged);
             // 
+            // btn_Back_UP
+            // 
+            resources.ApplyResources(this.btn_Back_UP, "btn_Back_UP");
+            this.btn_Back_UP.Name = "btn_Back_UP";
+            this.btn_Back_UP.UseVisualStyleBackColor = true;
+            this.btn_Back_UP.Click += new System.EventHandler(this.btn_Back_UP_Click);
+            // 
             // FirstMenu
             // 
             resources.ApplyResources(this, "$this");
@@ -428,6 +437,7 @@
         private System.Windows.Forms.ComboBox CB_Income;
         private System.Windows.Forms.ComboBox CB_TakeOverPrice;
         private System.Windows.Forms.Label DBLocation;
+        private System.Windows.Forms.Button btn_Back_UP;
     }
 }
 

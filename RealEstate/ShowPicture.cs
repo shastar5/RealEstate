@@ -98,7 +98,7 @@ namespace RealEstate
             {
                 OpenFileDialog f = new OpenFileDialog();
                 f.InitialDirectory = deskPath;
-                f.Filter = "ALL|*.*|JPEGS|*.jpg|Bitmap|*.bmp|GIFS|*.gif|PNGS|*.png";
+                f.Filter = "ALL|*.JPG;*.BMP;*.GIF;*.PNG|JPEGS|*.JPG|Bitmap|*.BMP|GIFS|*.GIF|PNGS|*.PNG";
                 f.FilterIndex = 1;
                 f.Multiselect = true;
                 if (f.ShowDialog() == DialogResult.OK)

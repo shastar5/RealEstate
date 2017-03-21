@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Data.SQLite;
+using System.IO;
 
 namespace RealEstate
 {
@@ -443,6 +444,27 @@ namespace RealEstate
         private void FirstMenu_Load(object sender, EventArgs e)
         {
 
+        }
+        private void btn_Back_UP_Click(object sender, EventArgs e)
+        {
+
+            string time = DateTime.Now.ToString("yyyy년MM월dd일HH시MM분ss초_백업파일");
+            string sDirPath = deskPath + "/backup";
+            string backupFile = sDirPath + "/ " + time + ".db";
+            DirectoryInfo di = new DirectoryInfo(sDirPath);
+            if (di.Exists == false)
+            {
+                di.Create();
+            }
+            try
+            {
+                File.Copy(DBFile, backupFile);
+                MessageBox.Show("백업파일을 생성했습니다.\n위치 : " + backupFile);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("백업파일을 생성하지 못했습니다.\n이유 : " + ex.ToString());
+            }
         }
     }
 
