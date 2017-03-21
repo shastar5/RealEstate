@@ -43,10 +43,10 @@ namespace RealEstate
         double sellPrice;
         double takeOverPrice;
         double yearPercent;
-
         int isCorner;
-
+        //프로필 유무
         public int profilePictureID=-1;
+
         String strConn;
         SQLiteConnection cn = new SQLiteConnection();
         SQLiteCommand cmd = new SQLiteCommand();
@@ -71,7 +71,7 @@ namespace RealEstate
         {
             this.DBFile = DBFile;
         }
-        public void setID(int id)
+        public void setID(int id) // 선택된 건물 id가져오기
         {
             this.id = id;
         }
@@ -84,7 +84,7 @@ namespace RealEstate
             string addr = "http://map.daum.net/link/search/" + TB_Addr.Text;
             System.Diagnostics.Process.Start(addr);
         }
-        private void readData()
+        private void readData() //DB파일 있는 자료를 가져오기 
         {
             strConn = "Data Source=" + DBFile + "; Version=3;";
             cn.ConnectionString = strConn;
@@ -287,7 +287,7 @@ namespace RealEstate
                 CB_corner.Checked = true;
             }
         }
-        public void loadPicture(string tableName)
+        public void loadPicture(string tableName)  //사진 불러오기
         {
             if (profilePictureID != -1)
             {
@@ -323,7 +323,7 @@ namespace RealEstate
             int isOpen = 0;
             foreach (Form form in Application.OpenForms)
             {
-                if (form.Name.Equals("ShowPicture"))
+                if (form.Name.Equals("ShowPicture")) //사진 추가/삭제창 열려있는지 확인
                 {
                     isOpen = 1;
                     MessageBox.Show("사진추가/삭제 창이 이미 열려 있습니다.");
@@ -334,6 +334,7 @@ namespace RealEstate
                 ShowPicture showpicture = new ShowPicture();
                 showpicture.setDBfile(DBFile);
                 showpicture.Owner = this;
+                //id. 프로필 사진 번호, 모드 보내기
                 showpicture.tableID = id;
                 showpicture.profilePictureID = profilePictureID;
                 showpicture.setMode("userMode");

@@ -57,13 +57,13 @@ namespace RealEstate
             user = true;
 
 
-            //로그인 창 나오면 삭제해야함
             deskPath = deskPath.Replace("\\", "/"); //\\글자 /로 바꾸기
             DBFile = deskPath + @"/DB.db";
             DBLocation.Text = "DB파일 위치 : " + DBFile;
             strConn = "Data Source=" + DBFile + "; Version=3;";
             cn.ConnectionString = strConn;
             cn.Open();
+            //info1 테이블 생성
             string query = "Create table if not exists info1 (id INTEGER  PRIMARY KEY autoincrement, addr varchar(1000), roadAddr varchar(1000), "
                 + "area varchar(100), station varchar(100), useArea varchar(100), distance NUMERIC, roadWidth NUMERIC, "
                 + "totalArea varchar(100), completeYear varchar(100), parking varchar(100), acHeating varchar(100), EV varchar(100), "
@@ -71,10 +71,10 @@ namespace RealEstate
                 + "sellPrice NUMERIC, payedPrice NUMERIC, yearPercent NUMERIC, type INTEGER, state INTEGER, premium NUMERIC, monthlyPay NUMERIC, maintenance NUMERIC, isCorner INTEGER, profilePictureID INTEGER)";
             SQLiteCommand cmd = new SQLiteCommand(query, cn);
             cmd.ExecuteNonQuery();
-
+            /*
             query = "Create table if not exists temp (id INTEGER  PRIMARY KEY autoincrement, picture image)";
             cmd = new SQLiteCommand(query, cn);
-            cmd.ExecuteNonQuery();
+            cmd.ExecuteNonQuery();*/
             try
             {
                 query = "Create table if not exists info2 (id INTEGER PRIMARY KEY autoincrement, buildingID INTEGER, floor NUMERIC, area NUMERIC, storeName varchar(100), "
@@ -101,7 +101,7 @@ namespace RealEstate
 
         }
 
-        private void setData()
+        private void setData() //입력한 검색 값 가져오기
         {
             findvalues.sellPrice = checkNulls(TB_SellPrice.Text.ToString());
             findvalues.takeOverPrice = checkNulls(TB_TakeOverPrice.Text.ToString());
@@ -112,7 +112,7 @@ namespace RealEstate
             findvalues.roadwidth = checkNulls(TB_RoadWidth.Text.ToString());
             
         }
-        private Boolean checkException()
+        private Boolean checkException()  //검색 에러 핸들
         {
             if (findvalues.sellPriceSize != -1 && TB_SellPrice.Text.Equals(""))
             {
@@ -180,7 +180,7 @@ namespace RealEstate
             }
             catch (Exception ex)
             {
-                ErrorStr2Num = -1;
+                ErrorStr2Num = -1; //숫자가 아닐경우 에러로 인식, number는 0으로 리턴
             }
             return number;
         }
@@ -198,11 +198,11 @@ namespace RealEstate
             ErrorStr2Num = 0;
             int isOpen = 0;
             setData();
-            foreach (Form form in Application.OpenForms)
+            foreach (Form form in Application.OpenForms)  //검색창 이미 열려 있는 확인
             {
                 if (form.Name.Equals( "FindView"))
                 {
-                    isOpen = 1;
+                    isOpen = 1; 
                 }
             }
             
@@ -219,6 +219,7 @@ namespace RealEstate
                 if (ErrorStr2Num == 0)
                 {
                     FindView findtest = new FindView();
+                    //DBFIle위치, user타입, 검색값 넘겨주기
                     findtest.setDBfile(DBFile);
                     findtest.setUserType(user);
                     findtest.setValue(findvalues);
@@ -235,7 +236,7 @@ namespace RealEstate
         }
 
         // This is linked click event listener
-        private void Tabs_SelectedIndexChanged(object sender, EventArgs e)
+        private void Tabs_SelectedIndexChanged(object sender, EventArgs e) //검색할 건물 상태 
         {
             if (Tab_control.SelectedTab == Page_prepare)
             {
@@ -263,7 +264,7 @@ namespace RealEstate
 
         //라디오버튼 체크 리스너
         
-        private void radioButton_CheckedChanged(object sender, EventArgs e)
+        private void radioButton_CheckedChanged(object sender, EventArgs e) //건물 종류
         {
             if (radioButton1.Checked)
             {
@@ -296,7 +297,7 @@ namespace RealEstate
             int isOpen = 0;
             foreach (Form form in Application.OpenForms)
             {
-                if (form.Name.Equals( "AddMenu"))
+                if (form.Name.Equals( "AddMenu")) //추가 창 열려 있는지 확인
                 {
                     isOpen = 1;
                     MessageBox.Show("추가 창이 이미 열려 있습니다.");
@@ -305,6 +306,7 @@ namespace RealEstate
             if (isOpen == 0)
             {
                 AddMenu addMenu = new AddMenu();
+                //DBFILE넘기기
                 addMenu.setDBfile(DBFile);
                 addMenu.Show();
             }
@@ -326,6 +328,7 @@ namespace RealEstate
                     strConn = "Data Source=" + DBFile + "; Version=3;";
                     cn.ConnectionString = strConn;
                     cn.Open();
+                    //새로 연 DB에 테이블이 없을 경우 생성
                     string query = "Create table if not exists info1 (id INTEGER  PRIMARY KEY autoincrement, addr varchar(1000), roadAddr varchar(1000), "
                            + "area varchar(100), station varchar(100), useArea varchar(100), distance NUMERIC, roadWidth NUMERIC, "
                         + "totalArea varchar(100), completeYear varchar(100), parking varchar(100), acHeating varchar(100), EV varchar(100), "
@@ -333,9 +336,10 @@ namespace RealEstate
                         + "sellPrice NUMERIC, payedPrice NUMERIC, yearPercent NUMERIC, type INTEGER, state INTEGER, premium NUMERIC, monthlyPay NUMERIC, maintenance NUMERIC, isCorner INTEGER, profilePictureID INTEGER)";
                     SQLiteCommand cmd = new SQLiteCommand(query, cn);
                     cmd.ExecuteNonQuery();
+                    /*
                     query = "Create table if not exists temp (id INTEGER  PRIMARY KEY autoincrement, picture image)";
                     cmd = new SQLiteCommand(query, cn);
-                    cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();*/
                     cn.Close();
                 }
             }
@@ -429,7 +433,7 @@ namespace RealEstate
         }
 
         //checkBox listener
-        private void HiddenBox_CheckedChanged(object sender, EventArgs e)
+        private void HiddenBox_CheckedChanged(object sender, EventArgs e) //옆에 손님이 있으면 user로 인식, 없으면 manager로 인식하게 하기 위한것 
         {
             if (HiddenBox.Checked)
             {
@@ -448,11 +452,11 @@ namespace RealEstate
         private void btn_Back_UP_Click(object sender, EventArgs e)
         {
 
-            string time = DateTime.Now.ToString("yyyy년MM월dd일HH시MM분ss초_백업파일");
+            string time = DateTime.Now.ToString("yyyy년MM월dd일HH시MM분ss초_백업파일"); //백업 파일 이름
             string sDirPath = deskPath + "/backup";
             string backupFile = sDirPath + "/ " + time + ".db";
-            DirectoryInfo di = new DirectoryInfo(sDirPath);
-            if (di.Exists == false)
+            DirectoryInfo di = new DirectoryInfo(sDirPath); 
+            if (di.Exists == false) //폴더가 없으면 생성
             {
                 di.Create();
             }

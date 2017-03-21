@@ -15,6 +15,7 @@ namespace RealEstate
     }
     public partial class AddMenu : Form, DBInterface
     {
+        //X버튼 금지
         private const int SC_CLOSE = 0xF060;
         private const int MF_ENABLED = 0x0;
         private const int MF_GRAYED = 0x1;
@@ -60,11 +61,12 @@ namespace RealEstate
         double sellPrice;
         double takeOverPrice;
         double yearPercent;
-
         int isCorner;
+        //프로필 유무
         public int profilePictureID=-1;
+        //숫자를 글자로 만들 때 에러 유무
+        int ErrorStr2Num; 
 
-        int ErrorStr2Num;
         String strConn;
         SQLiteConnection cn = new SQLiteConnection();
         SQLiteCommand cmd = new SQLiteCommand();
@@ -106,7 +108,7 @@ namespace RealEstate
             this.DBFile = DBFile;
         }
 
-        private void setData()
+        private void setData() //작성한 데이터 저장하기
         {
             addr = TB_Addr.Text.ToString();
             roadAddr = TB_RoadAddr.Text.ToString();
@@ -130,6 +132,7 @@ namespace RealEstate
             
             
             deposit = checkNulls(TB_Deposit.Text.ToString());
+            //상가 일 때 상가가 아닐 때 수입 저장 위치
             if (type != 6)
             {
                 Income = checkNulls(TB_Income.Text.ToString());
@@ -163,13 +166,13 @@ namespace RealEstate
             }
             catch(Exception ex)
             {
-                ErrorStr2Num = -1;
+                ErrorStr2Num = -1; //에러가 났음을 알려줌 그경우 number는 0으로 리턴
             }
             return number;
 
         }
 
-        private void saveData()
+        private void saveData() //info1 테이블 insert하는 함수
         {
 
             strConn = "Data Source=" + DBFile + "; Version=3;";
@@ -188,7 +191,7 @@ namespace RealEstate
             cn.Close();
         }
         
-        private void Tabs_SelectedIndexChanged(object sender, EventArgs e)
+        private void Tabs_SelectedIndexChanged(object sender, EventArgs e) //건물 상태에 대한 정보 저장
         {
             if (Tab_control.SelectedTab == Page_prepare)
             {
@@ -211,7 +214,7 @@ namespace RealEstate
             }
         }
 
-        private int getid()
+        private int getid() //저장할 id 정하기  기존에 저장된 id최대값에서 +1
         {
             int tableID = 0;
 
@@ -259,6 +262,7 @@ namespace RealEstate
             InitializeComponent();
             EnableMenuItem(GetSystemMenu(this.Handle, false), SC_CLOSE, MF_GRAYED);
 
+            //미선택을 초기화함
             type = -1;
             state = 1;
             isCorner = 0;
@@ -294,7 +298,7 @@ namespace RealEstate
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            int tableID=0;
+            int tableID=0; //저장할 picture테이블의 명 id
             ShowPicture showpicture = new ShowPicture();
             showpicture.setDBfile(DBFile);
             showpicture.setMode("addMode");
@@ -311,11 +315,11 @@ namespace RealEstate
             }
             cn.Close();
             tableID+=1;
-            showpicture.tableID = tableID;
+            showpicture.tableID = tableID; //테이블 id보내줘서 picture+id로 테이블 생성
             showpicture.Owner = this;
             showpicture.Show();
         }
-        private void notSaveClose()
+        private void notSaveClose() //저장안함 할 경우 해당 picture 테이블 삭제
         {
             int tableID = 0;
             cn.Open();
@@ -334,7 +338,7 @@ namespace RealEstate
             cn.Close();
         }
        
-        private void radioButton_CheckedChanged(object sender, EventArgs e)
+        private void radioButton_CheckedChanged(object sender, EventArgs e) //건물 종류에 따른 TB설정 
         {
             if (Dagagu.Checked)
             {
@@ -374,7 +378,7 @@ namespace RealEstate
             }
         }
 
-        private void CB_corner_CheckedChanged(object sender, EventArgs e)
+        private void CB_corner_CheckedChanged(object sender, EventArgs e) //코너 유무
         {
             if(CB_corner.Checked)
             {
@@ -385,12 +389,8 @@ namespace RealEstate
                 isCorner = 0;
             }
         }
-
-        private void ContentOfRentals_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-        public void loadPicture(string tableName)
+        
+        public void loadPicture(string tableName) //프로필 사진 불러오기위해 추가
         {
             if (profilePictureID != -1)
             {
@@ -412,7 +412,7 @@ namespace RealEstate
 
         }
 
-        private void btn_JustClose_Click(object sender, EventArgs e)
+        private void btn_JustClose_Click(object sender, EventArgs e) //저장안하기 클릭시
         {
             DialogResult dr = MessageBox.Show("저장하지않고 종료하겠습니까?", "알림", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (dr == DialogResult.OK)
@@ -423,7 +423,7 @@ namespace RealEstate
             }
 
         }
-        private void updateTB()
+        private void updateTB() //숫자만 입력했을 떄 인식하도록 해주고, 수식 계산 해줌 
         {
             double UpdateSellPrice = checkNulls(TB_SellPrice.Text.ToString());
             double UpdateDeposit = checkNulls(TB_Deposit.Text.ToString());
@@ -432,7 +432,7 @@ namespace RealEstate
             double UpdateIncome;
             double UpdateYearPercent;
 
-            if (UpdateSellPrice != -9999 && UpdateDeposit != -9999 && UpdateLoan != -9999)
+            if (UpdateSellPrice != -9999 && UpdateDeposit != -9999 && UpdateLoan != -9999) //인수금액 연산
             {
                 UpdateTakeOverPrice = UpdateSellPrice - UpdateDeposit - UpdateLoan;
                 TB_TakeOverPrice.Text = UpdateTakeOverPrice.ToString();
@@ -448,7 +448,7 @@ namespace RealEstate
             {
                 UpdateIncome = checkNulls(TB_Income2.Text.ToString());
             }
-            if (UpdateTakeOverPrice != -9999 && UpdateIncome != -9999)
+            if (UpdateTakeOverPrice != -9999 && UpdateIncome != -9999) //연수익 연산
             {
 
                 UpdateYearPercent = UpdateIncome / UpdateTakeOverPrice * 12 * 100;

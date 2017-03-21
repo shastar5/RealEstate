@@ -1034,7 +1034,6 @@
             this.ContentOfRentals.RowTemplate.Height = 23;
             this.ContentOfRentals.Size = new System.Drawing.Size(460, 311);
             this.ContentOfRentals.TabIndex = 103;
-            this.ContentOfRentals.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ContentOfRentals_CellContentClick);
             // 
             // floor
             // 

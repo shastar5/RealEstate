@@ -15,6 +15,7 @@ namespace RealEstate
     }
     public partial class ManagerView : Form, DBInterface, IdInterface, FIndInterface
     {
+        //X버튼 금지
         private const int SC_CLOSE = 0xF060;
         private const int MF_ENABLED = 0x0;
         private const int MF_GRAYED = 0x1;

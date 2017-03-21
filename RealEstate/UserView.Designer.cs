@@ -358,7 +358,7 @@
             // 
             this.label41.AutoSize = true;
             this.label41.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label41.Location = new System.Drawing.Point(577, 296);
+            this.label41.Location = new System.Drawing.Point(577, 265);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(112, 21);
             this.label41.TabIndex = 150;
@@ -462,7 +462,7 @@
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.pictureBox1.Location = new System.Drawing.Point(669, 35);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(156, 176);
+            this.pictureBox1.Size = new System.Drawing.Size(156, 179);
             this.pictureBox1.TabIndex = 159;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -902,7 +902,7 @@
             this.monthlyIncome,
             this.managementPrice,
             this.etc});
-            this.ContentOfRentals.Location = new System.Drawing.Point(398, 327);
+            this.ContentOfRentals.Location = new System.Drawing.Point(398, 296);
             this.ContentOfRentals.Name = "ContentOfRentals";
             this.ContentOfRentals.ReadOnly = true;
             this.ContentOfRentals.RowHeadersVisible = false;
@@ -957,9 +957,9 @@
             // 
             this.panel4.Controls.Add(this.commentGridView);
             this.panel4.Controls.Add(this.label11);
-            this.panel4.Location = new System.Drawing.Point(12, 452);
+            this.panel4.Location = new System.Drawing.Point(12, 261);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(384, 191);
+            this.panel4.Size = new System.Drawing.Size(384, 354);
             this.panel4.TabIndex = 171;
             // 
             // commentGridView
@@ -973,7 +973,7 @@
             this.commentGridView.Location = new System.Drawing.Point(3, 35);
             this.commentGridView.Name = "commentGridView";
             this.commentGridView.RowTemplate.Height = 23;
-            this.commentGridView.Size = new System.Drawing.Size(377, 153);
+            this.commentGridView.Size = new System.Drawing.Size(377, 316);
             this.commentGridView.TabIndex = 1;
             // 
             // order
@@ -1000,7 +1000,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(877, 655);
+            this.ClientSize = new System.Drawing.Size(877, 622);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.ContentOfRentals);
             this.Controls.Add(this.panel2);

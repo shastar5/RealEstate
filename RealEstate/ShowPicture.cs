@@ -50,7 +50,7 @@ namespace RealEstate
             cmd.Connection = cn;
             label1.Text = "";
             string query;
-            switch (mode)
+            switch (mode)  //모드에 맞게 사진 불러오기
             {
                 case "addMode":
                     //table name is temp
@@ -92,7 +92,7 @@ namespace RealEstate
             loadData();
         }
 
-        private void open()
+        private void open()  //사진 추가 버튼 눌렀을 때 사진 선택 및 저장
         {
             try
             {
@@ -119,7 +119,7 @@ namespace RealEstate
             catch(Exception ex) { MessageBox.Show(ex.ToString());  }
 
         }
-        private void savePicture()
+        private void savePicture()  //그림 추가
         {
             if (pictureBox1.Image != null)
             {
@@ -137,7 +137,7 @@ namespace RealEstate
             }
         }
 
-        private void loadPicture()
+        private void loadPicture() //저장된 사진들 불러오기
         {
 
             string id = listBox1.Text.ToString();
@@ -158,7 +158,7 @@ namespace RealEstate
             cn.Close();
 
         }
-        private void loadData()
+        private void loadData() //저장 된 사진의 이름 불러오기
         {
             listBox1.Items.Clear();
             cmd.CommandText = "select id from " + tableName;
@@ -176,7 +176,7 @@ namespace RealEstate
         }
         private void deletePicture()
         {
-            string id = listBox1.Text.ToString();
+            string id = listBox1.Text.ToString(); 
             id = id.Replace("사진 ", "");
             cn.Open();
             cmd.CommandText = "Delete From " + tableName + " where id = " + id;
@@ -184,12 +184,12 @@ namespace RealEstate
             cn.Close();
             pictureBox1.Image = null;
             label1.Text = "";
-            if(id.Equals(profilePictureID.ToString())) {
+            if(id.Equals(profilePictureID.ToString())) {  //프로필 사진을 지웠을 때 
                 label2.Text = "프로필 사진이 없습니다.";
                 profilePictureID = -1;
                 
                 
-                if (mode.Equals("managerMode"))
+                if (mode.Equals("managerMode")) 
                 {
                     cn.Open();
                     cmd.CommandText = "update info1 SET profilePictureID = -1 where id = " + tableID;
@@ -214,7 +214,7 @@ namespace RealEstate
             this.DBFile = DBFile;
         }
 
-        public void setMode(string mode)
+        public void setMode(string mode) //모드 계승
         {
             this.mode = mode;
         }
@@ -226,27 +226,27 @@ namespace RealEstate
         private void listBox1_Click(object sender, EventArgs e)
         {
             ListBox l = sender as ListBox;
+            if (l.SelectedIndex != -1) //리스트 박스에 저장된 사진 리스트 불러오기
+            {
+                listBox1.SelectedIndex = l.SelectedIndex; 
+                loadPicture();
+            }
+        }
+
+        private void listBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ListBox l = sender as ListBox; //리스트 박스에 저장된 사진 리스트 불러오기 키보드 로 움직일 떄
             if (l.SelectedIndex != -1)
             {
                 listBox1.SelectedIndex = l.SelectedIndex;
                 loadPicture();
             }
         }
-
         private void btn_DeletePicture_Click(object sender, EventArgs e)
         {
             deletePicture();
         }
 
-        private void listBox1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            ListBox l = sender as ListBox;
-            if (l.SelectedIndex != -1)
-            {
-                listBox1.SelectedIndex = l.SelectedIndex;
-                loadPicture();
-            }
-        }
 
         private void btn_SavePicture_Click(object sender, EventArgs e)
         {
@@ -257,7 +257,7 @@ namespace RealEstate
                 MessageBox.Show("프로필 사진을 정해주세요");
             else
             {
-                switch (mode)
+                switch (mode) //모드에 따른 프로필 사진 지정 여부 검사
                 {
                     case "addMode":
                         AddMenu addmenu = (AddMenu)this.Owner;
@@ -283,7 +283,7 @@ namespace RealEstate
             id = id.Replace("사진 ", "");
             if(!id.Equals(""))
             {
-                switch (mode)
+                switch (mode) //모드에 따른 사진 추가 기능 유무 설정
                 {
                     case "addMode":
                         AddMenu addmenu = (AddMenu)this.Owner;
