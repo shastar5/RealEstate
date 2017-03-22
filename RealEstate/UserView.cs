@@ -314,7 +314,7 @@ namespace RealEstate
             readDataGrid();
             readcomment();
 
-
+            commentview.RowHeadersVisible = false;
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgv.Columns[dgv.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             commentview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
