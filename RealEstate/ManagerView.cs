@@ -539,6 +539,9 @@ namespace RealEstate
                 MessageBox.Show(e.ToString());
             }
 
+            dgv.Sort(dgv.Columns[1], System.ComponentModel.ListSortDirection.Ascending);
+
+
             showSum();
         }
 

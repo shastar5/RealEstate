@@ -314,6 +314,8 @@ namespace RealEstate
             readDataGrid();
             readcomment();
 
+            
+
             for (int i = 0; i < dgv.ColumnCount; ++i)
                 dgv.AutoResizeColumn(i);
         }
@@ -382,6 +384,8 @@ namespace RealEstate
                 MessageBox.Show(e.ToString());
             }
 
+            dgv.Sort(dgv.Columns[0], System.ComponentModel.ListSortDirection.Ascending);
+
             showSum();
         }
 
@@ -404,6 +408,8 @@ namespace RealEstate
                 if (dgv.Rows[i].Cells[5].Value != DBNull.Value)
                     sumofManagementPrice += Convert.ToDouble(dgv.Rows[i].Cells[5].Value);
             }
+
+            dgv.Rows.Add();
             
             dgv.Rows[i].Cells[0].Value = "합계";
             dgv.Rows[i].Cells[1].Value = sumofArea;
