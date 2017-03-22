@@ -929,6 +929,7 @@ namespace RealEstate
 
         private void add_row_Click(object sender, EventArgs e)
         {
+            dgv.Rows.Add();
             deleteSum();
             showSum();
         }
@@ -1066,14 +1067,6 @@ namespace RealEstate
         {
             updateTB();
 
-        }
-
-        private void ContentOfRentals_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dgv.CurrentRow.Index != -1)
-            {
-                showSum();
-            }
         }
 
         private void updateTB()

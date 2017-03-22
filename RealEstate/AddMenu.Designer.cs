@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddMenu));
             this.TB_RoadWidth = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.TB_Station = new System.Windows.Forms.TextBox();
@@ -113,6 +114,13 @@
             this.TB_BuildName = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.ContentOfRentals = new System.Windows.Forms.DataGridView();
+            this.floor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.floor_area = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.storeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.storeDeposit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.monthlyIncome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.managementPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.etc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CB_corner = new System.Windows.Forms.CheckBox();
             this.TB_MonthlyPay = new System.Windows.Forms.TextBox();
             this.TB_Income2 = new System.Windows.Forms.TextBox();
@@ -130,13 +138,6 @@
             this.btn_JustClose = new System.Windows.Forms.Button();
             this.addRow = new System.Windows.Forms.Button();
             this.deleteRow = new System.Windows.Forms.Button();
-            this.floor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.floor_area = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.storeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.storeDeposit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.monthlyIncome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.managementPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.etc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.commentGridView)).BeginInit();
             this.panel6.SuspendLayout();
@@ -1036,6 +1037,45 @@
             this.ContentOfRentals.TabIndex = 103;
             this.ContentOfRentals.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.ContentOfRentals_CellEndEdit);
             // 
+            // floor
+            // 
+            this.floor.HeaderText = "층수";
+            this.floor.Name = "floor";
+            // 
+            // floor_area
+            // 
+            this.floor_area.HeaderText = "면적";
+            this.floor_area.Name = "floor_area";
+            this.floor_area.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // storeName
+            // 
+            this.storeName.HeaderText = "상호명";
+            this.storeName.Name = "storeName";
+            // 
+            // storeDeposit
+            // 
+            this.storeDeposit.HeaderText = "보증금";
+            this.storeDeposit.Name = "storeDeposit";
+            this.storeDeposit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // monthlyIncome
+            // 
+            this.monthlyIncome.HeaderText = "월세";
+            this.monthlyIncome.Name = "monthlyIncome";
+            this.monthlyIncome.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // managementPrice
+            // 
+            this.managementPrice.HeaderText = "관리비";
+            this.managementPrice.Name = "managementPrice";
+            this.managementPrice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // etc
+            // 
+            this.etc.HeaderText = "비고";
+            this.etc.Name = "etc";
+            // 
             // CB_corner
             // 
             this.CB_corner.AutoSize = true;
@@ -1219,45 +1259,6 @@
             this.deleteRow.UseVisualStyleBackColor = true;
             this.deleteRow.Click += new System.EventHandler(this.deleteRow_Click);
             // 
-            // floor
-            // 
-            this.floor.HeaderText = "층수";
-            this.floor.Name = "floor";
-            // 
-            // floor_area
-            // 
-            this.floor_area.HeaderText = "면적";
-            this.floor_area.Name = "floor_area";
-            this.floor_area.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // storeName
-            // 
-            this.storeName.HeaderText = "상호명";
-            this.storeName.Name = "storeName";
-            // 
-            // storeDeposit
-            // 
-            this.storeDeposit.HeaderText = "보증금";
-            this.storeDeposit.Name = "storeDeposit";
-            this.storeDeposit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // monthlyIncome
-            // 
-            this.monthlyIncome.HeaderText = "월세";
-            this.monthlyIncome.Name = "monthlyIncome";
-            this.monthlyIncome.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // managementPrice
-            // 
-            this.managementPrice.HeaderText = "관리비";
-            this.managementPrice.Name = "managementPrice";
-            this.managementPrice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // etc
-            // 
-            this.etc.HeaderText = "비고";
-            this.etc.Name = "etc";
-            // 
             // AddMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -1313,9 +1314,9 @@
             this.Controls.Add(this.TB_Addr);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.panel2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "AddMenu";
-            this.ShowIcon = false;
             this.Text = "추가";
             this.Load += new System.EventHandler(this.AddMenu_Load);
             this.panel3.ResumeLayout(false);

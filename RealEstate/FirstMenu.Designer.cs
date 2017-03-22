@@ -390,7 +390,6 @@
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.MaximizeBox = false;
             this.Name = "FirstMenu";
-            this.ShowIcon = false;
             this.Load += new System.EventHandler(this.FirstMenu_Load);
             this.Panel_InitText.ResumeLayout(false);
             this.Panel_InitText.PerformLayout();

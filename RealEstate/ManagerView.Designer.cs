@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManagerView));
             this.button1 = new System.Windows.Forms.Button();
             this.SaveData = new System.Windows.Forms.Button();
             this.TB_Memo = new System.Windows.Forms.TextBox();
@@ -521,7 +522,6 @@
             this.ContentOfRentals.TabIndex = 9;
             this.ContentOfRentals.TabStop = false;
             this.ContentOfRentals.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.ContentOfRentals_CellEndEdit);
-            this.ContentOfRentals.SelectionChanged += new System.EventHandler(this.ContentOfRentals_SelectionChanged);
             // 
             // _id
             // 
@@ -1329,9 +1329,9 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "ManagerView";
-            this.ShowIcon = false;
             this.Text = "관리자용 상세정보";
             this.Load += new System.EventHandler(this.ManagerView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserView));
             this.panel6 = new System.Windows.Forms.Panel();
             this.TB_YearPercent = new System.Windows.Forms.TextBox();
             this.label34 = new System.Windows.Forms.Label();
@@ -102,11 +103,6 @@
             this.TB_Income2 = new System.Windows.Forms.TextBox();
             this.TB_MonthlyPay = new System.Windows.Forms.TextBox();
             this.ContentOfRentals = new System.Windows.Forms.DataGridView();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.commentGridView = new System.Windows.Forms.DataGridView();
-            this.order = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Content = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label11 = new System.Windows.Forms.Label();
             this.floor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.floor_area = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.storeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -114,6 +110,11 @@
             this.monthlyIncome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.managementPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.etc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.commentGridView = new System.Windows.Forms.DataGridView();
+            this.order = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Content = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Tab_control.SuspendLayout();
@@ -911,52 +912,6 @@
             this.ContentOfRentals.TabIndex = 170;
             this.ContentOfRentals.TabStop = false;
             // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.commentGridView);
-            this.panel4.Controls.Add(this.label11);
-            this.panel4.Location = new System.Drawing.Point(12, 261);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(384, 354);
-            this.panel4.TabIndex = 171;
-            // 
-            // commentGridView
-            // 
-            this.commentGridView.AllowUserToAddRows = false;
-            this.commentGridView.AllowUserToDeleteRows = false;
-            this.commentGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.commentGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.order,
-            this.Content});
-            this.commentGridView.Location = new System.Drawing.Point(3, 35);
-            this.commentGridView.Name = "commentGridView";
-            this.commentGridView.ReadOnly = true;
-            this.commentGridView.RowTemplate.Height = 23;
-            this.commentGridView.Size = new System.Drawing.Size(377, 316);
-            this.commentGridView.TabIndex = 1;
-            // 
-            // order
-            // 
-            this.order.HeaderText = "번호";
-            this.order.Name = "order";
-            this.order.ReadOnly = true;
-            this.order.Visible = false;
-            // 
-            // Content
-            // 
-            this.Content.HeaderText = "내용";
-            this.Content.Name = "Content";
-            this.Content.ReadOnly = true;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 11);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(41, 12);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "코멘트";
-            // 
             // floor
             // 
             this.floor.HeaderText = "층수";
@@ -1003,6 +958,52 @@
             this.etc.Name = "etc";
             this.etc.ReadOnly = true;
             // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.commentGridView);
+            this.panel4.Controls.Add(this.label11);
+            this.panel4.Location = new System.Drawing.Point(12, 261);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(384, 354);
+            this.panel4.TabIndex = 171;
+            // 
+            // commentGridView
+            // 
+            this.commentGridView.AllowUserToAddRows = false;
+            this.commentGridView.AllowUserToDeleteRows = false;
+            this.commentGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.commentGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.order,
+            this.Content});
+            this.commentGridView.Location = new System.Drawing.Point(3, 35);
+            this.commentGridView.Name = "commentGridView";
+            this.commentGridView.ReadOnly = true;
+            this.commentGridView.RowTemplate.Height = 23;
+            this.commentGridView.Size = new System.Drawing.Size(377, 316);
+            this.commentGridView.TabIndex = 1;
+            // 
+            // order
+            // 
+            this.order.HeaderText = "번호";
+            this.order.Name = "order";
+            this.order.ReadOnly = true;
+            this.order.Visible = false;
+            // 
+            // Content
+            // 
+            this.Content.HeaderText = "내용";
+            this.Content.Name = "Content";
+            this.Content.ReadOnly = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(3, 11);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(41, 12);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "코멘트";
+            // 
             // UserView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -1046,6 +1047,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "UserView";
             this.Text = "상세정보";

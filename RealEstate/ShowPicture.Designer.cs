@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowPicture));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.btn_AddPicture = new System.Windows.Forms.Button();
@@ -132,6 +133,7 @@
             this.Controls.Add(this.btn_AddPicture);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ShowPicture";
             this.Text = "사진추가/삭제";
             this.Load += new System.EventHandler(this.ShowPicture_Load);
