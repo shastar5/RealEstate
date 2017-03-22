@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FirstMenu));
             this.Panel_InitText = new System.Windows.Forms.Panel();
+            this.btn_Back_UP = new System.Windows.Forms.Button();
             this.HiddenBox = new System.Windows.Forms.CheckBox();
             this.DBLocation = new System.Windows.Forms.Label();
             this.radioButton6 = new System.Windows.Forms.RadioButton();
@@ -66,7 +67,6 @@
             this.Page_complete = new System.Windows.Forms.TabPage();
             this.Page_prepare = new System.Windows.Forms.TabPage();
             this.Tab_control = new System.Windows.Forms.TabControl();
-            this.btn_Back_UP = new System.Windows.Forms.Button();
             this.Panel_InitText.SuspendLayout();
             this.Tab_control.SuspendLayout();
             this.SuspendLayout();
@@ -107,6 +107,13 @@
             this.Panel_InitText.Controls.Add(this.label4);
             resources.ApplyResources(this.Panel_InitText, "Panel_InitText");
             this.Panel_InitText.Name = "Panel_InitText";
+            // 
+            // btn_Back_UP
+            // 
+            resources.ApplyResources(this.btn_Back_UP, "btn_Back_UP");
+            this.btn_Back_UP.Name = "btn_Back_UP";
+            this.btn_Back_UP.UseVisualStyleBackColor = true;
+            this.btn_Back_UP.Click += new System.EventHandler(this.btn_Back_UP_Click);
             // 
             // HiddenBox
             // 
@@ -372,13 +379,6 @@
             this.Tab_control.SelectedIndex = 0;
             this.Tab_control.TabStop = false;
             this.Tab_control.SelectedIndexChanged += new System.EventHandler(this.Tabs_SelectedIndexChanged);
-            // 
-            // btn_Back_UP
-            // 
-            resources.ApplyResources(this.btn_Back_UP, "btn_Back_UP");
-            this.btn_Back_UP.Name = "btn_Back_UP";
-            this.btn_Back_UP.UseVisualStyleBackColor = true;
-            this.btn_Back_UP.Click += new System.EventHandler(this.btn_Back_UP_Click);
             // 
             // FirstMenu
             // 

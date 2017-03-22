@@ -1039,7 +1039,7 @@
     <value>3</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
-    <value>연수익율 :</value>
+    <value>연수익률 :</value>
   </data>
   <data name="&gt;&gt;label4.Name" xml:space="preserve">
     <value>label4</value>

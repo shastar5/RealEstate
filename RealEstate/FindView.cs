@@ -211,7 +211,7 @@ namespace RealEstate
             dataGridView1.Columns[3].Name = "연면적";
             dataGridView1.Columns[4].Name = "역과의 거리";
             dataGridView1.Columns[5].Name = "월수입";
-            dataGridView1.Columns[6].Name = "연수입";
+            dataGridView1.Columns[6].Name = "연수익률";
             dataGridView1.Columns[7].Name = "도로너비";
             dataGridView1.Columns[8].Name = "코너유무";
 
