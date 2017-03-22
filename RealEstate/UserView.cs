@@ -62,7 +62,7 @@ namespace RealEstate
 
             commentview = commentGridView;
             commentview.AutoGenerateColumns = false;
-            commentview.RowHeadersVisible = false;
+
             commentview.Columns[0].ReadOnly = true;
             commentview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 

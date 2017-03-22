@@ -82,17 +82,7 @@ namespace RealEstate
         DataGridView dgv, commentview, memoview;
         // dgv's stack
         Queue<int> todo = new Queue<int>();
-        Queue<int> toinsert = new Queue<int>();
-        Queue<int> toupdate = new Queue<int>();
-
-        // comment's stack
-        Stack<int> commentupdate = new Stack<int>();
-        Queue<int> commentadded = new Queue<int>(); 
         Stack<int> commentdelete = new Stack<int>();
-
-        // memo's stack
-        Stack<int> memoupdate = new Stack<int>();
-        Queue<int> memoadded = new Queue<int>();
         Stack<int> memodelete = new Stack<int>();
 
         public void setDBfile(string DBFile) //DB파일위치 계승
@@ -380,9 +370,8 @@ namespace RealEstate
             }
         }
 
-        private void updatecomment()
+        private void updatecomment(int index)
         {
-            int i = 0;
             SQLiteConnection con = new SQLiteConnection();
             con.ConnectionString = strConn;
             string sql = "UPDATE comment SET content = @content WHERE id = @id AND buildingID = " + id;
@@ -390,23 +379,12 @@ namespace RealEstate
             {
                 SQLiteCommand cmd = new SQLiteCommand(sql, con);
                 con.Open();
-                
-                for (i = 0;i < commentview.Rows.Count;++i)
-                {
-                    if (commentview.Rows[i].Cells[0].Value != null)
-                        commentupdate.Push(i);
-                }
 
-                int iterate = commentupdate.Count;
-                for (i = 0; i < iterate; ++i)
-                {
-                    int temp = commentupdate.Pop();
-                    cmd.Parameters.AddWithValue("@content", commentview.Rows[temp].Cells["Content"].Value);
-                    cmd.Parameters.AddWithValue("@id", commentview.Rows[temp].Cells["order"].Value);
+                cmd.Parameters.AddWithValue("@content", commentview.Rows[index].Cells["Content"].Value);
+                cmd.Parameters.AddWithValue("@id", commentview.Rows[index].Cells["order"].Value);
 
-                    cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
 
-                }
                 con.Close();
             }
             catch (Exception e)
@@ -415,7 +393,7 @@ namespace RealEstate
             }
         }
 
-        private void updatememo()
+        private void updatememo(int index)
         {
             int i = 0;
             SQLiteConnection con = new SQLiteConnection();
@@ -425,24 +403,13 @@ namespace RealEstate
             {
                 SQLiteCommand cmd = new SQLiteCommand(sql, con);
                 con.Open();
+                
+                cmd.Parameters.AddWithValue("@c_date", DateTime.Now);
+                cmd.Parameters.AddWithValue("@memo", memoview.Rows[index].Cells[2].Value);
+                cmd.Parameters.AddWithValue("@id", id);
 
-                for (i = 0; i < memoview.Rows.Count; ++i)
-                {
-                    if (memoview.Rows[i].Cells[0].Value != null)
-                        memoupdate.Push(i);
-                }
+                cmd.ExecuteNonQuery();
 
-                int iterate = memoupdate.Count;
-                for (i = 0; i < iterate; ++i)
-                {
-                    int temp = memoupdate.Pop();
-                    cmd.Parameters.AddWithValue("@c_date", DateTime.Now);
-                    cmd.Parameters.AddWithValue("@memo", memoview.Rows[temp].Cells[2].Value);
-                    cmd.Parameters.AddWithValue("@id", id);
-
-                    cmd.ExecuteNonQuery();
-
-                }
                 con.Close();
             }
             catch (Exception e)
@@ -875,18 +842,36 @@ namespace RealEstate
             {
                 saveData();
 
+                SQLiteConnection con = new SQLiteConnection();
+                con.ConnectionString = strConn;
+                string sql = "UPDATE info2 SET floor = @floor, area = @area, storeName = @storeName," +
+                " deposit = @deposit, monthlyIncome = @monthlyIncome, managementPrice = @managementPrice, etc = @etc where id = @id AND buildingID = " + id;
+                SQLiteCommand cmd = new SQLiteCommand(sql, con);
+                con.Open();
+
                 for (int i = 0; i < dgv.Rows.Count; ++i)
                 {
-                    if(dgv.Rows[i].Cells[0].Value != null)
+                    if (dgv.Rows[i].Cells[0].Value != null)
                         updateDataGrid(i);
                     else
                         InsertRowsDataGridView(i);
                 }
-                updatecomment();
-                insertComment();
-                updatememo();
-                insertMemo();
 
+                for (int i = 0; i < commentview.Rows.Count; ++i)
+                {
+                    if(commentview.Rows[i].Cells[0].Value != null)
+                        updatecomment(i);
+                    else
+                        insertComment(i);
+                }
+
+                for (int i = 0; i < memoview.Rows.Count; ++i)
+                {
+                    if(memoview.Rows[i].Cells[0].Value != null)
+                        updatememo(i);
+                    else
+                        insertMemo(i);
+                }
                 MessageBox.Show("저장 완료 했습니다.");
                 this.Close();
                 FindView findtest = new FindView();
@@ -948,7 +933,6 @@ namespace RealEstate
 
         private void add_row_Click(object sender, EventArgs e)
         {
-            toinsert.Enqueue(dgv.Rows.Add());
             deleteSum();
             showSum();
         }
@@ -968,7 +952,7 @@ namespace RealEstate
 
         private void addMemo_Click(object sender, EventArgs e)
         {
-            memoadded.Enqueue(memoview.Rows.Add());
+            memoview.Rows.Add();
         }
 
         private void deleteMemo_Click(object sender, EventArgs e)
@@ -1016,7 +1000,7 @@ namespace RealEstate
             con.Close();
         }
 
-        private void insertComment()
+        private void insertComment(int index)
         {
             SQLiteConnection con = new SQLiteConnection();
             con.ConnectionString = strConn;
@@ -1025,21 +1009,12 @@ namespace RealEstate
                 SQLiteCommand cmd = new SQLiteCommand("INSERT INTO comment VALUES (@id, @content, @buildingID)", con);
                 con.Open();
 
-                int iterate = commentadded.Count;
+                cmd.Parameters.AddWithValue("@id", null);
+                cmd.Parameters.AddWithValue("@buildingID", id);
+                cmd.Parameters.AddWithValue("@content", commentview.Rows[index].Cells["Content"].Value);
 
-                for(int j=0;j<iterate;++j)
-                {
-                    int i = commentadded.Dequeue();
-                    if (commentview.Rows.Count != 0)
-                    {
-                        cmd.Parameters.AddWithValue("@id", null);
-                        cmd.Parameters.AddWithValue("@buildingID", id);
-                        cmd.Parameters.AddWithValue("@content", commentview.Rows[i].Cells["Content"].Value);
+                cmd.ExecuteNonQuery();
 
-                        cmd.ExecuteNonQuery();
-                    }
-
-                }
                 con.Close();
             }
             catch (Exception e)
@@ -1048,7 +1023,7 @@ namespace RealEstate
             }
         }
 
-        private void insertMemo()
+        private void insertMemo(int index)
         {
             SQLiteConnection con = new SQLiteConnection();
             con.ConnectionString = strConn;
@@ -1056,21 +1031,15 @@ namespace RealEstate
             {
                 SQLiteCommand cmd = new SQLiteCommand("INSERT INTO memo VALUES(@id, @c_date, @memo, @buildingID)", con);
                 con.Open();
+                
 
-                int iterate = memoadded.Count;
-                for(int j = 0;j<iterate;++j)
-                {
-                    int i = memoadded.Dequeue();
-                    if (memoview.Rows.Count != 0)
-                    {
-                        cmd.Parameters.AddWithValue("@id", null);
-                        cmd.Parameters.AddWithValue("@c_date", DateTime.Now);
-                        cmd.Parameters.AddWithValue("@memo", memoview.Rows[i].Cells["memo"].Value);
-                        cmd.Parameters.AddWithValue("@buildingID", id);
+                cmd.Parameters.AddWithValue("@id", null);
+                cmd.Parameters.AddWithValue("@c_date", DateTime.Now);
+                cmd.Parameters.AddWithValue("@memo", memoview.Rows[index].Cells["memo"].Value);
+                cmd.Parameters.AddWithValue("@buildingID", id);
 
-                        cmd.ExecuteNonQuery();
-                    }
-                }
+                cmd.ExecuteNonQuery();
+
                 con.Close();
             }
             catch (Exception e)
@@ -1081,7 +1050,7 @@ namespace RealEstate
 
         private void addcomment_Click(object sender, EventArgs e)
         {
-            commentadded.Enqueue(commentview.Rows.Add());
+            commentview.Rows.Add();
         }
 
         private void deletecomment_Click(object sender, EventArgs e)

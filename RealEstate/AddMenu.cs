@@ -280,7 +280,6 @@ namespace RealEstate
 
             dgv = ContentOfRentals;
             dgv.AutoGenerateColumns = false;
-            dgv.Columns[0].Visible = false;
 
             commentview = commentGridView;
             commentview.AutoGenerateColumns = false;
