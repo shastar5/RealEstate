@@ -1112,6 +1112,7 @@ namespace RealEstate
             double UpdateTakeOverPrice = -9999;
             double UpdateIncome;
             double UpdateYearPercent;
+            
 
             if (UpdateSellPrice != -9999 && UpdateDeposit != -9999 && UpdateLoan != -9999)
             {
@@ -1123,11 +1124,16 @@ namespace RealEstate
 
             if (type != 6)
             {
-                UpdateIncome = checkNulls(TB_Income.Text.ToString());
+                //UpdateIncome = checkNulls(TB_Income.Text.ToString());
+                UpdateIncome = getSumofIncome();
+                TB_Income.Text = getSumofIncome().ToString();
             }
             else
             {
-                UpdateIncome = checkNulls(TB_Income2.Text.ToString());
+                //UpdateIncome = checkNulls(TB_Income2.Text.ToString());
+                UpdateIncome = getSumofIncome();
+                TB_Income2.Text = getSumofIncome().ToString();
+
             }
             if (UpdateTakeOverPrice != -9999 && UpdateIncome != -9999)
             {
