@@ -972,6 +972,7 @@
             this.Content});
             this.commentGridView.Location = new System.Drawing.Point(3, 35);
             this.commentGridView.Name = "commentGridView";
+            this.commentGridView.ReadOnly = true;
             this.commentGridView.RowTemplate.Height = 23;
             this.commentGridView.Size = new System.Drawing.Size(377, 316);
             this.commentGridView.TabIndex = 1;
@@ -980,12 +981,14 @@
             // 
             this.order.HeaderText = "번호";
             this.order.Name = "order";
+            this.order.ReadOnly = true;
             this.order.Visible = false;
             // 
             // Content
             // 
             this.Content.HeaderText = "내용";
             this.Content.Name = "Content";
+            this.Content.ReadOnly = true;
             // 
             // label11
             // 
