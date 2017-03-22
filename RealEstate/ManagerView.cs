@@ -81,8 +81,9 @@ namespace RealEstate
         int countofrows = 0;
         DataGridView dgv, commentview, memoview;
         // dgv's stack
-        Stack<int> todo = new Stack<int>();
-        Stack<int> toinsert = new Stack<int>();
+        Queue<int> todo = new Queue<int>();
+        Queue<int> toinsert = new Queue<int>();
+        Queue<int> toupdate = new Queue<int>();
 
         // comment's stack
         Stack<int> commentupdate = new Stack<int>();
@@ -351,11 +352,6 @@ namespace RealEstate
             + "deposit NUMERIC, monthlyIncome NUMERIC, managementPrice NUMERIC, etc NUMERIC, FOREIGN KEY(buildingID) REFERENCES info1(id))";
 
             */
-            int i, rowCount = 0, rowNum;
-
-            // Get RowCount
-            rowCount = dgv.Rows.Count;
-
             SQLiteConnection con = new SQLiteConnection();
             con.ConnectionString = strConn;
             string sql = "UPDATE info2 SET floor = @floor, area = @area, storeName = @storeName," +
@@ -365,17 +361,19 @@ namespace RealEstate
                 SQLiteCommand cmd = new SQLiteCommand(sql, con);
                 con.Open();
 
-                // 업데이트가 필요한 위치를 찾아서 저장함
-                // 버그 있을것 같은데.. 추후 테스트 하면서 확인할 것
-                // 버그가 있으면, 처음에 readDataGrid()에서 primary index number stack에 쌓은 후에 업데이트는 stack.pop해가면서 해주고 insert는 따로 해줄 것
-                for(rowNum =0;rowNum<rowCount;++rowNum)
+                for(int j=0;j<dgv.Rows.Count;++j)
                 {
-                    if (dgv.Rows[rowNum].Cells[0].Value == null)
-                        break;
+                    if(dgv.Rows[j].Cells[0] != null)
+                    {
+                        toupdate.Enqueue(j);
+                    }
                 }
 
-                for (i = 0; i < rowNum; ++i)
+                int iterate = toupdate.Count;
+
+                for (int j = 0; j < iterate; ++j)
                 {
+                    int i = toupdate.Dequeue();
                     cmd.Parameters.AddWithValue("@floor", dgv.Rows[i].Cells["floor"].Value);
                     cmd.Parameters.AddWithValue("@area", dgv.Rows[i].Cells["floor_area"].Value);
                     cmd.Parameters.AddWithValue("@storeName", dgv.Rows[i].Cells["storeName"].Value);
@@ -479,11 +477,10 @@ namespace RealEstate
             con.Open();
             int count = todo.Count;
 
-            while (todo.Count > 0)
+            for(int j=0;j<count;++j)
             {
-                for(int i=0;i<count;++i)
-                {
-                    int num = todo.Pop();
+
+                    int num = todo.Dequeue();
 
                     cmd.Parameters.AddWithValue("@floor", dgv.Rows[num].Cells["floor"].Value);
                     cmd.Parameters.AddWithValue("@area", dgv.Rows[num].Cells["floor_area"].Value);
@@ -495,7 +492,6 @@ namespace RealEstate
                     cmd.Parameters.AddWithValue("@id", dgv.Rows[num].Cells["_id"].Value);
 
                     cmd.ExecuteNonQuery();
-                }
             }
 
             con.Close();
@@ -578,6 +574,23 @@ namespace RealEstate
             dgv.Refresh();
         }
 
+        private double getSumofIncome()
+        {
+            int i;
+            double sumofMonthlyIncome = 0;
+
+            if (dgv.Rows.Count == 0)
+                return 0;
+
+            for (i = 0; i < dgv.Rows.Count; ++i)
+            {
+                if (dgv.Rows[i].Cells[5].Value != DBNull.Value)
+                    sumofMonthlyIncome += Convert.ToDouble(dgv.Rows[i].Cells[5].Value);
+            }
+
+            return sumofMonthlyIncome;
+        }
+
         private void InsertRowsDataGridView()
         {
             /*
@@ -591,9 +604,11 @@ namespace RealEstate
                 SQLiteCommand cmd = new SQLiteCommand("INSERT INTO info2 VALUES(@id, @buildingID, @floor, @area, @storeName, @deposit, @monthlyIncome, @managementPrice, @etc)", con);
                 con.Open();
 
-                while(toinsert.Count > 0)
+                int count = toinsert.Count;
+
+                for(int j=0;j<count;++j)
                 {
-                    int i = toinsert.Pop() - 1;
+                    int i = toinsert.Dequeue();
                     if (dgv.Rows.Count != 0)
                     {
                         cmd.Parameters.AddWithValue("@id", null);
@@ -694,7 +709,7 @@ namespace RealEstate
             }
         }
 
-            private void radioButton_CheckedChanged(object sender, EventArgs e)
+        private void radioButton_CheckedChanged(object sender, EventArgs e)
         {
             if (Dagagu.Checked)
             {
@@ -793,7 +808,7 @@ namespace RealEstate
             loadPicture("picture" + id);
             if (dgv.Rows.Count > 0)
             {
-                dgv.Rows[0].ReadOnly = true;
+                dgv.Columns[0].ReadOnly = true;
                 for (int i = 0; i < dgv.ColumnCount; ++i)
                     dgv.AutoResizeColumn(i);
             }
@@ -942,9 +957,8 @@ namespace RealEstate
 
         private void add_row_Click(object sender, EventArgs e)
         {
-            toinsert.Push(dgv.Rows.Add());
+            toinsert.Enqueue(dgv.Rows.Add());
             deleteSum();
-            countofrows++;
             showSum();
         }
 
@@ -954,7 +968,7 @@ namespace RealEstate
             {
                 if (oneCell.Selected)
                 {
-                    todo.Push(oneCell.RowIndex);
+                    todo.Enqueue(oneCell.RowIndex);
                     deleteDataGrid();
                     dgv.Rows.RemoveAt(oneCell.RowIndex);
                 }
