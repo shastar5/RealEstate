@@ -112,11 +112,10 @@ namespace RealEstate
             memoview = memoGridView;
             memoview.RowHeadersVisible = false;
             memoview.AutoGenerateColumns = false;
-            memoview.Columns[0].ReadOnly = true;
-            memoview.Columns[1].ReadOnly = true;
-            memoview.Columns[0].Width = (int)(memoview.Width * 0.15);
-            memoview.Columns[1].Width = (int)(memoview.Width * 0.33);
-            memoview.Columns[2].Width = memoview.Width - memoview.Columns[0].Width -memoview.Columns[1].Width;
+            memoview.Columns[1].Width = Convert.ToInt32(memoview.Width * 0.33);
+            memoview.Columns[2].Width = memoview.Width - memoview.Columns[1].Width - 1;
+            memoview.Columns[0].Visible = false;
+            commentview.Columns[0].Visible = false;
         }
 
         private void readData()
@@ -395,7 +394,6 @@ namespace RealEstate
 
         private void updatememo(int index)
         {
-            int i = 0;
             SQLiteConnection con = new SQLiteConnection();
             con.ConnectionString = strConn;
             string sql = "UPDATE memo SET c_date = @c_date, memo = @memo WHERE id = @id AND buildingID = " + id;
@@ -761,8 +759,6 @@ namespace RealEstate
                 dgv.Columns[dgv.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 commentview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 commentview.Columns[commentview.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                memoview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                memoview.Columns[commentview.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
         
         }
@@ -1070,6 +1066,14 @@ namespace RealEstate
         {
             updateTB();
 
+        }
+
+        private void ContentOfRentals_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgv.CurrentRow.Index != -1)
+            {
+                showSum();
+            }
         }
 
         private void updateTB()

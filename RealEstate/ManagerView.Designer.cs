@@ -65,6 +65,14 @@
             this.TB_BuildName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.ContentOfRentals = new System.Windows.Forms.DataGridView();
+            this._id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.floor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.floor_area = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.storeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.storeDeposit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.monthlyIncome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.managementPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.etc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CB_corner = new System.Windows.Forms.CheckBox();
             this.Sangga = new System.Windows.Forms.RadioButton();
             this.NewConstruction = new System.Windows.Forms.RadioButton();
@@ -131,14 +139,6 @@
             this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.memo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label40 = new System.Windows.Forms.Label();
-            this._id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.floor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.floor_area = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.storeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.storeDeposit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.monthlyIncome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.managementPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.etc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ContentOfRentals)).BeginInit();
             this.Tab_control.SuspendLayout();
@@ -521,6 +521,51 @@
             this.ContentOfRentals.TabIndex = 9;
             this.ContentOfRentals.TabStop = false;
             this.ContentOfRentals.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.ContentOfRentals_CellEndEdit);
+            this.ContentOfRentals.SelectionChanged += new System.EventHandler(this.ContentOfRentals_SelectionChanged);
+            // 
+            // _id
+            // 
+            this._id.HeaderText = "번호";
+            this._id.Name = "_id";
+            // 
+            // floor
+            // 
+            this.floor.HeaderText = "층수";
+            this.floor.Name = "floor";
+            // 
+            // floor_area
+            // 
+            this.floor_area.HeaderText = "면적";
+            this.floor_area.Name = "floor_area";
+            this.floor_area.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // storeName
+            // 
+            this.storeName.HeaderText = "상호명";
+            this.storeName.Name = "storeName";
+            // 
+            // storeDeposit
+            // 
+            this.storeDeposit.HeaderText = "보증금";
+            this.storeDeposit.Name = "storeDeposit";
+            this.storeDeposit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // monthlyIncome
+            // 
+            this.monthlyIncome.HeaderText = "월세";
+            this.monthlyIncome.Name = "monthlyIncome";
+            this.monthlyIncome.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // managementPrice
+            // 
+            this.managementPrice.HeaderText = "관리비";
+            this.managementPrice.Name = "managementPrice";
+            this.managementPrice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // etc
+            // 
+            this.etc.HeaderText = "비고";
+            this.etc.Name = "etc";
             // 
             // CB_corner
             // 
@@ -1228,50 +1273,6 @@
             this.label40.Size = new System.Drawing.Size(29, 12);
             this.label40.TabIndex = 0;
             this.label40.Text = "메모";
-            // 
-            // _id
-            // 
-            this._id.HeaderText = "번호";
-            this._id.Name = "_id";
-            // 
-            // floor
-            // 
-            this.floor.HeaderText = "층수";
-            this.floor.Name = "floor";
-            // 
-            // floor_area
-            // 
-            this.floor_area.HeaderText = "면적";
-            this.floor_area.Name = "floor_area";
-            this.floor_area.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // storeName
-            // 
-            this.storeName.HeaderText = "상호명";
-            this.storeName.Name = "storeName";
-            // 
-            // storeDeposit
-            // 
-            this.storeDeposit.HeaderText = "보증금";
-            this.storeDeposit.Name = "storeDeposit";
-            this.storeDeposit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // monthlyIncome
-            // 
-            this.monthlyIncome.HeaderText = "월세";
-            this.monthlyIncome.Name = "monthlyIncome";
-            this.monthlyIncome.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // managementPrice
-            // 
-            this.managementPrice.HeaderText = "관리비";
-            this.managementPrice.Name = "managementPrice";
-            this.managementPrice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // etc
-            // 
-            this.etc.HeaderText = "비고";
-            this.etc.Name = "etc";
             // 
             // ManagerView
             // 
