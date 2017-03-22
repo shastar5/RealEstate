@@ -582,7 +582,7 @@ namespace RealEstate
             if (dgv.Rows.Count == 0)
                 return 0;
 
-            for (i = 0; i < dgv.Rows.Count; ++i)
+            for (i = 0; i < dgv.Rows.Count -1; ++i)
             {
                 if (dgv.Rows[i].Cells[5].Value != DBNull.Value)
                     sumofMonthlyIncome += Convert.ToDouble(dgv.Rows[i].Cells[5].Value);
