@@ -62,6 +62,7 @@
             this.ClientSize = new System.Drawing.Size(953, 493);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button2);
+            this.MaximizeBox = false;
             this.Name = "FindView";
             this.ShowIcon = false;
             this.Text = "찾기";

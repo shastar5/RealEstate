@@ -1039,6 +1039,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button1);
+            this.MaximizeBox = false;
             this.Name = "UserView";
             this.Text = "상세정보";
             this.Load += new System.EventHandler(this.UserView_Load);
