@@ -314,10 +314,11 @@ namespace RealEstate
             readDataGrid();
             readcomment();
 
-            
 
-            for (int i = 0; i < dgv.ColumnCount; ++i)
-                dgv.AutoResizeColumn(i);
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgv.Columns[dgv.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            commentview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            commentview.Columns[commentview.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

@@ -113,13 +113,6 @@
             this.TB_BuildName = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.ContentOfRentals = new System.Windows.Forms.DataGridView();
-            this.floor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.floor_area = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.storeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.storeDeposit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.monthlyIncome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.managementPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.etc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CB_corner = new System.Windows.Forms.CheckBox();
             this.TB_MonthlyPay = new System.Windows.Forms.TextBox();
             this.TB_Income2 = new System.Windows.Forms.TextBox();
@@ -137,6 +130,13 @@
             this.btn_JustClose = new System.Windows.Forms.Button();
             this.addRow = new System.Windows.Forms.Button();
             this.deleteRow = new System.Windows.Forms.Button();
+            this.floor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.floor_area = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.storeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.storeDeposit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.monthlyIncome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.managementPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.etc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.commentGridView)).BeginInit();
             this.panel6.SuspendLayout();
@@ -1036,41 +1036,6 @@
             this.ContentOfRentals.TabIndex = 103;
             this.ContentOfRentals.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.ContentOfRentals_CellEndEdit);
             // 
-            // floor
-            // 
-            this.floor.HeaderText = "층수";
-            this.floor.Name = "floor";
-            // 
-            // floor_area
-            // 
-            this.floor_area.HeaderText = "면적";
-            this.floor_area.Name = "floor_area";
-            // 
-            // storeName
-            // 
-            this.storeName.HeaderText = "상호명";
-            this.storeName.Name = "storeName";
-            // 
-            // storeDeposit
-            // 
-            this.storeDeposit.HeaderText = "보증금";
-            this.storeDeposit.Name = "storeDeposit";
-            // 
-            // monthlyIncome
-            // 
-            this.monthlyIncome.HeaderText = "월세";
-            this.monthlyIncome.Name = "monthlyIncome";
-            // 
-            // managementPrice
-            // 
-            this.managementPrice.HeaderText = "관리비";
-            this.managementPrice.Name = "managementPrice";
-            // 
-            // etc
-            // 
-            this.etc.HeaderText = "비고";
-            this.etc.Name = "etc";
-            // 
             // CB_corner
             // 
             this.CB_corner.AutoSize = true;
@@ -1254,6 +1219,45 @@
             this.deleteRow.UseVisualStyleBackColor = true;
             this.deleteRow.Click += new System.EventHandler(this.deleteRow_Click);
             // 
+            // floor
+            // 
+            this.floor.HeaderText = "층수";
+            this.floor.Name = "floor";
+            // 
+            // floor_area
+            // 
+            this.floor_area.HeaderText = "면적";
+            this.floor_area.Name = "floor_area";
+            this.floor_area.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // storeName
+            // 
+            this.storeName.HeaderText = "상호명";
+            this.storeName.Name = "storeName";
+            // 
+            // storeDeposit
+            // 
+            this.storeDeposit.HeaderText = "보증금";
+            this.storeDeposit.Name = "storeDeposit";
+            this.storeDeposit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // monthlyIncome
+            // 
+            this.monthlyIncome.HeaderText = "월세";
+            this.monthlyIncome.Name = "monthlyIncome";
+            this.monthlyIncome.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // managementPrice
+            // 
+            this.managementPrice.HeaderText = "관리비";
+            this.managementPrice.Name = "managementPrice";
+            this.managementPrice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // etc
+            // 
+            this.etc.HeaderText = "비고";
+            this.etc.Name = "etc";
+            // 
             // AddMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -1426,13 +1430,6 @@
         private System.Windows.Forms.Button btn_JustClose;
         private System.Windows.Forms.Button addRow;
         private System.Windows.Forms.Button deleteRow;
-        private System.Windows.Forms.DataGridViewTextBoxColumn floor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn floor_area;
-        private System.Windows.Forms.DataGridViewTextBoxColumn storeName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn storeDeposit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn monthlyIncome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn managementPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn etc;
         private System.Windows.Forms.DataGridView commentGridView;
         private System.Windows.Forms.Button deletecomment;
         private System.Windows.Forms.Button addcoment;
@@ -1443,5 +1440,12 @@
         private System.Windows.Forms.Button addMemo;
         private System.Windows.Forms.DataGridViewTextBoxColumn order;
         private System.Windows.Forms.DataGridViewTextBoxColumn Content;
+        private System.Windows.Forms.DataGridViewTextBoxColumn floor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn floor_area;
+        private System.Windows.Forms.DataGridViewTextBoxColumn storeName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn storeDeposit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn monthlyIncome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn managementPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn etc;
     }
 }

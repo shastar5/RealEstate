@@ -345,7 +345,7 @@ namespace RealEstate
             return number;
         }
 
-        private void updateDataGrid()
+        private void updateDataGrid(int i)
         {
             /*
             "Create table if not exists info2 (id INTEGER  PRIMARY KEY autoincrement, buildingID INTEGER, floor NUMERIC, area NUMERIC, storeName varchar(100), "
@@ -361,33 +361,17 @@ namespace RealEstate
                 SQLiteCommand cmd = new SQLiteCommand(sql, con);
                 con.Open();
 
-                for(int j=0;j<dgv.Rows.Count;++j)
-                {
-                    if(dgv.Rows[j].Cells[0] != null)
-                    {
-                        toupdate.Enqueue(j);
-                    }
-                }
+                cmd.Parameters.AddWithValue("@floor", dgv.Rows[i].Cells["floor"].Value);
+                cmd.Parameters.AddWithValue("@area", dgv.Rows[i].Cells["floor_area"].Value);
+                cmd.Parameters.AddWithValue("@storeName", dgv.Rows[i].Cells["storeName"].Value);
+                cmd.Parameters.AddWithValue("@deposit", dgv.Rows[i].Cells["storeDeposit"].Value);
+                cmd.Parameters.AddWithValue("@monthlyIncome", dgv.Rows[i].Cells["monthlyIncome"].Value);
+                cmd.Parameters.AddWithValue("@managementPrice", dgv.Rows[i].Cells["managementPrice"].Value);
+                cmd.Parameters.AddWithValue("@etc", dgv.Rows[i].Cells["etc"].Value);
+                cmd.Parameters.AddWithValue("@id", dgv.Rows[i].Cells["_id"].Value);
 
-                int iterate = toupdate.Count;
-
-                for (int j = 0; j < iterate; ++j)
-                {
-                    int i = toupdate.Dequeue();
-                    cmd.Parameters.AddWithValue("@floor", dgv.Rows[i].Cells["floor"].Value);
-                    cmd.Parameters.AddWithValue("@area", dgv.Rows[i].Cells["floor_area"].Value);
-                    cmd.Parameters.AddWithValue("@storeName", dgv.Rows[i].Cells["storeName"].Value);
-                    cmd.Parameters.AddWithValue("@deposit", dgv.Rows[i].Cells["storeDeposit"].Value);
-                    cmd.Parameters.AddWithValue("@monthlyIncome", dgv.Rows[i].Cells["monthlyIncome"].Value);
-                    cmd.Parameters.AddWithValue("@managementPrice", dgv.Rows[i].Cells["managementPrice"].Value);
-                    cmd.Parameters.AddWithValue("@etc", dgv.Rows[i].Cells["etc"].Value);
-                    cmd.Parameters.AddWithValue("@id", dgv.Rows[i].Cells["_id"].Value);
-
-                    cmd.ExecuteNonQuery();
-                    
-                }
-
-                
+                cmd.ExecuteNonQuery();
+  
                 con.Close();
             }
             catch (Exception e)
@@ -479,7 +463,6 @@ namespace RealEstate
 
             for(int j=0;j<count;++j)
             {
-
                     int num = todo.Dequeue();
 
                     cmd.Parameters.AddWithValue("@floor", dgv.Rows[num].Cells["floor"].Value);
@@ -540,7 +523,7 @@ namespace RealEstate
             }
 
             dgv.Sort(dgv.Columns[1], System.ComponentModel.ListSortDirection.Ascending);
-
+            dgv.Columns[0].Visible = false;
 
             showSum();
         }
@@ -565,14 +548,15 @@ namespace RealEstate
                     sumofManagementPrice += Convert.ToDouble(dgv.Rows[i].Cells[6].Value);
             }
 
-            i = countofrows;
-
-            dgv.Rows.Add();
+            i = dgv.Rows.Add();
             dgv.Rows[i].Cells[0].Value = "합계";
+            dgv.Rows[i].Cells[1].Value = "합계";
             dgv.Rows[i].Cells[2].Value = sumofArea;
+            dgv.Rows[i].Cells[3].Value = null;
             dgv.Rows[i].Cells[4].Value = sumofDeposit;
             dgv.Rows[i].Cells[5].Value = sumofMonthlyIncome;
             dgv.Rows[i].Cells[6].Value = sumofManagementPrice;
+            dgv.Rows[i].Cells[7].Value = null;
 
             dgv.Refresh();
         }
@@ -594,7 +578,7 @@ namespace RealEstate
             return sumofMonthlyIncome;
         }
 
-        private void InsertRowsDataGridView()
+        private void InsertRowsDataGridView(int i)
         {
             /*
             "Create table if not exists info2 (id INTEGER  PRIMARY KEY autoincrement, buildingID INTEGER, floor NUMERIC, area NUMERIC, storeName varchar(100), "
@@ -607,27 +591,21 @@ namespace RealEstate
                 SQLiteCommand cmd = new SQLiteCommand("INSERT INTO info2 VALUES(@id, @buildingID, @floor, @area, @storeName, @deposit, @monthlyIncome, @managementPrice, @etc)", con);
                 con.Open();
 
-                int count = toinsert.Count;
-
-                for(int j=0;j<count;++j)
+                if (dgv.Rows.Count != 0)
                 {
-                    int i = toinsert.Dequeue();
-                    if (dgv.Rows.Count != 0)
-                    {
-                        cmd.Parameters.AddWithValue("@id", null);
-                        cmd.Parameters.AddWithValue("@buildingID", id);
-                        cmd.Parameters.AddWithValue("@floor", dgv.Rows[i].Cells["floor"].Value);
-                        cmd.Parameters.AddWithValue("@area", dgv.Rows[i].Cells["floor_area"].Value);
-                        cmd.Parameters.AddWithValue("@storeName", dgv.Rows[i].Cells["storeName"].Value);
-                        cmd.Parameters.AddWithValue("@deposit", dgv.Rows[i].Cells["storeDeposit"].Value);
-                        cmd.Parameters.AddWithValue("@monthlyIncome", dgv.Rows[i].Cells["monthlyIncome"].Value);
-                        cmd.Parameters.AddWithValue("@managementPrice", dgv.Rows[i].Cells["managementPrice"].Value);
-                        cmd.Parameters.AddWithValue("@etc", dgv.Rows[i].Cells["etc"].Value);
+                    cmd.Parameters.AddWithValue("@id", null);
+                    cmd.Parameters.AddWithValue("@buildingID", id);
+                    cmd.Parameters.AddWithValue("@floor", dgv.Rows[i].Cells["floor"].Value);
+                    cmd.Parameters.AddWithValue("@area", dgv.Rows[i].Cells["floor_area"].Value);
+                    cmd.Parameters.AddWithValue("@storeName", dgv.Rows[i].Cells["storeName"].Value);
+                    cmd.Parameters.AddWithValue("@deposit", dgv.Rows[i].Cells["storeDeposit"].Value);
+                    cmd.Parameters.AddWithValue("@monthlyIncome", dgv.Rows[i].Cells["monthlyIncome"].Value);
+                    cmd.Parameters.AddWithValue("@managementPrice", dgv.Rows[i].Cells["managementPrice"].Value);
+                    cmd.Parameters.AddWithValue("@etc", dgv.Rows[i].Cells["etc"].Value);
 
-                        cmd.ExecuteNonQuery();
-                    }
-
+                    cmd.ExecuteNonQuery();
                 }
+
                 con.Close();
             }
             catch (Exception e)
@@ -812,9 +790,14 @@ namespace RealEstate
             if (dgv.Rows.Count > 0)
             {
                 dgv.Columns[0].ReadOnly = true;
-                for (int i = 0; i < dgv.ColumnCount; ++i)
-                    dgv.AutoResizeColumn(i);
+                dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dgv.Columns[dgv.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                commentview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                commentview.Columns[commentview.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                memoview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                memoview.Columns[commentview.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
+        
         }
          
         private void readcomment()
@@ -891,9 +874,14 @@ namespace RealEstate
             if (ErrorStr2Num == 0)
             {
                 saveData();
-                updateDataGrid();
-                InsertRowsDataGridView();
 
+                for (int i = 0; i < dgv.Rows.Count; ++i)
+                {
+                    if(dgv.Rows[i].Cells[0].Value != null)
+                        updateDataGrid(i);
+                    else
+                        InsertRowsDataGridView(i);
+                }
                 updatecomment();
                 insertComment();
                 updatememo();

@@ -102,6 +102,11 @@
             this.TB_Income2 = new System.Windows.Forms.TextBox();
             this.TB_MonthlyPay = new System.Windows.Forms.TextBox();
             this.ContentOfRentals = new System.Windows.Forms.DataGridView();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.commentGridView = new System.Windows.Forms.DataGridView();
+            this.order = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Content = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label11 = new System.Windows.Forms.Label();
             this.floor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.floor_area = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.storeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -109,11 +114,6 @@
             this.monthlyIncome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.managementPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.etc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.commentGridView = new System.Windows.Forms.DataGridView();
-            this.order = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Content = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label11 = new System.Windows.Forms.Label();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Tab_control.SuspendLayout();
@@ -911,48 +911,6 @@
             this.ContentOfRentals.TabIndex = 170;
             this.ContentOfRentals.TabStop = false;
             // 
-            // floor
-            // 
-            this.floor.HeaderText = "층수";
-            this.floor.Name = "floor";
-            this.floor.ReadOnly = true;
-            // 
-            // floor_area
-            // 
-            this.floor_area.HeaderText = "면적";
-            this.floor_area.Name = "floor_area";
-            this.floor_area.ReadOnly = true;
-            // 
-            // storeName
-            // 
-            this.storeName.HeaderText = "상호명";
-            this.storeName.Name = "storeName";
-            this.storeName.ReadOnly = true;
-            // 
-            // storeDeposit
-            // 
-            this.storeDeposit.HeaderText = "보증금";
-            this.storeDeposit.Name = "storeDeposit";
-            this.storeDeposit.ReadOnly = true;
-            // 
-            // monthlyIncome
-            // 
-            this.monthlyIncome.HeaderText = "월세";
-            this.monthlyIncome.Name = "monthlyIncome";
-            this.monthlyIncome.ReadOnly = true;
-            // 
-            // managementPrice
-            // 
-            this.managementPrice.HeaderText = "관리비";
-            this.managementPrice.Name = "managementPrice";
-            this.managementPrice.ReadOnly = true;
-            // 
-            // etc
-            // 
-            this.etc.HeaderText = "비고";
-            this.etc.Name = "etc";
-            this.etc.ReadOnly = true;
-            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.commentGridView);
@@ -998,6 +956,52 @@
             this.label11.Size = new System.Drawing.Size(41, 12);
             this.label11.TabIndex = 0;
             this.label11.Text = "코멘트";
+            // 
+            // floor
+            // 
+            this.floor.HeaderText = "층수";
+            this.floor.Name = "floor";
+            this.floor.ReadOnly = true;
+            // 
+            // floor_area
+            // 
+            this.floor_area.HeaderText = "면적";
+            this.floor_area.Name = "floor_area";
+            this.floor_area.ReadOnly = true;
+            this.floor_area.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // storeName
+            // 
+            this.storeName.HeaderText = "상호명";
+            this.storeName.Name = "storeName";
+            this.storeName.ReadOnly = true;
+            // 
+            // storeDeposit
+            // 
+            this.storeDeposit.HeaderText = "보증금";
+            this.storeDeposit.Name = "storeDeposit";
+            this.storeDeposit.ReadOnly = true;
+            this.storeDeposit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // monthlyIncome
+            // 
+            this.monthlyIncome.HeaderText = "월세";
+            this.monthlyIncome.Name = "monthlyIncome";
+            this.monthlyIncome.ReadOnly = true;
+            this.monthlyIncome.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // managementPrice
+            // 
+            this.managementPrice.HeaderText = "관리비";
+            this.managementPrice.Name = "managementPrice";
+            this.managementPrice.ReadOnly = true;
+            this.managementPrice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // etc
+            // 
+            this.etc.HeaderText = "비고";
+            this.etc.Name = "etc";
+            this.etc.ReadOnly = true;
             // 
             // UserView
             // 
@@ -1136,6 +1140,11 @@
         private System.Windows.Forms.TextBox TB_Income2;
         private System.Windows.Forms.TextBox TB_MonthlyPay;
         public System.Windows.Forms.DataGridView ContentOfRentals;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.DataGridView commentGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn order;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Content;
+        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridViewTextBoxColumn floor;
         private System.Windows.Forms.DataGridViewTextBoxColumn floor_area;
         private System.Windows.Forms.DataGridViewTextBoxColumn storeName;
@@ -1143,10 +1152,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn monthlyIncome;
         private System.Windows.Forms.DataGridViewTextBoxColumn managementPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn etc;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.DataGridView commentGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn order;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Content;
-        private System.Windows.Forms.Label label11;
     }
 }
