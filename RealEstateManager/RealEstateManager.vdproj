@@ -39,7 +39,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_25B3C0096A8F4C5698A4776A5E1E5781"
+        "MsmKey" = "8:_2FF7E56D4D3348779B99D9148F9D7182"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -176,7 +176,7 @@
                 {
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
-                "FrameworkVersion" = "8:.NETFramework,Version=v4.6.1"
+                "FrameworkVersion" = "8:.NETFramework,Version=v4.6.2"
                 "AllowLaterVersions" = "11:FALSE"
                 "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=671728"
                 }
@@ -246,7 +246,7 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_25B3C0096A8F4C5698A4776A5E1E5781"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2FF7E56D4D3348779B99D9148F9D7182"
             {
             "SourcePath" = "8:..\\RealEstate\\bin\\Debug\\x86\\SQLite.Interop.dll"
             "TargetName" = "8:SQLite.Interop.dll"
@@ -447,7 +447,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:RealEstateManager"
         "ProductCode" = "8:{5AFC25D3-0B41-4060-97A3-A4514A089AD2}"
-        "PackageCode" = "8:{855DF600-F6D2-4C09-93AE-062E69880C41}"
+        "PackageCode" = "8:{01FC2D7A-06DE-420C-B46F-DC6D1BA66AAD}"
         "UpgradeCode" = "8:{3273516B-189E-4E5D-A9B1-759B455E8F3C}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
