@@ -418,13 +418,14 @@ namespace RealEstate
             if (dr == DialogResult.OK)
             {
                 notSaveClose();
+                MessageBox.Show(getSumofIncome().ToString());
                 this.Close();
 
             }
 
         }
 
-    
+
         private double getSumofIncome()
         {
             int i;
