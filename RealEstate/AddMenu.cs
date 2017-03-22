@@ -461,11 +461,16 @@ namespace RealEstate
 
             if (type != 6)
             {
-                UpdateIncome = checkNulls(TB_Income.Text.ToString());
+                //UpdateIncome = checkNulls(TB_Income.Text.ToString());
+                UpdateIncome = getSumofIncome();
+                TB_Income.Text = getSumofIncome().ToString();
             }
             else
             {
-                UpdateIncome = checkNulls(TB_Income2.Text.ToString());
+                //UpdateIncome = checkNulls(TB_Income2.Text.ToString());
+                UpdateIncome = getSumofIncome();
+                TB_Income2.Text = getSumofIncome().ToString();
+
             }
             if (UpdateTakeOverPrice != -9999 && UpdateIncome != -9999) //연수익 연산
             {
