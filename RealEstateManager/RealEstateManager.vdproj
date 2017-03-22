@@ -64,13 +64,13 @@
         "Entry"
         {
         "MsmKey" = "8:_9180F5CB614F6590FF9E9C3DCC7C63DE"
-        "OwnerKey" = "8:_14168CF94F33FCAC44ADFBEC17D7F951"
+        "OwnerKey" = "8:_9D1EFC9644AD3B966120475A16248F8B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_9180F5CB614F6590FF9E9C3DCC7C63DE"
-        "OwnerKey" = "8:_9D1EFC9644AD3B966120475A16248F8B"
+        "OwnerKey" = "8:_14168CF94F33FCAC44ADFBEC17D7F951"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -83,12 +83,6 @@
         {
         "MsmKey" = "8:_F5D667A3B2944258986DEE6302105D46"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_9180F5CB614F6590FF9E9C3DCC7C63DE"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -121,6 +115,12 @@
         "OwnerKey" = "8:_14168CF94F33FCAC44ADFBEC17D7F951"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_9180F5CB614F6590FF9E9C3DCC7C63DE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -139,6 +139,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -155,6 +163,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -176,7 +192,7 @@
                 {
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
-                "FrameworkVersion" = "8:.NETFramework,Version=v4.6.2"
+                "FrameworkVersion" = "8:.NETFramework,Version=v4.6.1"
                 "AllowLaterVersions" = "11:FALSE"
                 "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=671728"
                 }
