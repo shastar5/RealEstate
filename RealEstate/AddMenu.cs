@@ -579,6 +579,12 @@ namespace RealEstate
                     memoview.Rows.RemoveAt(oneCell.RowIndex);
         }
 
+        private void ContentOfRentals_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            updateTB();
+
+        }
+
         private void addcoment_Click(object sender, EventArgs e)
         {
             commentview.Rows.Add();

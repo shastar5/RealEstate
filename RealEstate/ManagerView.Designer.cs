@@ -128,17 +128,17 @@
             this.deletecomment = new System.Windows.Forms.Button();
             this.addcoment = new System.Windows.Forms.Button();
             this.commentGridView = new System.Windows.Forms.DataGridView();
+            this.order = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Content = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label11 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.deleteMemo = new System.Windows.Forms.Button();
             this.addMemo = new System.Windows.Forms.Button();
             this.memoGridView = new System.Windows.Forms.DataGridView();
-            this.label40 = new System.Windows.Forms.Label();
-            this.order = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Content = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.memoid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.memo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label40 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ContentOfRentals)).BeginInit();
             this.Tab_control.SuspendLayout();
@@ -520,6 +520,7 @@
             this.ContentOfRentals.Size = new System.Drawing.Size(460, 311);
             this.ContentOfRentals.TabIndex = 9;
             this.ContentOfRentals.TabStop = false;
+            this.ContentOfRentals.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.ContentOfRentals_CellEndEdit);
             // 
             // _id
             // 
@@ -1179,6 +1180,16 @@
             this.commentGridView.Size = new System.Drawing.Size(377, 153);
             this.commentGridView.TabIndex = 1;
             // 
+            // order
+            // 
+            this.order.HeaderText = "번호";
+            this.order.Name = "order";
+            // 
+            // Content
+            // 
+            this.Content.HeaderText = "내용";
+            this.Content.Name = "Content";
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -1234,25 +1245,6 @@
             this.memoGridView.Size = new System.Drawing.Size(461, 145);
             this.memoGridView.TabIndex = 1;
             // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(213, 9);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(29, 12);
-            this.label40.TabIndex = 0;
-            this.label40.Text = "메모";
-            // 
-            // order
-            // 
-            this.order.HeaderText = "번호";
-            this.order.Name = "order";
-            // 
-            // Content
-            // 
-            this.Content.HeaderText = "내용";
-            this.Content.Name = "Content";
-            // 
             // memoid
             // 
             this.memoid.HeaderText = "번호";
@@ -1267,6 +1259,15 @@
             // 
             this.memo.HeaderText = "메모";
             this.memo.Name = "memo";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(213, 9);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(29, 12);
+            this.label40.TabIndex = 0;
+            this.label40.Text = "메모";
             // 
             // ManagerView
             // 

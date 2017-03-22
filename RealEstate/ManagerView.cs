@@ -1104,6 +1104,14 @@ namespace RealEstate
                 }
         }
 
+        
+
+        private void ContentOfRentals_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            updateTB();
+
+        }
+
         private void updateTB()
         {
             double UpdateSellPrice = checkNulls(TB_SellPrice.Text.ToString());
