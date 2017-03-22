@@ -418,7 +418,6 @@ namespace RealEstate
             if (dr == DialogResult.OK)
             {
                 notSaveClose();
-                MessageBox.Show(getSumofIncome().ToString());
                 this.Close();
 
             }
@@ -437,7 +436,7 @@ namespace RealEstate
             for (i = 0; i < dgv.Rows.Count; ++i)
             {
                 if (dgv.Rows[i].Cells[5].Value != DBNull.Value)
-                    sumofMonthlyIncome += Convert.ToDouble(dgv.Rows[i].Cells[5].Value);
+                    sumofMonthlyIncome += Convert.ToDouble(dgv.Rows[i].Cells[4].Value);
             }
 
             return sumofMonthlyIncome;
