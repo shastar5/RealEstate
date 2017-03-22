@@ -51,7 +51,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_6D7900212AA6408187AC939733D5328C"
+        "MsmKey" = "8:_6339989ADC434077BE64B2DB5C1DEA07"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -146,6 +146,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
             }
         }
         "Release"
@@ -170,6 +178,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
             }
         }
     }
@@ -313,9 +329,9 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6D7900212AA6408187AC939733D5328C"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6339989ADC434077BE64B2DB5C1DEA07"
             {
-            "SourcePath" = "8:..\\..\\..\\Desktop\\Icon.ico"
+            "SourcePath" = "8:..\\RealEstate\\Icon.ico"
             "TargetName" = "8:Icon.ico"
             "Tag" = "8:"
             "Folder" = "8:_7E2F2851E4534DF39074200257C9464E"
@@ -583,35 +599,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_4ACBB9A51E0E45C69406E61B46B7900B"
-            {
-            "Name" = "8:RealEstateManager"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_F5D667A3B2944258986DEE6302105D46"
-            "Folder" = "8:_86A23D6C28C54727BC2C03DD8BACA71B"
-            "WorkingFolder" = "8:_7E2F2851E4534DF39074200257C9464E"
-            "Icon" = "8:_6D7900212AA6408187AC939733D5328C"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_697FD5197F1A4CA78A65BC053035E165"
-            {
-            "Name" = "8:RealEstateManager"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_F5D667A3B2944258986DEE6302105D46"
-            "Folder" = "8:_7E2F2851E4534DF39074200257C9464E"
-            "WorkingFolder" = "8:_7E2F2851E4534DF39074200257C9464E"
-            "Icon" = "8:_6D7900212AA6408187AC939733D5328C"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_FE4F63311D244DB6B1BEF2B99036F3C4"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_02F9302943A140249746094C6F8D3FC6"
             {
             "Name" = "8:RealEstateManager"
             "Arguments" = "8:"
@@ -622,7 +610,35 @@
             "Target" = "8:_F5D667A3B2944258986DEE6302105D46"
             "Folder" = "8:_075A4DF8726D4F34A291805752C31BFF"
             "WorkingFolder" = "8:_7E2F2851E4534DF39074200257C9464E"
-            "Icon" = "8:_6D7900212AA6408187AC939733D5328C"
+            "Icon" = "8:_6339989ADC434077BE64B2DB5C1DEA07"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_A7EB61EE9F97465B82B282769D530DBB"
+            {
+            "Name" = "8:RealEstateManager"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_F5D667A3B2944258986DEE6302105D46"
+            "Folder" = "8:_86A23D6C28C54727BC2C03DD8BACA71B"
+            "WorkingFolder" = "8:_7E2F2851E4534DF39074200257C9464E"
+            "Icon" = "8:_6339989ADC434077BE64B2DB5C1DEA07"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_F361B10E4CF44A6586660DA6BCFE24EC"
+            {
+            "Name" = "8:RealEstateManager"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_F5D667A3B2944258986DEE6302105D46"
+            "Folder" = "8:_7E2F2851E4534DF39074200257C9464E"
+            "WorkingFolder" = "8:_7E2F2851E4534DF39074200257C9464E"
+            "Icon" = "8:_6339989ADC434077BE64B2DB5C1DEA07"
             "Feature" = "8:"
             }
         }
