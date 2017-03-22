@@ -423,6 +423,25 @@ namespace RealEstate
             }
 
         }
+
+    
+        private double getSumofIncome()
+        {
+            int i;
+            double sumofMonthlyIncome = 0;
+
+            if (dgv.Rows.Count == 0)
+                return 0;
+
+            for (i = 0; i < dgv.Rows.Count; ++i)
+            {
+                if (dgv.Rows[i].Cells[5].Value != DBNull.Value)
+                    sumofMonthlyIncome += Convert.ToDouble(dgv.Rows[i].Cells[5].Value);
+            }
+
+            return sumofMonthlyIncome;
+        }
+
         private void updateTB() //숫자만 입력했을 떄 인식하도록 해주고, 수식 계산 해줌 
         {
             double UpdateSellPrice = checkNulls(TB_SellPrice.Text.ToString());
