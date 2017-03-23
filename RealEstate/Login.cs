@@ -43,7 +43,7 @@ namespace RealEstate
                     {
                         firstMenu = new FirstMenu();
                         Hide();
-                        Owner = firstMenu;
+                        
                         firstMenu.ShowDialog();
                     }
                 }

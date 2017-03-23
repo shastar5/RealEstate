@@ -870,11 +870,11 @@ namespace RealEstate
                 }
                 MessageBox.Show("저장 완료 했습니다.");
                 this.Close();
-                FindView findtest = new FindView();
+                /*FindView findtest = new FindView();
                 findtest.setDBfile(DBFile);
                 findtest.setUserType(false);
                 findtest.setValue(findvalue);
-                findtest.Show();
+                findtest.Show();*/
             }
             else
                 MessageBox.Show("숫자 입력란에 숫자만 넣어주세요. 다시 확인해주세요 ");

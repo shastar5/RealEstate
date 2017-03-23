@@ -67,12 +67,19 @@
             this.Page_complete = new System.Windows.Forms.TabPage();
             this.Page_prepare = new System.Windows.Forms.TabPage();
             this.Tab_control = new System.Windows.Forms.TabControl();
+            this.label8 = new System.Windows.Forms.Label();
+            this.RB_CornerExist = new System.Windows.Forms.RadioButton();
+            this.RB_CornerNone = new System.Windows.Forms.RadioButton();
+            this.RB_CornerAll = new System.Windows.Forms.RadioButton();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.Panel_InitText.SuspendLayout();
             this.Tab_control.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel_InitText
             // 
+            this.Panel_InitText.Controls.Add(this.panel1);
             this.Panel_InitText.Controls.Add(this.btn_Back_UP);
             this.Panel_InitText.Controls.Add(this.HiddenBox);
             this.Panel_InitText.Controls.Add(this.DBLocation);
@@ -103,6 +110,7 @@
             this.Panel_InitText.Controls.Add(this.label2);
             this.Panel_InitText.Controls.Add(this.label6);
             this.Panel_InitText.Controls.Add(this.label3);
+            this.Panel_InitText.Controls.Add(this.label8);
             this.Panel_InitText.Controls.Add(this.label7);
             this.Panel_InitText.Controls.Add(this.label4);
             resources.ApplyResources(this.Panel_InitText, "Panel_InitText");
@@ -166,7 +174,9 @@
             // radioButton1
             // 
             resources.ApplyResources(this.radioButton1, "radioButton1");
+            this.radioButton1.Checked = true;
             this.radioButton1.Name = "radioButton1";
+            this.radioButton1.TabStop = true;
             this.radioButton1.UseVisualStyleBackColor = true;
             this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
@@ -380,6 +390,42 @@
             this.Tab_control.TabStop = false;
             this.Tab_control.SelectedIndexChanged += new System.EventHandler(this.Tabs_SelectedIndexChanged);
             // 
+            // label8
+            // 
+            resources.ApplyResources(this.label8, "label8");
+            this.label8.Name = "label8";
+            // 
+            // RB_CornerExist
+            // 
+            resources.ApplyResources(this.RB_CornerExist, "RB_CornerExist");
+            this.RB_CornerExist.Name = "RB_CornerExist";
+            this.RB_CornerExist.UseVisualStyleBackColor = true;
+            this.RB_CornerExist.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
+            // 
+            // RB_CornerNone
+            // 
+            resources.ApplyResources(this.RB_CornerNone, "RB_CornerNone");
+            this.RB_CornerNone.Name = "RB_CornerNone";
+            this.RB_CornerNone.UseVisualStyleBackColor = true;
+            this.RB_CornerNone.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
+            // 
+            // RB_CornerAll
+            // 
+            resources.ApplyResources(this.RB_CornerAll, "RB_CornerAll");
+            this.RB_CornerAll.Checked = true;
+            this.RB_CornerAll.Name = "RB_CornerAll";
+            this.RB_CornerAll.TabStop = true;
+            this.RB_CornerAll.UseVisualStyleBackColor = true;
+            this.RB_CornerAll.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.RB_CornerAll);
+            this.panel1.Controls.Add(this.RB_CornerExist);
+            this.panel1.Controls.Add(this.RB_CornerNone);
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Name = "panel1";
+            // 
             // FirstMenu
             // 
             resources.ApplyResources(this, "$this");
@@ -394,6 +440,8 @@
             this.Panel_InitText.ResumeLayout(false);
             this.Panel_InitText.PerformLayout();
             this.Tab_control.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -437,6 +485,11 @@
         private System.Windows.Forms.ComboBox CB_TakeOverPrice;
         private System.Windows.Forms.Label DBLocation;
         private System.Windows.Forms.Button btn_Back_UP;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.RadioButton RB_CornerAll;
+        private System.Windows.Forms.RadioButton RB_CornerNone;
+        private System.Windows.Forms.RadioButton RB_CornerExist;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

@@ -82,6 +82,10 @@ namespace RealEstate
             if (findvalue.distance != -9999)
                 query = addDobuleToQuery1(query, "distance", findvalue.distance, 2);
             query = addDobuleToQuery1(query, "roadWidth", findvalue.roadwidth, findvalue.roadwidthSize);
+            if (findvalue.isCorner == 0)
+                query += " and isCorner = 0";
+            else if (findvalue.isCorner == 1)
+                query += " and isCorner = 1";
 
 
 

@@ -21,6 +21,7 @@ namespace RealEstate
         public string addr;
         public double roadwidth;
         public int roadwidthSize;
+        public int isCorner;
 
     }
     public partial class FirstMenu : Form
@@ -45,14 +46,14 @@ namespace RealEstate
             InitializeComponent();
 
             //findvalue 예외 처리를 위한 초기화
-            findvalues.type = -1;
+            findvalues.type = 1;
             findvalues.state = 1;
             findvalues.roadwidthSize = -1;
             findvalues.takeOverPriceSize = -1;
             findvalues.IncomeSize = -1;
             findvalues.sellPriceSize = -1;
             findvalues.yearPercentSize = -1;
-
+            findvalues.isCorner = -1;
             //userType 손님용으로 초기화
             user = true;
 
@@ -206,7 +207,7 @@ namespace RealEstate
                 }
             }
             
-            if (findvalues.type == -1)
+            if (findvalues.type == 0)
             {
                 MessageBox.Show("찾을 건물 종류를 선택해주세요");
             }
@@ -245,7 +246,7 @@ namespace RealEstate
 
             else if (Tab_control.SelectedTab == Page_complete)
             {
-                findvalues.state = 2;
+                findvalues.state = 1;
             }
 
             else if (Tab_control.SelectedTab == Page_wait)
@@ -290,6 +291,13 @@ namespace RealEstate
             {
                 findvalues.type = 6;
             }
+
+            if (RB_CornerAll.Checked)
+                findvalues.isCorner = -1;
+            else if (RB_CornerExist.Checked)
+                findvalues.isCorner = 1;
+            else if (RB_CornerNone.Checked)
+                findvalues.isCorner = 0;
         }
 
         private void btn_addBuilding_Click(object sender, EventArgs e)
@@ -470,6 +478,8 @@ namespace RealEstate
                 MessageBox.Show("백업파일을 생성하지 못했습니다.\n이유 : " + ex.ToString());
             }
         }
+
+      
     }
 
 }
