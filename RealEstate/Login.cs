@@ -5,7 +5,6 @@ namespace RealEstate
 {
     public partial class Login : Form
     {
-        private string _id = "", _pw = "";
         private FirstMenu firstMenu;
 
 

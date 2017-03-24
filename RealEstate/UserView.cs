@@ -9,40 +9,11 @@ namespace RealEstate
 {
     public partial class UserView : Form, DBInterface, IdInterface
     {
-        ShowPicture sp;
         int id; // 선택한 건물 id
-        //전체 보이는용 변수
         int type;
         int state;
         string DBFile;
-        string addr;
-        string roadAddr;
-        string area;
-        string station;
-        string useArea;
-        double distance;
-        double roadWidth;
-        string totalArea;
-        string completeYear;
-        string parking;
-        string acHeating;
-        string EV;
-
-        //상가
-        double premium;
-        double monthlyPay;
-        double maintenance;
-
-        //관리자용 변수
-        
-        double deposit;
-        double Income;
-        double loan;
-        double interest;
-        double payedPrice;
-        double sellPrice;
-        double takeOverPrice;
-        double yearPercent;
+    
         int isCorner;
         //프로필 유무
         public int profilePictureID=-1;
@@ -311,6 +282,7 @@ namespace RealEstate
         {
             readData();
             loadPicture();
+
             readDataGrid();
             readcomment();
 

@@ -17,8 +17,6 @@ namespace RealEstate
         String strConn;
         SQLiteConnection cn = new SQLiteConnection();
         SQLiteCommand cmd = new SQLiteCommand();
-        SQLiteDataReader dr;
-        SQLiteParameter picture;
 
         Findvalue findvalue = new Findvalue();
         string DBFile = "";
@@ -32,7 +30,7 @@ namespace RealEstate
             TOTALAREA,
             DISTANCE,
             INCOME,
-            YEARINCOME,
+            YEARPERCENT,
             ROADWIDTH,
             ISCORNER
         }
@@ -60,8 +58,6 @@ namespace RealEstate
         {
             string[,] findResults = new string[1000, 9];
             int Findcount = 0;
-            char[] token = { ' ', ',', '\n', '\t'};
-            string[] tokenResult;
             Boolean addrFind = false;
             strConn = "Data Source=" + DBFile + "; Version=3;";
             cn.ConnectionString = strConn;
@@ -106,10 +102,7 @@ namespace RealEstate
                     findResults[Findcount, (int)findIndex.TOTALAREA] = checkValid(rdr["totalArea"].ToString());
                     findResults[Findcount, (int)findIndex.DISTANCE] = checkValid(rdr["distance"].ToString());
                     findResults[Findcount, (int)findIndex.INCOME] = checkValid(rdr["income"].ToString());
-                    if (findResults[Findcount, (int)findIndex.INCOME].Equals(""))
-                        findResults[Findcount, (int)findIndex.YEARINCOME] = "";
-                    else
-                        findResults[Findcount, (int)findIndex.YEARINCOME] = (double.Parse(findResults[Findcount, (int)findIndex.INCOME]) * 12).ToString();
+                    findResults[Findcount, (int)findIndex.YEARPERCENT] = checkValid(rdr["yearPercent"].ToString()); 
                     findResults[Findcount, (int)findIndex.ROADWIDTH] = checkValid(rdr["roadWidth"].ToString());
                     findResults[Findcount, (int)findIndex.ISCORNER] = rdr["isCorner"].ToString();
                     if (findResults[Findcount, (int)findIndex.ISCORNER].Equals("1"))
@@ -125,6 +118,7 @@ namespace RealEstate
             MessageBox.Show("검색 조건에 맞는 " + Findcount + "개의 부동산을 찾았습니다.");
             rdr.Close();
             cn.Close();
+            dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
         private string checkValid(string num)
         {
@@ -207,20 +201,31 @@ namespace RealEstate
         private void FindView_Load(object sender, EventArgs e)
         {
             dataGridView1.ColumnCount = 9;
+
             dataGridView1.Columns[0].Name = "번호";
+            dataGridView1.Columns[0].Width = dataGridView1.Width / 15;
             dataGridView1.Columns[1].Name = "건물명";
+            dataGridView1.Columns[1].Width = (int)(dataGridView1.Width / 2.8);
             dataGridView1.Columns[2].Name = "매매금액";
+            dataGridView1.Columns[2].Width = dataGridView1.Width / 12;
             dataGridView1.Columns[3].Name = "연면적";
+            dataGridView1.Columns[3].Width = dataGridView1.Width / 14;
             dataGridView1.Columns[4].Name = "역과의 거리";
+            dataGridView1.Columns[4].Width = dataGridView1.Width / 10;
             dataGridView1.Columns[5].Name = "월수입";
+            dataGridView1.Columns[5].Width = dataGridView1.Width / 14;
             dataGridView1.Columns[6].Name = "연수익률";
+            dataGridView1.Columns[6].Width = dataGridView1.Width / 12;
             dataGridView1.Columns[7].Name = "도로너비";
+            dataGridView1.Columns[7].Width = dataGridView1.Width / 12;
             dataGridView1.Columns[8].Name = "코너유무";
+            dataGridView1.Columns[8].Width = dataGridView1.Width / 12;
 
             dataGridView1.ReadOnly = true;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.CurrentCell = dataGridView1.TopLeftHeaderCell;
             showResult();
+            
             dataGridView1.ClearSelection();
         }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)

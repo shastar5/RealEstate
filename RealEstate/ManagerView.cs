@@ -27,7 +27,6 @@ namespace RealEstate
         private static extern int EnableMenuItem(IntPtr hMenu, int wIDEnableItem, int wEnable);
 
 
-        ShowPicture sp;
         int id; // 선택한 건물 id
         //전체 보이는용 변수
         int type;
@@ -747,11 +746,12 @@ namespace RealEstate
 
         private void ManagerView_Load(object sender, EventArgs e)
         {
-            readDataGrid();
             readData();
+            loadPicture();
+
+            readDataGrid();
             readcomment();
             readmemo();
-            loadPicture();
             if (dgv.Rows.Count > 0)
             {
                 dgv.Columns[0].ReadOnly = true;
@@ -831,7 +831,7 @@ namespace RealEstate
         }
 
         private void SaveData_Click(object sender, EventArgs e)
-        {
+         {
             ErrorStr2Num = 0;
             setData();
             int isOpen = 0;

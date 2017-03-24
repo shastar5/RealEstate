@@ -19,8 +19,6 @@ namespace RealEstate
         String strConn;
         SQLiteConnection cn = new SQLiteConnection();
         SQLiteCommand cmd = new SQLiteCommand();
-        SQLiteDataReader dr;
-        SQLiteParameter picture;
 
         public BigPicture()
         {

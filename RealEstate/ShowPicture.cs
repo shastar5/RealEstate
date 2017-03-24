@@ -61,7 +61,6 @@ namespace RealEstate
             cn.ConnectionString = strConn;
             cmd.Connection = cn;
             label1.Text = "";
-            int ProfileIndex = -1;
             int i;
             switch (mode)  //모드에 맞게 사진 불러오기
             {

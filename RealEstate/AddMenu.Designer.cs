@@ -1412,7 +1412,6 @@
         private System.Windows.Forms.RadioButton Sangga;
         private System.Windows.Forms.TextBox TB_BuildName;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Names;
         public System.Windows.Forms.DataGridView ContentOfRentals;
         private System.Windows.Forms.CheckBox CB_corner;
         private System.Windows.Forms.TextBox TB_MonthlyPay;

@@ -247,7 +247,7 @@ namespace RealEstate
 
             else if (Tab_control.SelectedTab == Page_complete)
             {
-                findvalues.state = 1;
+                findvalues.state = 2;
             }
 
             else if (Tab_control.SelectedTab == Page_wait)

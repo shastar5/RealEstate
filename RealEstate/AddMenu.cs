@@ -66,7 +66,6 @@ namespace RealEstate
         public int profilePictureID=-1;
         //숫자를 글자로 만들 때 에러 유무
         int ErrorStr2Num;
-        int buildingID;
         String strConn;
         SQLiteConnection cn = new SQLiteConnection();
         SQLiteCommand cmd = new SQLiteCommand();
@@ -306,7 +305,7 @@ namespace RealEstate
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            int buildingID=0; //저장할 picture테이블의 명 id
+            int buildingID=0; // 만들어질 부동산 id
             int isOpen = 0;
             foreach (Form form in Application.OpenForms)
             {
@@ -334,12 +333,12 @@ namespace RealEstate
                 }
                 cn.Close();
                 buildingID += 1;
-                showpicture.buildingID = buildingID; //테이블 id보내줘서 picture+id로 테이블 생성
+                showpicture.buildingID = buildingID; //만들어질 부동산 id 보내기
                 showpicture.Owner = this;
                 showpicture.Show();
             }
         }
-        private void notSaveClose() //저장안함 할 경우 해당 picture 테이블 삭제
+        private void notSaveClose() //저장안함 할 경우 해당 그림 데이터 삭제
         {
             int buildingID = 0;
             cn.Open();
