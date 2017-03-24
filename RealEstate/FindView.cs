@@ -94,12 +94,10 @@ namespace RealEstate
             while (rdr.Read())
             {
                 addrFind = false;
-                tokenResult = rdr["addr"].ToString().Split(token);
-                foreach(var item in tokenResult)
-                {
-                    if (item.ToString().Contains(findvalue.addr))
-                        addrFind = true;
-                }
+                
+               if (rdr["addr"].ToString().Contains(findvalue.addr))
+                    addrFind = true;
+                
                 if (addrFind)
                 {
                     findResults[Findcount, (int)findIndex.ID] = rdr["id"].ToString();

@@ -109,7 +109,7 @@ namespace RealEstate
             findvalues.Income = checkNulls(TB_Income.Text.ToString());
             findvalues.yearPercent = checkNulls(TB_YearPercent.Text.ToString());
             findvalues.distance = checkNulls(TB_Distance.Text.ToString());
-            findvalues.addr = TB_Addr.Text.ToString();
+            findvalues.addr = TB_Addr.Text.ToString().Trim();
             findvalues.roadwidth = checkNulls(TB_RoadWidth.Text.ToString());
             
         }
