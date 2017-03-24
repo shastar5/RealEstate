@@ -116,9 +116,9 @@
             this.label2.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label2.Location = new System.Drawing.Point(472, 30);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 16);
+            this.label2.Size = new System.Drawing.Size(183, 16);
             this.label2.TabIndex = 7;
-            this.label2.Text = "label2";
+            this.label2.Text = "프로필 사진이 없습니다.";
             // 
             // ShowPicture
             // 

@@ -719,12 +719,12 @@ namespace RealEstate
             System.Diagnostics.Process.Start(addr);
         }
 
-        public void loadPicture(string tableName)
+        public void loadPicture()
         {
             if (profilePictureID != -1)
             {
-                cn.Open();
-                string query = "select picture from " + tableName + " where id = " + profilePictureID;
+                cn.Open(); 
+                string query = "select picture from pictures where id = " + profilePictureID;
                 cmd = new SQLiteCommand(query, cn);
                 SQLiteDataAdapter da = new SQLiteDataAdapter(cmd);
                 SQLiteCommandBuilder cbd = new SQLiteCommandBuilder(da);
@@ -751,7 +751,7 @@ namespace RealEstate
             readData();
             readcomment();
             readmemo();
-            loadPicture("picture" + id);
+            loadPicture();
             if (dgv.Rows.Count > 0)
             {
                 dgv.Columns[0].ReadOnly = true;
@@ -834,7 +834,17 @@ namespace RealEstate
         {
             ErrorStr2Num = 0;
             setData();
-            if (ErrorStr2Num == 0)
+            int isOpen = 0;
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.Name.Equals("ShowPicture"))
+                {
+                    isOpen = 1;
+                }
+            }
+            if (isOpen == 1)
+                MessageBox.Show("사진추가/삭제 창을 닫고 저장해주세요.");
+            else if (ErrorStr2Num == 0)
             {
                 saveData();
 
@@ -912,7 +922,7 @@ namespace RealEstate
                 ShowPicture showpicture = new ShowPicture();
                 showpicture.setDBfile(DBFile);
                 showpicture.Owner = this;
-                showpicture.tableID = id;
+                showpicture.buildingID = id;
                 showpicture.profilePictureID = profilePictureID;
                 showpicture.setMode("managerMode");
                 showpicture.Show();
@@ -1069,6 +1079,27 @@ namespace RealEstate
 
         }
 
+        private void btn_Delete_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("정말 자료를 삭제하시겠습니까?", "알림", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if (dr == DialogResult.OK)
+            {
+                deleteDB();
+                this.Close();
+            }
+        }
+        private void deleteDB()
+        {
+            cn.Open();
+            string query = "delete from info1 where id = " + id;
+            SQLiteCommand cmd = new SQLiteCommand(query, cn);
+            cmd.ExecuteNonQuery();
+            query = "delete from pictures where buildingid = " + id;
+            cmd = new SQLiteCommand(query, cn);
+            cmd.ExecuteNonQuery();
+            cn.Close();
+
+        }
         private void updateTB()
         {
             double UpdateSellPrice = checkNulls(TB_SellPrice.Text.ToString());

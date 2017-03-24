@@ -140,6 +140,7 @@
             this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.memo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label40 = new System.Windows.Forms.Label();
+            this.btn_Delete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ContentOfRentals)).BeginInit();
             this.Tab_control.SuspendLayout();
@@ -570,7 +571,7 @@
             // CB_corner
             // 
             this.CB_corner.AutoSize = true;
-            this.CB_corner.Location = new System.Drawing.Point(569, 12);
+            this.CB_corner.Location = new System.Drawing.Point(590, 12);
             this.CB_corner.Name = "CB_corner";
             this.CB_corner.Size = new System.Drawing.Size(76, 16);
             this.CB_corner.TabIndex = 3;
@@ -583,7 +584,7 @@
             // 
             this.Sangga.AutoSize = true;
             this.Sangga.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Sangga.Location = new System.Drawing.Point(496, 12);
+            this.Sangga.Location = new System.Drawing.Point(537, 12);
             this.Sangga.Name = "Sangga";
             this.Sangga.Size = new System.Drawing.Size(47, 16);
             this.Sangga.TabIndex = 4;
@@ -595,7 +596,7 @@
             // 
             this.NewConstruction.AutoSize = true;
             this.NewConstruction.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.NewConstruction.Location = new System.Drawing.Point(410, 12);
+            this.NewConstruction.Location = new System.Drawing.Point(460, 12);
             this.NewConstruction.Name = "NewConstruction";
             this.NewConstruction.Size = new System.Drawing.Size(71, 16);
             this.NewConstruction.TabIndex = 5;
@@ -607,7 +608,7 @@
             // 
             this.SanggaHome.AutoSize = true;
             this.SanggaHome.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.SanggaHome.Location = new System.Drawing.Point(322, 12);
+            this.SanggaHome.Location = new System.Drawing.Point(383, 12);
             this.SanggaHome.Name = "SanggaHome";
             this.SanggaHome.Size = new System.Drawing.Size(71, 16);
             this.SanggaHome.TabIndex = 6;
@@ -619,7 +620,7 @@
             // 
             this.Building.AutoSize = true;
             this.Building.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Building.Location = new System.Drawing.Point(256, 12);
+            this.Building.Location = new System.Drawing.Point(327, 12);
             this.Building.Name = "Building";
             this.Building.Size = new System.Drawing.Size(47, 16);
             this.Building.TabIndex = 7;
@@ -631,7 +632,7 @@
             // 
             this.Dagagu.AutoSize = true;
             this.Dagagu.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Dagagu.Location = new System.Drawing.Point(174, 12);
+            this.Dagagu.Location = new System.Drawing.Point(261, 12);
             this.Dagagu.Name = "Dagagu";
             this.Dagagu.Size = new System.Drawing.Size(59, 16);
             this.Dagagu.TabIndex = 8;
@@ -1274,11 +1275,22 @@
             this.label40.TabIndex = 0;
             this.label40.Text = "메모";
             // 
+            // btn_Delete
+            // 
+            this.btn_Delete.Location = new System.Drawing.Point(171, 6);
+            this.btn_Delete.Name = "btn_Delete";
+            this.btn_Delete.Size = new System.Drawing.Size(75, 29);
+            this.btn_Delete.TabIndex = 101;
+            this.btn_Delete.Text = "자료 삭제";
+            this.btn_Delete.UseVisualStyleBackColor = true;
+            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
+            // 
             // ManagerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(922, 703);
+            this.Controls.Add(this.btn_Delete);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.delete_row);
@@ -1373,7 +1385,7 @@
         private System.Windows.Forms.TextBox TB_RoadAddr;
         private System.Windows.Forms.TextBox TB_Area;
         private System.Windows.Forms.TextBox TB_Addr;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox TB_RoadWidth;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox TB_Station;
@@ -1465,5 +1477,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn monthlyIncome;
         private System.Windows.Forms.DataGridViewTextBoxColumn managementPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn etc;
+        private System.Windows.Forms.Button btn_Delete;
     }
 }

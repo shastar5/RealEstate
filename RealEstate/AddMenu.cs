@@ -65,8 +65,8 @@ namespace RealEstate
         //프로필 유무
         public int profilePictureID=-1;
         //숫자를 글자로 만들 때 에러 유무
-        int ErrorStr2Num; 
-
+        int ErrorStr2Num;
+        int buildingID;
         String strConn;
         SQLiteConnection cn = new SQLiteConnection();
         SQLiteCommand cmd = new SQLiteCommand();
@@ -216,7 +216,7 @@ namespace RealEstate
 
         private int getid() //저장할 id 정하기  기존에 저장된 id최대값에서 +1
         {
-            int tableID = 0;
+            int buildingID = 0;
 
             cn.Open();
             string query = "select MAX(id) from info1";
@@ -225,20 +225,28 @@ namespace RealEstate
             while (rdr.Read())
             {
                 if (!rdr[0].ToString().Equals(""))
-                    tableID = int.Parse(rdr[0].ToString());
+                    buildingID = int.Parse(rdr[0].ToString());
             }
             cn.Close();
 
-            return tableID;
+            return buildingID;
         }
 
         private void Btn_Save_Click(object sender, EventArgs e)
         {
             ErrorStr2Num = 0;
-            if (type == -1)
+            int isOpen = 0;
+            foreach (Form form in Application.OpenForms)
             {
-                MessageBox.Show("건물 종류를 선택해주세요");
+                if (form.Name.Equals("ShowPicture"))
+                {
+                    isOpen = 1;
+                }
             }
+            if (type == -1)
+                MessageBox.Show("건물 종류를 선택해주세요");
+            else if(isOpen == 1)
+                MessageBox.Show("사진추가/삭제 창을 닫고 저장해주세요.");
             else
             {
                 setData();
@@ -298,30 +306,42 @@ namespace RealEstate
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            int tableID=0; //저장할 picture테이블의 명 id
-            ShowPicture showpicture = new ShowPicture();
-            showpicture.setDBfile(DBFile);
-            showpicture.setMode("addMode");
-            strConn = "Data Source=" + DBFile + "; Version=3;";
-            cn.ConnectionString = strConn;
-            cn.Open();
-            string query = "select MAX(id) from info1";
-            SQLiteCommand cmd = new SQLiteCommand(query, cn);
-            SQLiteDataReader rdr = cmd.ExecuteReader();
-            while (rdr.Read())
+            int buildingID=0; //저장할 picture테이블의 명 id
+            int isOpen = 0;
+            foreach (Form form in Application.OpenForms)
             {
-                if(!rdr[0].ToString().Equals(""))
-                    tableID = int.Parse(rdr[0].ToString());
+                if (form.Name.Equals("ShowPicture"))
+                {
+                    isOpen = 1;
+                    MessageBox.Show("사진추가/삭제 창이 이미 열려 있습니다.");
+                }
             }
-            cn.Close();
-            tableID+=1;
-            showpicture.tableID = tableID; //테이블 id보내줘서 picture+id로 테이블 생성
-            showpicture.Owner = this;
-            showpicture.Show();
+            if (isOpen == 0)
+            {
+                ShowPicture showpicture = new ShowPicture();
+                showpicture.setDBfile(DBFile);
+                showpicture.setMode("addMode");
+                strConn = "Data Source=" + DBFile + "; Version=3;";
+                cn.ConnectionString = strConn;
+                cn.Open();
+                string query = "select MAX(id) from info1";
+                SQLiteCommand cmd = new SQLiteCommand(query, cn);
+                SQLiteDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    if (!rdr[0].ToString().Equals(""))
+                        buildingID = int.Parse(rdr[0].ToString());
+                }
+                cn.Close();
+                buildingID += 1;
+                showpicture.buildingID = buildingID; //테이블 id보내줘서 picture+id로 테이블 생성
+                showpicture.Owner = this;
+                showpicture.Show();
+            }
         }
         private void notSaveClose() //저장안함 할 경우 해당 picture 테이블 삭제
         {
-            int tableID = 0;
+            int buildingID = 0;
             cn.Open();
             string query = "select MAX(id) from info1";
             SQLiteCommand cmd = new SQLiteCommand(query, cn);
@@ -329,11 +349,11 @@ namespace RealEstate
             while (rdr.Read())
             {
                 if (!rdr[0].ToString().Equals(""))
-                    tableID = int.Parse(rdr[0].ToString());
+                    buildingID = int.Parse(rdr[0].ToString());
             }
             rdr.Close();
-            tableID += 1;
-            cmd.CommandText = "drop table if exists picture" + tableID;
+            buildingID += 1;
+            cmd.CommandText = "delete from pictures where buildingid = " + buildingID.ToString();
             cmd.ExecuteNonQuery();
             cn.Close();
         }
@@ -390,12 +410,13 @@ namespace RealEstate
             }
         }
         
-        public void loadPicture(string tableName) //프로필 사진 불러오기위해 추가
+        public void loadPicture() //프로필 사진 불러오기위해 추가
         {
             if (profilePictureID != -1)
             {
+                
                 cn.Open();
-                string query = "select picture from "+tableName+" where id = " + profilePictureID;
+                string query = "select picture from pictures where id = " + profilePictureID;
                 cmd = new SQLiteCommand(query, cn);
                 SQLiteDataAdapter da = new SQLiteDataAdapter(cmd);
                 SQLiteCommandBuilder cbd = new SQLiteCommandBuilder(da);
@@ -419,7 +440,6 @@ namespace RealEstate
             {
                 notSaveClose();
                 this.Close();
-
             }
 
         }

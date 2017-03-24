@@ -287,12 +287,12 @@ namespace RealEstate
                 CB_corner.Checked = true;
             }
         }
-        public void loadPicture(string tableName)  //사진 불러오기
+        public void loadPicture()  //사진 불러오기
         {
             if (profilePictureID != -1)
             {
                 cn.Open();
-                string query = "select picture from " + tableName + " where id = " + profilePictureID;
+                string query = "select picture from pictures where id = " + profilePictureID;
                 cmd = new SQLiteCommand(query, cn);
                 SQLiteDataAdapter da = new SQLiteDataAdapter(cmd);
                 SQLiteCommandBuilder cbd = new SQLiteCommandBuilder(da);
@@ -310,7 +310,7 @@ namespace RealEstate
         private void UserView_Load(object sender, EventArgs e)
         {
             readData();
-            loadPicture("picture" + id);
+            loadPicture();
             readDataGrid();
             readcomment();
 
@@ -338,7 +338,7 @@ namespace RealEstate
                 showpicture.setDBfile(DBFile);
                 showpicture.Owner = this;
                 //id. 프로필 사진 번호, 모드 보내기
-                showpicture.tableID = id;
+                showpicture.buildingID = id;
                 showpicture.profilePictureID = profilePictureID;
                 showpicture.setMode("userMode");
                 showpicture.Show();

@@ -72,10 +72,11 @@ namespace RealEstate
                 + "sellPrice NUMERIC, payedPrice NUMERIC, yearPercent NUMERIC, type INTEGER, state INTEGER, premium NUMERIC, monthlyPay NUMERIC, maintenance NUMERIC, isCorner INTEGER, profilePictureID INTEGER)";
             SQLiteCommand cmd = new SQLiteCommand(query, cn);
             cmd.ExecuteNonQuery();
-            /*
-            query = "Create table if not exists temp (id INTEGER  PRIMARY KEY autoincrement, picture image)";
+
+            query = "Create table if not exists pictures (id INTEGER  PRIMARY KEY autoincrement, buildingid INTEGER, picture image)";
             cmd = new SQLiteCommand(query, cn);
-            cmd.ExecuteNonQuery();*/
+            cmd.ExecuteNonQuery();
+          
             try
             {
                 query = "Create table if not exists info2 (id INTEGER PRIMARY KEY autoincrement, buildingID INTEGER, floor NUMERIC, area NUMERIC, storeName varchar(100), "

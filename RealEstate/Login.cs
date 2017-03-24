@@ -41,12 +41,15 @@ namespace RealEstate
                 {
                     if (firstMenu == null)
                     {
+                        this.Hide();
                         firstMenu = new FirstMenu();
-                        Hide();
-                        
                         firstMenu.ShowDialog();
+                        this.Close();
+
                     }
                 }
+                else
+                    MessageBox.Show("아이디 혹은 비밀번호가 올바르지 않습니다");
             }
             else
                 MessageBox.Show("아이디 혹은 비밀번호가 올바르지 않습니다");
