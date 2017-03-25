@@ -1357,6 +1357,8 @@
             this.Controls.Add(this.button1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(938, 741);
+            this.MinimumSize = new System.Drawing.Size(938, 726);
             this.Name = "ManagerView";
             this.Text = "관리자용 상세정보";
             this.Load += new System.EventHandler(this.ManagerView_Load);

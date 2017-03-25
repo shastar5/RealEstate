@@ -135,6 +135,8 @@
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(783, 513);
+            this.MinimumSize = new System.Drawing.Size(783, 513);
             this.Name = "ShowPicture";
             this.Text = "사진추가/삭제";
             this.Load += new System.EventHandler(this.ShowPicture_Load);

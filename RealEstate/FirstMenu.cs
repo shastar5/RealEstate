@@ -350,6 +350,13 @@ namespace RealEstate
             conn.Close();
             
         }
+        private void btn_DBMerge_Click(object sender, EventArgs e)
+        {
+            DBMerge DbMerge = new DBMerge();
+            //DBFIle위치, user타입, 검색값 넘겨주기
+            DbMerge.setDBfile(DBFile);
+            DbMerge.Show();
+        }
         private void btn_DBFind_Click(object sender, EventArgs e)
         {
             try
@@ -484,12 +491,12 @@ namespace RealEstate
 
         private void FirstMenu_Load(object sender, EventArgs e)
         {
-            createTable();
+            //createTable();
         }
         private void btn_Back_UP_Click(object sender, EventArgs e)
         {
 
-            string time = DateTime.Now.ToString("yyyy년MM월dd일HH시MM분ss초_백업파일"); //백업 파일 이름
+            string time = DateTime.Now.ToString("yyyy년MM월dd일HH시mm분ss초_백업파일"); //백업 파일 이름
             string sDirPath = deskPath + "/backup";
             string backupFile = sDirPath + "/ " + time + ".db";
             DirectoryInfo di = new DirectoryInfo(sDirPath); 

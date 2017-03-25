@@ -106,6 +106,8 @@
             this.Controls.Add(this.button2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(969, 531);
+            this.MinimumSize = new System.Drawing.Size(969, 531);
             this.Name = "FindView";
             this.Text = "찾기";
             this.Load += new System.EventHandler(this.FindView_Load);

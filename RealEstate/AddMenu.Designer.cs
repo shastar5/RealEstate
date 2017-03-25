@@ -1317,6 +1317,8 @@
             this.Controls.Add(this.panel2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(930, 752);
+            this.MinimumSize = new System.Drawing.Size(930, 726);
             this.Name = "AddMenu";
             this.Text = "추가";
             this.Load += new System.EventHandler(this.AddMenu_Load);

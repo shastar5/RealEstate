@@ -66,6 +66,8 @@ namespace RealEstate
         //프로필 유무
         public int profilePictureID=-1;
         //숫자를 글자로 만들 때 에러 유무
+
+        int currentAddId;
         int ErrorStr2Num;
         String strConn;
         SQLiteConnection cn = new SQLiteConnection();
@@ -118,7 +120,7 @@ namespace RealEstate
                 for (int i = 0; i < dgv.Rows.Count; i++)
                 {
                     cmd.Parameters.AddWithValue("@id", null);
-                    cmd.Parameters.AddWithValue("@buildingID", getid2());
+                    cmd.Parameters.AddWithValue("@buildingID", currentAddId);
                     cmd.Parameters.AddWithValue("@floor", dgv.Rows[i].Cells["floor"].Value);
                     cmd.Parameters.AddWithValue("@area", dgv.Rows[i].Cells["floor_area"].Value);
                     cmd.Parameters.AddWithValue("@storeName", dgv.Rows[i].Cells["storeName"].Value);
@@ -225,35 +227,69 @@ namespace RealEstate
         }
         private void saveData2()
         {
+            
+            MySqlConnection conn = new MySqlConnection(strConn2);
+            string query = "update info1 SET addr = @Addr , roadAddr = @RoadAddr, area = @Area, station = @Station, useArea = @UseArea, distance = @Distance, "
+                 + "roadWidth = @RoadWidth, totalArea = @TotalArea, completeYear = @CompleteYear, parking = @Parking, acHeating = @AcHeating, EV = @EV, "
+                 + "buildingName = @BuildingName, owner = @Owner, tel = @Tel, meno = @Meno, deposit = @Deposit, income = @Income, loan = @Loan, "
+                 + "interest = @Interest, takeOverPrice = @TakeOverPrice, sellPrice = @SellPrice, payedPrice = @PayedPrice, yearPercent = @YearPercent, "
+                 + "type = @Type, state = @State, premium = @Premium, monthlyPay = @MonthlyPay, maintenance = @Maintenance, isCorner = @IsCorner, profilePictureID = @ProfilePictureID where id  = " + currentAddId;
+
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.Add(new MySqlParameter("@Addr", MySqlDbType.String) { Value = addr });
+            cmd.Parameters.Add(new MySqlParameter("@RoadAddr", MySqlDbType.String) { Value = roadAddr });
+            cmd.Parameters.Add(new MySqlParameter("@Area", MySqlDbType.String) { Value = area });
+            cmd.Parameters.Add(new MySqlParameter("@Station", MySqlDbType.String) { Value = station });
+            cmd.Parameters.Add(new MySqlParameter("@UseArea", MySqlDbType.String) { Value = useArea });
+
+            cmd.Parameters.Add(new MySqlParameter("@Distance", MySqlDbType.Double) { Value = distance });
+            cmd.Parameters.Add(new MySqlParameter("@RoadWidth", MySqlDbType.Double) { Value = roadWidth });
+            cmd.Parameters.Add(new MySqlParameter("@TotalArea", MySqlDbType.String) { Value = totalArea });
+            cmd.Parameters.Add(new MySqlParameter("@CompleteYear", MySqlDbType.String) { Value = completeYear });
+            cmd.Parameters.Add(new MySqlParameter("@Parking", MySqlDbType.String) { Value = parking });
+            cmd.Parameters.Add(new MySqlParameter("@AcHeating", MySqlDbType.String) { Value = acHeating });
+            cmd.Parameters.Add(new MySqlParameter("@EV", MySqlDbType.String) { Value = EV });
+            cmd.Parameters.Add(new MySqlParameter("@BuildingName", MySqlDbType.String) { Value = buildingName });
+
+            cmd.Parameters.Add(new MySqlParameter("@Owner", MySqlDbType.String) { Value = owner });
+            cmd.Parameters.Add(new MySqlParameter("@Tel", MySqlDbType.String) { Value = tel });
+            cmd.Parameters.Add(new MySqlParameter("@Meno", MySqlDbType.String) { Value = meno });
+            cmd.Parameters.Add(new MySqlParameter("@Deposit", MySqlDbType.Double) { Value = deposit });
+            cmd.Parameters.Add(new MySqlParameter("@Income", MySqlDbType.Double) { Value = Income });
+            cmd.Parameters.Add(new MySqlParameter("@Loan", MySqlDbType.Double) { Value = loan });
+            cmd.Parameters.Add(new MySqlParameter("@Interest", MySqlDbType.Double) { Value = interest });
+            cmd.Parameters.Add(new MySqlParameter("@TakeOverPrice", MySqlDbType.Double) { Value = takeOverPrice });
+            cmd.Parameters.Add(new MySqlParameter("@SellPrice", MySqlDbType.Double) { Value = sellPrice });
+            cmd.Parameters.Add(new MySqlParameter("@PayedPrice", MySqlDbType.Double) { Value = payedPrice });
+            cmd.Parameters.Add(new MySqlParameter("@YearPercent", MySqlDbType.Double) { Value = yearPercent });
+            cmd.Parameters.Add(new MySqlParameter("@Type", MySqlDbType.Int32) { Value = type });
+            cmd.Parameters.Add(new MySqlParameter("@State", MySqlDbType.Int32) { Value = state });
+            cmd.Parameters.Add(new MySqlParameter("@Premium", MySqlDbType.Double) { Value = premium });
+            cmd.Parameters.Add(new MySqlParameter("@MonthlyPay", MySqlDbType.Double) { Value = monthlyPay });
+            cmd.Parameters.Add(new MySqlParameter("@Maintenance", MySqlDbType.Double) { Value = maintenance });
+            cmd.Parameters.Add(new MySqlParameter("@IsCorner", MySqlDbType.Int32) { Value = isCorner });
+            cmd.Parameters.Add(new MySqlParameter("@ProfilePictureID", MySqlDbType.Int32) { Value = profilePictureID });
+
+
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+        private void insertDefault()
+        {
             try
             {
-
-                string query = "Create table if not exists info1 (id INTEGER  PRIMARY KEY auto_increment, addr varchar(1000), roadAddr varchar(1000), "
-                               + "area varchar(100), station varchar(100), useArea varchar(100), distance NUMERIC, roadWidth NUMERIC, "
-                            + "totalArea varchar(100), completeYear varchar(100), parking varchar(100), acHeating varchar(100), EV varchar(100), "
-                            + "buildingName varchar(100), owner varchar(100), tel varchar(100), meno varchar(100), deposit NUMERIC, income NUMERIC, loan NUMERIC, interest NUMERIC, takeOverPrice NUMERIC, "
-                            + "sellPrice NUMERIC, payedPrice NUMERIC, yearPercent NUMERIC, type INTEGER, state INTEGER, premium NUMERIC, monthlyPay NUMERIC, maintenance NUMERIC, isCorner INTEGER, profilePictureID INTEGER)";
-
-
                 MySqlConnection conn = new MySqlConnection(strConn2);
-
+                string query = "insert into info1(id, addr) values(null, null)";
                 conn.Open();
                 MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.ExecuteNonQuery();
-
-                cmd.CommandText = "insert into info1(id, addr, roadAddr, area, station, useArea, distance, roadWidth, totalArea, completeYear,"
-                    + " parking, acHeating, EV, buildingName, owner, tel, meno, deposit, income, loan, interest, takeOverPrice,"
-                    + " sellPrice, payedPrice, yearPercent, type, state, premium, monthlyPay, maintenance, isCorner, profilePictureID) values(null, '" + addr + "', '" + roadAddr + "', '" + area + "', '" + station + "', "
-                    + "'" + useArea + "', '" + distance + "', '" + roadWidth + "', '" + totalArea + "', '" + completeYear + "', '" + parking + "', "
-                    + "'" + acHeating + "', '" + EV + "', '" + buildingName + "', '" + owner + "', '" + tel + "', '" + meno + "', " + deposit + ", "
-                    + Income + ", " + loan + ", " + interest + ", " + takeOverPrice + ", " + sellPrice + ", " + payedPrice + ", " + yearPercent + ", "
-                    + type + ", " + state + ", " + premium + ", " + monthlyPay + ", " + maintenance + ", " + isCorner + ", " + profilePictureID + ")";
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
             catch(Exception ex)
             {
                 MessageBox.Show("인터넷 연결 상태가 안좋습니다.\n연결 확인후 다시 시도해주세요.");
+                this.Close();
             }
         }
 
@@ -294,6 +330,7 @@ namespace RealEstate
                 if (!rdr[0].ToString().Equals(""))
                     buildingID = int.Parse(rdr[0].ToString());
             }
+            rdr.Close();
             cn.Close();
 
             return buildingID;
@@ -315,6 +352,7 @@ namespace RealEstate
                     if (!rdr[0].ToString().Equals(""))
                         buildingID = int.Parse(rdr[0].ToString());
                 }
+                rdr.Close();
                 conn.Close();
                 return buildingID;
             }
@@ -344,9 +382,13 @@ namespace RealEstate
                 setData();
                 if (ErrorStr2Num == 0)
                 {
+                    //id 값  증가전
                     //saveData();
+
                     saveData2();
-                    //saveDataGrid();
+                    //saveDataGrid()
+
+                    //id값 증가후임 왜냐하면 savedata호출로 info1에 id값 들어가져서
                     saveDataGrid2();
                     //insertComment();
                     insertComment2();
@@ -381,7 +423,8 @@ namespace RealEstate
             cmd = new SQLiteCommand();
             strConn = "Data Source=" + DBFile + "; Version=3;";
             cn.ConnectionString = strConn;
-
+            insertDefault();
+            currentAddId = getid2();
             dgv = ContentOfRentals;
             dgv.AutoGenerateColumns = false;
 
@@ -402,7 +445,6 @@ namespace RealEstate
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            int buildingID=0; // 만들어질 부동산 id
             int isOpen = 0;
             foreach (Form form in Application.OpenForms)
             {
@@ -417,20 +459,8 @@ namespace RealEstate
                 ShowPicture showpicture = new ShowPicture();
                 showpicture.setDBfile(DBFile);
                 showpicture.setMode("addMode");
-                strConn = "Data Source=" + DBFile + "; Version=3;";
-                cn.ConnectionString = strConn;
-                cn.Open();
-                string query = "select MAX(id) from info1";
-                SQLiteCommand cmd = new SQLiteCommand(query, cn);
-                SQLiteDataReader rdr = cmd.ExecuteReader();
-                while (rdr.Read())
-                {
-                    if (!rdr[0].ToString().Equals(""))
-                        buildingID = int.Parse(rdr[0].ToString());
-                }
-                cn.Close();
-                buildingID += 1;
-                showpicture.buildingID = buildingID; //만들어질 부동산 id 보내기
+                
+                showpicture.buildingID = currentAddId; //만들어질 부동산 id 보내기
                 showpicture.Owner = this;
                 showpicture.Show();
             }
@@ -664,7 +694,7 @@ namespace RealEstate
                 for (int i = 0; i < commentview.Rows.Count; ++i)
                 {
                     cmd.Parameters.AddWithValue("@content", commentview.Rows[i].Cells["Content"].Value);
-                    cmd.Parameters.AddWithValue("@buildingID", getid2());
+                    cmd.Parameters.AddWithValue("@buildingID", currentAddId);
                     cmd.ExecuteNonQuery();
                     cmd.Parameters.Clear();
 
@@ -719,7 +749,7 @@ namespace RealEstate
                 {
                     cmd.Parameters.AddWithValue("@c_date", DateTime.Now);
                     cmd.Parameters.AddWithValue("@memo", memoview.Rows[i].Cells["memo"].Value);
-                    cmd.Parameters.AddWithValue("@buildingID", getid2());
+                    cmd.Parameters.AddWithValue("@buildingID", currentAddId);
                     cmd.ExecuteNonQuery();
                     cmd.Parameters.Clear();
                 }

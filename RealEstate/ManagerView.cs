@@ -1088,21 +1088,28 @@ namespace RealEstate
         {
             if (profilePictureID != -1)
             {
-                cn.Open();
-                string query = "select picture from pictures where id = " + profilePictureID;
-                cmd = new SQLiteCommand(query, cn);
-                SQLiteDataAdapter da = new SQLiteDataAdapter(cmd);
-                SQLiteCommandBuilder cbd = new SQLiteCommandBuilder(da);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                cn.Close();
-                byte[] ap = (byte[])(ds.Tables[0].Rows[0]["picture"]);
-                MemoryStream ms = new MemoryStream(ap);
-                pictureBox1.Image = System.Drawing.Image.FromStream(ms);
-                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-                pictureBox1.BorderStyle = BorderStyle.Fixed3D;
-                ms.Close();
-                cn.Close();
+                cn.Open(); 
+                string query = "select picture from pictures where id = " + profilePictureID +" and buildingid = "+id;
+                try
+                {
+                    cmd = new SQLiteCommand(query, cn);
+                    SQLiteDataAdapter da = new SQLiteDataAdapter(cmd);
+                    SQLiteCommandBuilder cbd = new SQLiteCommandBuilder(da);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    cn.Close();
+                    byte[] ap = (byte[])(ds.Tables[0].Rows[0]["picture"]);
+                    MemoryStream ms = new MemoryStream(ap);
+                    pictureBox1.Image = System.Drawing.Image.FromStream(ms);
+                    pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pictureBox1.BorderStyle = BorderStyle.Fixed3D;
+                    ms.Close();
+                    cn.Close();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("열고자하는 부동산의 프로필 사진이 DB파일에 존재 하지 않습니다\n");
+                }
             }
             else
             {
