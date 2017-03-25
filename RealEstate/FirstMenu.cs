@@ -350,6 +350,13 @@ namespace RealEstate
             conn.Close();
             
         }
+        private void btn_DBMerge_Click(object sender, EventArgs e)
+        {
+            DBMerge DbMerge = new DBMerge();
+            //DBFIle위치, user타입, 검색값 넘겨주기
+            DbMerge.setDBfile(DBFile);
+            DbMerge.Show();
+        }
         private void btn_DBFind_Click(object sender, EventArgs e)
         {
             try

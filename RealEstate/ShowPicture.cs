@@ -230,14 +230,22 @@ namespace RealEstate
                 {
                     for(i=1; i<10000; i++)
                     {
-                        if (pictureNum[i].Equals(profilePictureID.ToString()))
+                        if (pictureNum[i]==null)
+                        {
+                            label2.Text = "프로필 사진이 없습니다.";
+                            profilePictureID = -1;
+                            break;
+                        }
+                        if (pictureNum[i].Equals(profilePictureID.ToString())&& pictureNum[i]!=null)
                         {
                             if(string.Compare(pictureNum[int.Parse(id)], profilePictureID.ToString()) < 0 )
                             i--;
+                            label2.Text = "프로필 사진  : 사진 " + i;
                             break;
                         }
+                        
                     }
-                    label2.Text = "프로필 사진  : 사진 " + i;
+                    
 
                 }
                 id = (int.Parse(id)).ToString();

@@ -55,6 +55,7 @@
             this.TB_Income = new System.Windows.Forms.TextBox();
             this.TB_TakeOverPrice = new System.Windows.Forms.TextBox();
             this.TB_SellPrice = new System.Windows.Forms.TextBox();
+            this.btn_DBMerge = new System.Windows.Forms.Button();
             this.btn_DBFind = new System.Windows.Forms.Button();
             this.btn_find = new System.Windows.Forms.Button();
             this.Text_매매금액 = new System.Windows.Forms.Label();
@@ -72,7 +73,6 @@
             this.Page_complete = new System.Windows.Forms.TabPage();
             this.Page_prepare = new System.Windows.Forms.TabPage();
             this.Tab_control = new System.Windows.Forms.TabControl();
-            this.button1 = new System.Windows.Forms.Button();
             this.Panel_InitText.SuspendLayout();
             this.panel1.SuspendLayout();
             this.Tab_control.SuspendLayout();
@@ -102,7 +102,7 @@
             this.Panel_InitText.Controls.Add(this.TB_Income);
             this.Panel_InitText.Controls.Add(this.TB_TakeOverPrice);
             this.Panel_InitText.Controls.Add(this.TB_SellPrice);
-            this.Panel_InitText.Controls.Add(this.button1);
+            this.Panel_InitText.Controls.Add(this.btn_DBMerge);
             this.Panel_InitText.Controls.Add(this.btn_DBFind);
             this.Panel_InitText.Controls.Add(this.btn_find);
             this.Panel_InitText.Controls.Add(this.Text_매매금액);
@@ -319,6 +319,14 @@
             this.TB_SellPrice.Name = "TB_SellPrice";
             this.TB_SellPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
+            // btn_DBMerge
+            // 
+            resources.ApplyResources(this.btn_DBMerge, "btn_DBMerge");
+            this.btn_DBMerge.Name = "btn_DBMerge";
+            this.btn_DBMerge.TabStop = false;
+            this.btn_DBMerge.UseVisualStyleBackColor = true;
+            this.btn_DBMerge.Click += new System.EventHandler(this.btn_DBMerge_Click);
+            // 
             // btn_DBFind
             // 
             resources.ApplyResources(this.btn_DBFind, "btn_DBFind");
@@ -426,14 +434,6 @@
             this.Tab_control.TabStop = false;
             this.Tab_control.SelectedIndexChanged += new System.EventHandler(this.Tabs_SelectedIndexChanged);
             // 
-            // button1
-            // 
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.Name = "button1";
-            this.button1.TabStop = false;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btn_DBFind_Click);
-            // 
             // FirstMenu
             // 
             resources.ApplyResources(this, "$this");
@@ -498,7 +498,7 @@
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_DBMerge;
     }
 }
 
