@@ -75,7 +75,7 @@ namespace RealEstate
 
         DataGridView dgv, commentview, memoview;
 
-        string strConn2 = "Server=104.154.105.21;Database=realestate;Uid=realestate_admin;Pwd=123456;";
+        string strConn2 = "Server=35.185.159.50;Database=realestate;Uid=realestate_admin;Pwd=123456;";
 
         private void saveDataGrid()
         {
