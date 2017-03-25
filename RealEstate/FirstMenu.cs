@@ -322,7 +322,7 @@ namespace RealEstate
         }
         private void createTable()
         {
-            string strConn2 = "";
+            string strConn2 = "Server=104.154.105.21;Database=realestate;Uid=realestate_admin;Pwd=123456;"; 
 
             string query = "Create table if not exists info1 (id INTEGER  PRIMARY KEY auto_increment, addr varchar(1000), roadAddr varchar(1000), "
                            + "area varchar(100), station varchar(100), useArea varchar(100), distance NUMERIC, roadWidth NUMERIC, "
@@ -330,7 +330,7 @@ namespace RealEstate
                         + "buildingName varchar(100), owner varchar(100), tel varchar(100), meno varchar(100), deposit NUMERIC, income NUMERIC, loan NUMERIC, interest NUMERIC, takeOverPrice NUMERIC, "
                         + "sellPrice NUMERIC, payedPrice NUMERIC, yearPercent NUMERIC, type INTEGER, state INTEGER, premium NUMERIC, monthlyPay NUMERIC, maintenance NUMERIC, isCorner INTEGER, profilePictureID INTEGER)";
             
-            MySqlConnection conn = new MySqlConnection(strConn);
+            MySqlConnection conn = new MySqlConnection(strConn2);
             conn.Open();
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.ExecuteNonQuery();
@@ -340,7 +340,7 @@ namespace RealEstate
             cmd.ExecuteNonQuery();
             cmd.CommandText = "Create table if not exists comment (id INTEGER PRIMARY KEY auto_increment, content varchar(1000), buildingID INTEGER, FOREIGN KEY(buildingID) REFERENCES info1(id))";
             cmd.ExecuteNonQuery();
-            cmd.CommandText = "Create table if not exists memo (id INTEGER PRIMARY KEY auto_increment, c_date DATE, memo varchar(1000)" +
+            cmd.CommandText = "Create table if not exists memo (id INTEGER PRIMARY KEY auto_increment, c_date DATETIME, memo varchar(1000)" +
                 ", buildingID INTEGER, FOREIGN KEY(buildingID) REFERENCES info1(id))";
             cmd.ExecuteNonQuery();
             conn.Close();

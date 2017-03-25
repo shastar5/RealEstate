@@ -1551,7 +1551,7 @@ namespace RealEstate
                 MySqlCommand cmd = new MySqlCommand(query, conn);
 
                 cmd.Parameters.AddWithValue("@id", null);
-                cmd.Parameters.AddWithValue("@c_date", DateTime.Now);
+                cmd.Parameters.AddWithValue("@c_date",  DateTime.Now);
                 cmd.Parameters.AddWithValue("@memo", memoview.Rows[index].Cells["memo"].Value);
                 cmd.Parameters.AddWithValue("@buildingID", id);
 
@@ -1639,14 +1639,25 @@ namespace RealEstate
         }
         private void deleteDB2()
         {
-            string query = "delete from info1 where id = " + id;
+            string query = "delete from comment where buildingid = " + id;
             MySqlConnection conn = new MySqlConnection(strConn2);
             conn.Open();
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.ExecuteNonQuery();
-            query = "delete from pictures where buildingid = " + id;
-            cmd = new MySqlCommand(query, conn);
+
+            cmd.CommandText = "delete from info2 where buildingid = " + id;
             cmd.ExecuteNonQuery();
+            cmd.CommandText = "delete from memo where buildingid = " + id;
+            cmd.ExecuteNonQuery();
+            cmd.CommandText = "delete from info1 where id = " + id;
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+
+            cn.Open();
+            query = "delete from pictures where buildingid = " + id;
+            SQLiteCommand cmd2 = new SQLiteCommand(query, cn);
+            cmd2.ExecuteNonQuery();
             conn.Close();
         }
         private void updateTB()

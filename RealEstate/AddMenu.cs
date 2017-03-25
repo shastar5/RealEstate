@@ -127,7 +127,7 @@ namespace RealEstate
                     cmd.Parameters.AddWithValue("@managementPrice", dgv.Rows[i].Cells["managementPrice"].Value);
                     cmd.Parameters.AddWithValue("@etc", dgv.Rows[i].Cells["etc"].Value);
                     cmd.ExecuteNonQuery();
-
+                    cmd.Parameters.Clear();
                 }
                 conn.Close();
             }
@@ -656,18 +656,18 @@ namespace RealEstate
             try
             {
 
-                string query = "INSERT INTO comment VALUES(@id, @content, @buildingID)";
+                string query = "INSERT INTO comment VALUES(null, @content, @buildingID)";
                 MySqlConnection conn = new MySqlConnection(strConn2);
 
                 conn.Open();
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 for (int i = 0; i < commentview.Rows.Count; ++i)
                 {
-                    cmd.Parameters.AddWithValue("@id", null);
                     cmd.Parameters.AddWithValue("@content", commentview.Rows[i].Cells["Content"].Value);
                     cmd.Parameters.AddWithValue("@buildingID", getid2());
-
                     cmd.ExecuteNonQuery();
+                    cmd.Parameters.Clear();
+
                 }
                 conn.Close();
             }
@@ -694,7 +694,6 @@ namespace RealEstate
                     cmd.Parameters.AddWithValue("@c_date", DateTime.Now);
                     cmd.Parameters.AddWithValue("@memo", memoview.Rows[i].Cells["memo"].Value);
                     cmd.Parameters.AddWithValue("@buildingID", getid());
-
                     cmd.ExecuteNonQuery();
 
                 }
@@ -711,20 +710,18 @@ namespace RealEstate
             try
             {
 
-                string query = "INSERT INTO memo VALUES(@id, @c_date, @memo, @buildingID)";
+                string query = "INSERT INTO memo VALUES(null, @c_date, @memo, @buildingID)";
                 MySqlConnection conn = new MySqlConnection(strConn2);
 
                 conn.Open();
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 for (int i = 0; i < memoview.Rows.Count; ++i)
                 {
-                    cmd.Parameters.AddWithValue("@id", null);
                     cmd.Parameters.AddWithValue("@c_date", DateTime.Now);
                     cmd.Parameters.AddWithValue("@memo", memoview.Rows[i].Cells["memo"].Value);
                     cmd.Parameters.AddWithValue("@buildingID", getid2());
-
                     cmd.ExecuteNonQuery();
-
+                    cmd.Parameters.Clear();
                 }
                 conn.Close();
             }
