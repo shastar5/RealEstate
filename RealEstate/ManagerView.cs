@@ -1628,12 +1628,19 @@ namespace RealEstate
 
         private void btn_Delete_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("정말 자료를 삭제하시겠습니까?", "알림", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-            if (dr == DialogResult.OK)
+            try
             {
-                //deleteDB();
-                deleteDB2();
-                this.Close();
+                DialogResult dr = MessageBox.Show("정말 자료를 삭제하시겠습니까?", "알림", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                if (dr == DialogResult.OK)
+                {
+                    //deleteDB();
+                    deleteDB2();
+                    this.Close();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
 
