@@ -484,7 +484,7 @@ namespace RealEstate
 
         private void FirstMenu_Load(object sender, EventArgs e)
         {
-            createTable();
+            //createTable();
         }
         private void btn_Back_UP_Click(object sender, EventArgs e)
         {
