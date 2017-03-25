@@ -523,6 +523,7 @@
             this.ContentOfRentals.TabIndex = 9;
             this.ContentOfRentals.TabStop = false;
             this.ContentOfRentals.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.ContentOfRentals_CellEndEdit);
+            this.ContentOfRentals.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.ContentOfRentals_EditingControlShowing);
             // 
             // _id
             // 
