@@ -5,6 +5,7 @@ using System.Data;
 using System.IO;
 using System.Drawing;
 using System.Runtime.InteropServices;
+using MySql.Data.MySqlClient;
 
 namespace RealEstate
 {
@@ -72,6 +73,8 @@ namespace RealEstate
 
         DataGridView dgv, commentview, memoview;
 
+        string strConn2 = "Server=104.154.105.21;Database=realestate;Uid=realestate_admin;Pwd=123456;";
+
         private void saveDataGrid()
         {
             SQLiteConnection con = new SQLiteConnection();
@@ -101,7 +104,38 @@ namespace RealEstate
                 MessageBox.Show(e.ToString());
             }
         }
+        private void saveDataGrid2()
+        {
+            try
+            {
 
+                string query = "INSERT INTO info2 VALUES(@id, @buildingID, @floor, @area, @storeName, @deposit, @monthlyIncome, @managementPrice, @etc)";
+
+                MySqlConnection conn = new MySqlConnection(strConn2);
+
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                for (int i = 0; i < dgv.Rows.Count; i++)
+                {
+                    cmd.Parameters.AddWithValue("@id", null);
+                    cmd.Parameters.AddWithValue("@buildingID", getid2());
+                    cmd.Parameters.AddWithValue("@floor", dgv.Rows[i].Cells["floor"].Value);
+                    cmd.Parameters.AddWithValue("@area", dgv.Rows[i].Cells["floor_area"].Value);
+                    cmd.Parameters.AddWithValue("@storeName", dgv.Rows[i].Cells["storeName"].Value);
+                    cmd.Parameters.AddWithValue("@deposit", dgv.Rows[i].Cells["storeDeposit"].Value);
+                    cmd.Parameters.AddWithValue("@monthlyIncome", dgv.Rows[i].Cells["monthlyIncome"].Value);
+                    cmd.Parameters.AddWithValue("@managementPrice", dgv.Rows[i].Cells["managementPrice"].Value);
+                    cmd.Parameters.AddWithValue("@etc", dgv.Rows[i].Cells["etc"].Value);
+                    cmd.ExecuteNonQuery();
+
+                }
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("인터넷 연결 상태가 안좋습니다.\n연결 확인후 다시 시도해주세요.");
+            }
+        }
         public void setDBfile(string DBFile) //DB파일위치 계승
         {
             this.DBFile = DBFile;
@@ -182,14 +216,48 @@ namespace RealEstate
                 + " sellPrice, payedPrice, yearPercent, type, state, premium, monthlyPay, maintenance, isCorner, profilePictureID) values(null, '" + addr + "', '" + roadAddr + "', '" + area + "', '" + station + "', "
                 + "'" + useArea + "', '" + distance + "', '" + roadWidth + "', '" + totalArea + "', '" + completeYear + "', '" + parking + "', "
                 + "'" + acHeating + "', '" + EV + "', '" + buildingName + "', '" + owner + "', '" + tel + "', '" + meno + "', " + deposit + ", "
-                + Income + ", " + loan + ", " + interest + ", " + takeOverPrice + ", " + sellPrice + ", " + payedPrice + ", " + yearPercent+ ", "
-                + type + ", " + state + ", " + premium + ", " + monthlyPay + ", " + maintenance + ", " + isCorner + ", " +profilePictureID +")";
-            
+                + Income + ", " + loan + ", " + interest + ", " + takeOverPrice + ", " + sellPrice + ", " + payedPrice + ", " + yearPercent + ", "
+                + type + ", " + state + ", " + premium + ", " + monthlyPay + ", " + maintenance + ", " + isCorner + ", " + profilePictureID + ")";
+
             SQLiteCommand cmd = new SQLiteCommand(query, cn);
             cmd.ExecuteNonQuery();
             cn.Close();
         }
-        
+        private void saveData2()
+        {
+            try
+            {
+
+                string query = "Create table if not exists info1 (id INTEGER  PRIMARY KEY auto_increment, addr varchar(1000), roadAddr varchar(1000), "
+                               + "area varchar(100), station varchar(100), useArea varchar(100), distance NUMERIC, roadWidth NUMERIC, "
+                            + "totalArea varchar(100), completeYear varchar(100), parking varchar(100), acHeating varchar(100), EV varchar(100), "
+                            + "buildingName varchar(100), owner varchar(100), tel varchar(100), meno varchar(100), deposit NUMERIC, income NUMERIC, loan NUMERIC, interest NUMERIC, takeOverPrice NUMERIC, "
+                            + "sellPrice NUMERIC, payedPrice NUMERIC, yearPercent NUMERIC, type INTEGER, state INTEGER, premium NUMERIC, monthlyPay NUMERIC, maintenance NUMERIC, isCorner INTEGER, profilePictureID INTEGER)";
+
+
+                MySqlConnection conn = new MySqlConnection(strConn2);
+
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.ExecuteNonQuery();
+
+                cmd.CommandText = "insert into info1(id, addr, roadAddr, area, station, useArea, distance, roadWidth, totalArea, completeYear,"
+                    + " parking, acHeating, EV, buildingName, owner, tel, meno, deposit, income, loan, interest, takeOverPrice,"
+                    + " sellPrice, payedPrice, yearPercent, type, state, premium, monthlyPay, maintenance, isCorner, profilePictureID) values(null, '" + addr + "', '" + roadAddr + "', '" + area + "', '" + station + "', "
+                    + "'" + useArea + "', '" + distance + "', '" + roadWidth + "', '" + totalArea + "', '" + completeYear + "', '" + parking + "', "
+                    + "'" + acHeating + "', '" + EV + "', '" + buildingName + "', '" + owner + "', '" + tel + "', '" + meno + "', " + deposit + ", "
+                    + Income + ", " + loan + ", " + interest + ", " + takeOverPrice + ", " + sellPrice + ", " + payedPrice + ", " + yearPercent + ", "
+                    + type + ", " + state + ", " + premium + ", " + monthlyPay + ", " + maintenance + ", " + isCorner + ", " + profilePictureID + ")";
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("인터넷 연결 상태가 안좋습니다.\n연결 확인후 다시 시도해주세요.");
+            }
+        }
+
+
         private void Tabs_SelectedIndexChanged(object sender, EventArgs e) //건물 상태에 대한 정보 저장
         {
             if (Tab_control.SelectedTab == Page_prepare)
@@ -230,7 +298,32 @@ namespace RealEstate
 
             return buildingID;
         }
+        private int getid2()
+        {
+            int buildingID = 0;
+            try
+            {
 
+                string query = "select MAX(id) from info1";
+                MySqlConnection conn = new MySqlConnection(strConn2);
+
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    if (!rdr[0].ToString().Equals(""))
+                        buildingID = int.Parse(rdr[0].ToString());
+                }
+                conn.Close();
+                return buildingID;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("인터넷 연결 상태가 안좋습니다.\n연결 확인후 다시 시도해주세요.");
+            }
+            return -1;
+        }
         private void Btn_Save_Click(object sender, EventArgs e)
         {
             ErrorStr2Num = 0;
@@ -251,10 +344,14 @@ namespace RealEstate
                 setData();
                 if (ErrorStr2Num == 0)
                 {
-                    saveData();
-                    saveDataGrid();
-                    insertComment();
-                    insertMemo();
+                    //saveData();
+                    saveData2();
+                    //saveDataGrid();
+                    saveDataGrid2();
+                    //insertComment();
+                    insertComment2();
+                    //insertMemo();
+                    insertMemo2();
                     MessageBox.Show("저장 완료 했습니다.");
                     this.Close();
                 }
@@ -554,7 +651,31 @@ namespace RealEstate
                 MessageBox.Show(e.ToString());
             }
         }
+        private void insertComment2()
+        {
+            try
+            {
 
+                string query = "INSERT INTO comment VALUES(@id, @content, @buildingID)";
+                MySqlConnection conn = new MySqlConnection(strConn2);
+
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                for (int i = 0; i < commentview.Rows.Count; ++i)
+                {
+                    cmd.Parameters.AddWithValue("@id", null);
+                    cmd.Parameters.AddWithValue("@content", commentview.Rows[i].Cells["Content"].Value);
+                    cmd.Parameters.AddWithValue("@buildingID", getid2());
+
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("인터넷 연결 상태가 안좋습니다.\n연결 확인후 다시 시도해주세요.");
+            }
+        }
         private void insertMemo()
         {
             /*
@@ -584,6 +705,33 @@ namespace RealEstate
                 MessageBox.Show(e.ToString());
             }
 
+        }
+        private void insertMemo2()
+        {
+            try
+            {
+
+                string query = "INSERT INTO memo VALUES(@id, @c_date, @memo, @buildingID)";
+                MySqlConnection conn = new MySqlConnection(strConn2);
+
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                for (int i = 0; i < memoview.Rows.Count; ++i)
+                {
+                    cmd.Parameters.AddWithValue("@id", null);
+                    cmd.Parameters.AddWithValue("@c_date", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@memo", memoview.Rows[i].Cells["memo"].Value);
+                    cmd.Parameters.AddWithValue("@buildingID", getid2());
+
+                    cmd.ExecuteNonQuery();
+
+                }
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("인터넷 연결 상태가 안좋습니다.\n연결 확인후 다시 시도해주세요.");
+            }
         }
 
         private void addMemo_Click(object sender, EventArgs e)

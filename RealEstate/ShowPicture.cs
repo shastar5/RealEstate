@@ -197,13 +197,13 @@ namespace RealEstate
             if (id.Equals(""))
                 MessageBox.Show("삭제할 사진을 선택해주세요");
             else { 
-            id = id.Replace("사진 ", "");
-            cn.Open();
-            cmd.CommandText = "Delete From pictures where id = " + pictureNum[int.Parse(id)] + " and buildingid = " + buildingID.ToString();
-            cmd.ExecuteNonQuery();
-            cn.Close();
-            pictureBox1.Image = null;
-            label1.Text = "";
+                id = id.Replace("사진 ", "");
+                cn.Open();
+                cmd.CommandText = "Delete From pictures where id = " + pictureNum[int.Parse(id)] + " and buildingid = " + buildingID.ToString();
+                cmd.ExecuteNonQuery();
+                cn.Close();
+                pictureBox1.Image = null;
+                label1.Text = "";
                 if (pictureNum[int.Parse(id)].Equals(profilePictureID.ToString()))
                 {  //프로필 사진을 지웠을 때 
                     label2.Text = "프로필 사진이 없습니다.";
@@ -232,11 +232,12 @@ namespace RealEstate
                     {
                         if (pictureNum[i].Equals(profilePictureID.ToString()))
                         {
+                            if(string.Compare(pictureNum[int.Parse(id)], profilePictureID.ToString()) < 0 )
                             i--;
                             break;
                         }
                     }
-                    label2.Text = "프로필 사진 : " + i;
+                    label2.Text = "프로필 사진  : 사진 " + i;
 
                 }
                 id = (int.Parse(id)).ToString();

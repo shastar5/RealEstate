@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.Data.SQLite;
 using System.IO;
+using MySql.Data.MySqlClient;
 
 namespace RealEstate
 {
@@ -233,9 +234,7 @@ namespace RealEstate
             }
 
         }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-        }
+      
 
         // This is linked click event listener
         private void Tabs_SelectedIndexChanged(object sender, EventArgs e) //검색할 건물 상태 
@@ -321,7 +320,32 @@ namespace RealEstate
             }
 
         }
+        private void createTable()
+        {
+            string strConn2 = "";
 
+            string query = "Create table if not exists info1 (id INTEGER  PRIMARY KEY auto_increment, addr varchar(1000), roadAddr varchar(1000), "
+                           + "area varchar(100), station varchar(100), useArea varchar(100), distance NUMERIC, roadWidth NUMERIC, "
+                        + "totalArea varchar(100), completeYear varchar(100), parking varchar(100), acHeating varchar(100), EV varchar(100), "
+                        + "buildingName varchar(100), owner varchar(100), tel varchar(100), meno varchar(100), deposit NUMERIC, income NUMERIC, loan NUMERIC, interest NUMERIC, takeOverPrice NUMERIC, "
+                        + "sellPrice NUMERIC, payedPrice NUMERIC, yearPercent NUMERIC, type INTEGER, state INTEGER, premium NUMERIC, monthlyPay NUMERIC, maintenance NUMERIC, isCorner INTEGER, profilePictureID INTEGER)";
+            
+            MySqlConnection conn = new MySqlConnection(strConn);
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.ExecuteNonQuery();
+            
+            cmd.CommandText = "Create table if not exists info2 (id INTEGER PRIMARY KEY auto_increment, buildingID INTEGER, floor NUMERIC, area NUMERIC, storeName varchar(100), "
+                + "deposit NUMERIC, monthlyIncome NUMERIC, managementPrice NUMERIC, etc varchar(100), FOREIGN KEY(buildingID) REFERENCES info1(id))";
+            cmd.ExecuteNonQuery();
+            cmd.CommandText = "Create table if not exists comment (id INTEGER PRIMARY KEY auto_increment, content varchar(1000), buildingID INTEGER, FOREIGN KEY(buildingID) REFERENCES info1(id))";
+            cmd.ExecuteNonQuery();
+            cmd.CommandText = "Create table if not exists memo (id INTEGER PRIMARY KEY auto_increment, c_date DATE, memo varchar(1000)" +
+                ", buildingID INTEGER, FOREIGN KEY(buildingID) REFERENCES info1(id))";
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            
+        }
         private void btn_DBFind_Click(object sender, EventArgs e)
         {
             try
@@ -456,7 +480,7 @@ namespace RealEstate
 
         private void FirstMenu_Load(object sender, EventArgs e)
         {
-
+            //createTable();
         }
         private void btn_Back_UP_Click(object sender, EventArgs e)
         {

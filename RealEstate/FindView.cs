@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Data.SQLite;
+using MySql.Data.MySqlClient;
+
 namespace RealEstate
 {
   
@@ -22,6 +24,9 @@ namespace RealEstate
         string DBFile = "";
         Boolean userType;
         int dataGridRowID=-1;
+
+        string strConn2 = "Server=104.154.105.21;Database=realestate;Uid=realestate_admin;Pwd=123456;";
+
         enum findIndex
         {
             ID,
@@ -120,6 +125,70 @@ namespace RealEstate
             cn.Close();
             dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
+
+        private void showResult2()
+        {
+            string[,] findResults = new string[1000, 9];
+            int Findcount = 0;
+            Boolean addrFind = false;
+
+            string query = "select * from info1 where state = ";
+            MySqlConnection conn = new MySqlConnection(strConn2);
+            if (findvalue.type.Equals(1))
+            {
+                query += findvalue.state.ToString() + " and type not in (1)";
+            }
+            else
+            {
+                query += findvalue.state.ToString() + " and type = " + findvalue.type.ToString();
+            }
+            query = addDobuleToQuery1(query, "sellPrice", findvalue.sellPrice, findvalue.sellPriceSize);
+            query = addDobuleToQuery1(query, "takeOverPrice", findvalue.takeOverPrice, findvalue.takeOverPriceSize);
+            query = addDobuleToQuery1(query, "income", findvalue.Income, findvalue.IncomeSize);
+            query = addDobuleToQuery1(query, "yearPercent", findvalue.yearPercent, findvalue.yearPercentSize);
+            if (findvalue.distance != -9999)
+                query = addDobuleToQuery1(query, "distance", findvalue.distance, 2);
+            query = addDobuleToQuery1(query, "roadWidth", findvalue.roadwidth, findvalue.roadwidthSize);
+            if (findvalue.isCorner == 0)
+                query += " and isCorner = 0";
+            else if (findvalue.isCorner == 1)
+                query += " and isCorner = 1";
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                addrFind = false;
+
+                if (rdr["addr"].ToString().Contains(findvalue.addr))
+                    addrFind = true;
+
+                if (addrFind)
+                {
+                    findResults[Findcount, (int)findIndex.ID] = rdr["id"].ToString();
+                    findResults[Findcount, (int)findIndex.BUILDINGNAME] = checkValid(rdr["buildingName"].ToString());
+                    findResults[Findcount, (int)findIndex.SELLPRICE] = checkValid(rdr["sellPrice"].ToString());
+                    findResults[Findcount, (int)findIndex.TOTALAREA] = checkValid(rdr["totalArea"].ToString());
+                    findResults[Findcount, (int)findIndex.DISTANCE] = checkValid(rdr["distance"].ToString());
+                    findResults[Findcount, (int)findIndex.INCOME] = checkValid(rdr["income"].ToString());
+                    findResults[Findcount, (int)findIndex.YEARPERCENT] = checkValid(rdr["yearPercent"].ToString());
+                    findResults[Findcount, (int)findIndex.ROADWIDTH] = checkValid(rdr["roadWidth"].ToString());
+                    findResults[Findcount, (int)findIndex.ISCORNER] = rdr["isCorner"].ToString();
+                    if (findResults[Findcount, (int)findIndex.ISCORNER].Equals("1"))
+                        findResults[Findcount, (int)findIndex.ISCORNER] = "Y";
+                    else
+                        findResults[Findcount, (int)findIndex.ISCORNER] = "N";
+                    string[] row = { findResults[Findcount, 0], findResults[Findcount, 1], findResults[Findcount, 2], findResults[Findcount, 3]
+                        , findResults[Findcount,4], findResults[Findcount,5], findResults[Findcount,6], findResults[Findcount,7], findResults[Findcount,8]};
+                    dataGridView1.Rows.Add(row);
+                    Findcount++;
+                }
+            }
+            MessageBox.Show("검색 조건에 맞는 " + Findcount + "개의 부동산을 찾았습니다.");
+            rdr.Close();
+            conn.Close();
+            dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        }
         private string checkValid(string num)
         {
             if (num.Equals("-9999"))
@@ -151,10 +220,7 @@ namespace RealEstate
             }
             return query;
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            showResult();
-        }
+     
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -224,8 +290,9 @@ namespace RealEstate
             dataGridView1.ReadOnly = true;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.CurrentCell = dataGridView1.TopLeftHeaderCell;
-            showResult();
-            
+            //showResult();
+            showResult2();
+
             dataGridView1.ClearSelection();
         }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)

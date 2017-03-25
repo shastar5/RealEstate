@@ -134,6 +134,7 @@
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "ShowPicture";
             this.Text = "사진추가/삭제";
             this.Load += new System.EventHandler(this.ShowPicture_Load);
