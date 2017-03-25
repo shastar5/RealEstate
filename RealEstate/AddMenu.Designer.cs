@@ -1036,6 +1036,7 @@
             this.ContentOfRentals.Size = new System.Drawing.Size(460, 311);
             this.ContentOfRentals.TabIndex = 103;
             this.ContentOfRentals.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.ContentOfRentals_CellEndEdit);
+            this.ContentOfRentals.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.ContentOfRentals_EditingControlShowing);
             // 
             // floor
             // 

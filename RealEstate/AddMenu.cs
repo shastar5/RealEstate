@@ -749,6 +749,33 @@ namespace RealEstate
 
         }
 
+        // dgv에 digit 말고는 들어갈 수 없게
+        private void Column_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void ContentOfRentals_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            e.Control.KeyPress -= new KeyPressEventHandler(Column_KeyPress);
+            if (dgv.CurrentCell.ColumnIndex == 2 || dgv.CurrentCell.ColumnIndex == 6) //Desired Column
+            {
+                // Does nothing
+            }
+            else
+            {
+                System.Windows.Forms.TextBox tb = e.Control as System.Windows.Forms.TextBox;
+                if (tb != null)
+                {
+                    tb.KeyPress += new KeyPressEventHandler(Column_KeyPress);
+                }
+            }
+        }
+
+
         private void addcoment_Click(object sender, EventArgs e)
         {
             commentview.Rows.Add();
