@@ -141,6 +141,7 @@
             this.memo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label40 = new System.Windows.Forms.Label();
             this.btn_Delete = new System.Windows.Forms.Button();
+            this.print = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ContentOfRentals)).BeginInit();
             this.Tab_control.SuspendLayout();
@@ -1286,11 +1287,23 @@
             this.btn_Delete.UseVisualStyleBackColor = true;
             this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
+            // print
+            // 
+            this.print.Font = new System.Drawing.Font("굴림", 7F);
+            this.print.Location = new System.Drawing.Point(745, 185);
+            this.print.Name = "print";
+            this.print.Size = new System.Drawing.Size(75, 17);
+            this.print.TabIndex = 102;
+            this.print.Text = "인쇄";
+            this.print.UseVisualStyleBackColor = true;
+            this.print.Click += new System.EventHandler(this.print_Click);
+            // 
             // ManagerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(922, 703);
+            this.Controls.Add(this.print);
             this.Controls.Add(this.btn_Delete);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel4);
@@ -1481,5 +1494,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn managementPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn etc;
         private System.Windows.Forms.Button btn_Delete;
+        private System.Windows.Forms.Button print;
     }
 }

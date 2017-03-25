@@ -3,10 +3,11 @@ using System.Windows.Forms;
 using System.Data.SQLite;
 using System.Data;
 using System.IO;
-using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
+using System.Windows.Controls;
+using System.Windows.Xps.Packaging;
 
 namespace RealEstate
 {
@@ -267,7 +268,7 @@ namespace RealEstate
                 }
                 profilePictureID = int.Parse(rdr[31].ToString());
             }
-            
+
             rdr.Close();
             conn.Close();
         }
@@ -309,7 +310,7 @@ namespace RealEstate
                     TB_Deposit.Text = "";
                 else
                     TB_Deposit.Text = rdr[17].ToString();
-                
+
                 if (rdr[18].ToString().Equals("-9999"))
                 {
                     TB_Income.Text = "";
@@ -358,7 +359,7 @@ namespace RealEstate
                 switch (type)
                 {
                     case 1:
-                        Dagagu.Checked= true;
+                        Dagagu.Checked = true;
                         break;
                     case 2:
                         Building.Checked = true;
@@ -377,7 +378,7 @@ namespace RealEstate
                         break;
                 }
                 state = int.Parse(rdr[26].ToString());
-                switch(state)
+                switch (state)
                 {
                     case 1:
                         Tab_control.SelectedTab = Page_prepare;
@@ -391,7 +392,7 @@ namespace RealEstate
                     case 4:
                         Tab_control.SelectedTab = Page_sell;
                         break;
-                    
+
                 }
                 if (rdr[27].ToString().Equals("-9999"))
                     TB_Premium.Text = "";
@@ -409,7 +410,7 @@ namespace RealEstate
                     TB_Maintenance.Text = rdr[29].ToString();
 
                 isCorner = int.Parse(rdr[30].ToString());
-                if(isCorner==0)
+                if (isCorner == 0)
                 {
                     CB_corner.Checked = false;
                 }
@@ -417,7 +418,7 @@ namespace RealEstate
                 {
                     CB_corner.Checked = true;
                 }
-               profilePictureID = int.Parse(rdr[31].ToString());
+                profilePictureID = int.Parse(rdr[31].ToString());
             }
 
 
@@ -540,7 +541,7 @@ namespace RealEstate
                 cmd.Parameters.AddWithValue("@id", dgv.Rows[i].Cells["_id"].Value);
 
                 cmd.ExecuteNonQuery();
-  
+
                 con.Close();
             }
             catch (Exception e)
@@ -626,7 +627,7 @@ namespace RealEstate
             {
                 SQLiteCommand cmd = new SQLiteCommand(sql, con);
                 con.Open();
-                
+
                 cmd.Parameters.AddWithValue("@c_date", DateTime.Now);
                 cmd.Parameters.AddWithValue("@memo", memoview.Rows[index].Cells[2].Value);
                 cmd.Parameters.AddWithValue("@id", id);
@@ -677,20 +678,20 @@ namespace RealEstate
             con.Open();
             int count = todo.Count;
 
-            for(int j=0;j<count;++j)
+            for (int j = 0; j < count; ++j)
             {
-                    int num = todo.Dequeue();
+                int num = todo.Dequeue();
 
-                    cmd.Parameters.AddWithValue("@floor", dgv.Rows[num].Cells["floor"].Value);
-                    cmd.Parameters.AddWithValue("@area", dgv.Rows[num].Cells["floor_area"].Value);
-                    cmd.Parameters.AddWithValue("@storeName", dgv.Rows[num].Cells["storeName"].Value);
-                    cmd.Parameters.AddWithValue("@deposit", dgv.Rows[num].Cells["storeDeposit"].Value);
-                    cmd.Parameters.AddWithValue("@monthlyIncome", dgv.Rows[num].Cells["monthlyIncome"].Value);
-                    cmd.Parameters.AddWithValue("@managementPrice", dgv.Rows[num].Cells["managementPrice"].Value);
-                    cmd.Parameters.AddWithValue("@etc", dgv.Rows[num].Cells["etc"].Value);
-                    cmd.Parameters.AddWithValue("@id", dgv.Rows[num].Cells["_id"].Value);
+                cmd.Parameters.AddWithValue("@floor", dgv.Rows[num].Cells["floor"].Value);
+                cmd.Parameters.AddWithValue("@area", dgv.Rows[num].Cells["floor_area"].Value);
+                cmd.Parameters.AddWithValue("@storeName", dgv.Rows[num].Cells["storeName"].Value);
+                cmd.Parameters.AddWithValue("@deposit", dgv.Rows[num].Cells["storeDeposit"].Value);
+                cmd.Parameters.AddWithValue("@monthlyIncome", dgv.Rows[num].Cells["monthlyIncome"].Value);
+                cmd.Parameters.AddWithValue("@managementPrice", dgv.Rows[num].Cells["managementPrice"].Value);
+                cmd.Parameters.AddWithValue("@etc", dgv.Rows[num].Cells["etc"].Value);
+                cmd.Parameters.AddWithValue("@id", dgv.Rows[num].Cells["_id"].Value);
 
-                    cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
             }
 
             con.Close();
@@ -727,7 +728,7 @@ namespace RealEstate
                 MessageBox.Show(e.ToString());
             }
 
-            dgv.Sort(dgv.Columns[1], System.ComponentModel.ListSortDirection.Ascending);
+            //dgv.Sort(dgv.Columns[1], System.ComponentModel.ListSortDirection.Ascending);
             dgv.Columns[0].Visible = false;
 
             showSum();
@@ -801,7 +802,6 @@ namespace RealEstate
             }
 
             i = dgv.Rows.Add();
-            dgv.Rows[i].Cells[0].Value = "합계";
             dgv.Rows[i].Cells[1].Value = "합계";
             dgv.Rows[i].Cells[2].Value = sumofArea;
             dgv.Rows[i].Cells[3].Value = null;
@@ -821,7 +821,7 @@ namespace RealEstate
             if (dgv.Rows.Count == 0)
                 return 0;
 
-            for (i = 0; i < dgv.Rows.Count -1; ++i)
+            for (i = 0; i < dgv.Rows.Count - 1; ++i)
             {
                 if (dgv.Rows[i].Cells[5].Value != DBNull.Value)
                     sumofMonthlyIncome += Convert.ToDouble(dgv.Rows[i].Cells[5].Value);
@@ -958,38 +958,38 @@ namespace RealEstate
                  + "buildingName = @BuildingName, owner = @Owner, tel = @Tel, meno = @Meno, deposit = @Deposit, income = @Income, loan = @Loan, "
                  + "interest = @Interest, takeOverPrice = @TakeOverPrice, sellPrice = @SellPrice, payedPrice = @PayedPrice, yearPercent = @YearPercent, "
                  + "type = @Type, state = @State, premium = @Premium, monthlyPay = @MonthlyPay, maintenance = @Maintenance, isCorner = @IsCorner, profilePictureID = @ProfilePictureID where id  = " + id;
-            cmd.Parameters.Add(new SQLiteParameter("@Addr") {Value = addr});
+            cmd.Parameters.Add(new SQLiteParameter("@Addr") { Value = addr });
             cmd.Parameters.Add(new SQLiteParameter("@RoadAddr") { Value = roadAddr });
-            cmd.Parameters.Add(new SQLiteParameter("@Area") {Value = area});
-            cmd.Parameters.Add(new SQLiteParameter("@Station") {Value = station});
-            cmd.Parameters.Add(new SQLiteParameter("@UseArea") {Value = useArea});
-            
-            cmd.Parameters.Add(new SQLiteParameter("@Distance") {Value = distance});
-            cmd.Parameters.Add(new SQLiteParameter("@RoadWidth") {Value = roadWidth});
-            cmd.Parameters.Add(new SQLiteParameter("@TotalArea") {Value = totalArea});
-            cmd.Parameters.Add(new SQLiteParameter("@CompleteYear") {Value = completeYear});
-            cmd.Parameters.Add(new SQLiteParameter("@Parking") {Value = parking});
-            cmd.Parameters.Add(new SQLiteParameter("@AcHeating") {Value = acHeating});
-            cmd.Parameters.Add(new SQLiteParameter("@EV") {Value = EV});
+            cmd.Parameters.Add(new SQLiteParameter("@Area") { Value = area });
+            cmd.Parameters.Add(new SQLiteParameter("@Station") { Value = station });
+            cmd.Parameters.Add(new SQLiteParameter("@UseArea") { Value = useArea });
+
+            cmd.Parameters.Add(new SQLiteParameter("@Distance") { Value = distance });
+            cmd.Parameters.Add(new SQLiteParameter("@RoadWidth") { Value = roadWidth });
+            cmd.Parameters.Add(new SQLiteParameter("@TotalArea") { Value = totalArea });
+            cmd.Parameters.Add(new SQLiteParameter("@CompleteYear") { Value = completeYear });
+            cmd.Parameters.Add(new SQLiteParameter("@Parking") { Value = parking });
+            cmd.Parameters.Add(new SQLiteParameter("@AcHeating") { Value = acHeating });
+            cmd.Parameters.Add(new SQLiteParameter("@EV") { Value = EV });
             cmd.Parameters.Add(new SQLiteParameter("@BuildingName") { Value = buildingName });
 
-            cmd.Parameters.Add(new SQLiteParameter("@Owner") {Value = owner});
-            cmd.Parameters.Add(new SQLiteParameter("@Tel") {Value = tel});
-            cmd.Parameters.Add(new SQLiteParameter("@Meno") {Value = meno});
-            cmd.Parameters.Add(new SQLiteParameter("@Deposit") {Value = deposit});
-            cmd.Parameters.Add(new SQLiteParameter("@Income") {Value = Income});
-            cmd.Parameters.Add(new SQLiteParameter("@Loan") {Value = loan});
-            cmd.Parameters.Add(new SQLiteParameter("@Interest") {Value = interest});
-            cmd.Parameters.Add(new SQLiteParameter("@TakeOverPrice") {Value = takeOverPrice});
-            cmd.Parameters.Add(new SQLiteParameter("@SellPrice") {Value = sellPrice});
-            cmd.Parameters.Add(new SQLiteParameter("@PayedPrice") {Value = payedPrice});
-            cmd.Parameters.Add(new SQLiteParameter("@YearPercent") {Value = yearPercent});
-            cmd.Parameters.Add(new SQLiteParameter("@Type") {Value = type});
-            cmd.Parameters.Add(new SQLiteParameter("@State") {Value = state});
-            cmd.Parameters.Add(new SQLiteParameter("@Premium") {Value = premium});
-            cmd.Parameters.Add(new SQLiteParameter("@MonthlyPay") {Value = monthlyPay});
-            cmd.Parameters.Add(new SQLiteParameter("@Maintenance") {Value = maintenance});
-            cmd.Parameters.Add(new SQLiteParameter("@IsCorner") {Value = isCorner});
+            cmd.Parameters.Add(new SQLiteParameter("@Owner") { Value = owner });
+            cmd.Parameters.Add(new SQLiteParameter("@Tel") { Value = tel });
+            cmd.Parameters.Add(new SQLiteParameter("@Meno") { Value = meno });
+            cmd.Parameters.Add(new SQLiteParameter("@Deposit") { Value = deposit });
+            cmd.Parameters.Add(new SQLiteParameter("@Income") { Value = Income });
+            cmd.Parameters.Add(new SQLiteParameter("@Loan") { Value = loan });
+            cmd.Parameters.Add(new SQLiteParameter("@Interest") { Value = interest });
+            cmd.Parameters.Add(new SQLiteParameter("@TakeOverPrice") { Value = takeOverPrice });
+            cmd.Parameters.Add(new SQLiteParameter("@SellPrice") { Value = sellPrice });
+            cmd.Parameters.Add(new SQLiteParameter("@PayedPrice") { Value = payedPrice });
+            cmd.Parameters.Add(new SQLiteParameter("@YearPercent") { Value = yearPercent });
+            cmd.Parameters.Add(new SQLiteParameter("@Type") { Value = type });
+            cmd.Parameters.Add(new SQLiteParameter("@State") { Value = state });
+            cmd.Parameters.Add(new SQLiteParameter("@Premium") { Value = premium });
+            cmd.Parameters.Add(new SQLiteParameter("@MonthlyPay") { Value = monthlyPay });
+            cmd.Parameters.Add(new SQLiteParameter("@Maintenance") { Value = maintenance });
+            cmd.Parameters.Add(new SQLiteParameter("@IsCorner") { Value = isCorner });
             cmd.Parameters.Add(new SQLiteParameter("@ProfilePictureID") { Value = profilePictureID });
 
 
@@ -1076,7 +1076,7 @@ namespace RealEstate
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(TB_Addr.Text.Equals(null))
+            if (TB_Addr.Text.Equals(null))
             {
                 return;
             }
@@ -1100,7 +1100,7 @@ namespace RealEstate
                     cn.Close();
                     byte[] ap = (byte[])(ds.Tables[0].Rows[0]["picture"]);
                     MemoryStream ms = new MemoryStream(ap);
-                    pictureBox1.Image = Image.FromStream(ms);
+                    pictureBox1.Image = System.Drawing.Image.FromStream(ms);
                     pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
                     pictureBox1.BorderStyle = BorderStyle.Fixed3D;
                     ms.Close();
@@ -1116,14 +1116,14 @@ namespace RealEstate
                 pictureBox1.Image = null;
             }
         }
-       
+
         private void ManagerView_Load(object sender, EventArgs e)
         {
             strConn = "Data Source=" + DBFile + "; Version=3;";
             cn.ConnectionString = strConn;
             //readData();
             readData2();
-            
+
             loadPicture();
 
             //readDataGrid();
@@ -1143,7 +1143,7 @@ namespace RealEstate
                 commentview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 commentview.Columns[commentview.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
-        
+
         }
 
         private void readcomment2()
@@ -1265,7 +1265,7 @@ namespace RealEstate
         }
 
         private void SaveData_Click(object sender, EventArgs e)
-         {
+        {
             ErrorStr2Num = 0;
             setData();
             int isOpen = 0;
@@ -1301,14 +1301,16 @@ namespace RealEstate
                     else
                     {
                         //InsertRowsDataGridView(i);
-                        InsertRowsDataGridView2(i);
+                        if(dgv.Rows[i].Cells[1].Value != null)
+                            if(!dgv.Rows[i].Cells[1].Value.Equals("합계"))
+                                InsertRowsDataGridView2(i);
                     }
                 }
 
                 for (int i = 0; i < commentview.Rows.Count; ++i)
                 {
                     if (commentview.Rows[i].Cells[0].Value != null)
-                    {                     
+                    {
                         //updatecomment(i);
                         updatecomment2(i);
                     }
@@ -1437,7 +1439,7 @@ namespace RealEstate
                 if (oneCell.Selected)
                 {
                     memodelete.Push(oneCell.RowIndex);
-                   // deletememo();
+                    // deletememo();
                     deletememo2();
                     memoview.Rows.RemoveAt(oneCell.RowIndex);
                 }
@@ -1561,7 +1563,7 @@ namespace RealEstate
                 MySqlCommand cmd = new MySqlCommand(query, conn);
 
                 cmd.Parameters.AddWithValue("@id", null);
-                cmd.Parameters.AddWithValue("@c_date",  DateTime.Now);
+                cmd.Parameters.AddWithValue("@c_date", DateTime.Now);
                 cmd.Parameters.AddWithValue("@memo", memoview.Rows[index].Cells["memo"].Value);
                 cmd.Parameters.AddWithValue("@buildingID", id);
 
@@ -1582,7 +1584,7 @@ namespace RealEstate
             {
                 SQLiteCommand cmd = new SQLiteCommand("INSERT INTO memo VALUES(@id, @c_date, @memo, @buildingID)", con);
                 con.Open();
-                
+
 
                 cmd.Parameters.AddWithValue("@id", null);
                 cmd.Parameters.AddWithValue("@c_date", DateTime.Now);
@@ -1610,13 +1612,13 @@ namespace RealEstate
                 if (oneCell.Selected)
                 {
                     commentdelete.Push(oneCell.RowIndex);
-                   // deleteComment();
+                    // deleteComment();
                     deleteComment2();
                     commentview.Rows.RemoveAt(oneCell.RowIndex);
                 }
         }
 
-        
+
 
         private void ContentOfRentals_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
@@ -1689,12 +1691,29 @@ namespace RealEstate
             }
             else
             {
-                TextBox tb = e.Control as TextBox;
+                System.Windows.Forms.TextBox tb = e.Control as System.Windows.Forms.TextBox;
                 if (tb != null)
                 {
                     tb.KeyPress += new KeyPressEventHandler(Column_KeyPress);
                 }
             }
+        }
+
+        private void print_Click(object sender, EventArgs e)
+        {
+            System.Windows.Controls.PrintDialog pDialog = new System.Windows.Controls.PrintDialog();
+            pDialog.PageRangeSelection = PageRangeSelection.AllPages;
+            pDialog.UserPageRangeEnabled = true;
+
+            Nullable<Boolean> print = pDialog.ShowDialog();
+            if (print == true)
+            {
+                XpsDocument xpsDocument = new XpsDocument("C:\\Users\\Soobin\\Desktop\\FixedDocumentSequence.xps", FileAccess.ReadWrite);
+                System.Windows.Documents.FixedDocumentSequence fixedDocSeq = xpsDocument.GetFixedDocumentSequence();
+                pDialog.PrintDocument(fixedDocSeq.DocumentPaginator, "Test print job");
+            }
+
+            
         }
 
         private void updateTB()

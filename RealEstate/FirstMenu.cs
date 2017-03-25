@@ -496,7 +496,7 @@ namespace RealEstate
         private void btn_Back_UP_Click(object sender, EventArgs e)
         {
 
-            string time = DateTime.Now.ToString("yyyy년MM월dd일HH시MM분ss초_백업파일"); //백업 파일 이름
+            string time = DateTime.Now.ToString("yyyy년MM월dd일HH시mm분ss초_백업파일"); //백업 파일 이름
             string sDirPath = deskPath + "/backup";
             string backupFile = sDirPath + "/ " + time + ".db";
             DirectoryInfo di = new DirectoryInfo(sDirPath); 

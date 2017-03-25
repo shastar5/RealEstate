@@ -18,7 +18,7 @@ namespace RealEstate
 
         string DBFile1, DBFile2;
         string strConn1, strConn2;
-
+        string previousAddedDB="";
         SQLiteConnection cn1 = new SQLiteConnection();
         SQLiteConnection cn2 = new SQLiteConnection();
         SQLiteCommand cmd1 = new SQLiteCommand();
@@ -43,6 +43,7 @@ namespace RealEstate
                 DBFile1 = DBFile1.Replace("\\", "/"); //\\을 /로 
                 label1.Text = "합쳐질 DB : " +DBFile1.ToString();
             }
+            label3.Text = "";
         }
 
         private void btn_AddDB_Click(object sender, EventArgs e)
@@ -57,6 +58,8 @@ namespace RealEstate
                 DBFile2 = DBFile2.Replace("\\", "/"); //\\을 /로 
                 label2.Text = "합쳐질 DB : " + DBFile2.ToString();
             }
+            label3.Text = "";
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -72,7 +75,7 @@ namespace RealEstate
                 MessageBox.Show("같은 위치의 같은 이름의 두 파일은 합칠 수 없습니다.");
             else if (label2.Text.Equals("추가될 DB : "))
                 MessageBox.Show("추가될 DB파일을 선택해주세요.");
-            else if(label3.Text.Equals("합치기 완료!"))
+            else if(label2.Text.Equals(previousAddedDB))
                 MessageBox.Show("이미 DB파일 합치기를 완료했습니다.");
             else
             {
@@ -123,6 +126,7 @@ namespace RealEstate
                     cn2.Close();
                     cn1.Close();
                     label3.Text = "합치기 완료!";
+                    previousAddedDB = label2.Text;
                 }
             }
         }
