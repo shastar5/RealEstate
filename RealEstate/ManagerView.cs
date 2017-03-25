@@ -104,6 +104,9 @@ namespace RealEstate
             EnableMenuItem(GetSystemMenu(this.Handle, false), SC_CLOSE, MF_GRAYED);
             dgv = ContentOfRentals;
 
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgv.Columns[dgv.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
             commentview = commentGridView;
             commentview.AutoGenerateColumns = false;
             commentview.RowHeadersVisible = false;
