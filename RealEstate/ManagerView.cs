@@ -104,6 +104,9 @@ namespace RealEstate
             EnableMenuItem(GetSystemMenu(this.Handle, false), SC_CLOSE, MF_GRAYED);
             dgv = ContentOfRentals;
 
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgv.Columns[dgv.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
             commentview = commentGridView;
             commentview.AutoGenerateColumns = false;
             commentview.RowHeadersVisible = false;
@@ -1660,6 +1663,33 @@ namespace RealEstate
             cmd2.ExecuteNonQuery();
             conn.Close();
         }
+
+        // dgv에 digit 말고는 들어갈 수 없게
+        private void Column_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void ContentOfRentals_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            e.Control.KeyPress -= new KeyPressEventHandler(Column_KeyPress);
+            if (dgv.CurrentCell.ColumnIndex == 0 || dgv.CurrentCell.ColumnIndex == 3 || dgv.CurrentCell.ColumnIndex == 7) //Desired Column
+            {
+                // Does nothing
+            }
+            else
+            {
+                TextBox tb = e.Control as TextBox;
+                if (tb != null)
+                {
+                    tb.KeyPress += new KeyPressEventHandler(Column_KeyPress);
+                }
+            }
+        }
+
         private void updateTB()
         {
             double UpdateSellPrice = checkNulls(TB_SellPrice.Text.ToString());
