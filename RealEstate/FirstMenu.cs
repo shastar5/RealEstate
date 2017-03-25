@@ -47,7 +47,7 @@ namespace RealEstate
             InitializeComponent();
 
             //findvalue 예외 처리를 위한 초기화
-            findvalues.type = 1;
+            findvalues.type = 0;
             findvalues.state = 1;
             findvalues.roadwidthSize = -1;
             findvalues.takeOverPriceSize = -1;
@@ -100,7 +100,7 @@ namespace RealEstate
 
             cn.Close();
 
-            radioButton1.Checked = true;
+            checkBox1.Checked = true;
 
         }
 
@@ -209,7 +209,7 @@ namespace RealEstate
                 }
             }
             
-            if (findvalues.type == 0)
+            if (findvalues.type == -1)
             {
                 MessageBox.Show("찾을 건물 종류를 선택해주세요");
             }
@@ -267,31 +267,6 @@ namespace RealEstate
         
         private void radioButton_CheckedChanged(object sender, EventArgs e) //건물 종류
         {
-            if (radioButton1.Checked)
-            {
-                findvalues.type = 1;
-            }
-            else if (radioButton2.Checked)
-            {
-                findvalues.type = 2;
-            }
-            else if (radioButton3.Checked)
-            {
-                findvalues.type = 3;
-            }
-            else if (radioButton4.Checked)
-            {
-                findvalues.type = 4;
-            }
-            else if (radioButton5.Checked)
-            {
-                findvalues.type = 5;
-            }
-            else if(radioButton6.Checked)
-            {
-                findvalues.type = 6;
-            }
-
             if (RB_CornerAll.Checked)
                 findvalues.isCorner = -1;
             else if (RB_CornerExist.Checked)
@@ -299,7 +274,36 @@ namespace RealEstate
             else if (RB_CornerNone.Checked)
                 findvalues.isCorner = 0;
         }
-
+        private void allType_checked(object sender, EventArgs e)
+        {
+            checkBox2.Checked = false;
+            checkBox3.Checked = false;
+            checkBox4.Checked = false;
+            checkBox5.Checked = false;
+            checkBox6.Checked = false;
+            getType();
+        }
+        private void otherType_checked(object sender, EventArgs e)
+        {
+            checkBox1.Checked = false;
+            getType();
+        }
+        private void getType()
+        {
+            findvalues.type = 0;
+            if (checkBox1.Checked) //전체
+                findvalues.type = 0;
+            if (checkBox2.Checked) //다가구 1
+                findvalues.type += 1;
+            if (checkBox3.Checked) //빌딩 2 
+                findvalues.type += 1 << 1;
+            if (checkBox4.Checked) //상가주택 4 
+                findvalues.type += 1 << 2;
+            if (checkBox5.Checked) //신축부지 8
+                findvalues.type += 1 << 3;
+            if (checkBox6.Checked) //상가 16
+                findvalues.type += 1 << 4;
+        }
         private void btn_addBuilding_Click(object sender, EventArgs e)
         {
             int isOpen = 0;
@@ -480,7 +484,7 @@ namespace RealEstate
 
         private void FirstMenu_Load(object sender, EventArgs e)
         {
-            //createTable();
+            createTable();
         }
         private void btn_Back_UP_Click(object sender, EventArgs e)
         {

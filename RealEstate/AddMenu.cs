@@ -166,7 +166,7 @@ namespace RealEstate
             
             deposit = checkNulls(TB_Deposit.Text.ToString());
             //상가 일 때 상가가 아닐 때 수입 저장 위치
-            if (type != 6)
+            if (type != 16)
             {
                 Income = checkNulls(TB_Income.Text.ToString());
             }
@@ -458,23 +458,23 @@ namespace RealEstate
         {
             if (Dagagu.Checked)
             {
-                type = 2;
+                type = 1;
             }
             else if (Building.Checked)
             {
-                type = 3;
+                type = 1 << 1;
             }
             else if (SanggaHome.Checked)
             {
-                type = 4;
+                type = 1 << 2;
             }
             else if (NewConstruction.Checked)
             {
-                type = 5;
+                type = 1 << 3;
             }
             if (Sangga.Checked)
             {
-                type = 6;
+                type = 1 << 4;
                 panel6.Hide();
                 panel2.Visible = true;
                 panel2.Show();

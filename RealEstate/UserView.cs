@@ -146,19 +146,19 @@ namespace RealEstate
                 panel2.Hide();
                 switch (type)
                 {
-                    case 2:
+                    case 1:
                         Dagagu.Checked = true;
                         break;
-                    case 3:
+                    case 2:
                         Building.Checked = true;
                         break;
                     case 4:
                         SanggaHome.Checked = true;
                         break;
-                    case 5:
+                    case 8:
                         NewConstruction.Checked = true;
                         break;
-                    case 6:
+                    case 16:
                         Sangga.Checked = true;
                         panel6.Hide();
                         panel2.Visible = true;
@@ -302,19 +302,19 @@ namespace RealEstate
                 panel2.Hide();
                 switch (type)
                 {
-                    case 2:
+                    case 1:
                         Dagagu.Checked = true;
                         break;
-                    case 3:
+                    case 2:
                         Building.Checked = true;
                         break;
                     case 4:
                         SanggaHome.Checked = true;
                         break;
-                    case 5:
+                    case 8:
                         NewConstruction.Checked = true;
                         break;
-                    case 6:
+                    case 16:
                         Sangga.Checked = true;
                         panel6.Hide();
                         panel2.Visible = true;

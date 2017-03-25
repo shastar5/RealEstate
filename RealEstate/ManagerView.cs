@@ -202,19 +202,19 @@ namespace RealEstate
                 panel2.Hide();
                 switch (type)
                 {
-                    case 2:
+                    case 1:
                         Dagagu.Checked = true;
                         break;
-                    case 3:
+                    case 2:
                         Building.Checked = true;
                         break;
                     case 4:
                         SanggaHome.Checked = true;
                         break;
-                    case 5:
+                    case 8:
                         NewConstruction.Checked = true;
                         break;
-                    case 6:
+                    case 16:
                         Sangga.Checked = true;
                         panel6.Hide();
                         panel2.Visible = true;
@@ -354,19 +354,19 @@ namespace RealEstate
                 panel2.Hide();
                 switch (type)
                 {
-                    case 2:
+                    case 1:
                         Dagagu.Checked= true;
                         break;
-                    case 3:
+                    case 2:
                         Building.Checked = true;
                         break;
                     case 4:
                         SanggaHome.Checked = true;
                         break;
-                    case 5:
+                    case 8:
                         NewConstruction.Checked = true;
                         break;
-                    case 6:
+                    case 16:
                         Sangga.Checked = true;
                         panel6.Hide();
                         panel2.Visible = true;
@@ -446,7 +446,7 @@ namespace RealEstate
 
 
             deposit = checkNulls(TB_Deposit.Text.ToString());
-            if (type != 6)
+            if (type != 16)
             {
                 Income = checkNulls(TB_Income.Text.ToString());
             }
@@ -1021,23 +1021,23 @@ namespace RealEstate
         {
             if (Dagagu.Checked)
             {
-                type = 2;
+                type = 1;
             }
             else if (Building.Checked)
             {
-                type = 3;
+                type = 1 << 1;
             }
             else if (SanggaHome.Checked)
             {
-                type = 4;
+                type = 1 << 2;
             }
             else if (NewConstruction.Checked)
             {
-                type = 5;
+                type = 1 << 3;
             }
             if (Sangga.Checked)
             {
-                type = 6;
+                type = 1 << 4;
                 panel6.Hide();
                 panel2.Visible = true;
                 panel2.Show();

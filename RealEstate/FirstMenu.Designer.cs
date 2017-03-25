@@ -30,15 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FirstMenu));
             this.Panel_InitText = new System.Windows.Forms.Panel();
+            this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.RB_CornerAll = new System.Windows.Forms.RadioButton();
+            this.RB_CornerExist = new System.Windows.Forms.RadioButton();
+            this.RB_CornerNone = new System.Windows.Forms.RadioButton();
             this.btn_Back_UP = new System.Windows.Forms.Button();
             this.HiddenBox = new System.Windows.Forms.CheckBox();
             this.DBLocation = new System.Windows.Forms.Label();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.CB_RoadWidth = new System.Windows.Forms.ComboBox();
             this.CB_YearPercent = new System.Windows.Forms.ComboBox();
             this.CB_Income = new System.Windows.Forms.ComboBox();
@@ -60,6 +64,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.Page_sell = new System.Windows.Forms.TabPage();
@@ -67,28 +72,23 @@
             this.Page_complete = new System.Windows.Forms.TabPage();
             this.Page_prepare = new System.Windows.Forms.TabPage();
             this.Tab_control = new System.Windows.Forms.TabControl();
-            this.label8 = new System.Windows.Forms.Label();
-            this.RB_CornerExist = new System.Windows.Forms.RadioButton();
-            this.RB_CornerNone = new System.Windows.Forms.RadioButton();
-            this.RB_CornerAll = new System.Windows.Forms.RadioButton();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.Panel_InitText.SuspendLayout();
-            this.Tab_control.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.Tab_control.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel_InitText
             // 
+            this.Panel_InitText.Controls.Add(this.checkBox6);
+            this.Panel_InitText.Controls.Add(this.checkBox5);
+            this.Panel_InitText.Controls.Add(this.checkBox4);
+            this.Panel_InitText.Controls.Add(this.checkBox3);
+            this.Panel_InitText.Controls.Add(this.checkBox2);
+            this.Panel_InitText.Controls.Add(this.checkBox1);
             this.Panel_InitText.Controls.Add(this.panel1);
             this.Panel_InitText.Controls.Add(this.btn_Back_UP);
             this.Panel_InitText.Controls.Add(this.HiddenBox);
             this.Panel_InitText.Controls.Add(this.DBLocation);
-            this.Panel_InitText.Controls.Add(this.radioButton6);
-            this.Panel_InitText.Controls.Add(this.radioButton5);
-            this.Panel_InitText.Controls.Add(this.radioButton4);
-            this.Panel_InitText.Controls.Add(this.radioButton3);
-            this.Panel_InitText.Controls.Add(this.radioButton2);
-            this.Panel_InitText.Controls.Add(this.radioButton1);
             this.Panel_InitText.Controls.Add(this.CB_RoadWidth);
             this.Panel_InitText.Controls.Add(this.CB_YearPercent);
             this.Panel_InitText.Controls.Add(this.CB_Income);
@@ -116,6 +116,79 @@
             resources.ApplyResources(this.Panel_InitText, "Panel_InitText");
             this.Panel_InitText.Name = "Panel_InitText";
             // 
+            // checkBox6
+            // 
+            resources.ApplyResources(this.checkBox6, "checkBox6");
+            this.checkBox6.Name = "checkBox6";
+            this.checkBox6.UseVisualStyleBackColor = true;
+            this.checkBox6.Click += new System.EventHandler(this.otherType_checked);
+            // 
+            // checkBox5
+            // 
+            resources.ApplyResources(this.checkBox5, "checkBox5");
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.UseVisualStyleBackColor = true;
+            this.checkBox5.Click += new System.EventHandler(this.otherType_checked);
+            // 
+            // checkBox4
+            // 
+            resources.ApplyResources(this.checkBox4, "checkBox4");
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox4.Click += new System.EventHandler(this.otherType_checked);
+            // 
+            // checkBox3
+            // 
+            resources.ApplyResources(this.checkBox3, "checkBox3");
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.Click += new System.EventHandler(this.otherType_checked);
+            // 
+            // checkBox2
+            // 
+            resources.ApplyResources(this.checkBox2, "checkBox2");
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.Click += new System.EventHandler(this.otherType_checked);
+            // 
+            // checkBox1
+            // 
+            resources.ApplyResources(this.checkBox1, "checkBox1");
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.Click += new System.EventHandler(this.allType_checked);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.RB_CornerAll);
+            this.panel1.Controls.Add(this.RB_CornerExist);
+            this.panel1.Controls.Add(this.RB_CornerNone);
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Name = "panel1";
+            // 
+            // RB_CornerAll
+            // 
+            resources.ApplyResources(this.RB_CornerAll, "RB_CornerAll");
+            this.RB_CornerAll.Checked = true;
+            this.RB_CornerAll.Name = "RB_CornerAll";
+            this.RB_CornerAll.TabStop = true;
+            this.RB_CornerAll.UseVisualStyleBackColor = true;
+            this.RB_CornerAll.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
+            // 
+            // RB_CornerExist
+            // 
+            resources.ApplyResources(this.RB_CornerExist, "RB_CornerExist");
+            this.RB_CornerExist.Name = "RB_CornerExist";
+            this.RB_CornerExist.UseVisualStyleBackColor = true;
+            this.RB_CornerExist.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
+            // 
+            // RB_CornerNone
+            // 
+            resources.ApplyResources(this.RB_CornerNone, "RB_CornerNone");
+            this.RB_CornerNone.Name = "RB_CornerNone";
+            this.RB_CornerNone.UseVisualStyleBackColor = true;
+            this.RB_CornerNone.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
+            // 
             // btn_Back_UP
             // 
             resources.ApplyResources(this.btn_Back_UP, "btn_Back_UP");
@@ -135,50 +208,6 @@
             // 
             resources.ApplyResources(this.DBLocation, "DBLocation");
             this.DBLocation.Name = "DBLocation";
-            // 
-            // radioButton6
-            // 
-            resources.ApplyResources(this.radioButton6, "radioButton6");
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.UseVisualStyleBackColor = true;
-            this.radioButton6.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
-            // 
-            // radioButton5
-            // 
-            resources.ApplyResources(this.radioButton5, "radioButton5");
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.UseVisualStyleBackColor = true;
-            this.radioButton5.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
-            // 
-            // radioButton4
-            // 
-            resources.ApplyResources(this.radioButton4, "radioButton4");
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
-            // 
-            // radioButton3
-            // 
-            resources.ApplyResources(this.radioButton3, "radioButton3");
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
-            // 
-            // radioButton2
-            // 
-            resources.ApplyResources(this.radioButton2, "radioButton2");
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
-            // 
-            // radioButton1
-            // 
-            resources.ApplyResources(this.radioButton1, "radioButton1");
-            this.radioButton1.Checked = true;
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.TabStop = true;
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
             // CB_RoadWidth
             // 
@@ -342,6 +371,11 @@
             resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
             // 
+            // label8
+            // 
+            resources.ApplyResources(this.label8, "label8");
+            this.label8.Name = "label8";
+            // 
             // label7
             // 
             resources.ApplyResources(this.label7, "label7");
@@ -390,42 +424,6 @@
             this.Tab_control.TabStop = false;
             this.Tab_control.SelectedIndexChanged += new System.EventHandler(this.Tabs_SelectedIndexChanged);
             // 
-            // label8
-            // 
-            resources.ApplyResources(this.label8, "label8");
-            this.label8.Name = "label8";
-            // 
-            // RB_CornerExist
-            // 
-            resources.ApplyResources(this.RB_CornerExist, "RB_CornerExist");
-            this.RB_CornerExist.Name = "RB_CornerExist";
-            this.RB_CornerExist.UseVisualStyleBackColor = true;
-            this.RB_CornerExist.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
-            // 
-            // RB_CornerNone
-            // 
-            resources.ApplyResources(this.RB_CornerNone, "RB_CornerNone");
-            this.RB_CornerNone.Name = "RB_CornerNone";
-            this.RB_CornerNone.UseVisualStyleBackColor = true;
-            this.RB_CornerNone.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
-            // 
-            // RB_CornerAll
-            // 
-            resources.ApplyResources(this.RB_CornerAll, "RB_CornerAll");
-            this.RB_CornerAll.Checked = true;
-            this.RB_CornerAll.Name = "RB_CornerAll";
-            this.RB_CornerAll.TabStop = true;
-            this.RB_CornerAll.UseVisualStyleBackColor = true;
-            this.RB_CornerAll.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.RB_CornerAll);
-            this.panel1.Controls.Add(this.RB_CornerExist);
-            this.panel1.Controls.Add(this.RB_CornerNone);
-            resources.ApplyResources(this.panel1, "panel1");
-            this.panel1.Name = "panel1";
-            // 
             // FirstMenu
             // 
             resources.ApplyResources(this, "$this");
@@ -439,9 +437,9 @@
             this.Load += new System.EventHandler(this.FirstMenu_Load);
             this.Panel_InitText.ResumeLayout(false);
             this.Panel_InitText.PerformLayout();
-            this.Tab_control.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.Tab_control.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -473,13 +471,7 @@
         private System.Windows.Forms.TabPage Page_complete;
         private System.Windows.Forms.TabPage Page_prepare;
         private System.Windows.Forms.TabControl Tab_control;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Button btn_DBFind;
-        private System.Windows.Forms.RadioButton radioButton6;
         private System.Windows.Forms.CheckBox HiddenBox;
         private System.Windows.Forms.ComboBox CB_Income;
         private System.Windows.Forms.ComboBox CB_TakeOverPrice;
@@ -490,6 +482,12 @@
         private System.Windows.Forms.RadioButton RB_CornerNone;
         private System.Windows.Forms.RadioButton RB_CornerExist;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.CheckBox checkBox6;
+        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 

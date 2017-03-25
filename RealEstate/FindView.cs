@@ -68,9 +68,9 @@ namespace RealEstate
             cn.ConnectionString = strConn;
             cn.Open();
             String query = "select * from info1 where state = ";
-            if (findvalue.type.Equals(1))
+            if (findvalue.type.Equals(0))
             {
-                query += findvalue.state.ToString() + " and type not in (1)";
+                query += findvalue.state.ToString() + " and type not in (0)";
             }
             else
             {
@@ -134,14 +134,28 @@ namespace RealEstate
 
             string query = "select * from info1 where state = ";
             MySqlConnection conn = new MySqlConnection(strConn2);
-            if (findvalue.type.Equals(1))
+            if (findvalue.type.Equals(0))
             {
-                query += findvalue.state.ToString() + " and type not in (1)";
+                query += findvalue.state.ToString() + " and type not in (0)";
+            }
+            else if (!findvalue.type.Equals(1) && !findvalue.type.Equals(2) && !findvalue.type.Equals(4) && !findvalue.type.Equals(8) && !findvalue.type.Equals(16)) 
+            {
+                query += findvalue.state.ToString() + " and (";
+                if ((findvalue.type & 1) != 0)
+                    query += " type = 1 or";
+                if ((findvalue.type & 1 << 1) != 0)
+                    query += " type = 2 or";
+                if ((findvalue.type & 1 << 2) != 0)
+                    query += " type = 4 or";
+                if ((findvalue.type & 1 << 3) != 0)
+                    query += " type = 8 or";
+                if ((findvalue.type & 1 << 4) != 0)
+                    query += " type = 16 or";
+                query = query.Substring(0, query.Length - 3); //마지막 or 삭제
+                query += ")";
             }
             else
-            {
                 query += findvalue.state.ToString() + " and type = " + findvalue.type.ToString();
-            }
             query = addDobuleToQuery1(query, "sellPrice", findvalue.sellPrice, findvalue.sellPriceSize);
             query = addDobuleToQuery1(query, "takeOverPrice", findvalue.takeOverPrice, findvalue.takeOverPriceSize);
             query = addDobuleToQuery1(query, "income", findvalue.Income, findvalue.IncomeSize);
