@@ -326,7 +326,7 @@ namespace RealEstate
         }
         private void createTable()
         {
-            string strConn2 = "Server=35.185.159.50;Database=realestate;Uid=realestate_admin;Pwd=123456;";
+            string strConn2 = "Server=104.199.249.56;Database=realestate;Uid=realestate_admin;Pwd=123456;";
 
             string query = "Create table if not exists info1 (id INTEGER  PRIMARY KEY auto_increment, addr varchar(1000), roadAddr varchar(1000), "
                            + "area varchar(100), station varchar(100), useArea varchar(100), distance NUMERIC, roadWidth NUMERIC, "

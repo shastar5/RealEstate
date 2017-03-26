@@ -87,7 +87,7 @@ namespace RealEstate
         Stack<int> commentdelete = new Stack<int>();
         Stack<int> memodelete = new Stack<int>();
 
-        string strConn2 = "Server=35.185.159.50;Database=realestate;Uid=realestate_admin;Pwd=123456;";
+        string strConn2 = "Server=104.199.249.56;Database=realestate;Uid=realestate_admin;Pwd=123456;";
         public void setDBfile(string DBFile) //DB파일위치 계승
         {
             this.DBFile = DBFile;
