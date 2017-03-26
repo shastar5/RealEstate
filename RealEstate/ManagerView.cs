@@ -6,10 +6,6 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
-using System.Windows.Controls;
-using System.Windows.Xps.Packaging;
-using System.Windows.Documents;
-using System.Drawing;
 
 namespace RealEstate
 {
@@ -1712,16 +1708,29 @@ namespace RealEstate
             }
         }
 
+        System.Drawing.Bitmap bmp;
 
         private void print_Click(object sender, EventArgs e)
         {
-            if(pv == null)
-            {
-                pv = new PrintView();
-                pv.Show();
-            }
+            System.Drawing.Graphics g = this.CreateGraphics();
+            
+            bmp = new System.Drawing.Bitmap(this.Size.Width, this.Size.Height, g);
+            System.Drawing.Graphics mg = System.Drawing.Graphics.FromImage(bmp);
+            mg.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, this.Size);
+            printPreviewDialog1.ShowDialog();
+            
         }
 
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawImage(bmp, 0, 0);
+            printDocument1.DefaultPageSettings.Landscape = true;
+        }
+
+        private void printPreviewDialog1_Load(object sender, EventArgs e)
+        {
+
+        }
 
         private void updateTB()
         {
