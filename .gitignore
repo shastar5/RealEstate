@@ -6,7 +6,8 @@
 *.user
 *.userosscache
 *.sln.docstates
-MyssqlIP.dll
+MysqlIP.dll
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
