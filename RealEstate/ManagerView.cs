@@ -90,7 +90,7 @@ namespace RealEstate
 
         PrintView pv;
 
-        string strConn2 = "Server=104.199.249.56;Database=realestate;Uid=realestate_admin;Pwd=123456;";
+        string strConn2;
         public void setDBfile(string DBFile) //DB파일위치 계승
         {
             this.DBFile = DBFile;
@@ -1123,6 +1123,7 @@ namespace RealEstate
 
         private void ManagerView_Load(object sender, EventArgs e)
         {
+            strConn2 = MysqlIp.Logic.getStrConn(); //DLL에서 mysql server ip 불러오기
             print.Click += new EventHandler(print_Click);
 
             strConn = "Data Source=" + DBFile + "; Version=3;";
