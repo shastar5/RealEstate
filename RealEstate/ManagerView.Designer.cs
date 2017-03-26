@@ -1302,7 +1302,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(922, 703);
+            this.ClientSize = new System.Drawing.Size(922, 702);
             this.Controls.Add(this.print);
             this.Controls.Add(this.btn_Delete);
             this.Controls.Add(this.panel1);
@@ -1360,6 +1360,7 @@
             this.MaximumSize = new System.Drawing.Size(938, 741);
             this.MinimumSize = new System.Drawing.Size(938, 726);
             this.Name = "ManagerView";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "관리자용 상세정보";
             this.Load += new System.EventHandler(this.ManagerView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

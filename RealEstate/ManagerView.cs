@@ -9,6 +9,7 @@ using MySql.Data.MySqlClient;
 using System.Windows.Controls;
 using System.Windows.Xps.Packaging;
 using System.Windows.Documents;
+using System.Drawing;
 
 namespace RealEstate
 {
@@ -86,6 +87,8 @@ namespace RealEstate
         Queue<int> todo = new Queue<int>();
         Stack<int> commentdelete = new Stack<int>();
         Stack<int> memodelete = new Stack<int>();
+
+        PrintView pv;
 
         string strConn2 = "Server=104.199.249.56;Database=realestate;Uid=realestate_admin;Pwd=123456;";
         public void setDBfile(string DBFile) //DB파일위치 계승
@@ -1120,6 +1123,8 @@ namespace RealEstate
 
         private void ManagerView_Load(object sender, EventArgs e)
         {
+            print.Click += new EventHandler(print_Click);
+
             strConn = "Data Source=" + DBFile + "; Version=3;";
             cn.ConnectionString = strConn;
             //readData();
@@ -1707,11 +1712,16 @@ namespace RealEstate
             }
         }
 
+
         private void print_Click(object sender, EventArgs e)
         {
-            //If you reduce the size of the view area of the window, so the text does not all fit into one page, it will print separate pages
-            System.Windows.Controls.PrintDialog printDialog = new System.Windows.Controls.PrintDialog();
+            if(pv == null)
+            {
+                pv = new PrintView();
+                pv.Show();
+            }
         }
+
 
         private void updateTB()
         {
