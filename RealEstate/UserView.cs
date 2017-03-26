@@ -506,7 +506,10 @@ namespace RealEstate
                 while (rdr.Read())
                 {
                     dgv.Rows.Add();
-                    dgv.Rows[i].Cells[0].Value = rdr.GetValue(2);
+                    if (rdr.GetValue(2).ToString().Equals("")) 
+                        dgv.Rows[i].Cells[0].Value = null;
+                    else
+                        dgv.Rows[i].Cells[0].Value = rdr.GetValue(2);
                     dgv.Rows[i].Cells[1].Value = rdr.GetValue(3);
                     dgv.Rows[i].Cells[2].Value = rdr.GetValue(4);
                     dgv.Rows[i].Cells[3].Value = rdr.GetValue(5);
