@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using System.Windows.Controls;
 using System.Windows.Xps.Packaging;
+using System.Windows.Documents;
 
 namespace RealEstate
 {
@@ -1708,19 +1709,8 @@ namespace RealEstate
 
         private void print_Click(object sender, EventArgs e)
         {
-            System.Windows.Controls.PrintDialog pDialog = new System.Windows.Controls.PrintDialog();
-            pDialog.PageRangeSelection = PageRangeSelection.AllPages;
-            pDialog.UserPageRangeEnabled = true;
-
-            Nullable<Boolean> print = pDialog.ShowDialog();
-            if (print == true)
-            {
-                XpsDocument xpsDocument = new XpsDocument("C:\\Users\\Soobin\\Desktop\\FixedDocumentSequence.xps", FileAccess.ReadWrite);
-                System.Windows.Documents.FixedDocumentSequence fixedDocSeq = xpsDocument.GetFixedDocumentSequence();
-                pDialog.PrintDocument(fixedDocSeq.DocumentPaginator, "Test print job");
-            }
-
-            
+            //If you reduce the size of the view area of the window, so the text does not all fit into one page, it will print separate pages
+            System.Windows.Controls.PrintDialog printDialog = new System.Windows.Controls.PrintDialog();
         }
 
         private void updateTB()

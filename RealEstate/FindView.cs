@@ -88,7 +88,7 @@ namespace RealEstate
             else if (findvalue.isCorner == 1)
                 query += " and isCorner = 1";
 
-
+            
 
             SQLiteCommand cmd = new SQLiteCommand(query, cn);
             SQLiteDataReader rdr = cmd.ExecuteReader();
