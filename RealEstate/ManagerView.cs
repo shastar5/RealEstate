@@ -1717,6 +1717,7 @@ namespace RealEstate
             bmp = new System.Drawing.Bitmap(this.Size.Width, this.Size.Height, g);
             System.Drawing.Graphics mg = System.Drawing.Graphics.FromImage(bmp);
             mg.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, this.Size);
+            printDocument1.DefaultPageSettings.Landscape = true;
             printPreviewDialog1.ShowDialog();
             
         }
