@@ -75,7 +75,7 @@ namespace RealEstate
 
         DataGridView dgv, commentview, memoview;
 
-        string strConn2 = "Server=104.199.249.56;Database=realestate;Uid=realestate_admin;Pwd=123456;";
+        string strConn2;
 
         private void saveDataGrid()
         {
@@ -419,6 +419,7 @@ namespace RealEstate
         
         private void AddMenu_Load(object sender, EventArgs e)
         {
+            strConn2 = MysqlIp.Logic.getStrConn(); //DLL에서 mysql server ip 불러오기
             cn = new SQLiteConnection();
             cmd = new SQLiteCommand();
             strConn = "Data Source=" + DBFile + "; Version=3;";

@@ -25,7 +25,7 @@ namespace RealEstate
         Boolean userType;
         int dataGridRowID=-1;
 
-        string strConn2 = "Server=104.199.249.56;Database=realestate;Uid=realestate_admin;Pwd=123456;";
+        string strConn2;
 
         enum findIndex
         {
@@ -280,6 +280,7 @@ namespace RealEstate
         
         private void FindView_Load(object sender, EventArgs e)
         {
+            strConn2 = MysqlIp.Logic.getStrConn(); //DLL에서 mysql server ip 불러오기
             dataGridView1.ColumnCount = 9;
 
             dataGridView1.Columns[0].Name = "번호";

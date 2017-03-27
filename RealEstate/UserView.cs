@@ -25,7 +25,7 @@ namespace RealEstate
 
         // Database keyword declare
         DataGridView dgv, commentview;
-        string strConn2 = "Server=104.199.249.56;Database=realestate;Uid=realestate_admin;Pwd=123456;";
+        string strConn2;
 
 
         public UserView()
@@ -447,6 +447,7 @@ namespace RealEstate
         }
         private void UserView_Load(object sender, EventArgs e)
         {
+            strConn2 = MysqlIp.Logic.getStrConn(); //DLL에서 mysql server ip 불러오기
             strConn = "Data Source=" + DBFile + "; Version=3;";
             cn.ConnectionString = strConn;
             //readData();

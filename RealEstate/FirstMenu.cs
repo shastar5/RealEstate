@@ -33,7 +33,7 @@ namespace RealEstate
         SQLiteConnection cn = new SQLiteConnection();
         SQLiteCommand cmd = new SQLiteCommand();
 
-        
+        string strConn2;
 
         //로인창으로 옮겨야함 deskpath;
         String deskPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory); //바탕화면 경로 가져오기
@@ -326,7 +326,6 @@ namespace RealEstate
         }
         private void createTable()
         {
-            string strConn2 = "Server=104.199.249.56;Database=realestate;Uid=realestate_admin;Pwd=123456;";
 
             string query = "Create table if not exists info1 (id INTEGER  PRIMARY KEY auto_increment, addr varchar(1000), roadAddr varchar(1000), "
                            + "area varchar(100), station varchar(100), useArea varchar(100), distance NUMERIC, roadWidth NUMERIC, "
@@ -491,6 +490,7 @@ namespace RealEstate
 
         private void FirstMenu_Load(object sender, EventArgs e)
         {
+            strConn2 = MysqlIp.Logic.getStrConn(); //DLL에서 mysql server ip 불러오기
             //createTable();
         }
         private void btn_Back_UP_Click(object sender, EventArgs e)

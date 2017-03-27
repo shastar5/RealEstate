@@ -13,7 +13,7 @@ namespace RealEstate
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ManagerView());
+            Application.Run(new Login());
         }
     }
 }
