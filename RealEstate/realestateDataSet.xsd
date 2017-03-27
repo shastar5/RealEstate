@@ -4,7 +4,7 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="realestateConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="realestateConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.RealEstate.Properties.Settings.GlobalReference.Default.realestateConnectionString1" Provider="MySql.Data.MySqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="realestateConnectionString1" IsAppSettingsProperty="true" Modifier="Assembly" Name="realestateConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.RealEstate.Properties.Settings.GlobalReference.Default.realestateConnectionString1" Provider="MySql.Data.MySqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="commentTableAdapter" GeneratorDataComponentClassName="commentTableAdapter" Name="comment" UserDataComponentName="commentTableAdapter">
@@ -479,7 +479,7 @@
   <xs:element name="realestateDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="realestateDataSet" msprop:Generator_UserDSName="realestateDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="comment" msprop:Generator_TableClassName="commentDataTable" msprop:Generator_TableVarName="tablecomment" msprop:Generator_TablePropName="comment" msprop:Generator_RowDeletingName="commentRowDeleting" msprop:Generator_RowChangingName="commentRowChanging" msprop:Generator_RowEvHandlerName="commentRowChangeEventHandler" msprop:Generator_RowDeletedName="commentRowDeleted" msprop:Generator_UserTableName="comment" msprop:Generator_RowChangedName="commentRowChanged" msprop:Generator_RowEvArgName="commentRowChangeEvent" msprop:Generator_RowClassName="commentRow">
+        <xs:element name="comment" msprop:Generator_TableClassName="commentDataTable" msprop:Generator_TableVarName="tablecomment" msprop:Generator_RowChangedName="commentRowChanged" msprop:Generator_TablePropName="comment" msprop:Generator_RowDeletingName="commentRowDeleting" msprop:Generator_RowChangingName="commentRowChanging" msprop:Generator_RowEvHandlerName="commentRowChangeEventHandler" msprop:Generator_RowDeletedName="commentRowDeleted" msprop:Generator_RowClassName="commentRow" msprop:Generator_UserTableName="comment" msprop:Generator_RowEvArgName="commentRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -494,7 +494,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="info1" msprop:Generator_TableClassName="info1DataTable" msprop:Generator_TableVarName="tableinfo1" msprop:Generator_TablePropName="info1" msprop:Generator_RowDeletingName="info1RowDeleting" msprop:Generator_RowChangingName="info1RowChanging" msprop:Generator_RowEvHandlerName="info1RowChangeEventHandler" msprop:Generator_RowDeletedName="info1RowDeleted" msprop:Generator_UserTableName="info1" msprop:Generator_RowChangedName="info1RowChanged" msprop:Generator_RowEvArgName="info1RowChangeEvent" msprop:Generator_RowClassName="info1Row">
+        <xs:element name="info1" msprop:Generator_TableClassName="info1DataTable" msprop:Generator_TableVarName="tableinfo1" msprop:Generator_RowChangedName="info1RowChanged" msprop:Generator_TablePropName="info1" msprop:Generator_RowDeletingName="info1RowDeleting" msprop:Generator_RowChangingName="info1RowChanging" msprop:Generator_RowEvHandlerName="info1RowChangeEventHandler" msprop:Generator_RowDeletedName="info1RowDeleted" msprop:Generator_RowClassName="info1Row" msprop:Generator_UserTableName="info1" msprop:Generator_RowEvArgName="info1RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -616,7 +616,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="info2" msprop:Generator_TableClassName="info2DataTable" msprop:Generator_TableVarName="tableinfo2" msprop:Generator_TablePropName="info2" msprop:Generator_RowDeletingName="info2RowDeleting" msprop:Generator_RowChangingName="info2RowChanging" msprop:Generator_RowEvHandlerName="info2RowChangeEventHandler" msprop:Generator_RowDeletedName="info2RowDeleted" msprop:Generator_UserTableName="info2" msprop:Generator_RowChangedName="info2RowChanged" msprop:Generator_RowEvArgName="info2RowChangeEvent" msprop:Generator_RowClassName="info2Row">
+        <xs:element name="info2" msprop:Generator_TableClassName="info2DataTable" msprop:Generator_TableVarName="tableinfo2" msprop:Generator_RowChangedName="info2RowChanged" msprop:Generator_TablePropName="info2" msprop:Generator_RowDeletingName="info2RowDeleting" msprop:Generator_RowChangingName="info2RowChanging" msprop:Generator_RowEvHandlerName="info2RowChangeEventHandler" msprop:Generator_RowDeletedName="info2RowDeleted" msprop:Generator_RowClassName="info2Row" msprop:Generator_UserTableName="info2" msprop:Generator_RowEvArgName="info2RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -643,7 +643,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="memo" msprop:Generator_TableClassName="memoDataTable" msprop:Generator_TableVarName="tablememo" msprop:Generator_TablePropName="memo" msprop:Generator_RowDeletingName="memoRowDeleting" msprop:Generator_RowChangingName="memoRowChanging" msprop:Generator_RowEvHandlerName="memoRowChangeEventHandler" msprop:Generator_RowDeletedName="memoRowDeleted" msprop:Generator_UserTableName="memo" msprop:Generator_RowChangedName="memoRowChanged" msprop:Generator_RowEvArgName="memoRowChangeEvent" msprop:Generator_RowClassName="memoRow">
+        <xs:element name="memo" msprop:Generator_TableClassName="memoDataTable" msprop:Generator_TableVarName="tablememo" msprop:Generator_RowChangedName="memoRowChanged" msprop:Generator_TablePropName="memo" msprop:Generator_RowDeletingName="memoRowDeleting" msprop:Generator_RowChangingName="memoRowChanging" msprop:Generator_RowEvHandlerName="memoRowChangeEventHandler" msprop:Generator_RowDeletedName="memoRowDeleted" msprop:Generator_RowClassName="memoRow" msprop:Generator_UserTableName="memo" msprop:Generator_RowEvArgName="memoRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -680,9 +680,9 @@
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="comment_ibfk_1" msdata:parent="info1" msdata:child="comment" msdata:parentkey="id" msdata:childkey="buildingID" msprop:Generator_UserChildTable="comment" msprop:Generator_ChildPropName="GetcommentRows" msprop:Generator_UserRelationName="comment_ibfk_1" msprop:Generator_RelationVarName="relationcomment_ibfk_1" msprop:Generator_UserParentTable="info1" msprop:Generator_ParentPropName="info1Row" />
-      <msdata:Relationship name="info2_ibfk_1" msdata:parent="info1" msdata:child="info2" msdata:parentkey="id" msdata:childkey="buildingID" msprop:Generator_UserChildTable="info2" msprop:Generator_ChildPropName="Getinfo2Rows" msprop:Generator_UserRelationName="info2_ibfk_1" msprop:Generator_ParentPropName="info1Row" msprop:Generator_RelationVarName="relationinfo2_ibfk_1" msprop:Generator_UserParentTable="info1" />
-      <msdata:Relationship name="memo_ibfk_1" msdata:parent="info1" msdata:child="memo" msdata:parentkey="id" msdata:childkey="buildingID" msprop:Generator_UserChildTable="memo" msprop:Generator_ChildPropName="GetmemoRows" msprop:Generator_UserRelationName="memo_ibfk_1" msprop:Generator_ParentPropName="info1Row" msprop:Generator_RelationVarName="relationmemo_ibfk_1" msprop:Generator_UserParentTable="info1" />
+      <msdata:Relationship name="comment_ibfk_1" msdata:parent="info1" msdata:child="comment" msdata:parentkey="id" msdata:childkey="buildingID" msprop:Generator_UserChildTable="comment" msprop:Generator_ChildPropName="GetcommentRows" msprop:Generator_UserRelationName="comment_ibfk_1" msprop:Generator_ParentPropName="info1Row" msprop:Generator_RelationVarName="relationcomment_ibfk_1" msprop:Generator_UserParentTable="info1" />
+      <msdata:Relationship name="info2_ibfk_1" msdata:parent="info1" msdata:child="info2" msdata:parentkey="id" msdata:childkey="buildingID" msprop:Generator_UserChildTable="info2" msprop:Generator_ChildPropName="Getinfo2Rows" msprop:Generator_UserRelationName="info2_ibfk_1" msprop:Generator_RelationVarName="relationinfo2_ibfk_1" msprop:Generator_UserParentTable="info1" msprop:Generator_ParentPropName="info1Row" />
+      <msdata:Relationship name="memo_ibfk_1" msdata:parent="info1" msdata:child="memo" msdata:parentkey="id" msdata:childkey="buildingID" msprop:Generator_UserChildTable="memo" msprop:Generator_ChildPropName="GetmemoRows" msprop:Generator_UserRelationName="memo_ibfk_1" msprop:Generator_RelationVarName="relationmemo_ibfk_1" msprop:Generator_UserParentTable="info1" msprop:Generator_ParentPropName="info1Row" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
