@@ -6,6 +6,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
+using Microsoft.Reporting.WinForms;
 
 namespace RealEstate
 {
@@ -84,7 +85,6 @@ namespace RealEstate
         Stack<int> commentdelete = new Stack<int>();
         Stack<int> memodelete = new Stack<int>();
 
-        PrintView pv;
 
         string strConn2;
         public void setDBfile(string DBFile) //DB파일위치 계승
@@ -1709,29 +1709,9 @@ namespace RealEstate
             }
         }
 
-        System.Drawing.Bitmap bmp;
-
         private void print_Click(object sender, EventArgs e)
         {
-            System.Drawing.Graphics g = this.CreateGraphics();
-            
-            bmp = new System.Drawing.Bitmap(this.Size.Width, this.Size.Height, g);
-            System.Drawing.Graphics mg = System.Drawing.Graphics.FromImage(bmp);
-            mg.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, this.Size);
-            printDocument1.DefaultPageSettings.Landscape = true;
-            printPreviewDialog1.ShowDialog();
-            
-        }
-
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-            e.Graphics.DrawImage(bmp, 0, 0);
-            printDocument1.DefaultPageSettings.Landscape = true;
-        }
-
-        private void printPreviewDialog1_Load(object sender, EventArgs e)
-        {
-
+            new buildingreport().Show();            
         }
 
         private void updateTB()
