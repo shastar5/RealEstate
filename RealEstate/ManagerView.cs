@@ -84,7 +84,7 @@ namespace RealEstate
         Queue<int> todo = new Queue<int>();
         Stack<int> commentdelete = new Stack<int>();
         Stack<int> memodelete = new Stack<int>();
-
+        buildingreport br;
 
         string strConn2;
         public void setDBfile(string DBFile) //DB파일위치 계승
@@ -607,7 +607,7 @@ namespace RealEstate
 
                 cmd.Parameters.AddWithValue("@c_date", DateTime.Now);
                 cmd.Parameters.AddWithValue("@memo", memoview.Rows[index].Cells[2].Value);
-                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@id", memoview.Rows[index].Cells[0].Value);
 
                 cmd.ExecuteNonQuery();
 
@@ -1711,7 +1711,12 @@ namespace RealEstate
 
         private void print_Click(object sender, EventArgs e)
         {
-            new buildingreport().Show();            
+            if(br == null)
+            {
+                br = new buildingreport();
+                br.setID(Convert.ToInt32(id));
+                br.Show();
+            }
         }
 
         private void updateTB()

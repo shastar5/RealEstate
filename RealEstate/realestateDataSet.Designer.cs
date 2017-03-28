@@ -10,6 +10,9 @@
 
 #pragma warning disable 1591
 
+using System;
+using System.Data;
+
 namespace RealEstate {
     
     
@@ -4102,6 +4105,11 @@ namespace RealEstate.realestateDataSetTableAdapters {
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
+        }
+
+        internal void Fill(DataTable dt)
+        {
+            throw new NotImplementedException();
         }
     }
     
