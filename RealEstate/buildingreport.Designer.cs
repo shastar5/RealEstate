@@ -34,13 +34,14 @@
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource4 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource5 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.reportViewer2 = new Microsoft.Reporting.WinForms.ReportViewer();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(buildingreport));
             this.info1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.realestateDataSet = new RealEstate.realestateDataSet();
             this.info2BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.commentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.memoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.reportViewer2 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.info1TableAdapter = new RealEstate.realestateDataSetTableAdapters.info1TableAdapter();
             this.info2TableAdapter = new RealEstate.realestateDataSetTableAdapters.info2TableAdapter();
             this.commentTableAdapter = new RealEstate.realestateDataSetTableAdapters.commentTableAdapter();
@@ -51,6 +52,35 @@
             ((System.ComponentModel.ISupportInitialize)(this.commentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // info1BindingSource
+            // 
+            this.info1BindingSource.DataMember = "info1";
+            this.info1BindingSource.DataSource = this.realestateDataSet;
+            this.info1BindingSource.CurrentChanged += new System.EventHandler(this.info1BindingSource_CurrentChanged);
+            // 
+            // realestateDataSet
+            // 
+            this.realestateDataSet.DataSetName = "realestateDataSet";
+            this.realestateDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // info2BindingSource
+            // 
+            this.info2BindingSource.DataMember = "info2";
+            this.info2BindingSource.DataSource = this.realestateDataSet;
+            this.info2BindingSource.CurrentChanged += new System.EventHandler(this.info2BindingSource_CurrentChanged);
+            // 
+            // commentBindingSource
+            // 
+            this.commentBindingSource.DataMember = "comment";
+            this.commentBindingSource.DataSource = this.realestateDataSet;
+            this.commentBindingSource.CurrentChanged += new System.EventHandler(this.commentBindingSource_CurrentChanged);
+            // 
+            // memoBindingSource
+            // 
+            this.memoBindingSource.DataMember = "memo";
+            this.memoBindingSource.DataSource = this.realestateDataSet;
+            this.memoBindingSource.CurrentChanged += new System.EventHandler(this.memoBindingSource_CurrentChanged);
             // 
             // reportViewer1
             // 
@@ -84,35 +114,6 @@
             this.reportViewer2.Size = new System.Drawing.Size(1196, 725);
             this.reportViewer2.TabIndex = 1;
             // 
-            // info1BindingSource
-            // 
-            this.info1BindingSource.DataMember = "info1";
-            this.info1BindingSource.DataSource = this.realestateDataSet;
-            this.info1BindingSource.CurrentChanged += new System.EventHandler(this.info1BindingSource_CurrentChanged);
-            // 
-            // realestateDataSet
-            // 
-            this.realestateDataSet.DataSetName = "realestateDataSet";
-            this.realestateDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // info2BindingSource
-            // 
-            this.info2BindingSource.DataMember = "info2";
-            this.info2BindingSource.DataSource = this.realestateDataSet;
-            this.info2BindingSource.CurrentChanged += new System.EventHandler(this.info2BindingSource_CurrentChanged);
-            // 
-            // commentBindingSource
-            // 
-            this.commentBindingSource.DataMember = "comment";
-            this.commentBindingSource.DataSource = this.realestateDataSet;
-            this.commentBindingSource.CurrentChanged += new System.EventHandler(this.commentBindingSource_CurrentChanged);
-            // 
-            // memoBindingSource
-            // 
-            this.memoBindingSource.DataMember = "memo";
-            this.memoBindingSource.DataSource = this.realestateDataSet;
-            this.memoBindingSource.CurrentChanged += new System.EventHandler(this.memoBindingSource_CurrentChanged);
-            // 
             // info1TableAdapter
             // 
             this.info1TableAdapter.ClearBeforeFill = true;
@@ -136,8 +137,9 @@
             this.ClientSize = new System.Drawing.Size(1196, 725);
             this.Controls.Add(this.reportViewer2);
             this.Controls.Add(this.reportViewer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "buildingreport";
-            this.Text = "buildingreport";
+            this.Text = "보고서 인쇄";
             this.Load += new System.EventHandler(this.buildingreport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.info1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.realestateDataSet)).EndInit();
