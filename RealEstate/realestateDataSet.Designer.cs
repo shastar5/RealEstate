@@ -25,7 +25,7 @@ namespace RealEstate {
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
     [global::System.Xml.Serialization.XmlRootAttribute("realestateDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class realestateDataSet : global::System.Data.DataSet {
+    public partial class realestateDataSet : global::System.Data.DataSet, IdInterface {
         
         private commentDataTable tablecomment;
         
@@ -42,7 +42,20 @@ namespace RealEstate {
         private global::System.Data.DataRelation relationmemo_ibfk_1;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-        
+        public static int id;
+
+
+        // By calling interface, create query manually here. reference method 'setID', and select query in memoTable class.
+        public interface IdInterface
+        {
+            void setID(int id);
+        }
+
+        public void setID(int id)
+        {
+            realestateDataSet.id = id;
+        }
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public realestateDataSet() {
@@ -388,7 +401,7 @@ namespace RealEstate {
             xs.Add(dsSchema);
             return type;
         }
-        
+
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void commentRowChangeEventHandler(object sender, commentRowChangeEvent e);
         
@@ -8210,7 +8223,7 @@ namespace RealEstate.realestateDataSetTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `id`, `c_date`, `memo`, `buildingID` FROM `memo`";
+            this._commandCollection[0].CommandText = "SELECT `id`, `c_date`, `memo`, `buildingID` FROM `memo` WHERE buildingID =" + realestateDataSet.id;
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

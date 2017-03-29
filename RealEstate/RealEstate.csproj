@@ -204,6 +204,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="realestateDataSet.cs">
+      <DependentUpon>realestateDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="realestateDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -342,7 +345,6 @@
     <None Include="Properties\DataSources\MySql.Data.Types.MySqlDecimal.datasource" />
     <None Include="Properties\DataSources\MySql.Data.Types.MySqlGeometry.datasource" />
     <None Include="Properties\DataSources\PicturInterface.datasource" />
-    <None Include="Properties\DataSources\PrintView.datasource" />
     <None Include="Properties\DataSources\Program.datasource" />
     <None Include="Properties\DataSources\RealEstate.Properties.Resources.datasource" />
     <None Include="Properties\DataSources\RealEstate.Properties.Settings.datasource" />

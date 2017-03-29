@@ -46,17 +46,20 @@ namespace RealEstate
             info2.Fill(info2dt);
             info2BindingSource.DataSource = info2dt;
 
-
-            DataTable memodt = new DataTable();
-            memo.Fill(memodt);
-            memoBindingSource.DataSource = memodt;
-
             DataTable commentdt = new DataTable();
             comment.Fill(commentdt);
             commentBindingSource.DataSource = commentdt;
-
+            /*
+            DataTable memodt = new DataTable();
+            memo.Fill(memodt);
+            memoBindingSource.DataSource = memodt;
+            con.Close();
+            */
 
             con.Close();
+
+            realestateDataSet.setID(Convert.ToInt32(id));
+            this.memoTableAdapter.Fill(this.realestateDataSet.memo);
             /*
             // TODO: 이 코드는 데이터를 'realestateDataSet.comment' 테이블에 로드합니다. 필요 시 이 코드를 이동하거나 제거할 수 있습니다.
             this.commentTableAdapter.Fill(this.realestateDataSet.comment);
@@ -68,7 +71,6 @@ namespace RealEstate
             // TODO: 이 코드는 데이터를 'realestateDataSet.info1' 테이블에 로드합니다. 필요 시 이 코드를 이동하거나 제거할 수 있습니다.
             this.info1TableAdapter.Fill(this.realestateDataSet.info1);
             */
-            this.reportViewer1.RefreshReport();
             this.reportViewer2.RefreshReport();
         }
 
