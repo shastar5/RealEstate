@@ -64,7 +64,7 @@ namespace RealEstate
         double sellPrice;
         double takeOverPrice;
         double yearPercent;
-
+        double netIncome;
         int isCorner;
 
         public int profilePictureID = -1;
@@ -122,7 +122,7 @@ namespace RealEstate
             memoview.Columns[0].Visible = false;
             commentview.Columns[0].Visible = false;
         }
-        private void readData2()
+        private void readData()
         {
             string query = "select * from info1 where id = " + id;
             MySqlConnection conn = new MySqlConnection(strConn2);
@@ -162,12 +162,10 @@ namespace RealEstate
                 if (rdr[18].ToString().Equals("-9999"))
                 {
                     TB_Income.Text = "";
-                    TB_Income2.Text = "";
                 }
                 else
                 {
                     TB_Income.Text = rdr[18].ToString();
-                    TB_Income2.Text = rdr[18].ToString();
                 }
 
                 if (rdr[19].ToString().Equals("-9999"))
@@ -176,9 +174,15 @@ namespace RealEstate
                     TB_Loan.Text = rdr[19].ToString();
 
                 if (rdr[20].ToString().Equals("-9999"))
+                {
                     TB_Interest.Text = "";
+                    TB_Interest2.Text = "";
+                }
                 else
+                {
                     TB_Interest.Text = rdr[20].ToString();
+                    TB_Interest2.Text = rdr[20].ToString();
+                }
 
                 if (rdr[21].ToString().Equals("-9999"))
                     TB_TakeOverPrice.Text = "";
@@ -252,11 +256,14 @@ namespace RealEstate
                 else
                     TB_MonthlyPay.Text = rdr[28].ToString();
 
-                if (rdr[29].ToString().Equals("-9999"))
+                if (rdr[29].ToString().Equals("-9999")) {
                     TB_Maintenance.Text = "";
-                else
+                    TB_Maintenance2.Text = "";
+                }
+                else {
                     TB_Maintenance.Text = rdr[29].ToString();
-
+                    TB_Maintenance2.Text = rdr[29].ToString();
+                }
                 isCorner = int.Parse(rdr[30].ToString());
                 if (isCorner == 0)
                 {
@@ -267,164 +274,25 @@ namespace RealEstate
                     CB_corner.Checked = true;
                 }
                 profilePictureID = int.Parse(rdr[31].ToString());
+
+                if (rdr[32].ToString().Equals("-9999"))
+                {
+                    TB_NetIncome.Text = "";
+                    TB_NetIncome2.Text = "";
+                }
+                else
+                {
+                    TB_NetIncome.Text = rdr[32].ToString();
+                    TB_NetIncome2.Text = rdr[32].ToString();
+
+                }
+
             }
 
             rdr.Close();
             conn.Close();
         }
-        private void readData()
-        {
-            strConn = "Data Source=" + DBFile + "; Version=3;";
-            cn.ConnectionString = strConn;
-            cn.Open();
-            String query = "select * from info1 where id = " + id;
-
-            SQLiteCommand cmd = new SQLiteCommand(query, cn);
-            SQLiteDataReader rdr = cmd.ExecuteReader();
-            while (rdr.Read())
-            {
-                TB_Addr.Text = rdr[1].ToString();
-                TB_RoadAddr.Text = rdr[2].ToString();
-                TB_Area.Text = rdr[3].ToString();
-                TB_Station.Text = rdr[4].ToString();
-                TB_UseDistrict.Text = rdr[5].ToString();
-                if (rdr[6].ToString().Equals("-9999"))
-                    TB_Distance.Text = "";
-                else
-                    TB_Distance.Text = rdr[6].ToString();
-                if (rdr[7].ToString().Equals("-9999"))
-                    TB_RoadWidth.Text = "";
-                else
-                    TB_RoadWidth.Text = rdr[7].ToString();
-                TB_TotalArea.Text = rdr[8].ToString();
-                TB_CompleteYear.Text = rdr[9].ToString();
-                TB_Parking.Text = rdr[10].ToString();
-                TB_AC_Heating.Text = rdr[11].ToString();
-                TB_EV.Text = rdr[12].ToString();
-                TB_BuildName.Text = rdr[13].ToString();
-                TB_Owner.Text = rdr[14].ToString();
-                TB_Tel.Text = rdr[15].ToString();
-                TB_Memo.Text = rdr[16].ToString();
-
-                if (rdr[17].ToString().Equals("-9999"))
-                    TB_Deposit.Text = "";
-                else
-                    TB_Deposit.Text = rdr[17].ToString();
-
-                if (rdr[18].ToString().Equals("-9999"))
-                {
-                    TB_Income.Text = "";
-                    TB_Income2.Text = "";
-                }
-                else
-                {
-                    TB_Income.Text = rdr[18].ToString();
-                    TB_Income2.Text = rdr[18].ToString();
-                }
-
-                if (rdr[19].ToString().Equals("-9999"))
-                    TB_Loan.Text = "";
-                else
-                    TB_Loan.Text = rdr[19].ToString();
-
-                if (rdr[20].ToString().Equals("-9999"))
-                    TB_Interest.Text = "";
-                else
-                    TB_Interest.Text = rdr[20].ToString();
-
-                if (rdr[21].ToString().Equals("-9999"))
-                    TB_TakeOverPrice.Text = "";
-                else
-                    TB_TakeOverPrice.Text = rdr[21].ToString();
-
-                if (rdr[22].ToString().Equals("-9999"))
-                    TB_SellPrice.Text = "";
-                else
-                    TB_SellPrice.Text = rdr[22].ToString();
-
-                if (rdr[23].ToString().Equals("-9999"))
-                    TB_PayedPrice.Text = "";
-                else
-                    TB_PayedPrice.Text = rdr[23].ToString();
-
-                if (rdr[24].ToString().Equals("-9999"))
-                    TB_YearPercent.Text = "";
-                else
-                    TB_YearPercent.Text = rdr[24].ToString();
-
-                type = int.Parse(rdr[25].ToString());
-
-                panel6.Show();
-                panel2.Hide();
-                switch (type)
-                {
-                    case 1:
-                        Dagagu.Checked = true;
-                        break;
-                    case 2:
-                        Building.Checked = true;
-                        break;
-                    case 4:
-                        SanggaHome.Checked = true;
-                        break;
-                    case 8:
-                        NewConstruction.Checked = true;
-                        break;
-                    case 16:
-                        Sangga.Checked = true;
-                        panel6.Hide();
-                        panel2.Visible = true;
-                        panel2.Show();
-                        break;
-                }
-                state = int.Parse(rdr[26].ToString());
-                switch (state)
-                {
-                    case 1:
-                        Tab_control.SelectedTab = Page_prepare;
-                        break;
-                    case 2:
-                        Tab_control.SelectedTab = Page_complete;
-                        break;
-                    case 3:
-                        Tab_control.SelectedTab = Page_wait;
-                        break;
-                    case 4:
-                        Tab_control.SelectedTab = Page_sell;
-                        break;
-
-                }
-                if (rdr[27].ToString().Equals("-9999"))
-                    TB_Premium.Text = "";
-                else
-                    TB_Premium.Text = rdr[27].ToString();
-
-                if (rdr[28].ToString().Equals("-9999"))
-                    TB_MonthlyPay.Text = "";
-                else
-                    TB_MonthlyPay.Text = rdr[28].ToString();
-
-                if (rdr[29].ToString().Equals("-9999"))
-                    TB_Maintenance.Text = "";
-                else
-                    TB_Maintenance.Text = rdr[29].ToString();
-
-                isCorner = int.Parse(rdr[30].ToString());
-                if (isCorner == 0)
-                {
-                    CB_corner.Checked = false;
-                }
-                else
-                {
-                    CB_corner.Checked = true;
-                }
-                profilePictureID = int.Parse(rdr[31].ToString());
-            }
-
-
-            rdr.Close();
-            cn.Close();
-        }
+       
 
         private void setData()
         {
@@ -453,10 +321,16 @@ namespace RealEstate
             if (type != 16)
             {
                 Income = checkNulls(TB_Income.Text.ToString());
+                maintenance = checkNulls(TB_Maintenance.Text.ToString());
+                netIncome = checkNulls(TB_NetIncome.Text.ToString());
+                interest = checkNulls(TB_Interest.Text.ToString());
             }
             else
             {
-                Income = checkNulls(TB_Income2.Text.ToString());
+                Income = checkNulls(TB_MonthlyPay.Text.ToString());
+                maintenance = checkNulls(TB_Maintenance2.Text.ToString());
+                netIncome = checkNulls(TB_NetIncome2.Text.ToString());
+                interest = checkNulls(TB_Interest2.Text.ToString());
             }
             loan = checkNulls(TB_Loan.Text.ToString());
             interest = checkNulls(TB_Interest.Text.ToString());
@@ -488,7 +362,7 @@ namespace RealEstate
             return number;
         }
 
-        private void updateDataGrid2(int i)
+        private void updateDataGrid(int i)
         {
             MySqlConnection conn = new MySqlConnection(strConn2);
             string query = "UPDATE info2 SET floor = @floor, area = @area, storeName = @storeName," +
@@ -515,42 +389,8 @@ namespace RealEstate
                 MessageBox.Show(e.ToString());
             }
         }
-        private void updateDataGrid(int i)
-        {
-            /*
-            "Create table if not exists info2 (id INTEGER  PRIMARY KEY autoincrement, buildingID INTEGER, floor NUMERIC, area NUMERIC, storeName varchar(100), "
-            + "deposit NUMERIC, monthlyIncome NUMERIC, managementPrice NUMERIC, etc NUMERIC, FOREIGN KEY(buildingID) REFERENCES info1(id))";
-
-            */
-            SQLiteConnection con = new SQLiteConnection();
-            con.ConnectionString = strConn;
-            string sql = "UPDATE info2 SET floor = @floor, area = @area, storeName = @storeName," +
-                " deposit = @deposit, monthlyIncome = @monthlyIncome, managementPrice = @managementPrice, etc = @etc where id = @id AND buildingID = " + id;
-            try
-            {
-                SQLiteCommand cmd = new SQLiteCommand(sql, con);
-                con.Open();
-
-                cmd.Parameters.AddWithValue("@floor", dgv.Rows[i].Cells["floor"].Value);
-                cmd.Parameters.AddWithValue("@area", dgv.Rows[i].Cells["floor_area"].Value);
-                cmd.Parameters.AddWithValue("@storeName", dgv.Rows[i].Cells["storeName"].Value);
-                cmd.Parameters.AddWithValue("@deposit", dgv.Rows[i].Cells["storeDeposit"].Value);
-                cmd.Parameters.AddWithValue("@monthlyIncome", dgv.Rows[i].Cells["monthlyIncome"].Value);
-                cmd.Parameters.AddWithValue("@managementPrice", dgv.Rows[i].Cells["managementPrice"].Value);
-                cmd.Parameters.AddWithValue("@etc", dgv.Rows[i].Cells["etc"].Value);
-                cmd.Parameters.AddWithValue("@id", dgv.Rows[i].Cells["_id"].Value);
-
-                cmd.ExecuteNonQuery();
-
-                con.Close();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.ToString());
-            }
-        }
-
-        private void updatecomment2(int index)
+      
+        private void updatecomment(int index)
         {
             MySqlConnection conn = new MySqlConnection(strConn2);
             string query = "UPDATE comment SET content = @content WHERE id = @id AND buildingID = " + id;
@@ -572,30 +412,8 @@ namespace RealEstate
                 MessageBox.Show(e.ToString());
             }
         }
-        private void updatecomment(int index)
-        {
-            SQLiteConnection con = new SQLiteConnection();
-            con.ConnectionString = strConn;
-            string sql = "UPDATE comment SET content = @content WHERE id = @id AND buildingID = " + id;
-            try
-            {
-                SQLiteCommand cmd = new SQLiteCommand(sql, con);
-                con.Open();
-
-                cmd.Parameters.AddWithValue("@content", commentview.Rows[index].Cells["Content"].Value);
-                cmd.Parameters.AddWithValue("@id", commentview.Rows[index].Cells["order"].Value);
-
-                cmd.ExecuteNonQuery();
-
-                con.Close();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.ToString());
-            }
-        }
-
-        private void updatememo2(int index)
+        
+        private void updatememo(int index)
         {
             MySqlConnection conn = new MySqlConnection(strConn2);
             string query = "UPDATE memo SET c_date = @c_date, memo = @memo WHERE id = @id AND buildingID = " + id;
@@ -618,31 +436,8 @@ namespace RealEstate
                 MessageBox.Show(e.ToString());
             }
         }
-        private void updatememo(int index)
-        {
-            SQLiteConnection con = new SQLiteConnection();
-            con.ConnectionString = strConn;
-            string sql = "UPDATE memo SET c_date = @c_date, memo = @memo WHERE id = @id AND buildingID = " + id;
-            try
-            {
-                SQLiteCommand cmd = new SQLiteCommand(sql, con);
-                con.Open();
-
-                cmd.Parameters.AddWithValue("@c_date", DateTime.Now);
-                cmd.Parameters.AddWithValue("@memo", memoview.Rows[index].Cells[2].Value);
-                cmd.Parameters.AddWithValue("@id", id);
-
-                cmd.ExecuteNonQuery();
-
-                con.Close();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.ToString());
-            }
-        }
-
-        private void deleteDataGrid2()
+     
+        private void deleteDataGrid()
         {
             MySqlConnection conn = new MySqlConnection(strConn2);
             string query = "DELETE FROM info2 WHERE id = @id AND buildingID = " + id;
@@ -669,35 +464,8 @@ namespace RealEstate
 
             conn.Close();
         }
-        private void deleteDataGrid()
-        {
-            SQLiteConnection con = new SQLiteConnection();
-            con.ConnectionString = strConn;
-            string sql = "DELETE FROM info2 WHERE id = @id AND buildingID = " + id;
-            cmd = new SQLiteCommand(sql, con);
-            con.Open();
-            int count = todo.Count;
-
-            for (int j = 0; j < count; ++j)
-            {
-                int num = todo.Dequeue();
-
-                cmd.Parameters.AddWithValue("@floor", dgv.Rows[num].Cells["floor"].Value);
-                cmd.Parameters.AddWithValue("@area", dgv.Rows[num].Cells["floor_area"].Value);
-                cmd.Parameters.AddWithValue("@storeName", dgv.Rows[num].Cells["storeName"].Value);
-                cmd.Parameters.AddWithValue("@deposit", dgv.Rows[num].Cells["storeDeposit"].Value);
-                cmd.Parameters.AddWithValue("@monthlyIncome", dgv.Rows[num].Cells["monthlyIncome"].Value);
-                cmd.Parameters.AddWithValue("@managementPrice", dgv.Rows[num].Cells["managementPrice"].Value);
-                cmd.Parameters.AddWithValue("@etc", dgv.Rows[num].Cells["etc"].Value);
-                cmd.Parameters.AddWithValue("@id", dgv.Rows[num].Cells["_id"].Value);
-
-                cmd.ExecuteNonQuery();
-            }
-
-            con.Close();
-        }
-
-        private void readDataGrid2()
+     
+        private void readDataGrid()
         {
             int i = 0;
             string query = "select * from info2 where buildingId =" + id;
@@ -733,54 +501,7 @@ namespace RealEstate
 
             showSum();
         }
-        private void readDataGrid()
-        {
-            /*
-             "Create table if not exists info2 (0id INTEGER  PRIMARY KEY autoincrement, 1buildingID INTEGER,2 floor NUMERIC, 3area NUMERIC, 4storeName varchar(100), "
-             + "5deposit NUMERIC, 6monthlyIncome NUMERIC, 7managementPrice NUMERIC, 8etc NUMERIC, FOREIGN KEY(buildingID) REFERENCES info1(id))";
-             */
-
-            int i = 0;
-            string sql = "select * from info2 where buildingId =" + id;
-            try
-            {
-                SQLiteConnection con = new SQLiteConnection();
-                strConn = "Data Source=" + DBFile + "; Version=3;";
-                con.ConnectionString = strConn;
-
-                // 여기 select * from info2 where id=? 로 고쳐
-                SQLiteCommand sqlCMD = new SQLiteCommand(sql, con);
-                SQLiteDataReader reader;
-                con.Open();
-                reader = sqlCMD.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    dgv.Rows.Add();
-                    dgv.Rows[i].Cells[0].Value = reader.GetValue(0);
-                    dgv.Rows[i].Cells[1].Value = reader.GetValue(2);
-                    dgv.Rows[i].Cells[2].Value = reader.GetValue(3);
-                    dgv.Rows[i].Cells[3].Value = reader.GetValue(4);
-                    dgv.Rows[i].Cells[4].Value = reader.GetValue(5);
-                    dgv.Rows[i].Cells[5].Value = reader.GetValue(6);
-                    dgv.Rows[i].Cells[6].Value = reader.GetValue(7);
-                    dgv.Rows[i].Cells[7].Value = reader.GetValue(8);
-                    i++;
-                }
-                con.Close();
-                countofrows = i;
-            }
-            catch (SQLiteException e)
-            {
-                MessageBox.Show(e.ToString());
-            }
-
-            dgv.Sort(dgv.Columns[1], System.ComponentModel.ListSortDirection.Ascending);
-            dgv.Columns[0].Visible = false;
-
-            showSum();
-        }
-
+     
         private void showSum()
         {
             int i;
@@ -829,7 +550,7 @@ namespace RealEstate
 
             return sumofMonthlyIncome;
         }
-        private void InsertRowsDataGridView2(int i)
+        private void InsertRowsDataGridView(int i)
         {
             MySqlConnection conn = new MySqlConnection(strConn2);
             try
@@ -859,50 +580,16 @@ namespace RealEstate
             }
 
         }
-        private void InsertRowsDataGridView(int i)
-        {
-            /*
-            "Create table if not exists info2 (id INTEGER  PRIMARY KEY autoincrement, buildingID INTEGER, floor NUMERIC, area NUMERIC, storeName varchar(100), "
-            + "deposit NUMERIC, monthlyIncome NUMERIC, managementPrice NUMERIC, etc NUMERIC, FOREIGN KEY(buildingID) REFERENCES info1(id))";
-            */
-            SQLiteConnection con = new SQLiteConnection();
-            con.ConnectionString = strConn;
-            try
-            {
-                SQLiteCommand cmd = new SQLiteCommand("INSERT INTO info2 VALUES(@id, @buildingID, @floor, @area, @storeName, @deposit, @monthlyIncome, @managementPrice, @etc)", con);
-                con.Open();
-
-                if (dgv.Rows.Count != 0)
-                {
-                    cmd.Parameters.AddWithValue("@id", null);
-                    cmd.Parameters.AddWithValue("@buildingID", id);
-                    cmd.Parameters.AddWithValue("@floor", dgv.Rows[i].Cells["floor"].Value);
-                    cmd.Parameters.AddWithValue("@area", dgv.Rows[i].Cells["floor_area"].Value);
-                    cmd.Parameters.AddWithValue("@storeName", dgv.Rows[i].Cells["storeName"].Value);
-                    cmd.Parameters.AddWithValue("@deposit", dgv.Rows[i].Cells["storeDeposit"].Value);
-                    cmd.Parameters.AddWithValue("@monthlyIncome", dgv.Rows[i].Cells["monthlyIncome"].Value);
-                    cmd.Parameters.AddWithValue("@managementPrice", dgv.Rows[i].Cells["managementPrice"].Value);
-                    cmd.Parameters.AddWithValue("@etc", dgv.Rows[i].Cells["etc"].Value);
-
-                    cmd.ExecuteNonQuery();
-                }
-
-                con.Close();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.ToString());
-            }
-        }
-
-        private void saveData2()
+       
+        private void saveData()
         {
             MySqlConnection conn = new MySqlConnection(strConn2);
             string query = "update info1 SET addr = @Addr , roadAddr = @RoadAddr, area = @Area, station = @Station, useArea = @UseArea, distance = @Distance, "
                  + "roadWidth = @RoadWidth, totalArea = @TotalArea, completeYear = @CompleteYear, parking = @Parking, acHeating = @AcHeating, EV = @EV, "
                  + "buildingName = @BuildingName, owner = @Owner, tel = @Tel, meno = @Meno, deposit = @Deposit, income = @Income, loan = @Loan, "
                  + "interest = @Interest, takeOverPrice = @TakeOverPrice, sellPrice = @SellPrice, payedPrice = @PayedPrice, yearPercent = @YearPercent, "
-                 + "type = @Type, state = @State, premium = @Premium, monthlyPay = @MonthlyPay, maintenance = @Maintenance, isCorner = @IsCorner, profilePictureID = @ProfilePictureID where id  = " + id;
+                 + "type = @Type, state = @State, premium = @Premium, monthlyPay = @MonthlyPay, maintenance = @Maintenance, isCorner = @IsCorner, "
+                 + "profilePictureID = @ProfilePictureID, netIncome = @NetIncome where id  = " + id;
 
             conn.Open();
             MySqlCommand cmd = new MySqlCommand(query, conn);
@@ -939,63 +626,13 @@ namespace RealEstate
             cmd.Parameters.Add(new MySqlParameter("@Maintenance", MySqlDbType.Double) { Value = maintenance });
             cmd.Parameters.Add(new MySqlParameter("@IsCorner", MySqlDbType.Int32) { Value = isCorner });
             cmd.Parameters.Add(new MySqlParameter("@ProfilePictureID", MySqlDbType.Int32) { Value = profilePictureID });
+            cmd.Parameters.Add(new MySqlParameter("@NetIncome", MySqlDbType.Double) { Value = netIncome });
 
 
             cmd.ExecuteNonQuery();
             conn.Close();
         }
-        private void saveData()
-        {
-
-            strConn = "Data Source=" + DBFile + "; Version=3;";
-            cn.ConnectionString = strConn;
-            cn.Open();
-
-            SQLiteCommand cmd = new SQLiteCommand(cn);
-            cmd.CommandText =
-                "update info1 SET addr = @Addr , roadAddr = @RoadAddr, area = @Area, station = @Station, useArea = @UseArea, distance = @Distance, "
-                 + "roadWidth = @RoadWidth, totalArea = @TotalArea, completeYear = @CompleteYear, parking = @Parking, acHeating = @AcHeating, EV = @EV, "
-                 + "buildingName = @BuildingName, owner = @Owner, tel = @Tel, meno = @Meno, deposit = @Deposit, income = @Income, loan = @Loan, "
-                 + "interest = @Interest, takeOverPrice = @TakeOverPrice, sellPrice = @SellPrice, payedPrice = @PayedPrice, yearPercent = @YearPercent, "
-                 + "type = @Type, state = @State, premium = @Premium, monthlyPay = @MonthlyPay, maintenance = @Maintenance, isCorner = @IsCorner, profilePictureID = @ProfilePictureID where id  = " + id;
-            cmd.Parameters.Add(new SQLiteParameter("@Addr") { Value = addr });
-            cmd.Parameters.Add(new SQLiteParameter("@RoadAddr") { Value = roadAddr });
-            cmd.Parameters.Add(new SQLiteParameter("@Area") { Value = area });
-            cmd.Parameters.Add(new SQLiteParameter("@Station") { Value = station });
-            cmd.Parameters.Add(new SQLiteParameter("@UseArea") { Value = useArea });
-
-            cmd.Parameters.Add(new SQLiteParameter("@Distance") { Value = distance });
-            cmd.Parameters.Add(new SQLiteParameter("@RoadWidth") { Value = roadWidth });
-            cmd.Parameters.Add(new SQLiteParameter("@TotalArea") { Value = totalArea });
-            cmd.Parameters.Add(new SQLiteParameter("@CompleteYear") { Value = completeYear });
-            cmd.Parameters.Add(new SQLiteParameter("@Parking") { Value = parking });
-            cmd.Parameters.Add(new SQLiteParameter("@AcHeating") { Value = acHeating });
-            cmd.Parameters.Add(new SQLiteParameter("@EV") { Value = EV });
-            cmd.Parameters.Add(new SQLiteParameter("@BuildingName") { Value = buildingName });
-
-            cmd.Parameters.Add(new SQLiteParameter("@Owner") { Value = owner });
-            cmd.Parameters.Add(new SQLiteParameter("@Tel") { Value = tel });
-            cmd.Parameters.Add(new SQLiteParameter("@Meno") { Value = meno });
-            cmd.Parameters.Add(new SQLiteParameter("@Deposit") { Value = deposit });
-            cmd.Parameters.Add(new SQLiteParameter("@Income") { Value = Income });
-            cmd.Parameters.Add(new SQLiteParameter("@Loan") { Value = loan });
-            cmd.Parameters.Add(new SQLiteParameter("@Interest") { Value = interest });
-            cmd.Parameters.Add(new SQLiteParameter("@TakeOverPrice") { Value = takeOverPrice });
-            cmd.Parameters.Add(new SQLiteParameter("@SellPrice") { Value = sellPrice });
-            cmd.Parameters.Add(new SQLiteParameter("@PayedPrice") { Value = payedPrice });
-            cmd.Parameters.Add(new SQLiteParameter("@YearPercent") { Value = yearPercent });
-            cmd.Parameters.Add(new SQLiteParameter("@Type") { Value = type });
-            cmd.Parameters.Add(new SQLiteParameter("@State") { Value = state });
-            cmd.Parameters.Add(new SQLiteParameter("@Premium") { Value = premium });
-            cmd.Parameters.Add(new SQLiteParameter("@MonthlyPay") { Value = monthlyPay });
-            cmd.Parameters.Add(new SQLiteParameter("@Maintenance") { Value = maintenance });
-            cmd.Parameters.Add(new SQLiteParameter("@IsCorner") { Value = isCorner });
-            cmd.Parameters.Add(new SQLiteParameter("@ProfilePictureID") { Value = profilePictureID });
-
-
-            cmd.ExecuteNonQuery();
-            cn.Close();
-        }
+      
 
         private void Tabs_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1124,19 +761,15 @@ namespace RealEstate
 
             strConn = "Data Source=" + DBFile + "; Version=3;";
             cn.ConnectionString = strConn;
-            //readData();
-            readData2();
+            readData();
 
             loadPicture();
 
-            //readDataGrid();
-            readDataGrid2();
+            readDataGrid();
 
-            //readcomment();
-            readcomment2();
+            readcomment();
 
-            //readmemo();
-            readmemo2();
+            readmemo();
 
             if (dgv.Rows.Count > 0)
             {
@@ -1149,7 +782,7 @@ namespace RealEstate
 
         }
 
-        private void readcomment2()
+        private void readcomment()
         {
             int i = 0;
             string query = "select * from comment where buildingId =" + id;
@@ -1174,44 +807,8 @@ namespace RealEstate
                 MessageBox.Show(e.ToString());
             }
         }
-        private void readcomment()
-        {
-            /*
-            query = "Create table if not exists comment (id INTEGER PRIMARY KEY AUTOINCREMENT, content varchar(1000), buildingID INTEGER, FOREIGN KEY(buildingID) REFERENCES info1(id))";
-            cmd = new SQLiteCommand(query, cn);
-            cmd.ExecuteNonQuery();
-
-            query = "Create table if not exists memo (id INTEGER PRIMARY KEY AUTOINCREMENT, c_date DATE DEFAULT CURRENT_TIMESTAMP, memo varchar(1000)" +
-                ", buildingID INTEGER, FOREIGN KEY(buildingID) REFERENCES info1(id))";
-             */
-            int i = 0;
-            string sql = "select * from comment where buildingId =" + id;
-            try
-            {
-                SQLiteConnection con = new SQLiteConnection();
-                strConn = "Data Source=" + DBFile + "; Version=3;";
-                con.ConnectionString = strConn;
-
-                SQLiteCommand sqlCMD = new SQLiteCommand(sql, con);
-                SQLiteDataReader reader;
-                con.Open();
-                reader = sqlCMD.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    commentview.Rows.Add();
-                    commentview.Rows[i].Cells[0].Value = reader.GetValue(0);
-                    commentview.Rows[i++].Cells[1].Value = reader.GetValue(1);
-                }
-                con.Close();
-            }
-            catch (SQLiteException e)
-            {
-                MessageBox.Show(e.ToString());
-            }
-        }
-
-        private void readmemo2()
+       
+        private void readmemo()
         {
             int i = 0;
             string query = "select * from memo where buildingId =" + id;
@@ -1237,36 +834,7 @@ namespace RealEstate
                 MessageBox.Show(e.ToString());
             }
         }
-        private void readmemo()
-        {
-            int i = 0;
-            string sql = "select * from memo where buildingId =" + id;
-            try
-            {
-                SQLiteConnection con = new SQLiteConnection();
-                strConn = "Data Source=" + DBFile + "; Version=3;";
-                con.ConnectionString = strConn;
-
-                SQLiteCommand sqlCMD = new SQLiteCommand(sql, con);
-                SQLiteDataReader reader;
-                con.Open();
-                reader = sqlCMD.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    memoview.Rows.Add();
-                    memoview.Rows[i].Cells[0].Value = reader.GetValue(0);
-                    memoview.Rows[i].Cells[1].Value = reader.GetValue(1);
-                    memoview.Rows[i++].Cells[2].Value = reader.GetValue(2);
-                }
-                con.Close();
-            }
-            catch (SQLiteException e)
-            {
-                MessageBox.Show(e.ToString());
-            }
-        }
-
+   
         private void SaveData_Click(object sender, EventArgs e)
         {
             ErrorStr2Num = 0;
@@ -1283,8 +851,7 @@ namespace RealEstate
                 MessageBox.Show("사진추가/삭제 창을 닫고 저장해주세요.");
             else if (ErrorStr2Num == 0)
             {
-                //saveData();
-                saveData2();
+                saveData();
 
                 /*
                 SQLiteConnection con = new SQLiteConnection();
@@ -1298,15 +865,13 @@ namespace RealEstate
                 {
                     if (dgv.Rows[i].Cells[0].Value != null)
                     {
-                        //updateDataGrid(i);
-                        updateDataGrid2(i);
+                        updateDataGrid(i);
                     }
                     else
                     {
-                        //InsertRowsDataGridView(i);
                         if(dgv.Rows[i].Cells[1].Value != null)
                             if(!dgv.Rows[i].Cells[1].Value.Equals("합계"))
-                                InsertRowsDataGridView2(i);
+                                InsertRowsDataGridView(i);
                     }
                 }
 
@@ -1314,13 +879,11 @@ namespace RealEstate
                 {
                     if (commentview.Rows[i].Cells[0].Value != null)
                     {
-                        //updatecomment(i);
-                        updatecomment2(i);
+                        updatecomment(i);
                     }
                     else
                     {
-                        //insertComment(i);
-                        insertComment2(i);
+                        insertComment(i);
                     }
                 }
 
@@ -1328,13 +891,11 @@ namespace RealEstate
                 {
                     if (memoview.Rows[i].Cells[0].Value != null)
                     {
-                        //updatememo(i);
-                        updatememo2(i);
+                        updatememo(i);
                     }
                     else
                     {
-                        //insertMemo(i);
-                        insertMemo2(i);
+                        insertMemo(i);
                     }
                 }
                 MessageBox.Show("저장 완료 했습니다.");
@@ -1349,7 +910,7 @@ namespace RealEstate
                 MessageBox.Show("숫자 입력란에 숫자만 넣어주세요. 다시 확인해주세요 ");
 
         }
-        private void readProfilePicture2()
+        private void readProfilePicture()
         {
             MySqlConnection conn = new MySqlConnection(strConn2);
             String query = "select profilePictureID from info1 where id = " + id;
@@ -1363,20 +924,7 @@ namespace RealEstate
             }
             conn.Close();
         }
-        private void readProfilePicture()
-        {
-            cn.Open();
-            String query = "select profilePictureID from info1 where id = " + id;
-
-            SQLiteCommand cmd = new SQLiteCommand(query, cn);
-            SQLiteDataReader rdr = cmd.ExecuteReader();
-            while (rdr.Read())
-            {
-                profilePictureID = int.Parse(rdr[0].ToString());
-            }
-            cn.Close();
-        }
-
+        
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             int isOpen = 0;
@@ -1390,8 +938,7 @@ namespace RealEstate
             }
             if (isOpen == 0)
             {
-                //readProfilePicture();
-                readProfilePicture2();
+                readProfilePicture();
                 ShowPicture showpicture = new ShowPicture();
                 showpicture.setDBfile(DBFile);
                 showpicture.Owner = this;
@@ -1424,8 +971,7 @@ namespace RealEstate
                 if (oneCell.Selected)
                 {
                     todo.Enqueue(oneCell.RowIndex);
-                    //deleteDataGrid();
-                    deleteDataGrid2();
+                    deleteDataGrid();
                     dgv.Rows.RemoveAt(oneCell.RowIndex);
                 }
             }
@@ -1442,13 +988,12 @@ namespace RealEstate
                 if (oneCell.Selected)
                 {
                     memodelete.Push(oneCell.RowIndex);
-                    // deletememo();
-                    deletememo2();
+                    deletememo();
                     memoview.Rows.RemoveAt(oneCell.RowIndex);
                 }
         }
 
-        private void deletememo2()
+        private void deletememo()
         {
             MySqlConnection conn = new MySqlConnection(strConn2);
             string query = "DELETE FROM memo WHERE id = @id AND buildingID = " + id;
@@ -1463,24 +1008,8 @@ namespace RealEstate
 
             conn.Close();
         }
-        private void deletememo()
-        {
-            SQLiteConnection con = new SQLiteConnection();
-            con.ConnectionString = strConn;
-            string sql = "DELETE FROM memo WHERE id = @id AND buildingID = " + id;
-            cmd = new SQLiteCommand(sql, con);
-            con.Open();
-
-            while (memodelete.Count > 0)
-            {
-                cmd.Parameters.AddWithValue("@id", memoview.Rows[memodelete.Pop()].Cells["memoid"].Value);
-                cmd.ExecuteNonQuery();
-            }
-
-            con.Close();
-        }
-
-        private void deleteComment2()
+     
+        private void deleteComment()
         {
             MySqlConnection conn = new MySqlConnection(strConn2);
             string query = "DELETE FROM comment WHERE id = @id AND buildingID = " + id;
@@ -1495,24 +1024,8 @@ namespace RealEstate
 
             conn.Close();
         }
-        private void deleteComment()
-        {
-            SQLiteConnection con = new SQLiteConnection();
-            con.ConnectionString = strConn;
-            string sql = "DELETE FROM comment WHERE id = @id AND buildingID = " + id;
-            cmd = new SQLiteCommand(sql, con);
-            con.Open();
 
-            while (commentdelete.Count > 0)
-            {
-                cmd.Parameters.AddWithValue("@id", commentview.Rows[commentdelete.Pop()].Cells["order"].Value);
-                cmd.ExecuteNonQuery();
-            }
-
-            con.Close();
-        }
-
-        private void insertComment2(int index)
+        private void insertComment(int index)
         {
             try
             {
@@ -1532,30 +1045,8 @@ namespace RealEstate
                 MessageBox.Show(e.ToString());
             }
         }
-        private void insertComment(int index)
-        {
-            SQLiteConnection con = new SQLiteConnection();
-            con.ConnectionString = strConn;
-            try
-            {
-                SQLiteCommand cmd = new SQLiteCommand("INSERT INTO comment VALUES (@id, @content, @buildingID)", con);
-                con.Open();
 
-                cmd.Parameters.AddWithValue("@id", null);
-                cmd.Parameters.AddWithValue("@buildingID", id);
-                cmd.Parameters.AddWithValue("@content", commentview.Rows[index].Cells["Content"].Value);
-
-                cmd.ExecuteNonQuery();
-
-                con.Close();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.ToString());
-            }
-        }
-
-        private void insertMemo2(int index)
+        private void insertMemo(int index)
         {
             try
             {
@@ -1579,31 +1070,7 @@ namespace RealEstate
                 MessageBox.Show(e.ToString());
             }
         }
-        private void insertMemo(int index)
-        {
-            SQLiteConnection con = new SQLiteConnection();
-            con.ConnectionString = strConn;
-            try
-            {
-                SQLiteCommand cmd = new SQLiteCommand("INSERT INTO memo VALUES(@id, @c_date, @memo, @buildingID)", con);
-                con.Open();
-
-
-                cmd.Parameters.AddWithValue("@id", null);
-                cmd.Parameters.AddWithValue("@c_date", DateTime.Now);
-                cmd.Parameters.AddWithValue("@memo", memoview.Rows[index].Cells["memo"].Value);
-                cmd.Parameters.AddWithValue("@buildingID", id);
-
-                cmd.ExecuteNonQuery();
-
-                con.Close();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.ToString());
-            }
-        }
-
+     
         private void addcomment_Click(object sender, EventArgs e)
         {
             commentview.Rows.Add();
@@ -1616,7 +1083,7 @@ namespace RealEstate
                 {
                     commentdelete.Push(oneCell.RowIndex);
                     // deleteComment();
-                    deleteComment2();
+                    deleteComment();
                     commentview.Rows.RemoveAt(oneCell.RowIndex);
                 }
         }
@@ -1636,8 +1103,7 @@ namespace RealEstate
                 DialogResult dr = MessageBox.Show("정말 자료를 삭제하시겠습니까?", "알림", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                 if (dr == DialogResult.OK)
                 {
-                    //deleteDB();
-                    deleteDB2();
+                    deleteDB();
                     this.Close();
                 }
             }
@@ -1647,19 +1113,8 @@ namespace RealEstate
             }
         }
 
+       
         private void deleteDB()
-        {
-            cn.Open();
-            string query = "delete from info1 where id = " + id;
-            SQLiteCommand cmd = new SQLiteCommand(query, cn);
-            cmd.ExecuteNonQuery();
-            query = "delete from pictures where buildingid = " + id;
-            cmd = new SQLiteCommand(query, cn);
-            cmd.ExecuteNonQuery();
-            cn.Close();
-
-        }
-        private void deleteDB2()
         {
             string query = "delete from comment where buildingid = " + id;
             MySqlConnection conn = new MySqlConnection(strConn2);
@@ -1727,7 +1182,8 @@ namespace RealEstate
             double UpdateTakeOverPrice = -9999;
             double UpdateIncome;
             double UpdateYearPercent;
-            
+            double UpdateInterest;
+            double UpdateMaintenance;
 
             if (UpdateSellPrice != -9999 && UpdateDeposit != -9999 && UpdateLoan != -9999)
             {
@@ -1737,18 +1193,31 @@ namespace RealEstate
             else
                 TB_TakeOverPrice.Text = "";
 
-            if (type != 6)
+            if (type != 16)
             {
                 //UpdateIncome = checkNulls(TB_Income.Text.ToString());
                 UpdateIncome = getSumofIncome();
                 TB_Income.Text = getSumofIncome().ToString();
+
+                UpdateInterest = checkNulls(TB_Interest.Text.ToString());
+                UpdateMaintenance = checkNulls(TB_Maintenance.Text.ToString());
+                if (UpdateInterest != -9999 && UpdateIncome != -9999 && UpdateMaintenance != -9999)
+                    TB_NetIncome.Text = (UpdateIncome - UpdateInterest - UpdateMaintenance).ToString();
+                else
+                    TB_NetIncome.Text = "";
             }
             else
             {
                 //UpdateIncome = checkNulls(TB_Income2.Text.ToString());
                 UpdateIncome = getSumofIncome();
-                TB_Income2.Text = getSumofIncome().ToString();
+                TB_MonthlyPay.Text = getSumofIncome().ToString();
 
+                UpdateInterest = checkNulls(TB_Interest2.Text.ToString());
+                UpdateMaintenance = checkNulls(TB_Maintenance2.Text.ToString());
+                if (UpdateInterest != -9999 && UpdateIncome != -9999 && UpdateMaintenance != -9999)
+                    TB_NetIncome2.Text = (UpdateIncome - UpdateInterest - UpdateMaintenance).ToString();
+                else
+                    TB_NetIncome.Text = "";
             }
             if (UpdateTakeOverPrice != -9999 && UpdateIncome != -9999)
             {

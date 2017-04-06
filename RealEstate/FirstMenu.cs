@@ -327,16 +327,31 @@ namespace RealEstate
         private void createTable()
         {
 
-            string query = "Create table if not exists info1 (id INTEGER  PRIMARY KEY auto_increment, addr varchar(1000), roadAddr varchar(1000), "
-                           + "area varchar(100), station varchar(100), useArea varchar(100), distance NUMERIC, roadWidth NUMERIC, "
-                        + "totalArea varchar(100), completeYear varchar(100), parking varchar(100), acHeating varchar(100), EV varchar(100), "
-                        + "buildingName varchar(100), owner varchar(100), tel varchar(100), meno varchar(100), deposit NUMERIC, income NUMERIC, loan NUMERIC, interest NUMERIC, takeOverPrice NUMERIC, "
-                        + "sellPrice NUMERIC, payedPrice NUMERIC, yearPercent NUMERIC, type INTEGER, state INTEGER, premium NUMERIC, monthlyPay NUMERIC, maintenance NUMERIC, isCorner INTEGER, profilePictureID INTEGER)";
-            
+            string query = "drop table info2";
             MySqlConnection conn = new MySqlConnection(strConn2);
             conn.Open();
             MySqlCommand cmd = new MySqlCommand(query, conn);
+
             cmd.ExecuteNonQuery();
+
+            cmd.CommandText = "drop table comment";
+            cmd.ExecuteNonQuery();
+
+
+            cmd.CommandText = "drop table memo";
+            cmd.ExecuteNonQuery();
+
+
+            cmd.CommandText = "drop table info1";
+            cmd.ExecuteNonQuery();
+
+            cmd.CommandText = "Create table if not exists info1 (id INTEGER  PRIMARY KEY auto_increment, addr varchar(1000), roadAddr varchar(1000), "
+                           + "area varchar(100), station varchar(100), useArea varchar(100), distance NUMERIC, roadWidth NUMERIC, "
+                        + "totalArea varchar(100), completeYear varchar(100), parking varchar(100), acHeating varchar(100), EV varchar(100), "
+                        + "buildingName varchar(100), owner varchar(100), tel varchar(100), meno varchar(100), deposit NUMERIC, income NUMERIC, loan NUMERIC, interest NUMERIC, takeOverPrice NUMERIC, "
+                        + "sellPrice NUMERIC, payedPrice NUMERIC, yearPercent NUMERIC, type INTEGER, state INTEGER, premium NUMERIC, monthlyPay NUMERIC, maintenance NUMERIC, isCorner INTEGER, profilePictureID INTEGER, netIncome NUMERIC)";
+            cmd.ExecuteNonQuery();
+
             
             cmd.CommandText = "Create table if not exists info2 (id INTEGER PRIMARY KEY auto_increment, buildingID INTEGER, floor NUMERIC, area NUMERIC, storeName varchar(100), "
                 + "deposit NUMERIC, monthlyIncome NUMERIC, managementPrice NUMERIC, etc varchar(100), FOREIGN KEY(buildingID) REFERENCES info1(id))";
@@ -491,7 +506,7 @@ namespace RealEstate
         private void FirstMenu_Load(object sender, EventArgs e)
         {
             strConn2 = MysqlIp.Logic.getStrConn(); //DLL에서 mysql server ip 불러오기
-            //createTable();
+            createTable();
         }
         private void btn_Back_UP_Click(object sender, EventArgs e)
         {

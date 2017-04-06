@@ -63,6 +63,7 @@ namespace RealEstate
         double takeOverPrice;
         double yearPercent;
         int isCorner;
+        double netIncome;
         //프로필 유무
         public int profilePictureID=-1;
         //숫자를 글자로 만들 때 에러 유무
@@ -77,36 +78,8 @@ namespace RealEstate
 
         string strConn2;
 
+     
         private void saveDataGrid()
-        {
-            SQLiteConnection con = new SQLiteConnection();
-            con.ConnectionString = strConn;
-            try
-            {
-                SQLiteCommand cmd = new SQLiteCommand("INSERT INTO info2 VALUES(@id, @buildingID, @floor, @area, @storeName, @deposit, @monthlyIncome, @managementPrice, @etc)", con);
-                con.Open();
-                for (int i = 0; i < dgv.Rows.Count; i++)
-                {
-                    cmd.Parameters.AddWithValue("@id", null);
-                    cmd.Parameters.AddWithValue("@buildingID", getid());
-                    cmd.Parameters.AddWithValue("@floor", dgv.Rows[i].Cells["floor"].Value);
-                    cmd.Parameters.AddWithValue("@area", dgv.Rows[i].Cells["floor_area"].Value);
-                    cmd.Parameters.AddWithValue("@storeName", dgv.Rows[i].Cells["storeName"].Value);
-                    cmd.Parameters.AddWithValue("@deposit", dgv.Rows[i].Cells["storeDeposit"].Value);
-                    cmd.Parameters.AddWithValue("@monthlyIncome", dgv.Rows[i].Cells["monthlyIncome"].Value);
-                    cmd.Parameters.AddWithValue("@managementPrice", dgv.Rows[i].Cells["managementPrice"].Value);
-                    cmd.Parameters.AddWithValue("@etc", dgv.Rows[i].Cells["etc"].Value);
-
-                    cmd.ExecuteNonQuery();
-
-                }
-                con.Close();
-            } catch(Exception e)
-            {
-                MessageBox.Show(e.ToString());
-            }
-        }
-        private void saveDataGrid2()
         {
             try
             {
@@ -171,13 +144,18 @@ namespace RealEstate
             if (type != 16)
             {
                 Income = checkNulls(TB_Income.Text.ToString());
+                maintenance = checkNulls(TB_Maintenance.Text.ToString());
+                netIncome = checkNulls(TB_NetIncome.Text.ToString());
+                interest = checkNulls(TB_Interest.Text.ToString());
             }
             else
             {
-                Income = checkNulls(TB_Income2.Text.ToString());
+                Income = checkNulls(TB_MonthlyPay.Text.ToString());
+                maintenance = checkNulls(TB_Maintenance2.Text.ToString());
+                netIncome = checkNulls(TB_NetIncome2.Text.ToString());
+                interest = checkNulls(TB_Interest2.Text.ToString());
             }
             loan = checkNulls(TB_Loan.Text.ToString()); 
-            interest = checkNulls(TB_Interest.Text.ToString());
             
             takeOverPrice = checkNulls(TB_TakeOverPrice.Text.ToString()); 
             sellPrice = checkNulls(TB_SellPrice.Text.ToString()); 
@@ -186,7 +164,6 @@ namespace RealEstate
 
             premium = checkNulls(TB_Premium.Text.ToString());
             monthlyPay = checkNulls(TB_MonthlyPay.Text.ToString());
-            maintenance = checkNulls(TB_Maintenance.Text.ToString());
         }
 
         private double checkNulls(string num)
@@ -207,25 +184,8 @@ namespace RealEstate
 
         }
 
-        private void saveData() //info1 테이블 insert하는 함수
-        {
-
-            strConn = "Data Source=" + DBFile + "; Version=3;";
-            cn.ConnectionString = strConn;
-            cn.Open();
-            string query = "insert into info1(id, addr, roadAddr, area, station, useArea, distance, roadWidth, totalArea, completeYear,"
-                + " parking, acHeating, EV, buildingName, owner, tel, meno, deposit, income, loan, interest, takeOverPrice,"
-                + " sellPrice, payedPrice, yearPercent, type, state, premium, monthlyPay, maintenance, isCorner, profilePictureID) values(null, '" + addr + "', '" + roadAddr + "', '" + area + "', '" + station + "', "
-                + "'" + useArea + "', '" + distance + "', '" + roadWidth + "', '" + totalArea + "', '" + completeYear + "', '" + parking + "', "
-                + "'" + acHeating + "', '" + EV + "', '" + buildingName + "', '" + owner + "', '" + tel + "', '" + meno + "', " + deposit + ", "
-                + Income + ", " + loan + ", " + interest + ", " + takeOverPrice + ", " + sellPrice + ", " + payedPrice + ", " + yearPercent + ", "
-                + type + ", " + state + ", " + premium + ", " + monthlyPay + ", " + maintenance + ", " + isCorner + ", " + profilePictureID + ")";
-
-            SQLiteCommand cmd = new SQLiteCommand(query, cn);
-            cmd.ExecuteNonQuery();
-            cn.Close();
-        }
-        private void saveData2()
+       
+        private void saveData()//info1 테이블 insert하는 함수
         {
             
             MySqlConnection conn = new MySqlConnection(strConn2);
@@ -233,7 +193,8 @@ namespace RealEstate
                  + "roadWidth = @RoadWidth, totalArea = @TotalArea, completeYear = @CompleteYear, parking = @Parking, acHeating = @AcHeating, EV = @EV, "
                  + "buildingName = @BuildingName, owner = @Owner, tel = @Tel, meno = @Meno, deposit = @Deposit, income = @Income, loan = @Loan, "
                  + "interest = @Interest, takeOverPrice = @TakeOverPrice, sellPrice = @SellPrice, payedPrice = @PayedPrice, yearPercent = @YearPercent, "
-                 + "type = @Type, state = @State, premium = @Premium, monthlyPay = @MonthlyPay, maintenance = @Maintenance, isCorner = @IsCorner, profilePictureID = @ProfilePictureID where id  = " + currentAddId;
+                 + "type = @Type, state = @State, premium = @Premium, monthlyPay = @MonthlyPay, maintenance = @Maintenance, isCorner = @IsCorner, "
+                 + "profilePictureID = @ProfilePictureID, netIncome = @NetIncome where id  = " + currentAddId;
 
             conn.Open();
             MySqlCommand cmd = new MySqlCommand(query, conn);
@@ -270,6 +231,7 @@ namespace RealEstate
             cmd.Parameters.Add(new MySqlParameter("@Maintenance", MySqlDbType.Double) { Value = maintenance });
             cmd.Parameters.Add(new MySqlParameter("@IsCorner", MySqlDbType.Int32) { Value = isCorner });
             cmd.Parameters.Add(new MySqlParameter("@ProfilePictureID", MySqlDbType.Int32) { Value = profilePictureID });
+            cmd.Parameters.Add(new MySqlParameter("@NetIncome", MySqlDbType.Double) { Value = netIncome });
 
 
             cmd.ExecuteNonQuery();
@@ -318,25 +280,7 @@ namespace RealEstate
         }
 
         private int getid() //저장할 id 정하기  기존에 저장된 id최대값에서 +1
-        {
-            int buildingID = 0;
-
-            cn.Open();
-            string query = "select MAX(id) from info1";
-            SQLiteCommand cmd = new SQLiteCommand(query, cn);
-            SQLiteDataReader rdr = cmd.ExecuteReader();
-            while (rdr.Read())
-            {
-                if (!rdr[0].ToString().Equals(""))
-                    buildingID = int.Parse(rdr[0].ToString());
-            }
-            rdr.Close();
-            cn.Close();
-
-            return buildingID;
-        }
-        private int getid2()
-        {
+{
             int buildingID = 0;
             try
             {
@@ -383,17 +327,13 @@ namespace RealEstate
                 if (ErrorStr2Num == 0)
                 {
                     //id 값  증가전
-                    //saveData();
+                    saveData();
 
-                    saveData2();
-                    //saveDataGrid()
 
                     //id값 증가후임 왜냐하면 savedata호출로 info1에 id값 들어가져서
-                    saveDataGrid2();
-                    //insertComment();
-                    insertComment2();
-                    //insertMemo();
-                    insertMemo2();
+                    saveDataGrid();
+                    insertComment();
+                    insertMemo();
                     MessageBox.Show("저장 완료 했습니다.");
                     this.Close();
                 }
@@ -425,7 +365,7 @@ namespace RealEstate
             strConn = "Data Source=" + DBFile + "; Version=3;";
             cn.ConnectionString = strConn;
             insertDefault();
-            currentAddId = getid2();
+            currentAddId = getid();
             dgv = ContentOfRentals;
             dgv.AutoGenerateColumns = false;
 
@@ -597,6 +537,8 @@ namespace RealEstate
             double UpdateTakeOverPrice = -9999;
             double UpdateIncome;
             double UpdateYearPercent;
+            double UpdateInterest;
+            double UpdateMaintenance;
 
             if (UpdateSellPrice != -9999 && UpdateDeposit != -9999 && UpdateLoan != -9999) //인수금액 연산
             {
@@ -606,18 +548,31 @@ namespace RealEstate
             else
                 TB_TakeOverPrice.Text = "";
 
-            if (type != 6)
+            if (type != 16)
             {
                 //UpdateIncome = checkNulls(TB_Income.Text.ToString());
                 UpdateIncome = getSumofIncome();
                 TB_Income.Text = getSumofIncome().ToString();
+
+                UpdateInterest = checkNulls(TB_Interest.Text.ToString());
+                UpdateMaintenance = checkNulls(TB_Maintenance.Text.ToString());
+                if (UpdateInterest != -9999 && UpdateIncome != -9999 && UpdateMaintenance != -9999)
+                    TB_NetIncome.Text = (UpdateIncome - UpdateInterest - UpdateMaintenance).ToString();
+                else
+                    TB_NetIncome.Text = "";
             }
             else
             {
                 //UpdateIncome = checkNulls(TB_Income2.Text.ToString());
                 UpdateIncome = getSumofIncome();
-                TB_Income2.Text = getSumofIncome().ToString();
+                TB_MonthlyPay.Text = getSumofIncome().ToString();
 
+                UpdateInterest = checkNulls(TB_Interest2.Text.ToString());
+                UpdateMaintenance = checkNulls(TB_Maintenance2.Text.ToString());
+                if (UpdateInterest != -9999 && UpdateIncome != -9999 && UpdateMaintenance != -9999)
+                    TB_NetIncome2.Text = (UpdateIncome - UpdateInterest - UpdateMaintenance).ToString();
+                else
+                    TB_NetIncome.Text = "";
             }
             if (UpdateTakeOverPrice != -9999 && UpdateIncome != -9999) //연수익 연산
             {
@@ -651,38 +606,8 @@ namespace RealEstate
                 }
             }
         }
-
+        
         private void insertComment()
-        {
-            /*
-            query = "Create table if not exists comment (id INTEGER PRIMARY KEY AUTOINCREMENT, 
-            content varchar(1000), buildingID INTEGER, FOREIGN KEY(buildingID) REFERENCES info1(id))";
-            */
-
-
-            SQLiteConnection con = new SQLiteConnection();
-            con.ConnectionString = strConn;
-            try
-            {
-                SQLiteCommand cmd = new SQLiteCommand("INSERT INTO comment VALUES(@id, @content, @buildingID)", con);
-                con.Open();
-                for (int i = 0; i < commentview.Rows.Count; ++i)
-                {
-                    cmd.Parameters.AddWithValue("@id", null);
-                    cmd.Parameters.AddWithValue("@content", commentview.Rows[i].Cells["Content"].Value);
-                    cmd.Parameters.AddWithValue("@buildingID", getid());
-
-                    cmd.ExecuteNonQuery();
-
-                }
-                con.Close();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.ToString());
-            }
-        }
-        private void insertComment2()
         {
             try
             {
@@ -707,36 +632,8 @@ namespace RealEstate
                 MessageBox.Show("인터넷 연결 상태가 안좋습니다.\n연결 확인후 다시 시도해주세요.");
             }
         }
+   
         private void insertMemo()
-        {
-            /*
-            query = "Create table if not exists memo (id INTEGER PRIMARY KEY AUTOINCREMENT, c_date DATE DEFAULT CURRENT_TIMESTAMP, memo varchar(1000)" +
-                ", buildingID INTEGER, FOREIGN KEY(buildingID) REFERENCES info1(id))";
-            */
-            SQLiteConnection con = new SQLiteConnection();
-            con.ConnectionString = strConn;
-            try
-            {
-                SQLiteCommand cmd = new SQLiteCommand("INSERT INTO memo VALUES(@id, @c_date, @memo, @buildingID)", con);
-                con.Open();
-                for (int i = 0; i < memoview.Rows.Count; ++i)
-                {
-                    cmd.Parameters.AddWithValue("@id", null);
-                    cmd.Parameters.AddWithValue("@c_date", DateTime.Now);
-                    cmd.Parameters.AddWithValue("@memo", memoview.Rows[i].Cells["memo"].Value);
-                    cmd.Parameters.AddWithValue("@buildingID", getid());
-                    cmd.ExecuteNonQuery();
-
-                }
-                con.Close();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.ToString());
-            }
-
-        }
-        private void insertMemo2()
         {
             try
             {
