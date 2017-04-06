@@ -506,7 +506,7 @@ namespace RealEstate
         private void FirstMenu_Load(object sender, EventArgs e)
         {
             strConn2 = MysqlIp.Logic.getStrConn(); //DLL에서 mysql server ip 불러오기
-            createTable();
+            //createTable();
         }
         private void btn_Back_UP_Click(object sender, EventArgs e)
         {
