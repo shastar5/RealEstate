@@ -6,10 +6,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.04241cm</Width>
+              <Width>2.31229cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.45894cm</Width>
+              <Width>3.14966cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -392,13 +392,14 @@
         </TablixRowHierarchy>
         <KeepTogether>true</KeepTogether>
         <DataSetName>DataSet1</DataSetName>
-        <Top>4.54766cm</Top>
-        <Left>1.40639cm</Left>
+        <Top>0.03528cm</Top>
+        <Left>0.80314cm</Left>
         <Height>4.05835cm</Height>
-        <Width>6.50135cm</Width>
+        <Width>5.46195cm</Width>
         <Style>
           <Border>
-            <Style>None</Style>
+            <Style>Solid</Style>
+            <Width>1.5pt</Width>
           </Border>
           <FontFamily>맑은 고딕</FontFamily>
           <FontSize>12pt</FontSize>
@@ -508,14 +509,15 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox15</rd:DefaultName>
-        <Top>4.54766cm</Top>
-        <Left>0.635cm</Left>
-        <Height>4.05833cm</Height>
+        <Top>0.03528cm</Top>
+        <Left>0.03175cm</Left>
+        <Height>3.99732cm</Height>
         <Width>0.77139cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
-            <Style>None</Style>
+            <Style>Solid</Style>
+            <Width>1.5pt</Width>
           </Border>
           <TopBorder>
             <Style>Solid</Style>
@@ -536,407 +538,14 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Tablix Name="Tablix1">
-        <TablixBody>
-          <TablixColumns>
-            <TablixColumn>
-              <Width>2.15396cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>13.47341cm</Width>
-            </TablixColumn>
-          </TablixColumns>
-          <TablixRows>
-            <TablixRow>
-              <Height>0.75717cm</Height>
-              <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox22">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>소재지</Value>
-                              <Style>
-                                <Language>ko-kr</Language>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox22</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="addr">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!addr.Value</Value>
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>addr</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-              </TablixCells>
-            </TablixRow>
-            <TablixRow>
-              <Height>0.75717cm</Height>
-              <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox31">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>도로명주소</Value>
-                              <Style>
-                                <Language>ko-kr</Language>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox31</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="roadAddr">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!roadAddr.Value</Value>
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>roadAddr</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-              </TablixCells>
-            </TablixRow>
-            <TablixRow>
-              <Height>0.75717cm</Height>
-              <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox66">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>건물이름</Value>
-                              <Style>
-                                <Language>ko-kr</Language>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox66</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="buildingName">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!buildingName.Value</Value>
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>buildingName</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-              </TablixCells>
-            </TablixRow>
-            <TablixRow>
-              <Height>0.75717cm</Height>
-              <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox68">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>소유주</Value>
-                              <Style>
-                                <Language>ko-kr</Language>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox68</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="owner">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!owner.Value</Value>
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>owner</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-              </TablixCells>
-            </TablixRow>
-            <TablixRow>
-              <Height>0.75717cm</Height>
-              <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox70">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>연락처</Value>
-                              <Style>
-                                <Language>ko-kr</Language>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox70</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="tel">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!tel.Value</Value>
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>tel</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-              </TablixCells>
-            </TablixRow>
-          </TablixRows>
-        </TablixBody>
-        <TablixColumnHierarchy>
-          <TablixMembers>
-            <TablixMember />
-            <TablixMember />
-          </TablixMembers>
-        </TablixColumnHierarchy>
-        <TablixRowHierarchy>
-          <TablixMembers>
-            <TablixMember>
-              <Group Name="세부정보1" />
-              <TablixMembers>
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
-              </TablixMembers>
-            </TablixMember>
-          </TablixMembers>
-        </TablixRowHierarchy>
-        <KeepTogether>true</KeepTogether>
-        <DataSetName>DataSet1</DataSetName>
-        <Top>0.45515cm</Top>
-        <Left>0.635cm</Left>
-        <Height>3.78585cm</Height>
-        <Width>15.62737cm</Width>
-        <ZIndex>2</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <FontFamily>맑은 고딕</FontFamily>
-          <FontSize>12pt</FontSize>
-        </Style>
-      </Tablix>
       <Tablix Name="Tablix5">
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.66316cm</Width>
+              <Width>2.23983cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.86802cm</Width>
+              <Width>4.27569cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -1319,14 +928,15 @@
         </TablixRowHierarchy>
         <KeepTogether>true</KeepTogether>
         <DataSetName>DataSet1</DataSetName>
-        <Top>4.55146cm</Top>
-        <Left>8.73119cm</Left>
+        <Top>0.03908cm</Top>
+        <Left>7.0493cm</Left>
         <Height>4.05455cm</Height>
-        <Width>7.53118cm</Width>
-        <ZIndex>3</ZIndex>
+        <Width>6.51552cm</Width>
+        <ZIndex>2</ZIndex>
         <Style>
           <Border>
-            <Style>None</Style>
+            <Style>Solid</Style>
+            <Width>1.5pt</Width>
           </Border>
           <FontFamily>맑은 고딕</FontFamily>
           <FontSize>12pt</FontSize>
@@ -1436,14 +1046,15 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox15</rd:DefaultName>
-        <Top>4.55146cm</Top>
-        <Left>7.95627cm</Left>
-        <Height>4.06158cm</Height>
+        <Top>0.02823cm</Top>
+        <Left>6.27791cm</Left>
+        <Height>4.00437cm</Height>
         <Width>0.77139cm</Width>
-        <ZIndex>4</ZIndex>
+        <ZIndex>3</ZIndex>
         <Style>
           <Border>
-            <Style>None</Style>
+            <Style>Solid</Style>
+            <Width>1.5pt</Width>
           </Border>
           <TopBorder>
             <Color>Black</Color>
@@ -1472,25 +1083,25 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.23261cm</Width>
+              <Width>1.09756cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.98612cm</Width>
+              <Width>1.56279cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.37961cm</Width>
+              <Width>3.27919cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.40117cm</Width>
+              <Width>2.13635cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.40929cm</Width>
+              <Width>1.61554cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.40929cm</Width>
+              <Width>1.56262cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.84106cm</Width>
+              <Width>2.27902cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -1519,6 +1130,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
+                          <Width>1.5pt</Width>
                         </Border>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -1551,6 +1163,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
+                          <Width>1.5pt</Width>
                         </Border>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -1570,7 +1183,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>상점 이름</Value>
+                              <Value>용도</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -1583,6 +1196,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
+                          <Width>1.5pt</Width>
                         </Border>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -1602,7 +1216,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>층별 용도</Value>
+                              <Value>보증금</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -1615,6 +1229,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
+                          <Width>1.5pt</Width>
                         </Border>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -1634,7 +1249,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>monthly Income</Value>
+                              <Value>월세</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -1647,6 +1262,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
+                          <Width>1.5pt</Width>
                         </Border>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -1666,7 +1282,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>management Price</Value>
+                              <Value>관리비</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -1679,6 +1295,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
+                          <Width>1.5pt</Width>
                         </Border>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -1711,6 +1328,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
+                          <Width>1.5pt</Width>
                         </Border>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -1977,7 +1595,12 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
+                          <Width>1.5pt</Width>
                         </Border>
+                        <TopBorder>
+                          <Color>Black</Color>
+                          <Style>Double</Style>
+                        </TopBorder>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -2009,7 +1632,12 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
+                          <Width>1.5pt</Width>
                         </Border>
+                        <TopBorder>
+                          <Color>Black</Color>
+                          <Style>Double</Style>
+                        </TopBorder>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -2041,7 +1669,12 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
+                          <Width>1.5pt</Width>
                         </Border>
+                        <TopBorder>
+                          <Color>Black</Color>
+                          <Style>Double</Style>
+                        </TopBorder>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -2073,7 +1706,12 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
+                          <Width>1.5pt</Width>
                         </Border>
+                        <TopBorder>
+                          <Color>Black</Color>
+                          <Style>Double</Style>
+                        </TopBorder>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -2105,7 +1743,12 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
+                          <Width>1.5pt</Width>
                         </Border>
+                        <TopBorder>
+                          <Color>Black</Color>
+                          <Style>Double</Style>
+                        </TopBorder>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -2137,7 +1780,12 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
+                          <Width>1.5pt</Width>
                         </Border>
+                        <TopBorder>
+                          <Color>Black</Color>
+                          <Style>Double</Style>
+                        </TopBorder>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -2169,7 +1817,12 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
+                          <Width>1.5pt</Width>
                         </Border>
+                        <TopBorder>
+                          <Color>Black</Color>
+                          <Style>Double</Style>
+                        </TopBorder>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -2211,14 +1864,15 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet2</DataSetName>
-        <Top>8.90799cm</Top>
-        <Left>0.635cm</Left>
+        <Top>4.20899cm</Top>
+        <Left>0.03175cm</Left>
         <Height>2.01165cm</Height>
-        <Width>15.65912cm</Width>
-        <ZIndex>5</ZIndex>
+        <Width>13.53307cm</Width>
+        <ZIndex>4</ZIndex>
         <Style>
           <Border>
-            <Style>None</Style>
+            <Style>Solid</Style>
+            <Width>1.5pt</Width>
           </Border>
           <FontFamily>맑은 고딕</FontFamily>
           <FontSize>12pt</FontSize>
@@ -2228,7 +1882,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>15.65912cm</Width>
+              <Width>13.53307cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -2322,200 +1976,22 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet3</DataSetName>
-        <Top>11.42683cm</Top>
-        <Left>0.635cm</Left>
+        <Top>6.34683cm</Top>
+        <Left>0.03175cm</Left>
         <Height>1.45521cm</Height>
-        <Width>15.65912cm</Width>
-        <ZIndex>6</ZIndex>
+        <Width>13.53307cm</Width>
+        <ZIndex>5</ZIndex>
         <Style>
           <Border>
-            <Style>None</Style>
-          </Border>
-          <FontFamily>맑은 고딕</FontFamily>
-          <FontSize>12pt</FontSize>
-        </Style>
-      </Tablix>
-      <Tablix Name="Tablix3">
-        <TablixBody>
-          <TablixColumns>
-            <TablixColumn>
-              <Width>2.07116cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>13.58796cm</Width>
-            </TablixColumn>
-          </TablixColumns>
-          <TablixRows>
-            <TablixRow>
-              <Height>0.69261cm</Height>
-              <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox17">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>날짜</Value>
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox17</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox19">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>메모내용</Value>
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox19</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-              </TablixCells>
-            </TablixRow>
-            <TablixRow>
-              <Height>0.77198cm</Height>
-              <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="c_date">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!c_date.Value</Value>
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>c_date</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="memo">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!memo.Value</Value>
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>memo</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-              </TablixCells>
-            </TablixRow>
-          </TablixRows>
-        </TablixBody>
-        <TablixColumnHierarchy>
-          <TablixMembers>
-            <TablixMember />
-            <TablixMember />
-          </TablixMembers>
-        </TablixColumnHierarchy>
-        <TablixRowHierarchy>
-          <TablixMembers>
-            <TablixMember>
-              <KeepWithGroup>After</KeepWithGroup>
-            </TablixMember>
-            <TablixMember>
-              <Group Name="세부정보4" />
-            </TablixMember>
-          </TablixMembers>
-        </TablixRowHierarchy>
-        <DataSetName>DataSet4</DataSetName>
-        <Top>13.33183cm</Top>
-        <Left>0.635cm</Left>
-        <Height>1.46459cm</Height>
-        <Width>15.65912cm</Width>
-        <ZIndex>7</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
+            <Style>Solid</Style>
+            <Width>1.5pt</Width>
           </Border>
           <FontFamily>맑은 고딕</FontFamily>
           <FontSize>12pt</FontSize>
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>5.85661in</Height>
+    <Height>3.07536in</Height>
     <Style>
       <Border>
         <Style>Solid</Style>
@@ -2523,7 +1999,7 @@
       </Border>
     </Style>
   </Body>
-  <Width>6.64417in</Width>
+  <Width>5.34048in</Width>
   <Page>
     <PageHeader>
       <Height>2.54cm</Height>
@@ -2540,7 +2016,6 @@
                   <Value>담 당  고차원</Value>
                   <Style>
                     <FontFamily>맑은 고딕</FontFamily>
-                    <FontSize>12pt</FontSize>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -2552,7 +2027,6 @@
                   <Value>전 화  010-6607-8125</Value>
                   <Style>
                     <FontFamily>맑은 고딕</FontFamily>
-                    <FontSize>12pt</FontSize>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -2560,10 +2034,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>ReportName</rd:DefaultName>
-          <Top>0.68792cm</Top>
-          <Left>11.49224cm</Left>
-          <Height>1.41125cm</Height>
-          <Width>4.80188cm</Width>
+          <Top>0.87313cm</Top>
+          <Left>9.92182cm</Left>
+          <Height>0.98792cm</Height>
+          <Width>3.63771cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -2598,7 +2072,7 @@
           </Paragraphs>
           <rd:DefaultName>ReportName</rd:DefaultName>
           <Top>0.68792cm</Top>
-          <Left>5.09552cm</Left>
+          <Left>3.64058cm</Left>
           <Height>1.41125cm</Height>
           <Width>5.64855cm</Width>
           <ZIndex>1</ZIndex>
@@ -2628,7 +2102,11 @@
     <TopMargin>2cm</TopMargin>
     <BottomMargin>2cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
-    <Style />
+    <Style>
+      <Border>
+        <Style>Solid</Style>
+      </Border>
+    </Style>
   </Page>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
