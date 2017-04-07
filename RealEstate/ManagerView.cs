@@ -1170,7 +1170,10 @@ namespace RealEstate
             {
                 br = new buildingreport();
                 br.setID(Convert.ToInt32(id));
+                br.setMode("ManagerView");
                 br.Show();
+                
+                
             }
         }
 

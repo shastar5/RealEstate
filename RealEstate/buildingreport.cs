@@ -4,14 +4,37 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 namespace RealEstate
 {
-    public partial class buildingreport : Form, IdInterface
+
+    public partial class buildingreport : Form, IdInterface, DBInterface, PicturInterface
     {
         private int id;
         string strConn2;
+        private string DBFile;
+        private string mode;
+
+        public interface DBInterface
+        {
+            void setDBfile(string DBFile);
+        }
+
+        public interface PictureInterface
+        {
+            void setMode(string mode);
+        }
 
         public interface IdInterface
         {
             void setID(int id);
+        }
+
+        public void setDBfile(string DBFile) //DB파일위치 계승
+        {
+            this.DBFile = DBFile;
+        }
+
+        public void setMode(string mode) //모드 계승
+        {
+            this.mode = mode;
         }
 
         public void setID(int id)
@@ -92,5 +115,7 @@ namespace RealEstate
         {
 
         }
+
+
     }
 }

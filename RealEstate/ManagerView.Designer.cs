@@ -1088,7 +1088,7 @@
             this.panel6.Controls.Add(this.label26);
             this.panel6.Controls.Add(this.TB_Income);
             this.panel6.ImeMode = System.Windows.Forms.ImeMode.Hangul;
-            this.panel6.Location = new System.Drawing.Point(9, 234);
+            this.panel6.Location = new System.Drawing.Point(9, 238);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(384, 294);
             this.panel6.TabIndex = 16;
@@ -1387,7 +1387,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(914, 750);
+            this.ClientSize = new System.Drawing.Size(914, 749);
             this.Controls.Add(this.print);
             this.Controls.Add(this.btn_Delete);
             this.Controls.Add(this.panel1);
