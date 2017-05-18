@@ -6,10 +6,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.31229cm</Width>
+              <Width>3.89979cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.14966cm</Width>
+              <Width>4.73716cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -379,7 +379,11 @@
         <TablixRowHierarchy>
           <TablixMembers>
             <TablixMember>
-              <Group Name="세부정보" />
+              <Group Name="세부정보">
+                <PageBreak>
+                  <BreakLocation>Between</BreakLocation>
+                </PageBreak>
+              </Group>
               <TablixMembers>
                 <TablixMember />
                 <TablixMember />
@@ -392,10 +396,10 @@
         </TablixRowHierarchy>
         <KeepTogether>true</KeepTogether>
         <DataSetName>DataSet1</DataSetName>
-        <Top>7.65528cm</Top>
-        <Left>0.80314cm</Left>
+        <Top>29.88028cm</Top>
+        <Left>1.43814cm</Left>
         <Height>4.05835cm</Height>
-        <Width>5.46195cm</Width>
+        <Width>8.63695cm</Width>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -509,9 +513,9 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox15</rd:DefaultName>
-        <Top>7.65528cm</Top>
-        <Left>0.03175cm</Left>
-        <Height>3.99732cm</Height>
+        <Top>29.88028cm</Top>
+        <Left>0.66675cm</Left>
+        <Height>4.05835cm</Height>
         <Width>0.77139cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
@@ -542,10 +546,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.23983cm</Width>
+              <Width>3.77116cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.27569cm</Width>
+              <Width>5.80702cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -928,10 +932,10 @@
         </TablixRowHierarchy>
         <KeepTogether>true</KeepTogether>
         <DataSetName>DataSet1</DataSetName>
-        <Top>7.65908cm</Top>
-        <Left>7.0493cm</Left>
+        <Top>29.88408cm</Top>
+        <Left>10.82755cm</Left>
         <Height>4.05455cm</Height>
-        <Width>6.51552cm</Width>
+        <Width>9.57818cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -1046,9 +1050,9 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox15</rd:DefaultName>
-        <Top>7.64823cm</Top>
-        <Left>6.27791cm</Left>
-        <Height>4.00437cm</Height>
+        <Top>29.87323cm</Top>
+        <Left>10.05616cm</Left>
+        <Height>4.0654cm</Height>
         <Width>0.77139cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
@@ -1083,30 +1087,30 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.09756cm</Width>
+              <Width>1.98412cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.56279cm</Width>
+              <Width>2.44935cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.27919cm</Width>
+              <Width>4.16575cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.13635cm</Width>
+              <Width>3.02291cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.61554cm</Width>
+              <Width>2.5021cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.56262cm</Width>
+              <Width>2.44918cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.27902cm</Width>
+              <Width>3.16558cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.65732cm</Height>
+              <Height>0.63086cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -1342,7 +1346,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.65732cm</Height>
+              <Height>0.63086cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -1571,7 +1575,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.69701cm</Height>
+              <Height>0.67055cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -1864,10 +1868,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet2</DataSetName>
-        <Top>11.82899cm</Top>
-        <Left>0.03175cm</Left>
-        <Height>2.01165cm</Height>
-        <Width>13.53307cm</Width>
+        <Top>34.11502cm</Top>
+        <Left>0.66675cm</Left>
+        <Height>1.93227cm</Height>
+        <Width>19.73899cm</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -1882,7 +1886,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>13.53307cm</Width>
+              <Width>19.73898cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -1976,10 +1980,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet3</DataSetName>
-        <Top>13.96683cm</Top>
-        <Left>0.03175cm</Left>
+        <Top>36.22368cm</Top>
+        <Left>0.66675cm</Left>
         <Height>1.45521cm</Height>
-        <Width>13.53307cm</Width>
+        <Width>19.73898cm</Width>
         <ZIndex>5</ZIndex>
         <Style>
           <Border>
@@ -1990,59 +1994,23 @@
           <FontSize>12pt</FontSize>
         </Style>
       </Tablix>
-      <Tablix Name="Tablix6">
-        <TablixBody>
-          <TablixColumns>
-            <TablixColumn>
-              <Width>13.56482cm</Width>
-            </TablixColumn>
-          </TablixColumns>
-          <TablixRows>
-            <TablixRow>
-              <Height>7.47889cm</Height>
-              <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Rectangle Name="Rectangle3">
-                      <PageBreak>
-                        <BreakLocation>End</BreakLocation>
-                      </PageBreak>
-                      <KeepTogether>true</KeepTogether>
-                      <Style>
-                        <Border>
-                          <Style>None</Style>
-                        </Border>
-                      </Style>
-                    </Rectangle>
-                  </CellContents>
-                </TablixCell>
-              </TablixCells>
-            </TablixRow>
-          </TablixRows>
-        </TablixBody>
-        <TablixColumnHierarchy>
-          <TablixMembers>
-            <TablixMember />
-          </TablixMembers>
-        </TablixColumnHierarchy>
-        <TablixRowHierarchy>
-          <TablixMembers>
-            <TablixMember>
-              <Group Name="세부정보1" />
-            </TablixMember>
-          </TablixMembers>
-        </TablixRowHierarchy>
-        <Height>7.47889cm</Height>
-        <Width>13.56482cm</Width>
+      <Image Name="Image1">
+        <Source>Database</Source>
+        <Value>=First(Fields!profilePictureID.Value, "DataSet1")</Value>
+        <MIMEType>image/jpeg</MIMEType>
+        <Top>0.84349cm</Top>
+        <Left>0.66675cm</Left>
+        <Height>23.725cm</Height>
+        <Width>19.73899cm</Width>
         <ZIndex>6</ZIndex>
         <Style>
           <Border>
-            <Style>None</Style>
+            <Style>Solid</Style>
           </Border>
         </Style>
-      </Tablix>
+      </Image>
     </ReportItems>
-    <Height>8.14459in</Height>
+    <Height>21.58421in</Height>
     <Style>
       <Border>
         <Style>Solid</Style>
@@ -2050,7 +2018,7 @@
       </Border>
     </Style>
   </Body>
-  <Width>5.39256in</Width>
+  <Width>8.27in</Width>
   <Page>
     <PageHeader>
       <Height>2.54cm</Height>
@@ -2086,7 +2054,7 @@
           </Paragraphs>
           <rd:DefaultName>ReportName</rd:DefaultName>
           <Top>0.87313cm</Top>
-          <Left>9.46552cm</Left>
+          <Left>16.76802cm</Left>
           <Height>0.98792cm</Height>
           <Width>3.63771cm</Width>
           <Style>
@@ -2123,7 +2091,7 @@
           </Paragraphs>
           <rd:DefaultName>ReportName</rd:DefaultName>
           <Top>0.68792cm</Top>
-          <Left>3.64058cm</Left>
+          <Left>7.76808cm</Left>
           <Height>1.41125cm</Height>
           <Width>5.64855cm</Width>
           <ZIndex>1</ZIndex>

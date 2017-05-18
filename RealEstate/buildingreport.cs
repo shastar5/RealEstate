@@ -2,6 +2,7 @@
 using System.Data;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+
 namespace RealEstate
 {
 
@@ -45,6 +46,7 @@ namespace RealEstate
         public buildingreport()
         {
             InitializeComponent();
+            
         }
 
         private void buildingreport_Load(object sender, EventArgs e)

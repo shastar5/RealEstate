@@ -6,7 +6,6 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
-using Microsoft.Reporting.WinForms;
 
 namespace RealEstate
 {
@@ -14,6 +13,8 @@ namespace RealEstate
     {
         void setID(int id);
     }
+
+
     public partial class ManagerView : Form, DBInterface, IdInterface, FIndInterface
     {
         //X버튼 금지
@@ -26,7 +27,6 @@ namespace RealEstate
         private static extern IntPtr GetSystemMenu(IntPtr hWnd, bool bRevert);
         [DllImport("user32.dll")]
         private static extern int EnableMenuItem(IntPtr hMenu, int wIDEnableItem, int wEnable);
-
 
         int id; // 선택한 건물 id
         //전체 보이는용 변수
@@ -1172,8 +1172,6 @@ namespace RealEstate
                 br.setID(Convert.ToInt32(id));
                 br.setMode("ManagerView");
                 br.Show();
-                
-                
             }
         }
 
