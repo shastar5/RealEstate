@@ -9,16 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
 using System.IO;
+using MySql.Data.MySqlClient;
 
 namespace RealEstate
 {
-    public partial class BigPicture : Form, DBInterface
+    public partial class BigPicture : Form
     {
         string DBFile;
         public string query;
         String strConn;
-        SQLiteConnection cn = new SQLiteConnection();
-        SQLiteCommand cmd = new SQLiteCommand();
 
         public BigPicture()
         {
@@ -26,13 +25,11 @@ namespace RealEstate
         }
         private void loadPicture()
         {
-            strConn = "Data Source=" + DBFile + "; Version=3;";
-            cn.ConnectionString = strConn;
-            cn.Open();
-            cmd.CommandText = query;
-            cmd = new SQLiteCommand(query, cn);
-            SQLiteDataAdapter da = new SQLiteDataAdapter(cmd);
-            SQLiteCommandBuilder cbd = new SQLiteCommandBuilder(da);
+            MySqlConnection conn = new MySqlConnection(strConn);
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+            MySqlCommandBuilder mbd = new MySqlCommandBuilder(da);
             DataSet ds = new DataSet();
             da.Fill(ds);
             byte[] ap = (byte[])(ds.Tables[0].Rows[0]["picture"]);
@@ -41,14 +38,11 @@ namespace RealEstate
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.BorderStyle = BorderStyle.Fixed3D;
             ms.Close();
-            cn.Close();
-        }
-        public void setDBfile(string DBFile)
-        {
-            this.DBFile = DBFile;
+            conn.Close();
         }
         private void BigPicture_Load(object sender, EventArgs e)
         {
+            strConn = MysqlIp.Logic.getStrConn(); //DLL에서 mysql server ip 불러오기 MySqlConnection conn = new MySqlConnection(strConn2);
             loadPicture();
         }
     }

@@ -6,18 +6,13 @@ using MySql.Data.MySqlClient;
 namespace RealEstate
 {
 
-    public partial class buildingreport : Form, IdInterface, DBInterface, PicturInterface
+    public partial class buildingreport : Form, IdInterface, PicturInterface
     {
         private int id;
         string strConn2;
         private string DBFile;
         private string mode;
-
-        public interface DBInterface
-        {
-            void setDBfile(string DBFile);
-        }
-
+       
         public interface PictureInterface
         {
             void setMode(string mode);

@@ -167,12 +167,6 @@
     <Compile Include="buildingreport.Designer.cs">
       <DependentUpon>buildingreport.cs</DependentUpon>
     </Compile>
-    <Compile Include="DBMerge.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DBMerge.Designer.cs">
-      <DependentUpon>DBMerge.cs</DependentUpon>
-    </Compile>
     <Compile Include="FindView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,9 +227,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="buildingreport.resx">
       <DependentUpon>buildingreport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DBMerge.resx">
-      <DependentUpon>DBMerge.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FindView.resx">
       <DependentUpon>FindView.cs</DependentUpon>

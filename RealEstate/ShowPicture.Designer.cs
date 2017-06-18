@@ -37,6 +37,7 @@
             this.btn_ProfilePicture = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,12 +59,11 @@
             this.listBox1.Size = new System.Drawing.Size(196, 400);
             this.listBox1.TabIndex = 3;
             this.listBox1.Click += new System.EventHandler(this.listBox1_Click);
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             this.listBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listBox1_KeyPress);
             // 
             // btn_AddPicture
             // 
-            this.btn_AddPicture.Location = new System.Drawing.Point(680, 23);
+            this.btn_AddPicture.Location = new System.Drawing.Point(680, 57);
             this.btn_AddPicture.Name = "btn_AddPicture";
             this.btn_AddPicture.Size = new System.Drawing.Size(75, 39);
             this.btn_AddPicture.TabIndex = 4;
@@ -73,7 +73,7 @@
             // 
             // btn_DeletePicture
             // 
-            this.btn_DeletePicture.Location = new System.Drawing.Point(680, 81);
+            this.btn_DeletePicture.Location = new System.Drawing.Point(680, 115);
             this.btn_DeletePicture.Name = "btn_DeletePicture";
             this.btn_DeletePicture.Size = new System.Drawing.Size(75, 39);
             this.btn_DeletePicture.TabIndex = 4;
@@ -83,7 +83,7 @@
             // 
             // btn_SavePicture
             // 
-            this.btn_SavePicture.Location = new System.Drawing.Point(680, 137);
+            this.btn_SavePicture.Location = new System.Drawing.Point(680, 175);
             this.btn_SavePicture.Name = "btn_SavePicture";
             this.btn_SavePicture.Size = new System.Drawing.Size(75, 39);
             this.btn_SavePicture.TabIndex = 5;
@@ -93,7 +93,7 @@
             // 
             // btn_ProfilePicture
             // 
-            this.btn_ProfilePicture.Location = new System.Drawing.Point(680, 200);
+            this.btn_ProfilePicture.Location = new System.Drawing.Point(680, 234);
             this.btn_ProfilePicture.Name = "btn_ProfilePicture";
             this.btn_ProfilePicture.Size = new System.Drawing.Size(75, 39);
             this.btn_ProfilePicture.TabIndex = 5;
@@ -121,11 +121,19 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "프로필 사진이 없습니다.";
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(12, 474);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(743, 30);
+            this.progressBar1.TabIndex = 8;
+            // 
             // ShowPicture
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(767, 474);
+            this.ClientSize = new System.Drawing.Size(767, 475);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_ProfilePicture);
@@ -136,7 +144,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(783, 513);
+            this.MaximumSize = new System.Drawing.Size(783, 552);
             this.MinimumSize = new System.Drawing.Size(783, 513);
             this.Name = "ShowPicture";
             this.Text = "사진추가/삭제";
@@ -156,5 +164,6 @@
         private System.Windows.Forms.Button btn_ProfilePicture;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }

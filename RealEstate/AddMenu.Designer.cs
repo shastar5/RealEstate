@@ -497,7 +497,7 @@
             this.TB_YearPercent.Location = new System.Drawing.Point(110, 260);
             this.TB_YearPercent.Name = "TB_YearPercent";
             this.TB_YearPercent.Size = new System.Drawing.Size(202, 27);
-            this.TB_YearPercent.TabIndex = 7;
+            this.TB_YearPercent.TabIndex = 9;
             this.TB_YearPercent.TextChanged += new System.EventHandler(this.TB_NUMTextChanged);
             this.TB_YearPercent.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
@@ -658,7 +658,7 @@
             this.TB_TakeOverPrice.Location = new System.Drawing.Point(110, 232);
             this.TB_TakeOverPrice.Name = "TB_TakeOverPrice";
             this.TB_TakeOverPrice.Size = new System.Drawing.Size(202, 27);
-            this.TB_TakeOverPrice.TabIndex = 6;
+            this.TB_TakeOverPrice.TabIndex = 8;
             this.TB_TakeOverPrice.TextChanged += new System.EventHandler(this.TB_NUMTextChanged);
             this.TB_TakeOverPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
@@ -679,7 +679,7 @@
             this.TB_SellPrice.Location = new System.Drawing.Point(110, 204);
             this.TB_SellPrice.Name = "TB_SellPrice";
             this.TB_SellPrice.Size = new System.Drawing.Size(202, 27);
-            this.TB_SellPrice.TabIndex = 5;
+            this.TB_SellPrice.TabIndex = 7;
             this.TB_SellPrice.TextChanged += new System.EventHandler(this.TB_NUMTextChanged);
             this.TB_SellPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
@@ -700,7 +700,7 @@
             this.TB_PayedPrice.Location = new System.Drawing.Point(110, 176);
             this.TB_PayedPrice.Name = "TB_PayedPrice";
             this.TB_PayedPrice.Size = new System.Drawing.Size(202, 27);
-            this.TB_PayedPrice.TabIndex = 4;
+            this.TB_PayedPrice.TabIndex = 6;
             this.TB_PayedPrice.TextChanged += new System.EventHandler(this.TB_NUMTextChanged);
             this.TB_PayedPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
@@ -721,7 +721,7 @@
             this.TB_NetIncome.Location = new System.Drawing.Point(110, 148);
             this.TB_NetIncome.Name = "TB_NetIncome";
             this.TB_NetIncome.Size = new System.Drawing.Size(202, 27);
-            this.TB_NetIncome.TabIndex = 3;
+            this.TB_NetIncome.TabIndex = 5;
             this.TB_NetIncome.TextChanged += new System.EventHandler(this.TB_NUMTextChanged);
             this.TB_NetIncome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
@@ -732,7 +732,7 @@
             this.TB_Interest.Location = new System.Drawing.Point(110, 120);
             this.TB_Interest.Name = "TB_Interest";
             this.TB_Interest.Size = new System.Drawing.Size(202, 27);
-            this.TB_Interest.TabIndex = 3;
+            this.TB_Interest.TabIndex = 4;
             this.TB_Interest.TextChanged += new System.EventHandler(this.TB_NUMTextChanged);
             this.TB_Interest.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 
@@ -765,7 +765,7 @@
             this.TB_Loan.Location = new System.Drawing.Point(110, 92);
             this.TB_Loan.Name = "TB_Loan";
             this.TB_Loan.Size = new System.Drawing.Size(202, 27);
-            this.TB_Loan.TabIndex = 2;
+            this.TB_Loan.TabIndex = 3;
             this.TB_Loan.TextChanged += new System.EventHandler(this.TB_NUMTextChanged);
             this.TB_Loan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
             // 

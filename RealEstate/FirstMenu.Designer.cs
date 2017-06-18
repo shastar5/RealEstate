@@ -40,9 +40,7 @@
             this.RB_CornerAll = new System.Windows.Forms.RadioButton();
             this.RB_CornerExist = new System.Windows.Forms.RadioButton();
             this.RB_CornerNone = new System.Windows.Forms.RadioButton();
-            this.btn_Back_UP = new System.Windows.Forms.Button();
             this.HiddenBox = new System.Windows.Forms.CheckBox();
-            this.DBLocation = new System.Windows.Forms.Label();
             this.CB_RoadWidth = new System.Windows.Forms.ComboBox();
             this.CB_YearPercent = new System.Windows.Forms.ComboBox();
             this.CB_Income = new System.Windows.Forms.ComboBox();
@@ -55,8 +53,6 @@
             this.TB_Income = new System.Windows.Forms.TextBox();
             this.TB_TakeOverPrice = new System.Windows.Forms.TextBox();
             this.TB_SellPrice = new System.Windows.Forms.TextBox();
-            this.btn_DBMerge = new System.Windows.Forms.Button();
-            this.btn_DBFind = new System.Windows.Forms.Button();
             this.btn_find = new System.Windows.Forms.Button();
             this.Text_매매금액 = new System.Windows.Forms.Label();
             this.btn_addBuilding = new System.Windows.Forms.Button();
@@ -87,9 +83,7 @@
             this.Panel_InitText.Controls.Add(this.checkBox2);
             this.Panel_InitText.Controls.Add(this.checkBox1);
             this.Panel_InitText.Controls.Add(this.panel1);
-            this.Panel_InitText.Controls.Add(this.btn_Back_UP);
             this.Panel_InitText.Controls.Add(this.HiddenBox);
-            this.Panel_InitText.Controls.Add(this.DBLocation);
             this.Panel_InitText.Controls.Add(this.CB_RoadWidth);
             this.Panel_InitText.Controls.Add(this.CB_YearPercent);
             this.Panel_InitText.Controls.Add(this.CB_Income);
@@ -102,8 +96,6 @@
             this.Panel_InitText.Controls.Add(this.TB_Income);
             this.Panel_InitText.Controls.Add(this.TB_TakeOverPrice);
             this.Panel_InitText.Controls.Add(this.TB_SellPrice);
-            this.Panel_InitText.Controls.Add(this.btn_DBMerge);
-            this.Panel_InitText.Controls.Add(this.btn_DBFind);
             this.Panel_InitText.Controls.Add(this.btn_find);
             this.Panel_InitText.Controls.Add(this.Text_매매금액);
             this.Panel_InitText.Controls.Add(this.btn_addBuilding);
@@ -191,13 +183,6 @@
             this.RB_CornerNone.UseVisualStyleBackColor = true;
             this.RB_CornerNone.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
-            // btn_Back_UP
-            // 
-            resources.ApplyResources(this.btn_Back_UP, "btn_Back_UP");
-            this.btn_Back_UP.Name = "btn_Back_UP";
-            this.btn_Back_UP.UseVisualStyleBackColor = true;
-            this.btn_Back_UP.Click += new System.EventHandler(this.btn_Back_UP_Click);
-            // 
             // HiddenBox
             // 
             resources.ApplyResources(this.HiddenBox, "HiddenBox");
@@ -205,11 +190,6 @@
             this.HiddenBox.TabStop = false;
             this.HiddenBox.UseVisualStyleBackColor = true;
             this.HiddenBox.CheckedChanged += new System.EventHandler(this.HiddenBox_CheckedChanged);
-            // 
-            // DBLocation
-            // 
-            resources.ApplyResources(this.DBLocation, "DBLocation");
-            this.DBLocation.Name = "DBLocation";
             // 
             // CB_RoadWidth
             // 
@@ -318,22 +298,6 @@
             resources.ApplyResources(this.TB_SellPrice, "TB_SellPrice");
             this.TB_SellPrice.Name = "TB_SellPrice";
             this.TB_SellPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
-            // 
-            // btn_DBMerge
-            // 
-            resources.ApplyResources(this.btn_DBMerge, "btn_DBMerge");
-            this.btn_DBMerge.Name = "btn_DBMerge";
-            this.btn_DBMerge.TabStop = false;
-            this.btn_DBMerge.UseVisualStyleBackColor = true;
-            this.btn_DBMerge.Click += new System.EventHandler(this.btn_DBMerge_Click);
-            // 
-            // btn_DBFind
-            // 
-            resources.ApplyResources(this.btn_DBFind, "btn_DBFind");
-            this.btn_DBFind.Name = "btn_DBFind";
-            this.btn_DBFind.TabStop = false;
-            this.btn_DBFind.UseVisualStyleBackColor = true;
-            this.btn_DBFind.Click += new System.EventHandler(this.btn_DBFind_Click);
             // 
             // btn_find
             // 
@@ -481,12 +445,9 @@
         private System.Windows.Forms.TabPage Page_complete;
         private System.Windows.Forms.TabPage Page_prepare;
         private System.Windows.Forms.TabControl Tab_control;
-        private System.Windows.Forms.Button btn_DBFind;
         private System.Windows.Forms.CheckBox HiddenBox;
         private System.Windows.Forms.ComboBox CB_Income;
         private System.Windows.Forms.ComboBox CB_TakeOverPrice;
-        private System.Windows.Forms.Label DBLocation;
-        private System.Windows.Forms.Button btn_Back_UP;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.RadioButton RB_CornerAll;
         private System.Windows.Forms.RadioButton RB_CornerNone;
@@ -498,7 +459,6 @@
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Button btn_DBMerge;
     }
 }
 

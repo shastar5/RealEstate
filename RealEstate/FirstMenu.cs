@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Data.SQLite;
 using System.IO;
 using MySql.Data.MySqlClient;
 
@@ -27,13 +26,14 @@ namespace RealEstate
     }
     public partial class FirstMenu : Form
     {
-        string DBFile;
         Boolean user;
-        String strConn;
-        SQLiteConnection cn = new SQLiteConnection();
-        SQLiteCommand cmd = new SQLiteCommand();
+        string strConn;
 
-        string strConn2;
+        MySqlConnection conn;
+        MySqlCommand cmd;
+        MySqlDataAdapter da;
+        MySqlCommandBuilder mbd;
+        MySqlDataReader rdr;
 
         //로인창으로 옮겨야함 deskpath;
         String deskPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory); //바탕화면 경로 가져오기
@@ -57,49 +57,6 @@ namespace RealEstate
             findvalues.isCorner = -1;
             //userType 손님용으로 초기화
             user = true;
-
-
-            deskPath = deskPath.Replace("\\", "/"); //\\글자 /로 바꾸기
-            DBFile = deskPath + @"/DB.db";
-            DBLocation.Text = "DB파일 위치 : " + DBFile;
-            strConn = "Data Source=" + DBFile + "; Version=3;";
-            cn.ConnectionString = strConn;
-            cn.Open();
-            //info1 테이블 생성
-            string query = "Create table if not exists info1 (id INTEGER  PRIMARY KEY autoincrement, addr varchar(1000), roadAddr varchar(1000), "
-                + "area varchar(100), station varchar(100), useArea varchar(100), distance NUMERIC, roadWidth NUMERIC, "
-                + "totalArea varchar(100), completeYear varchar(100), parking varchar(100), acHeating varchar(100), EV varchar(100), "
-                + "buildingName varchar(100), owner varchar(100), tel varchar(100), meno varchar(100), deposit NUMERIC, income NUMERIC, loan NUMERIC, interest NUMERIC, takeOverPrice NUMERIC, "
-                + "sellPrice NUMERIC, payedPrice NUMERIC, yearPercent NUMERIC, type INTEGER, state INTEGER, premium NUMERIC, monthlyPay NUMERIC, maintenance NUMERIC, isCorner INTEGER, profilePictureID INTEGER)";
-            SQLiteCommand cmd = new SQLiteCommand(query, cn);
-            cmd.ExecuteNonQuery();
-
-            query = "Create table if not exists pictures (id INTEGER  PRIMARY KEY autoincrement, buildingid INTEGER, picture image)";
-            cmd = new SQLiteCommand(query, cn);
-            cmd.ExecuteNonQuery();
-          
-            try
-            {
-                query = "Create table if not exists info2 (id INTEGER PRIMARY KEY autoincrement, buildingID INTEGER, floor NUMERIC, area NUMERIC, storeName varchar(100), "
-                + "deposit NUMERIC, monthlyIncome NUMERIC, managementPrice NUMERIC, etc varchar(100), FOREIGN KEY(buildingID) REFERENCES info1(id))";
-                cmd = new SQLiteCommand(query, cn);
-                cmd.ExecuteNonQuery();
-            } catch(SQLiteException e)
-            {
-                MessageBox.Show(e.Message);
-            }
-
-            query = "Create table if not exists comment (id INTEGER PRIMARY KEY AUTOINCREMENT, content varchar(1000), buildingID INTEGER, FOREIGN KEY(buildingID) REFERENCES info1(id))";
-            cmd = new SQLiteCommand(query, cn);
-            cmd.ExecuteNonQuery();
-
-            query = "Create table if not exists memo (id INTEGER PRIMARY KEY AUTOINCREMENT, c_date DATE, memo varchar(1000)" +
-                ", buildingID INTEGER, FOREIGN KEY(buildingID) REFERENCES info1(id))";
-            cmd = new SQLiteCommand(query, cn);
-            cmd.ExecuteNonQuery();
-
-            cn.Close();
-
             checkBox1.Checked = true;
 
         }
@@ -222,8 +179,7 @@ namespace RealEstate
                 if (ErrorStr2Num == 0)
                 {
                     FindView findtest = new FindView();
-                    //DBFIle위치, user타입, 검색값 넘겨주기
-                    findtest.setDBfile(DBFile);
+                    //user타입, 검색값 넘겨주기
                     findtest.setUserType(user);
                     findtest.setValue(findvalues);
                     findtest.Show();
@@ -318,8 +274,6 @@ namespace RealEstate
             if (isOpen == 0)
             {
                 AddMenu addMenu = new AddMenu();
-                //DBFILE넘기기
-                addMenu.setDBfile(DBFile);
                 addMenu.Show();
             }
 
@@ -328,9 +282,8 @@ namespace RealEstate
         {
 
             string query = "drop table info2";
-            MySqlConnection conn = new MySqlConnection(strConn2);
             conn.Open();
-            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd = new MySqlCommand(query, conn);
 
             cmd.ExecuteNonQuery();
 
@@ -345,69 +298,32 @@ namespace RealEstate
             cmd.CommandText = "drop table info1";
             cmd.ExecuteNonQuery();
 
-            cmd.CommandText = "Create table if not exists info1 (id INTEGER  PRIMARY KEY auto_increment, addr varchar(1000), roadAddr varchar(1000), "
+
+            cmd.CommandText = "drop table pictures";
+            cmd.ExecuteNonQuery();
+
+            cmd.CommandText = "Create table info1(id INTEGER  PRIMARY KEY auto_increment, addr varchar(1000), roadAddr varchar(1000), "
                            + "area varchar(100), station varchar(100), useArea varchar(100), distance NUMERIC, roadWidth NUMERIC, "
                         + "totalArea varchar(100), completeYear varchar(100), parking varchar(100), acHeating varchar(100), EV varchar(100), "
                         + "buildingName varchar(100), owner varchar(100), tel varchar(100), meno varchar(100), deposit NUMERIC, income NUMERIC, loan NUMERIC, interest NUMERIC, takeOverPrice NUMERIC, "
                         + "sellPrice NUMERIC, payedPrice NUMERIC, yearPercent NUMERIC, type INTEGER, state INTEGER, premium NUMERIC, monthlyPay NUMERIC, maintenance NUMERIC, isCorner INTEGER, profilePictureID INTEGER, netIncome NUMERIC)";
             cmd.ExecuteNonQuery();
 
-            
-            cmd.CommandText = "Create table if not exists info2 (id INTEGER PRIMARY KEY auto_increment, buildingID INTEGER, floor NUMERIC, area NUMERIC, storeName varchar(100), "
+
+            cmd.CommandText = "Create table if not exists info2(id INTEGER PRIMARY KEY auto_increment, buildingID INTEGER, floor NUMERIC, area NUMERIC, storeName varchar(100), "
                 + "deposit NUMERIC, monthlyIncome NUMERIC, managementPrice NUMERIC, etc varchar(100), FOREIGN KEY(buildingID) REFERENCES info1(id))";
             cmd.ExecuteNonQuery();
-            cmd.CommandText = "Create table if not exists comment (id INTEGER PRIMARY KEY auto_increment, content varchar(1000), buildingID INTEGER, FOREIGN KEY(buildingID) REFERENCES info1(id))";
+            cmd.CommandText = "Create table if not exists comment(id INTEGER PRIMARY KEY auto_increment, content varchar(1000), buildingID INTEGER, FOREIGN KEY(buildingID) REFERENCES info1(id))";
             cmd.ExecuteNonQuery();
-            cmd.CommandText = "Create table if not exists memo (id INTEGER PRIMARY KEY auto_increment, c_date DATETIME, memo varchar(1000)" +
+            cmd.CommandText = "Create table if not exists memo(id INTEGER PRIMARY KEY auto_increment, c_date DATETIME, memo varchar(1000)" +
                 ", buildingID INTEGER, FOREIGN KEY(buildingID) REFERENCES info1(id))";
             cmd.ExecuteNonQuery();
+            cmd.CommandText = "Create table if not exists pictures(id INTEGER  PRIMARY KEY auto_increment, buildingid INTEGER, picture LONGBLOB)";
+            cmd.ExecuteNonQuery();
             conn.Close();
-            
-        }
-        private void btn_DBMerge_Click(object sender, EventArgs e)
-        {
-            DBMerge DbMerge = new DBMerge();
-            //DBFIle위치, user타입, 검색값 넘겨주기
-            DbMerge.setDBfile(DBFile);
-            DbMerge.Show();
-        }
-        private void btn_DBFind_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                OpenFileDialog find = new OpenFileDialog();
-                find.InitialDirectory = deskPath;
-                find.Filter = "DB|*.db";
-                if (find.ShowDialog() == DialogResult.OK)
-                {
-                    DBFile = find.FileName;
-                    DBFile = DBFile.Replace("\\", "/"); //\\을 /로 바꾸기
-                    DBLocation.Text = "DB파일 위치 : " + DBFile;
-                    strConn = "Data Source=" + DBFile + "; Version=3;";
-                    cn.ConnectionString = strConn;
-                    cn.Open();
-                    //새로 연 DB에 테이블이 없을 경우 생성
-                    string query = "Create table if not exists info1 (id INTEGER  PRIMARY KEY autoincrement, addr varchar(1000), roadAddr varchar(1000), "
-                           + "area varchar(100), station varchar(100), useArea varchar(100), distance NUMERIC, roadWidth NUMERIC, "
-                        + "totalArea varchar(100), completeYear varchar(100), parking varchar(100), acHeating varchar(100), EV varchar(100), "
-                        + "buildingName varchar(100), owner varchar(100), tel varchar(100), meno varchar(100), deposit NUMERIC, income NUMERIC, loan NUMERIC, interest NUMERIC, takeOverPrice NUMERIC, "
-                        + "sellPrice NUMERIC, payedPrice NUMERIC, yearPercent NUMERIC, type INTEGER, state INTEGER, premium NUMERIC, monthlyPay NUMERIC, maintenance NUMERIC, isCorner INTEGER, profilePictureID INTEGER)";
-                    SQLiteCommand cmd = new SQLiteCommand(query, cn);
-                    cmd.ExecuteNonQuery();
-                    /*
-                    query = "Create table if not exists temp (id INTEGER  PRIMARY KEY autoincrement, picture image)";
-                    cmd = new SQLiteCommand(query, cn);
-                    cmd.ExecuteNonQuery();*/
-                    cn.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString());
-            }
-            
-        }
 
+        }
+        
         //이상 미만 선택 리스너  
         // index : 0 blank return value -1 
         // index : 1 and more return vaulue 0 
@@ -505,31 +421,10 @@ namespace RealEstate
 
         private void FirstMenu_Load(object sender, EventArgs e)
         {
-            strConn2 = MysqlIp.Logic.getStrConn(); //DLL에서 mysql server ip 불러오기
+            strConn = MysqlIp.Logic.getStrConn(); //DLL에서 mysql server ip 불러오기
+            conn = new MySqlConnection(strConn);
             //createTable();
         }
-        private void btn_Back_UP_Click(object sender, EventArgs e)
-        {
-
-            string time = DateTime.Now.ToString("yyyy년MM월dd일HH시mm분ss초_백업파일"); //백업 파일 이름
-            string sDirPath = deskPath + "/backup";
-            string backupFile = sDirPath + "/ " + time + ".db";
-            DirectoryInfo di = new DirectoryInfo(sDirPath); 
-            if (di.Exists == false) //폴더가 없으면 생성
-            {
-                di.Create();
-            }
-            try
-            {
-                File.Copy(DBFile, backupFile);
-                MessageBox.Show("백업파일을 생성했습니다.\n위치 : " + backupFile);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("백업파일을 생성하지 못했습니다.\n이유 : " + ex.ToString());
-            }
-        }
-
       
     }
 

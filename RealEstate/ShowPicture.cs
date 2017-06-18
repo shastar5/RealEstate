@@ -5,6 +5,8 @@ using System.Windows.Forms;
 using System.Data.SQLite;
 using System.IO;
 using System.Runtime.InteropServices;
+using MySql.Data.MySqlClient;
+using System.Threading;
 
 namespace RealEstate
 {
@@ -14,20 +16,23 @@ namespace RealEstate
         void setMode(string mode);
     }
 
-    public partial class ShowPicture : Form, DBInterface, PicturInterface
+    public partial class ShowPicture : Form, PicturInterface
     {
-        string DBFile= "";
         public int buildingID=0;
         int imageCount=0;
+        int totalImage = 0;
+        int percent = 0;
         public int profilePictureID=-1;
         string mode; // 추가 1 관리자 수정 2 유저 보기용
         string[] pictureNum = new string[10000];
         String strConn;
-        SQLiteConnection cn = new SQLiteConnection();
-        SQLiteCommand cmd = new SQLiteCommand();
-        SQLiteDataReader dr;
-        SQLiteParameter picture;
 
+        MySqlConnection conn;
+        MySqlCommand cmd;
+        MySqlDataAdapter da;
+        MySqlCommandBuilder mbd;
+        MySqlDataReader rdr;
+        MySqlParameter picture;
         String deskPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory); //바탕화면 경로 가져오기
 
         //X버튼 금지
@@ -43,19 +48,17 @@ namespace RealEstate
 
         public ShowPicture()
         {
-            
             InitializeComponent();
             EnableMenuItem(GetSystemMenu(this.Handle, false), SC_CLOSE, MF_GRAYED);
-
         }
-
-
 
         private void ShowPicture_Load(object sender, EventArgs e)
         {
-            strConn = "Data Source=" + DBFile + "; Version=3;";
-            cn.ConnectionString = strConn;
-            cmd.Connection = cn;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            progressBar1.Hide();
+            string query;
+            strConn = MysqlIp.Logic.getStrConn(); //DLL에서 mysql server ip 불러오기
+            conn = new MySqlConnection(strConn);
             label1.Text = "";
             int i;
             switch (mode)  //모드에 맞게 사진 불러오기
@@ -68,9 +71,9 @@ namespace RealEstate
                     btn_AddPicture.Enabled = false;
                     btn_DeletePicture.Enabled = false;
                     btn_ProfilePicture.Enabled = false;
-                    break; 
+                    break;
             }
-            picture = new SQLiteParameter("@picture", SqlDbType.Image);
+            picture = new MySqlParameter("@picture", MySqlDbType.LongBlob);
             loadData();
             if (profilePictureID == -1)
                 label2.Text = "프로필 사진이 없습니다.";
@@ -82,10 +85,12 @@ namespace RealEstate
                         break;
                 }
                 label2.Text = "프로필 사진 : 사진 " + i;
-                cn.Open();
-                cmd.CommandText = "select picture from pictures where id = " + profilePictureID + " and buildingid = " + buildingID.ToString();
-                SQLiteDataAdapter da = new SQLiteDataAdapter(cmd);
-                SQLiteCommandBuilder cbd = new SQLiteCommandBuilder(da);
+                conn.Open();
+                query = "select picture from pictures where id = " + profilePictureID + " and buildingid = " + buildingID.ToString();
+                cmd = new MySqlCommand(query, conn);
+                da = new MySqlDataAdapter(cmd);
+                mbd = new MySqlCommandBuilder(da);
+                
                 DataSet ds = new DataSet();
                 da.Fill(ds);
                 byte[] ap = (byte[])(ds.Tables[0].Rows[0]["picture"]);
@@ -95,13 +100,13 @@ namespace RealEstate
                 pictureBox1.BorderStyle = BorderStyle.Fixed3D;
                 label1.Text = listBox1.Text.ToString();
                 ms.Close();
-                cn.Close();
-                listBox1.SelectedIndex = --i;
-               
+                conn.Close();
                 
+                listBox1.SelectedIndex = --i;
+
+
             }
         }
-
         private void open()  //사진 추가 버튼 눌렀을 때 사진 선택 및 저장
         {
             try
@@ -111,51 +116,71 @@ namespace RealEstate
                 f.Filter = "ALL|*.JPG;*.BMP;*.GIF;*.PNG|JPEGS|*.JPG|Bitmap|*.BMP|GIFS|*.GIF|PNGS|*.PNG";
                 f.FilterIndex = 1;
                 f.Multiselect = true;
+                ShowPicture.ActiveForm.Size = ShowPicture.ActiveForm.MaximumSize;
+                progressBar1.Show();
                 if (f.ShowDialog() == DialogResult.OK)
                 {
-                    
+                    btn_AddPicture.Enabled = false;
+                    btn_DeletePicture.Enabled = false;
+                    btn_ProfilePicture.Enabled = false;
+                    btn_SavePicture.Enabled = false;
+                    totalImage = f.FileNames.Length;
                     foreach (string files in f.FileNames)
                     {
                         imageCount++;
                         pictureBox1.Image = Image.FromFile(files);
                         pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
                         pictureBox1.BorderStyle = BorderStyle.Fixed3D;
-                       
+                        percent = 100 / totalImage;
                         savePicture();
+                        progressBar1.Increment(percent);
                     }
                     loadData();
+                    progressBar1.Increment(100);
+                    MessageBox.Show("사진 추가 완료");
                 }
+                btn_AddPicture.Enabled = true;
+                btn_DeletePicture.Enabled = true;
+                btn_ProfilePicture.Enabled = true;
+                btn_SavePicture.Enabled = true;
+                progressBar1.Hide();
+                ShowPicture.ActiveForm.Size = ShowPicture.ActiveForm.MinimumSize;
+                progressBar1.Value = 0;
             }
             catch(Exception ex) { MessageBox.Show(ex.ToString());  }
 
         }
-        private void savePicture()  //그림 추가
+        private void savePicture()
         {
             if (pictureBox1.Image != null)
             {
                 MemoryStream ms = new MemoryStream();
                 pictureBox1.Image.Save(ms, pictureBox1.Image.RawFormat);
-                byte[] a = ms.GetBuffer();
-                ms.Close();
+                byte[] img = ms.GetBuffer();
+
+                string query = "insert into pictures (buildingid, picture) values (" + buildingID.ToString() + ", @picture)";
+                conn.Open();
+                cmd = new MySqlCommand(query, conn);
+                
                 cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@picture", a);
-                cmd.CommandText = "insert into pictures (buildingid, picture) values (" + buildingID.ToString()+", @picture)";
-                cn.Open();
+                cmd.Parameters.Add("@picture", MySqlDbType.LongBlob);
+                cmd.Parameters["@picture"].Value = img;
                 cmd.ExecuteNonQuery();
-                cn.Close();
+                conn.Close();
+                ms.Close();
                 pictureBox1.Image = null;
             }
         }
-
+        
         private void loadPicture() //저장된 사진들 불러오기
         {
-
             string id = listBox1.Text.ToString();
             id = id.Replace("사진 ", "");
-            cn.Open();
-            cmd.CommandText = "select picture from pictures where id = " + pictureNum[int.Parse(id)] + " and buildingid = " + buildingID.ToString();
-            SQLiteDataAdapter da = new SQLiteDataAdapter(cmd);
-            SQLiteCommandBuilder cbd = new SQLiteCommandBuilder(da);
+            string query = "select picture from pictures where id = " + pictureNum[int.Parse(id)] + " and buildingid = " + buildingID.ToString();
+            conn.Open();
+            cmd = new MySqlCommand(query, conn);
+            da = new MySqlDataAdapter(cmd);
+            mbd = new MySqlCommandBuilder(da);
             DataSet ds = new DataSet();
             da.Fill(ds);
             byte[] ap = (byte[])(ds.Tables[0].Rows[0]["picture"]);
@@ -165,39 +190,43 @@ namespace RealEstate
             pictureBox1.BorderStyle = BorderStyle.Fixed3D;
             label1.Text = listBox1.Text.ToString();
             ms.Close();
-            cn.Close();
+            conn.Close();
 
         }
         private void loadData() //저장 된 사진의 이름 불러오기
         {
             int count = 0;
+            string query = "select id from pictures where buildingid =" + buildingID.ToString();
             listBox1.Items.Clear();
-            cmd.CommandText = "select id from pictures where buildingid =" + buildingID.ToString();
-            cn.Open();
-            dr = cmd.ExecuteReader();
-            if (dr.HasRows)
+            conn.Open();
+            cmd = new MySqlCommand(query, conn);
+            rdr = cmd.ExecuteReader();
+            if (rdr.HasRows)
             {
-                while (dr.Read())
+                while (rdr.Read())
                 {
-                    pictureNum[++count] = dr[0].ToString();
-                    listBox1.Items.Add("사진 "+ count);
+                    pictureNum[++count] = rdr[0].ToString();
+                    listBox1.Items.Add("사진 " + count);
                 }
             }
-            dr.Close();
-            cn.Close();
+            rdr.Close();
+            conn.Close();
         }
         private void deletePicture()
         {
             string id = listBox1.Text.ToString();
+            string query;
             int i = 0;
             if (id.Equals(""))
                 MessageBox.Show("삭제할 사진을 선택해주세요");
-            else { 
+            else
+            {
                 id = id.Replace("사진 ", "");
-                cn.Open();
-                cmd.CommandText = "Delete From pictures where id = " + pictureNum[int.Parse(id)] + " and buildingid = " + buildingID.ToString();
+                conn.Open();
+                query = "Delete From pictures where id = " + pictureNum[int.Parse(id)] + " and buildingid = " + buildingID.ToString();
+                cmd = new MySqlCommand(query, conn);
                 cmd.ExecuteNonQuery();
-                cn.Close();
+                conn.Close();
                 pictureBox1.Image = null;
                 label1.Text = "";
                 if (pictureNum[int.Parse(id)].Equals(profilePictureID.ToString()))
@@ -208,10 +237,10 @@ namespace RealEstate
 
                     if (mode.Equals("managerMode"))
                     {
-                        cn.Open();
+                        conn.Open();
                         cmd.CommandText = "update info1 SET profilePictureID = -1 where id = " + buildingID.ToString();
                         cmd.ExecuteNonQuery();
-                        cn.Close();
+                        conn.Close();
                         ManagerView managerview = new ManagerView();
                         managerview.profilePictureID = profilePictureID;
                         managerview.pictureBox1.Image = null;
@@ -224,24 +253,24 @@ namespace RealEstate
                 }
                 else
                 {
-                    for(i=1; i<10000; i++)
+                    for (i = 1; i < 10000; i++)
                     {
-                        if (pictureNum[i]==null)
+                        if (pictureNum[i] == null)
                         {
                             label2.Text = "프로필 사진이 없습니다.";
                             profilePictureID = -1;
                             break;
                         }
-                        if (pictureNum[i].Equals(profilePictureID.ToString())&& pictureNum[i]!=null)
+                        if (pictureNum[i].Equals(profilePictureID.ToString()) && pictureNum[i] != null)
                         {
-                            if(string.Compare(pictureNum[int.Parse(id)], profilePictureID.ToString()) < 0 )
-                            i--;
+                            if (string.Compare(pictureNum[int.Parse(id)], profilePictureID.ToString()) < 0)
+                                i--;
                             label2.Text = "프로필 사진  : 사진 " + i;
                             break;
                         }
-                        
+
                     }
-                    
+
 
                 }
                 id = (int.Parse(id)).ToString();
@@ -249,20 +278,16 @@ namespace RealEstate
             }
             loadData();
         }
-        public void setDBfile(string DBFile) //DB파일위치 계승
-        {
-            this.DBFile = DBFile;
-        }
-
         public void setMode(string mode) //모드 계승
         {
             this.mode = mode;
         }
         private void btn_AddPicture_Click(object sender, EventArgs e)
         {
+
             open();
         }
-
+        
         private void listBox1_Click(object sender, EventArgs e)
         {
             ListBox l = sender as ListBox;
@@ -286,8 +311,6 @@ namespace RealEstate
         {
             deletePicture();
         }
-
-
         private void btn_SavePicture_Click(object sender, EventArgs e)
         {
             if (listBox1.Items.Count == 0||mode.Equals("userMode"))
@@ -319,6 +342,7 @@ namespace RealEstate
 
         private void btn_ProfilePicture_Click(object sender, EventArgs e)
         {
+            string query;
             string id = listBox1.Text.ToString();
             id = id.Replace("사진 ", "");
             if (!id.Equals(""))
@@ -328,17 +352,22 @@ namespace RealEstate
                     case "addMode":
                         AddMenu addmenu = (AddMenu)this.Owner;
                         profilePictureID = int.Parse( pictureNum[int.Parse(id)] );
+                        conn.Open();
+                        query = "update info1 SET profilePictureID = " + profilePictureID + " where id = " + buildingID.ToString();
+                        cmd = new MySqlCommand(query, conn);
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
                         addmenu.profilePictureID = profilePictureID;
                         addmenu.loadPicture();
                         break;
                     case "managerMode":
                         ManagerView managerview = (ManagerView)this.Owner;
                         profilePictureID = int.Parse(pictureNum[int.Parse(id)]);
-
-                        cn.Open();
-                        cmd.CommandText = "update info1 SET profilePictureID = " + profilePictureID + " where id = " + buildingID.ToString();
+                        conn.Open();
+                        query = "update info1 SET profilePictureID = " + profilePictureID + " where id = " + buildingID.ToString();
+                        cmd = new MySqlCommand(query, conn);
                         cmd.ExecuteNonQuery();
-                        cn.Close();
+                        conn.Close();
                         managerview.profilePictureID = profilePictureID;
                         managerview.loadPicture();
                         break;
@@ -348,6 +377,7 @@ namespace RealEstate
                         userview.profilePictureID = profilePictureID;
                         break;
                 }
+                
                 label2.Text = "프로필 사진  : 사진 " + id;
                 MessageBox.Show("사진 " + id + "가 프로필 사진으로 지정되었습니다");
 
@@ -370,14 +400,9 @@ namespace RealEstate
                 BigPicture bigpicture = new BigPicture();
                 bigpicture.Owner = this;
                 bigpicture.query = query;
-                bigpicture.setDBfile(DBFile);
                 bigpicture.Show();
             }
         }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

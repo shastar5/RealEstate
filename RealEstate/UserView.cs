@@ -8,24 +8,26 @@ using MySql.Data.MySqlClient;
 
 namespace RealEstate
 {
-    public partial class UserView : Form, DBInterface, IdInterface
+    public partial class UserView : Form, IdInterface
     {
         int id; // 선택한 건물 id
         int type;
         int state;
-        string DBFile;
     
         int isCorner;
         //프로필 유무
         public int profilePictureID=-1;
+        string strConn;
 
-        String strConn;
-        SQLiteConnection cn = new SQLiteConnection();
-        SQLiteCommand cmd = new SQLiteCommand();
+        MySqlConnection conn;
+        MySqlCommand cmd;
+        MySqlDataAdapter da;
+        MySqlCommandBuilder mbd;
+        MySqlDataReader rdr;
 
         // Database keyword declare
         DataGridView dgv, commentview;
-        string strConn2;
+        
 
 
         public UserView()
@@ -40,10 +42,6 @@ namespace RealEstate
             commentview.Columns[0].ReadOnly = true;
             commentview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-        }
-        public void setDBfile(string DBFile) //DB파일위치 계승
-        {
-            this.DBFile = DBFile;
         }
         public void setID(int id) // 선택된 건물 id가져오기
         {
@@ -61,12 +59,11 @@ namespace RealEstate
 
         private void readData() //서버에 있는 자료를 가져오기 
         {
-            MySqlConnection conn = new MySqlConnection(strConn2);
             string query = "select * from info1 where id = " + id;
 
             conn.Open();
-            MySqlCommand cmd = new MySqlCommand(query, conn);
-            MySqlDataReader rdr = cmd.ExecuteReader();
+            cmd = new MySqlCommand(query, conn);
+            rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
                 TB_Addr.Text = rdr[1].ToString();
@@ -281,38 +278,29 @@ namespace RealEstate
                 CB_corner.Checked = true;
             }
         }
-        public void loadPicture()  //사진 불러오기
+
+        public void loadPicture()//프로필 사진 불러오기위해 추가
         {
-            if (profilePictureID != -1)
-            {
-                try
-                {
-                    cn.Open();
-                    string query = "select picture from pictures where id = " + profilePictureID + " and buildingid = " + id;
-                    cmd = new SQLiteCommand(query, cn);
-                    SQLiteDataAdapter da = new SQLiteDataAdapter(cmd);
-                    SQLiteCommandBuilder cbd = new SQLiteCommandBuilder(da);
-                    DataSet ds = new DataSet();
-                    da.Fill(ds);
-                    byte[] ap = (byte[])(ds.Tables[0].Rows[0]["picture"]);
-                    MemoryStream ms = new MemoryStream(ap);
-                    pictureBox1.Image = Image.FromStream(ms);
-                    pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-                    pictureBox1.BorderStyle = BorderStyle.Fixed3D;
-                    ms.Close();
-                    cn.Close();
-                }
-                catch(Exception ex)
-                {
-                    MessageBox.Show("열고자하는 부동산의 프로필 사진이 DB파일에 존재 하지 않습니다\n");
-                }
-            }
+            string query = "select picture from pictures where id = " + profilePictureID + " and buildingid = " + id;
+            conn.Open();
+            cmd = new MySqlCommand(query, conn);
+            da = new MySqlDataAdapter(cmd);
+            mbd = new MySqlCommandBuilder(da);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            byte[] ap = (byte[])(ds.Tables[0].Rows[0]["picture"]);
+            MemoryStream ms = new MemoryStream(ap);
+            pictureBox1.Image = Image.FromStream(ms);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.BorderStyle = BorderStyle.Fixed3D;
+            ms.Close();
+            conn.Close();
+
         }
         private void UserView_Load(object sender, EventArgs e)
         {
-            strConn2 = MysqlIp.Logic.getStrConn(); //DLL에서 mysql server ip 불러오기
-            strConn = "Data Source=" + DBFile + "; Version=3;";
-            cn.ConnectionString = strConn;
+            strConn = MysqlIp.Logic.getStrConn(); //DLL에서 mysql server ip 불러오기
+            conn = new MySqlConnection(strConn);
             readData();
             loadPicture();
 
@@ -341,7 +329,6 @@ namespace RealEstate
             if (isOpen == 0)
             {
                 ShowPicture showpicture = new ShowPicture();
-                showpicture.setDBfile(DBFile);
                 showpicture.Owner = this;
                 //id. 프로필 사진 번호, 모드 보내기
                 showpicture.buildingID = id;
@@ -357,11 +344,10 @@ namespace RealEstate
            
             try
             {
-                MySqlConnection conn = new MySqlConnection(strConn2);
 
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
+                cmd = new MySqlCommand(query, conn);
+                rdr = cmd.ExecuteReader();
 
 
                 while (rdr.Read())
@@ -425,14 +411,13 @@ namespace RealEstate
         private void readcomment()
         {
             int i = 0;
-            MySqlConnection conn = new MySqlConnection(strConn2);
             string query = "select * from comment where buildingId =" + id;
 
             try
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
+                cmd = new MySqlCommand(query, conn);
+                rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
                     commentview.Rows.Add();

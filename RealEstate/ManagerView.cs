@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Data.SQLite;
 using System.Data;
 using System.IO;
 using System.Runtime.InteropServices;
@@ -15,10 +14,11 @@ namespace RealEstate
     }
 
 
-    public partial class ManagerView : Form, DBInterface, IdInterface, FIndInterface
+    public partial class ManagerView : Form, IdInterface, FIndInterface
     {
         //X버튼 금지
         private const int SC_CLOSE = 0xF060;
+
         private const int MF_ENABLED = 0x0;
         private const int MF_GRAYED = 0x1;
         private const int MF_DISABLED = 0x2;
@@ -32,7 +32,6 @@ namespace RealEstate
         //전체 보이는용 변수
         int type;
         int state;
-        string DBFile;
         string addr;
         string roadAddr;
         string area;
@@ -73,9 +72,11 @@ namespace RealEstate
 
         Findvalue findvalue = new Findvalue();
         String strConn;
-        SQLiteConnection cn = new SQLiteConnection();
-        SQLiteCommand cmd = new SQLiteCommand();
-
+        MySqlConnection conn;
+        MySqlCommand cmd;
+        MySqlDataAdapter da;
+        MySqlCommandBuilder mbd;
+        MySqlDataReader rdr;
         // Database keyword declare
 
         int countofrows = 0;
@@ -85,12 +86,7 @@ namespace RealEstate
         Stack<int> commentdelete = new Stack<int>();
         Stack<int> memodelete = new Stack<int>();
         buildingreport br;
-
-        string strConn2;
-        public void setDBfile(string DBFile) //DB파일위치 계승
-        {
-            this.DBFile = DBFile;
-        }
+        
         public void setID(int id)
         {
             this.id = id;
@@ -125,10 +121,9 @@ namespace RealEstate
         private void readData()
         {
             string query = "select * from info1 where id = " + id;
-            MySqlConnection conn = new MySqlConnection(strConn2);
             conn.Open();
-            MySqlCommand cmd = new MySqlCommand(query, conn);
-            MySqlDataReader rdr = cmd.ExecuteReader();
+            cmd = new MySqlCommand(query, conn);
+            rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
                 TB_Addr.Text = rdr[1].ToString();
@@ -364,13 +359,13 @@ namespace RealEstate
 
         private void updateDataGrid(int i)
         {
-            MySqlConnection conn = new MySqlConnection(strConn2);
             string query = "UPDATE info2 SET floor = @floor, area = @area, storeName = @storeName," +
                 " deposit = @deposit, monthlyIncome = @monthlyIncome, managementPrice = @managementPrice, etc = @etc where id = @id AND buildingID = " + id;
             try
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd = new MySqlCommand(query, conn);
+                /*
                 cmd.Parameters.AddWithValue("@floor", dgv.Rows[i].Cells["floor"].Value);
                 cmd.Parameters.AddWithValue("@area", dgv.Rows[i].Cells["floor_area"].Value);
                 cmd.Parameters.AddWithValue("@storeName", dgv.Rows[i].Cells["storeName"].Value);
@@ -379,7 +374,25 @@ namespace RealEstate
                 cmd.Parameters.AddWithValue("@managementPrice", dgv.Rows[i].Cells["managementPrice"].Value);
                 cmd.Parameters.AddWithValue("@etc", dgv.Rows[i].Cells["etc"].Value);
                 cmd.Parameters.AddWithValue("@id", dgv.Rows[i].Cells["_id"].Value);
+                */
 
+                cmd.Parameters.Add("@floor", MySqlDbType.Decimal);
+                cmd.Parameters.Add("@area", MySqlDbType.Decimal);
+                cmd.Parameters.Add("@storeName", MySqlDbType.VarChar);
+                cmd.Parameters.Add("@deposit", MySqlDbType.Decimal);
+                cmd.Parameters.Add("@monthlyIncome", MySqlDbType.Decimal);
+                cmd.Parameters.Add("@managementPrice", MySqlDbType.Decimal);
+                cmd.Parameters.Add("@etc", MySqlDbType.VarChar);
+                cmd.Parameters.Add("@id", MySqlDbType.Int32);
+
+                cmd.Parameters["@floor"].Value = dgv.Rows[i].Cells["floor"].Value;
+                cmd.Parameters["@area"].Value = dgv.Rows[i].Cells["floor_area"].Value;
+                cmd.Parameters["@storeName"].Value = dgv.Rows[i].Cells["storeName"].Value;
+                cmd.Parameters["@deposit"].Value = dgv.Rows[i].Cells["storeDeposit"].Value;
+                cmd.Parameters["@monthlyIncome"].Value = dgv.Rows[i].Cells["monthlyIncome"].Value;
+                cmd.Parameters["@managementPrice"].Value = dgv.Rows[i].Cells["managementPrice"].Value;
+                cmd.Parameters["@etc"].Value = dgv.Rows[i].Cells["etc"].Value;
+                cmd.Parameters["@id"].Value = dgv.Rows[i].Cells["_id"].Value;
                 cmd.ExecuteNonQuery();
 
                 conn.Close();
@@ -392,11 +405,10 @@ namespace RealEstate
       
         private void updatecomment(int index)
         {
-            MySqlConnection conn = new MySqlConnection(strConn2);
             string query = "UPDATE comment SET content = @content WHERE id = @id AND buildingID = " + id;
 
             conn.Open();
-            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd = new MySqlCommand(query, conn);
             try
             {
 
@@ -415,11 +427,10 @@ namespace RealEstate
         
         private void updatememo(int index)
         {
-            MySqlConnection conn = new MySqlConnection(strConn2);
             string query = "UPDATE memo SET c_date = @c_date, memo = @memo WHERE id = @id AND buildingID = " + id;
 
             conn.Open();
-            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd = new MySqlCommand(query, conn);
             try
             {
 
@@ -439,11 +450,10 @@ namespace RealEstate
      
         private void deleteDataGrid()
         {
-            MySqlConnection conn = new MySqlConnection(strConn2);
             string query = "DELETE FROM info2 WHERE id = @id AND buildingID = " + id;
 
             conn.Open();
-            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd = new MySqlCommand(query, conn);
             int count = todo.Count;
 
             for (int j = 0; j < count; ++j)
@@ -471,10 +481,9 @@ namespace RealEstate
             string query = "select * from info2 where buildingId =" + id;
             try
             {
-                MySqlConnection conn = new MySqlConnection(strConn2);
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
+                cmd = new MySqlCommand(query, conn);
+                rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
                     dgv.Rows.Add();
@@ -491,7 +500,7 @@ namespace RealEstate
                 conn.Close();
                 countofrows = i;
             }
-            catch (SQLiteException e)
+            catch (MySqlException e)
             {
                 MessageBox.Show(e.ToString());
             }
@@ -533,7 +542,22 @@ namespace RealEstate
 
             dgv.Refresh();
         }
+        private double getSumofdeposit()
+        {
+            int i;
+            double sumofMaintain = 0;
 
+            if (dgv.Rows.Count == 0)
+                return 0;
+
+            for (i = 0; i < dgv.Rows.Count - 1; ++i)
+            {
+                if (dgv.Rows[i].Cells[4].Value != DBNull.Value)
+                    sumofMaintain += Convert.ToDouble(dgv.Rows[i].Cells[4].Value);
+            }
+
+            return sumofMaintain;
+        }
         private double getSumofIncome()
         {
             int i;
@@ -550,16 +574,31 @@ namespace RealEstate
 
             return sumofMonthlyIncome;
         }
+        private double getSumofMaintain()
+        {
+            int i;
+            double sumofMaintain = 0;
+
+            if (dgv.Rows.Count == 0)
+                return 0;
+
+            for (i = 0; i < dgv.Rows.Count - 1; ++i)
+            {
+                if (dgv.Rows[i].Cells[6].Value != DBNull.Value)
+                    sumofMaintain += Convert.ToDouble(dgv.Rows[i].Cells[6].Value);
+            }
+
+            return sumofMaintain;
+        }
         private void InsertRowsDataGridView(int i)
         {
-            MySqlConnection conn = new MySqlConnection(strConn2);
             try
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO info2 VALUES(@id, @buildingID, @floor, @area, @storeName, @deposit, @monthlyIncome, @managementPrice, @etc)", conn);
+                cmd = new MySqlCommand("INSERT INTO info2 VALUES(@id, @buildingID, @floor, @area, @storeName, @deposit, @monthlyIncome, @managementPrice, @etc)", conn);
                 if (dgv.Rows.Count != 0)
                 {
-                    cmd.Parameters.AddWithValue("@id", null);
+                    /*
                     cmd.Parameters.AddWithValue("@buildingID", id);
                     cmd.Parameters.AddWithValue("@floor", dgv.Rows[i].Cells["floor"].Value);
                     cmd.Parameters.AddWithValue("@area", dgv.Rows[i].Cells["floor_area"].Value);
@@ -568,7 +607,26 @@ namespace RealEstate
                     cmd.Parameters.AddWithValue("@monthlyIncome", dgv.Rows[i].Cells["monthlyIncome"].Value);
                     cmd.Parameters.AddWithValue("@managementPrice", dgv.Rows[i].Cells["managementPrice"].Value);
                     cmd.Parameters.AddWithValue("@etc", dgv.Rows[i].Cells["etc"].Value);
+                    */
+                    cmd.Parameters.Add("@id", MySqlDbType.Int32);
+                    cmd.Parameters.Add("@buildingID", MySqlDbType.Int32);
+                    cmd.Parameters.Add("@floor", MySqlDbType.Decimal);
+                    cmd.Parameters.Add("@area", MySqlDbType.Decimal);
+                    cmd.Parameters.Add("@storeName", MySqlDbType.VarChar);
+                    cmd.Parameters.Add("@deposit", MySqlDbType.Decimal);
+                    cmd.Parameters.Add("@monthlyIncome", MySqlDbType.Decimal);
+                    cmd.Parameters.Add("@managementPrice", MySqlDbType.Decimal);
+                    cmd.Parameters.Add("@etc", MySqlDbType.VarChar);
 
+                    cmd.Parameters["@id"].Value = null;
+                    cmd.Parameters["@buildingID"].Value = id;
+                    cmd.Parameters["@floor"].Value = dgv.Rows[i].Cells["floor"].Value;
+                    cmd.Parameters["@area"].Value = dgv.Rows[i].Cells["floor_area"].Value;
+                    cmd.Parameters["@storeName"].Value = dgv.Rows[i].Cells["storeName"].Value;
+                    cmd.Parameters["@deposit"].Value = dgv.Rows[i].Cells["storeDeposit"].Value;
+                    cmd.Parameters["@monthlyIncome"].Value = dgv.Rows[i].Cells["monthlyIncome"].Value;
+                    cmd.Parameters["@managementPrice"].Value = dgv.Rows[i].Cells["managementPrice"].Value;
+                    cmd.Parameters["@etc"].Value = dgv.Rows[i].Cells["etc"].Value;
                     cmd.ExecuteNonQuery();
                 }
 
@@ -583,7 +641,6 @@ namespace RealEstate
        
         private void saveData()
         {
-            MySqlConnection conn = new MySqlConnection(strConn2);
             string query = "update info1 SET addr = @Addr , roadAddr = @RoadAddr, area = @Area, station = @Station, useArea = @UseArea, distance = @Distance, "
                  + "roadWidth = @RoadWidth, totalArea = @TotalArea, completeYear = @CompleteYear, parking = @Parking, acHeating = @AcHeating, EV = @EV, "
                  + "buildingName = @BuildingName, owner = @Owner, tel = @Tel, meno = @Meno, deposit = @Deposit, income = @Income, loan = @Loan, "
@@ -592,7 +649,7 @@ namespace RealEstate
                  + "profilePictureID = @ProfilePictureID, netIncome = @NetIncome where id  = " + id;
 
             conn.Open();
-            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd = new MySqlCommand(query, conn);
             cmd.Parameters.Add(new MySqlParameter("@Addr", MySqlDbType.String) { Value = addr });
             cmd.Parameters.Add(new MySqlParameter("@RoadAddr", MySqlDbType.String) { Value = roadAddr });
             cmd.Parameters.Add(new MySqlParameter("@Area", MySqlDbType.String) { Value = area });
@@ -687,6 +744,7 @@ namespace RealEstate
                 panel6.Show();
                 panel2.Hide();
             }
+            updateTB();
         }
 
         private void typeOnlyNum(object sender, KeyPressEventArgs e)
@@ -725,28 +783,22 @@ namespace RealEstate
         {
             if (profilePictureID != -1)
             {
-                cn.Open(); 
+                conn.Open(); 
                 string query = "select picture from pictures where id = " + profilePictureID +" and buildingid = "+id;
-                try
-                {
-                    cmd = new SQLiteCommand(query, cn);
-                    SQLiteDataAdapter da = new SQLiteDataAdapter(cmd);
-                    SQLiteCommandBuilder cbd = new SQLiteCommandBuilder(da);
-                    DataSet ds = new DataSet();
-                    da.Fill(ds);
-                    cn.Close();
-                    byte[] ap = (byte[])(ds.Tables[0].Rows[0]["picture"]);
-                    MemoryStream ms = new MemoryStream(ap);
-                    pictureBox1.Image = System.Drawing.Image.FromStream(ms);
-                    pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-                    pictureBox1.BorderStyle = BorderStyle.Fixed3D;
-                    ms.Close();
-                    cn.Close();
-                }
-                catch(Exception ex)
-                {
-                    MessageBox.Show("열고자하는 부동산의 프로필 사진이 DB파일에 존재 하지 않습니다\n");
-                }
+               
+                cmd = new MySqlCommand(query, conn);
+                da = new MySqlDataAdapter(cmd);
+                mbd = new MySqlCommandBuilder(da);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                byte[] ap = (byte[])(ds.Tables[0].Rows[0]["picture"]);
+                MemoryStream ms = new MemoryStream(ap);
+                pictureBox1.Image = System.Drawing.Image.FromStream(ms);
+                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                pictureBox1.BorderStyle = BorderStyle.Fixed3D;
+                ms.Close();
+                
+                conn.Close();
             }
             else
             {
@@ -756,11 +808,10 @@ namespace RealEstate
 
         private void ManagerView_Load(object sender, EventArgs e)
         {
-            strConn2 = MysqlIp.Logic.getStrConn(); //DLL에서 mysql server ip 불러오기
+            strConn = MysqlIp.Logic.getStrConn(); //DLL에서 mysql server ip 불러오기
+            conn = new MySqlConnection(strConn);
             print.Click += new EventHandler(print_Click);
-
-            strConn = "Data Source=" + DBFile + "; Version=3;";
-            cn.ConnectionString = strConn;
+            
             readData();
 
             loadPicture();
@@ -788,11 +839,10 @@ namespace RealEstate
             string query = "select * from comment where buildingId =" + id;
             try
             {
-                MySqlConnection conn = new MySqlConnection(strConn2);
 
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
+                cmd = new MySqlCommand(query, conn);
+                rdr = cmd.ExecuteReader();
 
                 while (rdr.Read())
                 {
@@ -802,7 +852,7 @@ namespace RealEstate
                 }
                 conn.Close();
             }
-            catch (SQLiteException e)
+            catch (MySqlException e)
             {
                 MessageBox.Show(e.ToString());
             }
@@ -814,11 +864,9 @@ namespace RealEstate
             string query = "select * from memo where buildingId =" + id;
             try
             {
-                MySqlConnection conn = new MySqlConnection(strConn2);
-
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
+                cmd = new MySqlCommand(query, conn);
+                rdr = cmd.ExecuteReader();
 
                 while (rdr.Read())
                 {
@@ -829,7 +877,7 @@ namespace RealEstate
                 }
                 conn.Close();
             }
-            catch (SQLiteException e)
+            catch (MySqlException e)
             {
                 MessageBox.Show(e.ToString());
             }
@@ -869,9 +917,22 @@ namespace RealEstate
                     }
                     else
                     {
-                        if(dgv.Rows[i].Cells[1].Value != null)
-                            if(!dgv.Rows[i].Cells[1].Value.Equals("합계"))
-                                InsertRowsDataGridView(i);
+                        for (int j = 1; j <= 7; j++)
+                        {
+                            if (dgv.Rows[i].Cells[j].Value != null)
+                            {
+                                string a;
+                                if (dgv.Rows[i].Cells[1].Value == null)
+                                    a = null;
+                                else
+                                    a = string.Copy(dgv.Rows[i].Cells[1].Value.ToString());
+                                if (a == null ||!a.Equals("합계"))
+                                {
+                                    InsertRowsDataGridView(i);
+                                    break;
+                                }
+                            }
+                        }
                     }
                 }
 
@@ -912,7 +973,7 @@ namespace RealEstate
         }
         private void readProfilePicture()
         {
-            MySqlConnection conn = new MySqlConnection(strConn2);
+            MySqlConnection conn = new MySqlConnection(strConn);
             String query = "select profilePictureID from info1 where id = " + id;
 
             conn.Open();
@@ -940,7 +1001,6 @@ namespace RealEstate
             {
                 readProfilePicture();
                 ShowPicture showpicture = new ShowPicture();
-                showpicture.setDBfile(DBFile);
                 showpicture.Owner = this;
                 showpicture.buildingID = id;
                 showpicture.profilePictureID = profilePictureID;
@@ -963,7 +1023,14 @@ namespace RealEstate
             deleteSum();
             showSum();
         }
-
+        private void updateSumOfGrid(object sender, EventArgs e)
+        {
+            if (dgv.Rows.Count > 1)
+            {
+                dgv.Rows.RemoveAt(dgv.Rows.Count - 1);
+            }
+            showSum();
+        }
         private void delete_row_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewCell oneCell in dgv.SelectedCells)
@@ -995,11 +1062,10 @@ namespace RealEstate
 
         private void deletememo()
         {
-            MySqlConnection conn = new MySqlConnection(strConn2);
             string query = "DELETE FROM memo WHERE id = @id AND buildingID = " + id;
 
             conn.Open();
-            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd = new MySqlCommand(query, conn);
             while (memodelete.Count > 0)
             {
                 cmd.Parameters.AddWithValue("@id", memoview.Rows[memodelete.Pop()].Cells["memoid"].Value);
@@ -1011,11 +1077,10 @@ namespace RealEstate
      
         private void deleteComment()
         {
-            MySqlConnection conn = new MySqlConnection(strConn2);
             string query = "DELETE FROM comment WHERE id = @id AND buildingID = " + id;
 
             conn.Open();
-            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd = new MySqlCommand(query, conn);
             while (commentdelete.Count > 0)
             {
                 cmd.Parameters.AddWithValue("@id", commentview.Rows[commentdelete.Pop()].Cells["order"].Value);
@@ -1029,9 +1094,8 @@ namespace RealEstate
         {
             try
             {
-                MySqlConnection conn = new MySqlConnection(strConn2);
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO comment VALUES (@id, @content, @buildingID)", conn);
+                cmd = new MySqlCommand("INSERT INTO comment VALUES (@id, @content, @buildingID)", conn);
                 cmd.Parameters.AddWithValue("@id", null);
                 cmd.Parameters.AddWithValue("@buildingID", id);
                 cmd.Parameters.AddWithValue("@content", commentview.Rows[index].Cells["Content"].Value);
@@ -1051,10 +1115,9 @@ namespace RealEstate
             try
             {
                 string query = "INSERT INTO memo VALUES(@id, @c_date, @memo, @buildingID)";
-                MySqlConnection conn = new MySqlConnection(strConn2);
 
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd = new MySqlCommand(query, conn);
 
                 cmd.Parameters.AddWithValue("@id", null);
                 cmd.Parameters.AddWithValue("@c_date", DateTime.Now);
@@ -1117,9 +1180,8 @@ namespace RealEstate
         private void deleteDB()
         {
             string query = "delete from comment where buildingid = " + id;
-            MySqlConnection conn = new MySqlConnection(strConn2);
             conn.Open();
-            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd = new MySqlCommand(query, conn);
             cmd.ExecuteNonQuery();
 
             cmd.CommandText = "delete from info2 where buildingid = " + id;
@@ -1129,12 +1191,9 @@ namespace RealEstate
             cmd.CommandText = "delete from info1 where id = " + id;
             cmd.ExecuteNonQuery();
 
-            conn.Close();
-
-            cn.Open();
-            query = "delete from pictures where buildingid = " + id;
-            SQLiteCommand cmd2 = new SQLiteCommand(query, cn);
-            cmd2.ExecuteNonQuery();
+            cmd.CommandText = "delete from pictures where buildingid = " + id;
+            cmd.ExecuteNonQuery();
+            
             conn.Close();
         }
 
@@ -1175,17 +1234,18 @@ namespace RealEstate
             }
         }
 
+       
         private void updateTB()
         {
             double UpdateSellPrice = checkNulls(TB_SellPrice.Text.ToString());
-            double UpdateDeposit = checkNulls(TB_Deposit.Text.ToString());
+            double UpdateDeposit = getSumofdeposit();
             double UpdateLoan = checkNulls(TB_Loan.Text.ToString());
-            double UpdateTakeOverPrice = -9999;
+            double UpdateTakeOverPrice = checkNulls(TB_TakeOverPrice.Text.ToString());
             double UpdateIncome;
             double UpdateYearPercent;
             double UpdateInterest;
-            double UpdateMaintenance;
-
+            double UpdateMaintenance = getSumofMaintain();
+            
             if (UpdateSellPrice != -9999 && UpdateDeposit != -9999 && UpdateLoan != -9999)
             {
                 UpdateTakeOverPrice = UpdateSellPrice - UpdateDeposit - UpdateLoan;
@@ -1199,9 +1259,10 @@ namespace RealEstate
                 //UpdateIncome = checkNulls(TB_Income.Text.ToString());
                 UpdateIncome = getSumofIncome();
                 TB_Income.Text = getSumofIncome().ToString();
-
+                TB_Maintenance.Text = getSumofMaintain().ToString();
+                TB_Deposit.Text = getSumofdeposit().ToString();
                 UpdateInterest = checkNulls(TB_Interest.Text.ToString());
-                UpdateMaintenance = checkNulls(TB_Maintenance.Text.ToString());
+                
                 if (UpdateInterest != -9999 && UpdateIncome != -9999 && UpdateMaintenance != -9999)
                     TB_NetIncome.Text = (UpdateIncome - UpdateInterest - UpdateMaintenance).ToString();
                 else
@@ -1209,6 +1270,7 @@ namespace RealEstate
             }
             else
             {
+                TB_Maintenance2.Text = getSumofMaintain().ToString();
                 //UpdateIncome = checkNulls(TB_Income2.Text.ToString());
                 UpdateIncome = getSumofIncome();
                 TB_MonthlyPay.Text = getSumofIncome().ToString();

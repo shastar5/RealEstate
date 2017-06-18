@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Data.SQLite;
 using System.Data;
 using System.IO;
 using System.Drawing;
@@ -10,11 +9,7 @@ using MySql.Data.MySqlClient;
 namespace RealEstate
 {
     //해야할것 라디오 버튼 매매 준비 이런거 상태 추가해야함
-    public interface DBInterface
-    {
-        void setDBfile(String DBFile);
-    }
-    public partial class AddMenu : Form, DBInterface
+    public partial class AddMenu : Form
     {
         //X버튼 금지
         private const int SC_CLOSE = 0xF060;
@@ -30,7 +25,6 @@ namespace RealEstate
         //전체 보이는용 변수
         int type;
         int state;
-        string DBFile;
         string addr;
         string roadAddr;
         string area;
@@ -70,15 +64,15 @@ namespace RealEstate
 
         int currentAddId;
         int ErrorStr2Num;
+
         String strConn;
-        SQLiteConnection cn = new SQLiteConnection();
-        SQLiteCommand cmd = new SQLiteCommand();
-
+        MySqlConnection conn;
+        MySqlCommand cmd;
+        MySqlDataAdapter da;
+        MySqlCommandBuilder mbd;
+        MySqlDataReader rdr;
         DataGridView dgv, commentview, memoview;
-
-        string strConn2;
-
-     
+        
         private void saveDataGrid()
         {
             try
@@ -86,10 +80,9 @@ namespace RealEstate
 
                 string query = "INSERT INTO info2 VALUES(@id, @buildingID, @floor, @area, @storeName, @deposit, @monthlyIncome, @managementPrice, @etc)";
 
-                MySqlConnection conn = new MySqlConnection(strConn2);
 
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd = new MySqlCommand(query, conn);
                 for (int i = 0; i < dgv.Rows.Count; i++)
                 {
                     cmd.Parameters.AddWithValue("@id", null);
@@ -110,10 +103,6 @@ namespace RealEstate
             {
                 MessageBox.Show("인터넷 연결 상태가 안좋습니다.\n연결 확인후 다시 시도해주세요.");
             }
-        }
-        public void setDBfile(string DBFile) //DB파일위치 계승
-        {
-            this.DBFile = DBFile;
         }
 
         private void setData() //작성한 데이터 저장하기
@@ -188,7 +177,6 @@ namespace RealEstate
         private void saveData()//info1 테이블 insert하는 함수
         {
             
-            MySqlConnection conn = new MySqlConnection(strConn2);
             string query = "update info1 SET addr = @Addr , roadAddr = @RoadAddr, area = @Area, station = @Station, useArea = @UseArea, distance = @Distance, "
                  + "roadWidth = @RoadWidth, totalArea = @TotalArea, completeYear = @CompleteYear, parking = @Parking, acHeating = @AcHeating, EV = @EV, "
                  + "buildingName = @BuildingName, owner = @Owner, tel = @Tel, meno = @Meno, deposit = @Deposit, income = @Income, loan = @Loan, "
@@ -197,7 +185,7 @@ namespace RealEstate
                  + "profilePictureID = @ProfilePictureID, netIncome = @NetIncome where id  = " + currentAddId;
 
             conn.Open();
-            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd = new MySqlCommand(query, conn);
             cmd.Parameters.Add(new MySqlParameter("@Addr", MySqlDbType.String) { Value = addr });
             cmd.Parameters.Add(new MySqlParameter("@RoadAddr", MySqlDbType.String) { Value = roadAddr });
             cmd.Parameters.Add(new MySqlParameter("@Area", MySqlDbType.String) { Value = area });
@@ -241,16 +229,15 @@ namespace RealEstate
         {
             try
             {
-                MySqlConnection conn = new MySqlConnection(strConn2);
                 string query = "insert into info1(id, addr) values(null, null)";
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd = new MySqlCommand(query, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
             catch(Exception ex)
             {
-                MessageBox.Show("인터넷 연결 상태가 안좋습니다.\n연결 확인후 다시 시도해주세요.");
+                MessageBox.Show("인터넷 연결 상태가 안좋습니다.\n연결 확인후 다시 시도해주세요."+ex.ToString());
                 this.Close();
             }
         }
@@ -286,11 +273,10 @@ namespace RealEstate
             {
 
                 string query = "select MAX(id) from info1";
-                MySqlConnection conn = new MySqlConnection(strConn2);
 
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
+                cmd = new MySqlCommand(query, conn);
+                rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
                     if (!rdr[0].ToString().Equals(""))
@@ -353,17 +339,12 @@ namespace RealEstate
             state = 1;
             isCorner = 0;
 
-            strConn = "Data Source=" + DBFile + "; Version=3;";
-
         }
         
         private void AddMenu_Load(object sender, EventArgs e)
         {
-            strConn2 = MysqlIp.Logic.getStrConn(); //DLL에서 mysql server ip 불러오기
-            cn = new SQLiteConnection();
-            cmd = new SQLiteCommand();
-            strConn = "Data Source=" + DBFile + "; Version=3;";
-            cn.ConnectionString = strConn;
+            strConn = MysqlIp.Logic.getStrConn(); //DLL에서 mysql server ip 불러오기
+            conn = new MySqlConnection(strConn);
             insertDefault();
             currentAddId = getid();
             dgv = ContentOfRentals;
@@ -398,10 +379,10 @@ namespace RealEstate
             if (isOpen == 0)
             {
                 ShowPicture showpicture = new ShowPicture();
-                showpicture.setDBfile(DBFile);
                 showpicture.setMode("addMode");
                 
                 showpicture.buildingID = currentAddId; //만들어질 부동산 id 보내기
+                showpicture.profilePictureID = profilePictureID;
                 showpicture.Owner = this;
                 showpicture.Show();
             }
@@ -409,20 +390,21 @@ namespace RealEstate
         private void notSaveClose() //저장안함 할 경우 해당 그림 데이터 삭제
         {
             int buildingID = 0;
-            cn.Open();
+            conn.Open();
             string query = "select MAX(id) from info1";
-            SQLiteCommand cmd = new SQLiteCommand(query, cn);
-            SQLiteDataReader rdr = cmd.ExecuteReader();
+            cmd = new MySqlCommand(query, conn);
+            rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
                 if (!rdr[0].ToString().Equals(""))
                     buildingID = int.Parse(rdr[0].ToString());
             }
             rdr.Close();
-            buildingID += 1;
             cmd.CommandText = "delete from pictures where buildingid = " + buildingID.ToString();
             cmd.ExecuteNonQuery();
-            cn.Close();
+            cmd.CommandText = "delete from info1 where id = " + buildingID.ToString();
+            cmd.ExecuteNonQuery();
+            conn.Close();
         }
        
         private void radioButton_CheckedChanged(object sender, EventArgs e) //건물 종류에 따른 TB설정 
@@ -454,6 +436,7 @@ namespace RealEstate
                 panel6.Show();
                 panel2.Hide();
             }
+            updateTB();
         }
 
         private void typeOnlyNum(object sender, KeyPressEventArgs e)
@@ -476,30 +459,25 @@ namespace RealEstate
                 isCorner = 0;
             }
         }
-        
-        public void loadPicture() //프로필 사진 불러오기위해 추가
+
+        public void loadPicture()//프로필 사진 불러오기위해 추가
         {
-            if (profilePictureID != -1)
-            {
-                
-                cn.Open();
-                string query = "select picture from pictures where id = " + profilePictureID;
-                cmd = new SQLiteCommand(query, cn);
-                SQLiteDataAdapter da = new SQLiteDataAdapter(cmd);
-                SQLiteCommandBuilder cbd = new SQLiteCommandBuilder(da);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                byte[] ap = (byte[])(ds.Tables[0].Rows[0]["picture"]);
-                MemoryStream ms = new MemoryStream(ap);
-                pictureBox1.Image = Image.FromStream(ms);
-                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-                pictureBox1.BorderStyle = BorderStyle.Fixed3D;
-                ms.Close();
-                cn.Close();
-            }
+            string query = "select picture from pictures where id = " + profilePictureID;
+            conn.Open();
+            cmd = new MySqlCommand(query, conn);
+            da = new MySqlDataAdapter(cmd);
+            mbd = new MySqlCommandBuilder(da);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            byte[] ap = (byte[])(ds.Tables[0].Rows[0]["picture"]);
+            MemoryStream ms = new MemoryStream(ap);
+            pictureBox1.Image = Image.FromStream(ms);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.BorderStyle = BorderStyle.Fixed3D;
+            ms.Close();
+            conn.Close();
 
         }
-
         private void btn_JustClose_Click(object sender, EventArgs e) //저장안하기 클릭시
         {
             DialogResult dr = MessageBox.Show("저장하지않고 종료하겠습니까?", "알림", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
@@ -512,6 +490,22 @@ namespace RealEstate
         }
 
 
+        private double getSumofdeposit()
+        {
+            int i;
+            double sumofdeposit = 0;
+
+            if (dgv.Rows.Count == 0)
+                return 0;
+
+            for (i = 0; i < dgv.Rows.Count; ++i)
+            {
+                if (dgv.Rows[i].Cells[3].Value != DBNull.Value)
+                    sumofdeposit += Convert.ToDouble(dgv.Rows[i].Cells[3].Value);
+            }
+
+            return sumofdeposit;
+        }
         private double getSumofIncome()
         {
             int i;
@@ -522,23 +516,39 @@ namespace RealEstate
 
             for (i = 0; i < dgv.Rows.Count; ++i)
             {
-                if (dgv.Rows[i].Cells[5].Value != DBNull.Value)
+                if (dgv.Rows[i].Cells[4].Value != DBNull.Value)
                     sumofMonthlyIncome += Convert.ToDouble(dgv.Rows[i].Cells[4].Value);
             }
 
             return sumofMonthlyIncome;
         }
+        private double getSumofMaintain()
+        {
+            int i;
+            double sumofMaintain = 0;
+
+            if (dgv.Rows.Count == 0)
+                return 0;
+
+            for (i = 0; i < dgv.Rows.Count; ++i)
+            {
+                if (dgv.Rows[i].Cells[5].Value != DBNull.Value)
+                    sumofMaintain += Convert.ToDouble(dgv.Rows[i].Cells[5].Value);
+            }
+
+            return sumofMaintain;
+        }
 
         private void updateTB() //숫자만 입력했을 떄 인식하도록 해주고, 수식 계산 해줌 
         {
             double UpdateSellPrice = checkNulls(TB_SellPrice.Text.ToString());
-            double UpdateDeposit = checkNulls(TB_Deposit.Text.ToString());
+            double UpdateDeposit = getSumofdeposit();
             double UpdateLoan = checkNulls(TB_Loan.Text.ToString());
-            double UpdateTakeOverPrice = -9999;
+            double UpdateTakeOverPrice = checkNulls(TB_TakeOverPrice.Text.ToString());
             double UpdateIncome;
             double UpdateYearPercent;
             double UpdateInterest;
-            double UpdateMaintenance;
+            double UpdateMaintenance = getSumofMaintain();
 
             if (UpdateSellPrice != -9999 && UpdateDeposit != -9999 && UpdateLoan != -9999) //인수금액 연산
             {
@@ -553,9 +563,10 @@ namespace RealEstate
                 //UpdateIncome = checkNulls(TB_Income.Text.ToString());
                 UpdateIncome = getSumofIncome();
                 TB_Income.Text = getSumofIncome().ToString();
-
+                TB_Maintenance.Text = getSumofMaintain().ToString();
+                TB_Deposit.Text = getSumofdeposit().ToString();
                 UpdateInterest = checkNulls(TB_Interest.Text.ToString());
-                UpdateMaintenance = checkNulls(TB_Maintenance.Text.ToString());
+
                 if (UpdateInterest != -9999 && UpdateIncome != -9999 && UpdateMaintenance != -9999)
                     TB_NetIncome.Text = (UpdateIncome - UpdateInterest - UpdateMaintenance).ToString();
                 else
@@ -563,6 +574,7 @@ namespace RealEstate
             }
             else
             {
+                TB_Maintenance2.Text = getSumofMaintain().ToString();
                 //UpdateIncome = checkNulls(TB_Income2.Text.ToString());
                 UpdateIncome = getSumofIncome();
                 TB_MonthlyPay.Text = getSumofIncome().ToString();
@@ -613,10 +625,9 @@ namespace RealEstate
             {
 
                 string query = "INSERT INTO comment VALUES(null, @content, @buildingID)";
-                MySqlConnection conn = new MySqlConnection(strConn2);
 
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd = new MySqlCommand(query, conn);
                 for (int i = 0; i < commentview.Rows.Count; ++i)
                 {
                     cmd.Parameters.AddWithValue("@content", commentview.Rows[i].Cells["Content"].Value);
@@ -639,10 +650,9 @@ namespace RealEstate
             {
 
                 string query = "INSERT INTO memo VALUES(null, @c_date, @memo, @buildingID)";
-                MySqlConnection conn = new MySqlConnection(strConn2);
 
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd = new MySqlCommand(query, conn);
                 for (int i = 0; i < memoview.Rows.Count; ++i)
                 {
                     cmd.Parameters.AddWithValue("@c_date", DateTime.Now);
