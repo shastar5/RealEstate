@@ -1,13 +1,6 @@
 ﻿using MetroFramework;
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RealEstate
@@ -192,17 +185,17 @@ namespace RealEstate
             else if (userType)
             {
                 id = dataGridView1.Rows[dataGridRowID].Cells[0].Value.ToString();
-                UserView userview = new UserView();
-                userview.setID(int.Parse(id));
-                userview.Show();
+                NewUserView newUserView = new NewUserView();
+                newUserView.setID(int.Parse(id));
+                newUserView.Show();
             }
             else
             {
                 id = dataGridView1.Rows[dataGridRowID].Cells[0].Value.ToString();
-                ManagerView mangerview = new ManagerView();
-                mangerview.setID(int.Parse(id));
-                mangerview.setValue(findvalue);
-                mangerview.Show();
+                NewManagerView newManagerView = new NewManagerView();
+                newManagerView.setID(int.Parse(id));
+                newManagerView.setValue(findvalue);
+                newManagerView.Show();
                 this.Close();
             }
 
@@ -214,8 +207,7 @@ namespace RealEstate
             strConn = MysqlIp.Logic.getStrConn(); //DLL에서 mysql server ip 불러오기
             conn = new MySqlConnection(strConn);
             dataGridView1.ColumnCount = 9;
-            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.Single;
-            dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.LightSkyBlue;
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.Single; 
             dataGridView1.Columns[0].Name = "번호";
             dataGridView1.Columns[0].Width = dataGridView1.Width / 15;
             dataGridView1.Columns[1].Name = "건물명";

@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserView));
             this.panel6 = new System.Windows.Forms.Panel();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.TB_NetIncome = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.TB_Maintenance = new System.Windows.Forms.TextBox();
@@ -65,7 +68,6 @@
             this.TB_RoadAddr = new System.Windows.Forms.TextBox();
             this.TB_Area = new System.Windows.Forms.TextBox();
             this.TB_Addr = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TB_RoadWidth = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.TB_Distance = new System.Windows.Forms.TextBox();
@@ -121,16 +123,14 @@
             this.order = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Content = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label11 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.TB_NetIncome = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Tab_control.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ContentOfRentals)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.commentGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel6
@@ -167,6 +167,38 @@
             this.panel6.Size = new System.Drawing.Size(256, 228);
             this.panel6.TabIndex = 124;
             // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label42.Location = new System.Drawing.Point(212, 129);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(42, 21);
+            this.label42.TabIndex = 18;
+            this.label42.Text = "만원";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label35.Location = new System.Drawing.Point(12, 129);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(68, 21);
+            this.label35.TabIndex = 19;
+            this.label35.Text = "순수익 :";
+            // 
+            // TB_NetIncome
+            // 
+            this.TB_NetIncome.Enabled = false;
+            this.TB_NetIncome.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TB_NetIncome.ImeMode = System.Windows.Forms.ImeMode.Hangul;
+            this.TB_NetIncome.Location = new System.Drawing.Point(110, 129);
+            this.TB_NetIncome.MaximumSize = new System.Drawing.Size(99, 23);
+            this.TB_NetIncome.MinimumSize = new System.Drawing.Size(99, 23);
+            this.TB_NetIncome.Name = "TB_NetIncome";
+            this.TB_NetIncome.Size = new System.Drawing.Size(99, 27);
+            this.TB_NetIncome.TabIndex = 20;
+            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -196,7 +228,7 @@
             this.TB_Maintenance.MaximumSize = new System.Drawing.Size(99, 23);
             this.TB_Maintenance.MinimumSize = new System.Drawing.Size(99, 23);
             this.TB_Maintenance.Name = "TB_Maintenance";
-            this.TB_Maintenance.Size = new System.Drawing.Size(99, 23);
+            this.TB_Maintenance.Size = new System.Drawing.Size(99, 27);
             this.TB_Maintenance.TabIndex = 17;
             // 
             // TB_YearPercent
@@ -207,7 +239,7 @@
             this.TB_YearPercent.MaximumSize = new System.Drawing.Size(99, 23);
             this.TB_YearPercent.MinimumSize = new System.Drawing.Size(99, 23);
             this.TB_YearPercent.Name = "TB_YearPercent";
-            this.TB_YearPercent.Size = new System.Drawing.Size(99, 23);
+            this.TB_YearPercent.Size = new System.Drawing.Size(99, 27);
             this.TB_YearPercent.TabIndex = 14;
             // 
             // label34
@@ -348,7 +380,7 @@
             this.TB_SellPrice.MaximumSize = new System.Drawing.Size(99, 23);
             this.TB_SellPrice.MinimumSize = new System.Drawing.Size(99, 23);
             this.TB_SellPrice.Name = "TB_SellPrice";
-            this.TB_SellPrice.Size = new System.Drawing.Size(99, 23);
+            this.TB_SellPrice.Size = new System.Drawing.Size(99, 27);
             this.TB_SellPrice.TabIndex = 11;
             // 
             // label23
@@ -369,7 +401,7 @@
             this.TB_TakeOverPrice.MaximumSize = new System.Drawing.Size(99, 23);
             this.TB_TakeOverPrice.MinimumSize = new System.Drawing.Size(99, 23);
             this.TB_TakeOverPrice.Name = "TB_TakeOverPrice";
-            this.TB_TakeOverPrice.Size = new System.Drawing.Size(99, 23);
+            this.TB_TakeOverPrice.Size = new System.Drawing.Size(99, 27);
             this.TB_TakeOverPrice.TabIndex = 10;
             // 
             // TB_Interest
@@ -380,7 +412,7 @@
             this.TB_Interest.MaximumSize = new System.Drawing.Size(99, 23);
             this.TB_Interest.MinimumSize = new System.Drawing.Size(99, 23);
             this.TB_Interest.Name = "TB_Interest";
-            this.TB_Interest.Size = new System.Drawing.Size(99, 23);
+            this.TB_Interest.Size = new System.Drawing.Size(99, 27);
             this.TB_Interest.TabIndex = 9;
             // 
             // TB_Deposit
@@ -391,7 +423,7 @@
             this.TB_Deposit.MaximumSize = new System.Drawing.Size(99, 23);
             this.TB_Deposit.MinimumSize = new System.Drawing.Size(99, 23);
             this.TB_Deposit.Name = "TB_Deposit";
-            this.TB_Deposit.Size = new System.Drawing.Size(99, 23);
+            this.TB_Deposit.Size = new System.Drawing.Size(99, 27);
             this.TB_Deposit.TabIndex = 7;
             // 
             // TB_Income
@@ -402,7 +434,7 @@
             this.TB_Income.MaximumSize = new System.Drawing.Size(99, 23);
             this.TB_Income.MinimumSize = new System.Drawing.Size(99, 23);
             this.TB_Income.Name = "TB_Income";
-            this.TB_Income.Size = new System.Drawing.Size(99, 23);
+            this.TB_Income.Size = new System.Drawing.Size(99, 27);
             this.TB_Income.TabIndex = 8;
             // 
             // TB_Loan
@@ -413,7 +445,7 @@
             this.TB_Loan.MaximumSize = new System.Drawing.Size(99, 23);
             this.TB_Loan.MinimumSize = new System.Drawing.Size(99, 23);
             this.TB_Loan.Name = "TB_Loan";
-            this.TB_Loan.Size = new System.Drawing.Size(99, 23);
+            this.TB_Loan.Size = new System.Drawing.Size(99, 27);
             this.TB_Loan.TabIndex = 8;
             // 
             // label41
@@ -518,16 +550,6 @@
             this.TB_Addr.Name = "TB_Addr";
             this.TB_Addr.Size = new System.Drawing.Size(274, 27);
             this.TB_Addr.TabIndex = 129;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pictureBox1.Location = new System.Drawing.Point(669, 35);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(156, 179);
-            this.pictureBox1.TabIndex = 159;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // TB_RoadWidth
             // 
@@ -861,7 +883,7 @@
             this.TB_Interest2.MaximumSize = new System.Drawing.Size(99, 23);
             this.TB_Interest2.MinimumSize = new System.Drawing.Size(99, 23);
             this.TB_Interest2.Name = "TB_Interest2";
-            this.TB_Interest2.Size = new System.Drawing.Size(99, 23);
+            this.TB_Interest2.Size = new System.Drawing.Size(99, 27);
             this.TB_Interest2.TabIndex = 31;
             // 
             // label7
@@ -893,7 +915,7 @@
             this.TB_NetIncome2.MaximumSize = new System.Drawing.Size(99, 23);
             this.TB_NetIncome2.MinimumSize = new System.Drawing.Size(99, 23);
             this.TB_NetIncome2.Name = "TB_NetIncome2";
-            this.TB_NetIncome2.Size = new System.Drawing.Size(99, 23);
+            this.TB_NetIncome2.Size = new System.Drawing.Size(99, 27);
             this.TB_NetIncome2.TabIndex = 28;
             // 
             // label45
@@ -965,7 +987,7 @@
             this.TB_Maintenance2.MaximumSize = new System.Drawing.Size(99, 23);
             this.TB_Maintenance2.MinimumSize = new System.Drawing.Size(99, 23);
             this.TB_Maintenance2.Name = "TB_Maintenance2";
-            this.TB_Maintenance2.Size = new System.Drawing.Size(99, 23);
+            this.TB_Maintenance2.Size = new System.Drawing.Size(99, 27);
             this.TB_Maintenance2.TabIndex = 19;
             // 
             // TB_Premium
@@ -977,7 +999,7 @@
             this.TB_Premium.MaximumSize = new System.Drawing.Size(99, 23);
             this.TB_Premium.MinimumSize = new System.Drawing.Size(99, 23);
             this.TB_Premium.Name = "TB_Premium";
-            this.TB_Premium.Size = new System.Drawing.Size(99, 23);
+            this.TB_Premium.Size = new System.Drawing.Size(99, 27);
             this.TB_Premium.TabIndex = 0;
             // 
             // TB_MonthlyPay
@@ -989,7 +1011,7 @@
             this.TB_MonthlyPay.MaximumSize = new System.Drawing.Size(99, 23);
             this.TB_MonthlyPay.MinimumSize = new System.Drawing.Size(99, 23);
             this.TB_MonthlyPay.Name = "TB_MonthlyPay";
-            this.TB_MonthlyPay.Size = new System.Drawing.Size(99, 23);
+            this.TB_MonthlyPay.Size = new System.Drawing.Size(99, 27);
             this.TB_MonthlyPay.TabIndex = 18;
             // 
             // ContentOfRentals
@@ -1107,37 +1129,15 @@
             this.label11.TabIndex = 0;
             this.label11.Text = "코멘트";
             // 
-            // label42
+            // pictureBox1
             // 
-            this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label42.Location = new System.Drawing.Point(212, 129);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(42, 21);
-            this.label42.TabIndex = 18;
-            this.label42.Text = "만원";
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label35.Location = new System.Drawing.Point(12, 129);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(68, 21);
-            this.label35.TabIndex = 19;
-            this.label35.Text = "순수익 :";
-            // 
-            // TB_NetIncome
-            // 
-            this.TB_NetIncome.Enabled = false;
-            this.TB_NetIncome.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.TB_NetIncome.ImeMode = System.Windows.Forms.ImeMode.Hangul;
-            this.TB_NetIncome.Location = new System.Drawing.Point(110, 129);
-            this.TB_NetIncome.MaximumSize = new System.Drawing.Size(99, 23);
-            this.TB_NetIncome.MinimumSize = new System.Drawing.Size(99, 23);
-            this.TB_NetIncome.Name = "TB_NetIncome";
-            this.TB_NetIncome.Size = new System.Drawing.Size(99, 23);
-            this.TB_NetIncome.TabIndex = 20;
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pictureBox1.Location = new System.Drawing.Point(669, 35);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(156, 179);
+            this.pictureBox1.TabIndex = 159;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // UserView
             // 
@@ -1190,7 +1190,6 @@
             this.Load += new System.EventHandler(this.UserView_Load);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Tab_control.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -1198,6 +1197,7 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.commentGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

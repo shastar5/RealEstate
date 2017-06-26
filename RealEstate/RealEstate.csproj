@@ -184,6 +184,18 @@
     <Compile Include="FindView.Designer.cs">
       <DependentUpon>FindView.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewAddMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewAddMenu.Designer.cs">
+      <DependentUpon>NewAddMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewBigPicture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewBigPicture.Designer.cs">
+      <DependentUpon>NewBigPicture.cs</DependentUpon>
+    </Compile>
     <Compile Include="NewFindView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,6 +238,24 @@
     <Compile Include="ManagerView.Designer.cs">
       <DependentUpon>ManagerView.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewManagerView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewManagerView.Designer.cs">
+      <DependentUpon>NewManagerView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewShowPicture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewShowPicture.Designer.cs">
+      <DependentUpon>NewShowPicture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewUserView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewUserView.Designer.cs">
+      <DependentUpon>NewUserView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="realestateDataSet.cs">
@@ -260,6 +290,12 @@
     <EmbeddedResource Include="FindView.resx">
       <DependentUpon>FindView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NewAddMenu.resx">
+      <DependentUpon>NewAddMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewBigPicture.resx">
+      <DependentUpon>NewBigPicture.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NewFindView.resx">
       <DependentUpon>NewFindView.cs</DependentUpon>
     </EmbeddedResource>
@@ -277,6 +313,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ManagerView.resx">
       <DependentUpon>ManagerView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewManagerView.resx">
+      <DependentUpon>NewManagerView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="newShowPicture.resx">
+      <DependentUpon>NewShowPicture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewUserView.resx">
+      <DependentUpon>NewUserView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

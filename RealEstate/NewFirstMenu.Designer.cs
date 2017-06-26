@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewFirstMenu));
             this.Tab_control = new MetroFramework.Controls.MetroTabControl();
             this.Page_prepare = new MetroFramework.Controls.MetroTabPage();
             this.Page_complete = new MetroFramework.Controls.MetroTabPage();
@@ -715,6 +716,7 @@
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.Tab_control);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "NewFirstMenu";
             this.Resizable = false;

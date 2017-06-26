@@ -155,6 +155,7 @@ namespace RealEstate
                 if (form.Name.Equals("NewFindView"))
                 {
                     isOpen = 1;
+                    break;
                 }
             }
 
@@ -257,16 +258,17 @@ namespace RealEstate
             int isOpen = 0;
             foreach (Form form in Application.OpenForms)
             {
-                if (form.Name.Equals("AddMenu")) //추가 창 열려 있는지 확인
+                if (form.Name.Equals("NewAddMenu")) //추가 창 열려 있는지 확인
                 {
                     isOpen = 1;
-                    MessageBox.Show("추가 창이 이미 열려 있습니다.");
+                    MetroMessageBox.Show(Owner, "추가 창이 이미 열려 있습니다.", "창 중복 방지", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    break;
                 }
             }
             if (isOpen == 0)
             {
-                AddMenu addMenu = new AddMenu();
-                addMenu.Show();
+                NewAddMenu newAddMenu = new NewAddMenu();
+                newAddMenu.Show();
             }
 
         }
