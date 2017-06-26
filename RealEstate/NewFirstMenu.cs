@@ -173,6 +173,7 @@ namespace RealEstate
                 {
                     NewFindView newfindview = new NewFindView();
                     //user타입, 검색값 넘겨주기
+                    newfindview.Owner = this;
                     newfindview.setUserType(user);
                     newfindview.setValue(findvalues);
                     newfindview.Show();

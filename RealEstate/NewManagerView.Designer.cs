@@ -138,9 +138,9 @@
             this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
             this.TB_RoadWidth = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel15 = new MetroFramework.Controls.MetroLabel();
-            this.TB_Station = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
             this.TB_Distance = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
+            this.TB_Station = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.TB_UseDistrict = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
@@ -202,7 +202,7 @@
             this.TB_NetIncome2.SelectionStart = 0;
             this.TB_NetIncome2.ShortcutsEnabled = true;
             this.TB_NetIncome2.Size = new System.Drawing.Size(222, 27);
-            this.TB_NetIncome2.TabIndex = 22;
+            this.TB_NetIncome2.TabIndex = 4;
             this.TB_NetIncome2.UseSelectable = true;
             this.TB_NetIncome2.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_NetIncome2.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -235,7 +235,7 @@
             this.TB_Maintenance2.SelectionStart = 0;
             this.TB_Maintenance2.ShortcutsEnabled = true;
             this.TB_Maintenance2.Size = new System.Drawing.Size(222, 27);
-            this.TB_Maintenance2.TabIndex = 22;
+            this.TB_Maintenance2.TabIndex = 2;
             this.TB_Maintenance2.UseSelectable = true;
             this.TB_Maintenance2.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_Maintenance2.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -248,7 +248,7 @@
             this.metroLabel49.Location = new System.Drawing.Point(327, 71);
             this.metroLabel49.Name = "metroLabel49";
             this.metroLabel49.Size = new System.Drawing.Size(37, 19);
-            this.metroLabel49.TabIndex = 21;
+            this.metroLabel49.TabIndex = 99;
             this.metroLabel49.Text = "만원";
             // 
             // metroLabel50
@@ -257,7 +257,7 @@
             this.metroLabel50.Location = new System.Drawing.Point(0, 137);
             this.metroLabel50.Name = "metroLabel50";
             this.metroLabel50.Size = new System.Drawing.Size(62, 19);
-            this.metroLabel50.TabIndex = 21;
+            this.metroLabel50.TabIndex = 99;
             this.metroLabel50.Text = "순수익 : ";
             // 
             // TB_MonthlyPay
@@ -286,7 +286,7 @@
             this.TB_MonthlyPay.SelectionStart = 0;
             this.TB_MonthlyPay.ShortcutsEnabled = true;
             this.TB_MonthlyPay.Size = new System.Drawing.Size(222, 27);
-            this.TB_MonthlyPay.TabIndex = 22;
+            this.TB_MonthlyPay.TabIndex = 1;
             this.TB_MonthlyPay.UseSelectable = true;
             this.TB_MonthlyPay.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_MonthlyPay.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -299,7 +299,7 @@
             this.metroLabel51.Location = new System.Drawing.Point(0, 104);
             this.metroLabel51.Name = "metroLabel51";
             this.metroLabel51.Size = new System.Drawing.Size(48, 19);
-            this.metroLabel51.TabIndex = 21;
+            this.metroLabel51.TabIndex = 99;
             this.metroLabel51.Text = "이자 : ";
             // 
             // metroLabel52
@@ -346,7 +346,7 @@
             this.TB_Premium.SelectionStart = 0;
             this.TB_Premium.ShortcutsEnabled = true;
             this.TB_Premium.Size = new System.Drawing.Size(222, 27);
-            this.TB_Premium.TabIndex = 22;
+            this.TB_Premium.TabIndex = 0;
             this.TB_Premium.UseSelectable = true;
             this.TB_Premium.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_Premium.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -388,7 +388,7 @@
             this.TB_YearPercent.SelectionStart = 0;
             this.TB_YearPercent.ShortcutsEnabled = true;
             this.TB_YearPercent.Size = new System.Drawing.Size(222, 27);
-            this.TB_YearPercent.TabIndex = 22;
+            this.TB_YearPercent.TabIndex = 9;
             this.TB_YearPercent.UseSelectable = true;
             this.TB_YearPercent.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_YearPercent.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -430,7 +430,7 @@
             this.TB_TakeOverPrice.SelectionStart = 0;
             this.TB_TakeOverPrice.ShortcutsEnabled = true;
             this.TB_TakeOverPrice.Size = new System.Drawing.Size(222, 27);
-            this.TB_TakeOverPrice.TabIndex = 22;
+            this.TB_TakeOverPrice.TabIndex = 8;
             this.TB_TakeOverPrice.UseSelectable = true;
             this.TB_TakeOverPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_TakeOverPrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -472,7 +472,7 @@
             this.TB_SellPrice.SelectionStart = 0;
             this.TB_SellPrice.ShortcutsEnabled = true;
             this.TB_SellPrice.Size = new System.Drawing.Size(222, 27);
-            this.TB_SellPrice.TabIndex = 22;
+            this.TB_SellPrice.TabIndex = 7;
             this.TB_SellPrice.UseSelectable = true;
             this.TB_SellPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_SellPrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -514,7 +514,7 @@
             this.TB_PayedPrice.SelectionStart = 0;
             this.TB_PayedPrice.ShortcutsEnabled = true;
             this.TB_PayedPrice.Size = new System.Drawing.Size(222, 27);
-            this.TB_PayedPrice.TabIndex = 22;
+            this.TB_PayedPrice.TabIndex = 6;
             this.TB_PayedPrice.UseSelectable = true;
             this.TB_PayedPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_PayedPrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -556,7 +556,7 @@
             this.TB_NetIncome.SelectionStart = 0;
             this.TB_NetIncome.ShortcutsEnabled = true;
             this.TB_NetIncome.Size = new System.Drawing.Size(222, 27);
-            this.TB_NetIncome.TabIndex = 22;
+            this.TB_NetIncome.TabIndex = 5;
             this.TB_NetIncome.UseSelectable = true;
             this.TB_NetIncome.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_NetIncome.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -598,7 +598,7 @@
             this.TB_Interest.SelectionStart = 0;
             this.TB_Interest.ShortcutsEnabled = true;
             this.TB_Interest.Size = new System.Drawing.Size(222, 27);
-            this.TB_Interest.TabIndex = 22;
+            this.TB_Interest.TabIndex = 4;
             this.TB_Interest.UseSelectable = true;
             this.TB_Interest.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_Interest.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -658,7 +658,7 @@
             this.TB_Loan.SelectionStart = 0;
             this.TB_Loan.ShortcutsEnabled = true;
             this.TB_Loan.Size = new System.Drawing.Size(222, 27);
-            this.TB_Loan.TabIndex = 22;
+            this.TB_Loan.TabIndex = 3;
             this.TB_Loan.UseSelectable = true;
             this.TB_Loan.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_Loan.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -718,7 +718,7 @@
             this.TB_Interest2.SelectionStart = 0;
             this.TB_Interest2.ShortcutsEnabled = true;
             this.TB_Interest2.Size = new System.Drawing.Size(222, 27);
-            this.TB_Interest2.TabIndex = 22;
+            this.TB_Interest2.TabIndex = 3;
             this.TB_Interest2.UseSelectable = true;
             this.TB_Interest2.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_Interest2.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -766,7 +766,7 @@
             this.panel2.Location = new System.Drawing.Point(21, 346);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(373, 172);
-            this.panel2.TabIndex = 73;
+            this.panel2.TabIndex = 17;
             this.panel2.VerticalScrollbarBarColor = true;
             this.panel2.VerticalScrollbarHighlightOnWheel = false;
             this.panel2.VerticalScrollbarSize = 10;
@@ -794,6 +794,7 @@
             this.Tab_control.SelectedIndex = 0;
             this.Tab_control.Size = new System.Drawing.Size(849, 54);
             this.Tab_control.TabIndex = 27;
+            this.Tab_control.TabStop = false;
             this.Tab_control.UseSelectable = true;
             // 
             // Page_prepare
@@ -862,6 +863,7 @@
             this.addRow.Name = "addRow";
             this.addRow.Size = new System.Drawing.Size(90, 29);
             this.addRow.TabIndex = 29;
+            this.addRow.TabStop = false;
             this.addRow.Text = "추가";
             this.addRow.UseSelectable = true;
             this.addRow.Click += new System.EventHandler(this.add_row_Click);
@@ -877,6 +879,8 @@
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.DimGray;
             this.memoGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.memoGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.memoGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.memoGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.memoGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
@@ -919,6 +923,7 @@
             this.memoGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.memoGridView.Size = new System.Drawing.Size(458, 145);
             this.memoGridView.TabIndex = 26;
+            this.memoGridView.TabStop = false;
             // 
             // memoid
             // 
@@ -954,6 +959,7 @@
             this.addMemo.Name = "addMemo";
             this.addMemo.Size = new System.Drawing.Size(90, 29);
             this.addMemo.TabIndex = 2;
+            this.addMemo.TabStop = false;
             this.addMemo.Text = "추가";
             this.addMemo.UseSelectable = true;
             this.addMemo.Click += new System.EventHandler(this.addMemo_Click);
@@ -964,6 +970,7 @@
             this.deleteMemo.Name = "deleteMemo";
             this.deleteMemo.Size = new System.Drawing.Size(90, 29);
             this.deleteMemo.TabIndex = 3;
+            this.deleteMemo.TabStop = false;
             this.deleteMemo.Text = "삭제";
             this.deleteMemo.UseSelectable = true;
             this.deleteMemo.Click += new System.EventHandler(this.deleteMemo_Click);
@@ -1006,6 +1013,8 @@
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.DimGray;
             this.commentGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.commentGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.commentGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.commentGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.commentGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
@@ -1047,6 +1056,7 @@
             this.commentGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.commentGridView.Size = new System.Drawing.Size(377, 145);
             this.commentGridView.TabIndex = 26;
+            this.commentGridView.TabStop = false;
             // 
             // order
             // 
@@ -1077,6 +1087,7 @@
             this.addcoment.Name = "addcoment";
             this.addcoment.Size = new System.Drawing.Size(90, 29);
             this.addcoment.TabIndex = 2;
+            this.addcoment.TabStop = false;
             this.addcoment.Text = "추가";
             this.addcoment.UseSelectable = true;
             this.addcoment.Click += new System.EventHandler(this.addcomment_Click);
@@ -1087,6 +1098,7 @@
             this.deletecomment.Name = "deletecomment";
             this.deletecomment.Size = new System.Drawing.Size(90, 29);
             this.deletecomment.TabIndex = 3;
+            this.deletecomment.TabStop = false;
             this.deletecomment.Text = "삭제";
             this.deletecomment.UseSelectable = true;
             this.deletecomment.Click += new System.EventHandler(this.deletecomment_Click);
@@ -1111,6 +1123,8 @@
             dataGridViewCellStyle9.ForeColor = System.Drawing.Color.DimGray;
             this.ContentOfRentals.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.ContentOfRentals.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ContentOfRentals.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ContentOfRentals.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.ContentOfRentals.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
@@ -1160,6 +1174,7 @@
             this.ContentOfRentals.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ContentOfRentals.Size = new System.Drawing.Size(461, 399);
             this.ContentOfRentals.TabIndex = 76;
+            this.ContentOfRentals.TabStop = false;
             this.ContentOfRentals.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ContentOfRentals_CellEndEdit);
             this.ContentOfRentals.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.ContentOfRentals_CellEndEdit);
             // 
@@ -1236,6 +1251,7 @@
             this.deleteRow.Name = "deleteRow";
             this.deleteRow.Size = new System.Drawing.Size(90, 29);
             this.deleteRow.TabIndex = 30;
+            this.deleteRow.TabStop = false;
             this.deleteRow.Text = "삭제";
             this.deleteRow.UseSelectable = true;
             this.deleteRow.Click += new System.EventHandler(this.delete_row_Click);
@@ -1287,7 +1303,7 @@
             this.panel6.Location = new System.Drawing.Point(21, 346);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(373, 328);
-            this.panel6.TabIndex = 72;
+            this.panel6.TabIndex = 16;
             this.panel6.VerticalScrollbarBarColor = true;
             this.panel6.VerticalScrollbarHighlightOnWheel = false;
             this.panel6.VerticalScrollbarSize = 10;
@@ -1318,7 +1334,7 @@
             this.TB_Maintenance.SelectionStart = 0;
             this.TB_Maintenance.ShortcutsEnabled = true;
             this.TB_Maintenance.Size = new System.Drawing.Size(222, 27);
-            this.TB_Maintenance.TabIndex = 22;
+            this.TB_Maintenance.TabIndex = 2;
             this.TB_Maintenance.UseSelectable = true;
             this.TB_Maintenance.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_Maintenance.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -1378,7 +1394,7 @@
             this.TB_Income.SelectionStart = 0;
             this.TB_Income.ShortcutsEnabled = true;
             this.TB_Income.Size = new System.Drawing.Size(222, 27);
-            this.TB_Income.TabIndex = 22;
+            this.TB_Income.TabIndex = 1;
             this.TB_Income.UseSelectable = true;
             this.TB_Income.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_Income.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -1437,7 +1453,7 @@
             this.TB_Deposit.SelectionStart = 0;
             this.TB_Deposit.ShortcutsEnabled = true;
             this.TB_Deposit.Size = new System.Drawing.Size(222, 27);
-            this.TB_Deposit.TabIndex = 22;
+            this.TB_Deposit.TabIndex = 0;
             this.TB_Deposit.UseSelectable = true;
             this.TB_Deposit.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_Deposit.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -1496,7 +1512,7 @@
             this.TB_Memo.SelectionStart = 0;
             this.TB_Memo.ShortcutsEnabled = true;
             this.TB_Memo.Size = new System.Drawing.Size(202, 27);
-            this.TB_Memo.TabIndex = 57;
+            this.TB_Memo.TabIndex = 15;
             this.TB_Memo.UseSelectable = true;
             this.TB_Memo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_Memo.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -1527,7 +1543,7 @@
             this.TB_Tel.SelectionStart = 0;
             this.TB_Tel.ShortcutsEnabled = true;
             this.TB_Tel.Size = new System.Drawing.Size(202, 27);
-            this.TB_Tel.TabIndex = 58;
+            this.TB_Tel.TabIndex = 14;
             this.TB_Tel.UseSelectable = true;
             this.TB_Tel.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_Tel.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -1558,7 +1574,7 @@
             this.TB_Owner.SelectionStart = 0;
             this.TB_Owner.ShortcutsEnabled = true;
             this.TB_Owner.Size = new System.Drawing.Size(202, 27);
-            this.TB_Owner.TabIndex = 59;
+            this.TB_Owner.TabIndex = 13;
             this.TB_Owner.UseSelectable = true;
             this.TB_Owner.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_Owner.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -1589,7 +1605,7 @@
             this.TB_BuildName.SelectionStart = 0;
             this.TB_BuildName.ShortcutsEnabled = true;
             this.TB_BuildName.Size = new System.Drawing.Size(202, 27);
-            this.TB_BuildName.TabIndex = 60;
+            this.TB_BuildName.TabIndex = 12;
             this.TB_BuildName.UseSelectable = true;
             this.TB_BuildName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_BuildName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -1620,7 +1636,7 @@
             this.TB_EV.SelectionStart = 0;
             this.TB_EV.ShortcutsEnabled = true;
             this.TB_EV.Size = new System.Drawing.Size(80, 27);
-            this.TB_EV.TabIndex = 61;
+            this.TB_EV.TabIndex = 11;
             this.TB_EV.UseSelectable = true;
             this.TB_EV.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_EV.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -1651,7 +1667,7 @@
             this.TB_AC_Heating.SelectionStart = 0;
             this.TB_AC_Heating.ShortcutsEnabled = true;
             this.TB_AC_Heating.Size = new System.Drawing.Size(80, 27);
-            this.TB_AC_Heating.TabIndex = 63;
+            this.TB_AC_Heating.TabIndex = 9;
             this.TB_AC_Heating.UseSelectable = true;
             this.TB_AC_Heating.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_AC_Heating.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -1682,7 +1698,7 @@
             this.TB_Parking.SelectionStart = 0;
             this.TB_Parking.ShortcutsEnabled = true;
             this.TB_Parking.Size = new System.Drawing.Size(80, 27);
-            this.TB_Parking.TabIndex = 71;
+            this.TB_Parking.TabIndex = 7;
             this.TB_Parking.UseSelectable = true;
             this.TB_Parking.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_Parking.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -1713,7 +1729,7 @@
             this.TB_CompleteYear.SelectionStart = 0;
             this.TB_CompleteYear.ShortcutsEnabled = true;
             this.TB_CompleteYear.Size = new System.Drawing.Size(80, 27);
-            this.TB_CompleteYear.TabIndex = 64;
+            this.TB_CompleteYear.TabIndex = 5;
             this.TB_CompleteYear.UseSelectable = true;
             this.TB_CompleteYear.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_CompleteYear.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -1744,7 +1760,7 @@
             this.TB_TotalArea.SelectionStart = 0;
             this.TB_TotalArea.ShortcutsEnabled = true;
             this.TB_TotalArea.Size = new System.Drawing.Size(80, 27);
-            this.TB_TotalArea.TabIndex = 66;
+            this.TB_TotalArea.TabIndex = 3;
             this.TB_TotalArea.UseSelectable = true;
             this.TB_TotalArea.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_TotalArea.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -1820,7 +1836,7 @@
             this.TB_RoadWidth.SelectionStart = 0;
             this.TB_RoadWidth.ShortcutsEnabled = true;
             this.TB_RoadWidth.Size = new System.Drawing.Size(80, 27);
-            this.TB_RoadWidth.TabIndex = 56;
+            this.TB_RoadWidth.TabIndex = 10;
             this.TB_RoadWidth.UseSelectable = true;
             this.TB_RoadWidth.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_RoadWidth.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -1834,46 +1850,6 @@
             this.metroLabel15.Size = new System.Drawing.Size(80, 19);
             this.metroLabel15.TabIndex = 49;
             this.metroLabel15.Text = "도로 너비 : ";
-            // 
-            // TB_Station
-            // 
-            // 
-            // 
-            // 
-            this.TB_Station.CustomButton.Image = null;
-            this.TB_Station.CustomButton.Location = new System.Drawing.Point(54, 1);
-            this.TB_Station.CustomButton.Name = "";
-            this.TB_Station.CustomButton.Size = new System.Drawing.Size(25, 25);
-            this.TB_Station.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.TB_Station.CustomButton.TabIndex = 1;
-            this.TB_Station.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.TB_Station.CustomButton.UseSelectable = true;
-            this.TB_Station.CustomButton.Visible = false;
-            this.TB_Station.FontSize = MetroFramework.MetroTextBoxSize.Medium;
-            this.TB_Station.Lines = new string[0];
-            this.TB_Station.Location = new System.Drawing.Point(120, 275);
-            this.TB_Station.MaxLength = 32767;
-            this.TB_Station.Name = "TB_Station";
-            this.TB_Station.PasswordChar = '\0';
-            this.TB_Station.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.TB_Station.SelectedText = "";
-            this.TB_Station.SelectionLength = 0;
-            this.TB_Station.SelectionStart = 0;
-            this.TB_Station.ShortcutsEnabled = true;
-            this.TB_Station.Size = new System.Drawing.Size(80, 27);
-            this.TB_Station.TabIndex = 70;
-            this.TB_Station.UseSelectable = true;
-            this.TB_Station.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.TB_Station.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // metroLabel13
-            // 
-            this.metroLabel13.AutoSize = true;
-            this.metroLabel13.Location = new System.Drawing.Point(21, 280);
-            this.metroLabel13.Name = "metroLabel13";
-            this.metroLabel13.Size = new System.Drawing.Size(80, 19);
-            this.metroLabel13.TabIndex = 40;
-            this.metroLabel13.Text = "역과 거리 : ";
             // 
             // TB_Distance
             // 
@@ -1891,7 +1867,7 @@
             this.TB_Distance.CustomButton.Visible = false;
             this.TB_Distance.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.TB_Distance.Lines = new string[0];
-            this.TB_Distance.Location = new System.Drawing.Point(120, 242);
+            this.TB_Distance.Location = new System.Drawing.Point(120, 275);
             this.TB_Distance.MaxLength = 32767;
             this.TB_Distance.Name = "TB_Distance";
             this.TB_Distance.PasswordChar = '\0';
@@ -1901,11 +1877,51 @@
             this.TB_Distance.SelectionStart = 0;
             this.TB_Distance.ShortcutsEnabled = true;
             this.TB_Distance.Size = new System.Drawing.Size(80, 27);
-            this.TB_Distance.TabIndex = 69;
+            this.TB_Distance.TabIndex = 8;
             this.TB_Distance.UseSelectable = true;
             this.TB_Distance.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_Distance.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.TB_Distance.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.typeOnlyNum);
+            // 
+            // metroLabel13
+            // 
+            this.metroLabel13.AutoSize = true;
+            this.metroLabel13.Location = new System.Drawing.Point(21, 280);
+            this.metroLabel13.Name = "metroLabel13";
+            this.metroLabel13.Size = new System.Drawing.Size(80, 19);
+            this.metroLabel13.TabIndex = 40;
+            this.metroLabel13.Text = "역과 거리 : ";
+            // 
+            // TB_Station
+            // 
+            // 
+            // 
+            // 
+            this.TB_Station.CustomButton.Image = null;
+            this.TB_Station.CustomButton.Location = new System.Drawing.Point(54, 1);
+            this.TB_Station.CustomButton.Name = "";
+            this.TB_Station.CustomButton.Size = new System.Drawing.Size(25, 25);
+            this.TB_Station.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.TB_Station.CustomButton.TabIndex = 1;
+            this.TB_Station.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.TB_Station.CustomButton.UseSelectable = true;
+            this.TB_Station.CustomButton.Visible = false;
+            this.TB_Station.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.TB_Station.Lines = new string[0];
+            this.TB_Station.Location = new System.Drawing.Point(120, 242);
+            this.TB_Station.MaxLength = 32767;
+            this.TB_Station.Name = "TB_Station";
+            this.TB_Station.PasswordChar = '\0';
+            this.TB_Station.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.TB_Station.SelectedText = "";
+            this.TB_Station.SelectionLength = 0;
+            this.TB_Station.SelectionStart = 0;
+            this.TB_Station.ShortcutsEnabled = true;
+            this.TB_Station.Size = new System.Drawing.Size(80, 27);
+            this.TB_Station.TabIndex = 6;
+            this.TB_Station.UseSelectable = true;
+            this.TB_Station.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.TB_Station.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // metroLabel7
             // 
@@ -1942,7 +1958,7 @@
             this.TB_UseDistrict.SelectionStart = 0;
             this.TB_UseDistrict.ShortcutsEnabled = true;
             this.TB_UseDistrict.Size = new System.Drawing.Size(80, 27);
-            this.TB_UseDistrict.TabIndex = 68;
+            this.TB_UseDistrict.TabIndex = 4;
             this.TB_UseDistrict.UseSelectable = true;
             this.TB_UseDistrict.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_UseDistrict.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -1982,7 +1998,7 @@
             this.TB_Area.SelectionStart = 0;
             this.TB_Area.ShortcutsEnabled = true;
             this.TB_Area.Size = new System.Drawing.Size(80, 27);
-            this.TB_Area.TabIndex = 67;
+            this.TB_Area.TabIndex = 2;
             this.TB_Area.UseSelectable = true;
             this.TB_Area.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_Area.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -1993,7 +2009,7 @@
             this.metroLabel4.Location = new System.Drawing.Point(21, 181);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(48, 19);
-            this.metroLabel4.TabIndex = 44;
+            this.metroLabel4.TabIndex = 10;
             this.metroLabel4.Text = "면적 : ";
             // 
             // TB_RoadAddr
@@ -2022,7 +2038,7 @@
             this.TB_RoadAddr.SelectionStart = 0;
             this.TB_RoadAddr.ShortcutsEnabled = true;
             this.TB_RoadAddr.Size = new System.Drawing.Size(274, 27);
-            this.TB_RoadAddr.TabIndex = 65;
+            this.TB_RoadAddr.TabIndex = 1;
             this.TB_RoadAddr.UseSelectable = true;
             this.TB_RoadAddr.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_RoadAddr.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -2042,7 +2058,7 @@
             this.metroLabel3.Location = new System.Drawing.Point(21, 148);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(94, 19);
-            this.metroLabel3.TabIndex = 42;
+            this.metroLabel3.TabIndex = 15;
             this.metroLabel3.Text = "도로명 주소 : ";
             // 
             // metroLabel9
@@ -2080,7 +2096,7 @@
             this.TB_Addr.SelectionStart = 0;
             this.TB_Addr.ShortcutsEnabled = true;
             this.TB_Addr.Size = new System.Drawing.Size(274, 27);
-            this.TB_Addr.TabIndex = 62;
+            this.TB_Addr.TabIndex = 0;
             this.TB_Addr.UseSelectable = true;
             this.TB_Addr.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_Addr.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -2100,7 +2116,7 @@
             this.metroLabel2.Location = new System.Drawing.Point(21, 115);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(48, 19);
-            this.metroLabel2.TabIndex = 39;
+            this.metroLabel2.TabIndex = 17;
             this.metroLabel2.Text = "주소 : ";
             // 
             // metroLabel1
@@ -2131,6 +2147,7 @@
             this.CB_corner.Name = "CB_corner";
             this.CB_corner.Size = new System.Drawing.Size(85, 19);
             this.CB_corner.TabIndex = 37;
+            this.CB_corner.TabStop = false;
             this.CB_corner.Text = "코너 존재";
             this.CB_corner.UseSelectable = true;
             // 
@@ -2141,7 +2158,7 @@
             this.Sangga.Location = new System.Drawing.Point(546, 75);
             this.Sangga.Name = "Sangga";
             this.Sangga.Size = new System.Drawing.Size(53, 19);
-            this.Sangga.TabIndex = 35;
+            this.Sangga.TabIndex = 77;
             this.Sangga.Text = "상가";
             this.Sangga.UseSelectable = true;
             this.Sangga.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
@@ -2153,7 +2170,7 @@
             this.NewConstruction.Location = new System.Drawing.Point(459, 75);
             this.NewConstruction.Name = "NewConstruction";
             this.NewConstruction.Size = new System.Drawing.Size(81, 19);
-            this.NewConstruction.TabIndex = 33;
+            this.NewConstruction.TabIndex = 78;
             this.NewConstruction.Text = "신축부지";
             this.NewConstruction.UseSelectable = true;
             this.NewConstruction.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
@@ -2165,7 +2182,7 @@
             this.SanggaHome.Location = new System.Drawing.Point(372, 75);
             this.SanggaHome.Name = "SanggaHome";
             this.SanggaHome.Size = new System.Drawing.Size(81, 19);
-            this.SanggaHome.TabIndex = 32;
+            this.SanggaHome.TabIndex = 79;
             this.SanggaHome.Text = "상가주택";
             this.SanggaHome.UseSelectable = true;
             this.SanggaHome.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
@@ -2177,7 +2194,7 @@
             this.Building.Location = new System.Drawing.Point(313, 75);
             this.Building.Name = "Building";
             this.Building.Size = new System.Drawing.Size(53, 19);
-            this.Building.TabIndex = 36;
+            this.Building.TabIndex = 80;
             this.Building.Text = "빌딩";
             this.Building.UseSelectable = true;
             this.Building.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
@@ -2189,7 +2206,7 @@
             this.Dagagu.Location = new System.Drawing.Point(240, 75);
             this.Dagagu.Name = "Dagagu";
             this.Dagagu.Size = new System.Drawing.Size(67, 19);
-            this.Dagagu.TabIndex = 34;
+            this.Dagagu.TabIndex = 81;
             this.Dagagu.Text = "다가구";
             this.Dagagu.UseSelectable = true;
             this.Dagagu.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
@@ -2200,6 +2217,7 @@
             this.SaveData.Name = "SaveData";
             this.SaveData.Size = new System.Drawing.Size(47, 29);
             this.SaveData.TabIndex = 28;
+            this.SaveData.TabStop = false;
             this.SaveData.Text = "저장";
             this.SaveData.UseSelectable = true;
             this.SaveData.Click += new System.EventHandler(this.SaveData_Click);
@@ -2209,7 +2227,8 @@
             this.button1.Location = new System.Drawing.Point(129, 69);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(47, 29);
-            this.button1.TabIndex = 28;
+            this.button1.TabIndex = 99;
+            this.button1.TabStop = false;
             this.button1.Text = "지도";
             this.button1.UseSelectable = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -2220,6 +2239,7 @@
             this.btn_Delete.Name = "btn_Delete";
             this.btn_Delete.Size = new System.Drawing.Size(47, 29);
             this.btn_Delete.TabIndex = 28;
+            this.btn_Delete.TabStop = false;
             this.btn_Delete.Text = "삭제";
             this.btn_Delete.UseSelectable = true;
             this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
@@ -2230,6 +2250,7 @@
             this.print.Name = "print";
             this.print.Size = new System.Drawing.Size(47, 29);
             this.print.TabIndex = 28;
+            this.print.TabStop = false;
             this.print.Text = "인쇄";
             this.print.UseSelectable = true;
             this.print.Click += new System.EventHandler(this.print_Click);
@@ -2257,15 +2278,16 @@
             this.Controls.Add(this.TB_CompleteYear);
             this.Controls.Add(this.TB_TotalArea);
             this.Controls.Add(this.metroLabel16);
+            this.Controls.Add(this.panel6);
             this.Controls.Add(this.metroLabel14);
             this.Controls.Add(this.metroLabel12);
             this.Controls.Add(this.metroLabel6);
             this.Controls.Add(this.metroLabel11);
             this.Controls.Add(this.TB_RoadWidth);
             this.Controls.Add(this.metroLabel15);
-            this.Controls.Add(this.TB_Station);
-            this.Controls.Add(this.metroLabel13);
             this.Controls.Add(this.TB_Distance);
+            this.Controls.Add(this.metroLabel13);
+            this.Controls.Add(this.TB_Station);
             this.Controls.Add(this.metroLabel7);
             this.Controls.Add(this.TB_UseDistrict);
             this.Controls.Add(this.metroLabel5);
@@ -2291,7 +2313,6 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.SaveData);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel6);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(889, 712);
             this.Name = "NewManagerView";
@@ -2401,9 +2422,9 @@
         private MetroFramework.Controls.MetroLabel metroLabel11;
         private MetroFramework.Controls.MetroTextBox TB_RoadWidth;
         private MetroFramework.Controls.MetroLabel metroLabel15;
-        private MetroFramework.Controls.MetroTextBox TB_Station;
-        private MetroFramework.Controls.MetroLabel metroLabel13;
         private MetroFramework.Controls.MetroTextBox TB_Distance;
+        private MetroFramework.Controls.MetroLabel metroLabel13;
+        private MetroFramework.Controls.MetroTextBox TB_Station;
         private MetroFramework.Controls.MetroLabel metroLabel7;
         private MetroFramework.Controls.MetroTextBox TB_UseDistrict;
         private MetroFramework.Controls.MetroLabel metroLabel5;

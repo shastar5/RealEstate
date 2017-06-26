@@ -124,10 +124,20 @@ namespace RealEstate
                     Findcount++;
                 }
             }
-            MetroMessageBox.Show(Owner, "검색 조건에 맞는 " + Findcount + "개의 부동산을 찾았습니다.", "부동산 검색결과",MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-            rdr.Close();
-            conn.Close();
-            dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            if (Findcount != 0)
+            {
+                MetroMessageBox.Show(Owner, "검색 조건에 맞는 " + Findcount + "개의 부동산을 찾았습니다.", "부동산 검색결과", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                rdr.Close();
+                conn.Close();
+                dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            }
+            else
+            {
+                MetroMessageBox.Show(Owner, "검색 조건에 맞는 부동산이 없습니다.", "부동산 검색결과", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                rdr.Close();
+                conn.Close();
+                this.Close();
+            }
         }
         private string checkValid(string num)
         {
@@ -164,6 +174,10 @@ namespace RealEstate
 
         private void button2_Click(object sender, EventArgs e)
         {
+            openResult();
+        }
+        private void openResult()
+        {
             int isOpen = 0;
             string id;
             foreach (Form form in Application.OpenForms)
@@ -176,11 +190,11 @@ namespace RealEstate
 
             if (dataGridRowID == -1)
             {
-                MetroMessageBox.Show(Owner,"자세히 볼 부동산을 선택해주세요","부동산 미 선택", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MetroMessageBox.Show(Owner, "자세히 볼 부동산을 선택해주세요", "부동산 미 선택", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             else if (isOpen == 1)
             {
-                MetroMessageBox.Show(Owner,"상세 정보 창이 이미 열려 있습니다.", "창 중복 방지", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MetroMessageBox.Show(Owner, "상세 정보 창이 이미 열려 있습니다.", "창 중복 방지", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             else if (userType)
             {
@@ -201,7 +215,6 @@ namespace RealEstate
 
 
         }
-
         private void NewFindView_Load(object sender, EventArgs e)
         {
             strConn = MysqlIp.Logic.getStrConn(); //DLL에서 mysql server ip 불러오기
@@ -237,6 +250,11 @@ namespace RealEstate
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             dataGridRowID = e.RowIndex;
+        }
+
+        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            openResult();
         }
     }
 }
