@@ -87,16 +87,14 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Desktop\MetroFramework.ModernUI.Version.1.4.0\MetroFramework.dll</HintPath>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
     </Reference>
-    <Reference Include="MetroFramework.Design">
-      <HintPath>..\..\..\Desktop\MetroFramework.ModernUI.Version.1.4.0\MetroFramework.Design.dll</HintPath>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
     </Reference>
-    <Reference Include="MetroFramework.Fonts, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Desktop\MetroFramework.ModernUI.Version.1.4.0\MetroFramework.Fonts.dll</HintPath>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportViewer.2015.12.0.2.2402\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
@@ -172,17 +170,22 @@
     <Compile Include="BigPicture.Designer.cs">
       <DependentUpon>BigPicture.cs</DependentUpon>
     </Compile>
-    <Compile Include="buildingreport.cs">
+    <Compile Include="BuildingReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="buildingreport.Designer.cs">
-      <DependentUpon>buildingreport.cs</DependentUpon>
+    <Compile Include="BuildingReport.Designer.cs">
+      <DependentUpon>BuildingReport.cs</DependentUpon>
     </Compile>
     <Compile Include="FindView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FindView.Designer.cs">
       <DependentUpon>FindView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GoogleMySql.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GoogleMySql.xsd</DependentUpon>
     </Compile>
     <Compile Include="NewAddMenu.cs">
       <SubType>Form</SubType>
@@ -284,8 +287,8 @@
     <EmbeddedResource Include="BigPicture.resx">
       <DependentUpon>BigPicture.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="buildingreport.resx">
-      <DependentUpon>buildingreport.cs</DependentUpon>
+    <EmbeddedResource Include="BuildingReport.resx">
+      <DependentUpon>BuildingReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FindView.resx">
       <DependentUpon>FindView.cs</DependentUpon>
@@ -333,7 +336,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="estatereport.rdlc" />
+    <EmbeddedResource Include="Report.rdlc" />
     <EmbeddedResource Include="ShowPicture.resx">
       <DependentUpon>ShowPicture.cs</DependentUpon>
     </EmbeddedResource>
@@ -341,14 +344,23 @@
       <DependentUpon>UserView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="GoogleMySql.xsc">
+      <DependentUpon>GoogleMySql.xsd</DependentUpon>
+    </None>
+    <None Include="GoogleMySql.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GoogleMySql.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GoogleMySql.xss">
+      <DependentUpon>GoogleMySql.xsd</DependentUpon>
+    </None>
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\app.manifest" />
     <None Include="Properties\DataSources\AddMenu.datasource" />
     <None Include="Properties\DataSources\BigPicture.datasource" />
-    <None Include="Properties\DataSources\DBInterface.datasource" />
-    <None Include="Properties\DataSources\DBMerge.datasource" />
     <None Include="Properties\DataSources\FIndInterface.datasource" />
     <None Include="Properties\DataSources\Findvalue.datasource" />
     <None Include="Properties\DataSources\FindView.datasource" />

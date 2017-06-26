@@ -44,5 +44,16 @@ namespace RealEstate.Properties {
                 return ((string)(this["realestateConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("persistsecurityinfo=True;server=104.155.234.52;user id=user;password=realestate;d" +
+            "atabase=realestate")]
+        public string GoogleMySql {
+            get {
+                return ((string)(this["GoogleMySql"]));
+            }
+        }
     }
 }

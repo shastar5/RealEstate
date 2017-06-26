@@ -85,7 +85,7 @@ namespace RealEstate
         Queue<int> todo = new Queue<int>();
         Stack<int> commentdelete = new Stack<int>();
         Stack<int> memodelete = new Stack<int>();
-        buildingreport br;
+        BuildingReport br;
         
         public void setID(int id)
         {
@@ -1227,9 +1227,7 @@ namespace RealEstate
         {
             if(br == null)
             {
-                br = new buildingreport();
-                br.setID(Convert.ToInt32(id));
-                br.setMode("ManagerView");
+                br = new BuildingReport();
                 br.Show();
             }
         }
