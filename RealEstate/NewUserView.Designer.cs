@@ -73,6 +73,13 @@
             this.metroLabel27 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel33 = new MetroFramework.Controls.MetroLabel();
             this.ContentOfRentals = new MetroFramework.Controls.MetroGrid();
+            this.floor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.floor_area = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.storeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.storeDeposit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.monthlyIncome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.managementPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.etc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Page_prepare = new MetroFramework.Controls.MetroTabPage();
             this.Page_complete = new MetroFramework.Controls.MetroTabPage();
             this.Page_wait = new MetroFramework.Controls.MetroTabPage();
@@ -129,13 +136,6 @@
             this.metroLabel19 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel17 = new MetroFramework.Controls.MetroLabel();
-            this.floor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.floor_area = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.storeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.storeDeposit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.monthlyIncome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.managementPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.etc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ContentOfRentals)).BeginInit();
             this.Tab_control.SuspendLayout();
@@ -747,6 +747,8 @@
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.DimGray;
             this.ContentOfRentals.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.ContentOfRentals.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ContentOfRentals.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ContentOfRentals.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.ContentOfRentals.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
@@ -798,6 +800,48 @@
             this.ContentOfRentals.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ContentOfRentals.Size = new System.Drawing.Size(461, 204);
             this.ContentOfRentals.TabIndex = 76;
+            // 
+            // floor
+            // 
+            this.floor.HeaderText = "층수";
+            this.floor.Name = "floor";
+            this.floor.ReadOnly = true;
+            // 
+            // floor_area
+            // 
+            this.floor_area.HeaderText = "면적";
+            this.floor_area.Name = "floor_area";
+            this.floor_area.ReadOnly = true;
+            // 
+            // storeName
+            // 
+            this.storeName.HeaderText = "상호명";
+            this.storeName.Name = "storeName";
+            this.storeName.ReadOnly = true;
+            // 
+            // storeDeposit
+            // 
+            this.storeDeposit.HeaderText = "보증금";
+            this.storeDeposit.Name = "storeDeposit";
+            this.storeDeposit.ReadOnly = true;
+            // 
+            // monthlyIncome
+            // 
+            this.monthlyIncome.HeaderText = "월세";
+            this.monthlyIncome.Name = "monthlyIncome";
+            this.monthlyIncome.ReadOnly = true;
+            // 
+            // managementPrice
+            // 
+            this.managementPrice.HeaderText = "관리비";
+            this.managementPrice.Name = "managementPrice";
+            this.managementPrice.ReadOnly = true;
+            // 
+            // etc
+            // 
+            this.etc.HeaderText = "비고";
+            this.etc.Name = "etc";
+            this.etc.ReadOnly = true;
             // 
             // Page_prepare
             // 
@@ -932,6 +976,8 @@
             dataGridViewCellStyle6.ForeColor = System.Drawing.Color.DimGray;
             this.commentGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.commentGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.commentGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.commentGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.commentGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
@@ -1583,6 +1629,7 @@
             this.btn_JustClose.Name = "btn_JustClose";
             this.btn_JustClose.Size = new System.Drawing.Size(90, 29);
             this.btn_JustClose.TabIndex = 30;
+            this.btn_JustClose.TabStop = false;
             this.btn_JustClose.Text = "나가기";
             this.btn_JustClose.UseSelectable = true;
             this.btn_JustClose.Click += new System.EventHandler(this.btn_JustClose_Click);
@@ -1593,6 +1640,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 29);
             this.button1.TabIndex = 28;
+            this.button1.TabStop = false;
             this.button1.Text = "지도";
             this.button1.UseSelectable = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -1763,48 +1811,6 @@
             this.metroLabel17.Size = new System.Drawing.Size(62, 19);
             this.metroLabel17.TabIndex = 21;
             this.metroLabel17.Text = "보증금 : ";
-            // 
-            // floor
-            // 
-            this.floor.HeaderText = "층수";
-            this.floor.Name = "floor";
-            this.floor.ReadOnly = true;
-            // 
-            // floor_area
-            // 
-            this.floor_area.HeaderText = "면적";
-            this.floor_area.Name = "floor_area";
-            this.floor_area.ReadOnly = true;
-            // 
-            // storeName
-            // 
-            this.storeName.HeaderText = "상호명";
-            this.storeName.Name = "storeName";
-            this.storeName.ReadOnly = true;
-            // 
-            // storeDeposit
-            // 
-            this.storeDeposit.HeaderText = "보증금";
-            this.storeDeposit.Name = "storeDeposit";
-            this.storeDeposit.ReadOnly = true;
-            // 
-            // monthlyIncome
-            // 
-            this.monthlyIncome.HeaderText = "월세";
-            this.monthlyIncome.Name = "monthlyIncome";
-            this.monthlyIncome.ReadOnly = true;
-            // 
-            // managementPrice
-            // 
-            this.managementPrice.HeaderText = "관리비";
-            this.managementPrice.Name = "managementPrice";
-            this.managementPrice.ReadOnly = true;
-            // 
-            // etc
-            // 
-            this.etc.HeaderText = "비고";
-            this.etc.Name = "etc";
-            this.etc.ReadOnly = true;
             // 
             // NewUserView
             // 

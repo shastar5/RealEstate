@@ -86,6 +86,7 @@
             this.Tab_control.SelectedIndex = 3;
             this.Tab_control.Size = new System.Drawing.Size(445, 54);
             this.Tab_control.TabIndex = 0;
+            this.Tab_control.TabStop = false;
             this.Tab_control.UseSelectable = true;
             this.Tab_control.SelectedIndexChanged += new System.EventHandler(this.Tabs_SelectedIndexChanged);
             // 
@@ -157,6 +158,7 @@
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(53, 19);
             this.checkBox1.TabIndex = 1;
+            this.checkBox1.TabStop = false;
             this.checkBox1.Text = "전체";
             this.checkBox1.UseSelectable = true;
             this.checkBox1.Click += new System.EventHandler(this.allType_checked);
@@ -169,6 +171,7 @@
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(67, 19);
             this.checkBox2.TabIndex = 2;
+            this.checkBox2.TabStop = false;
             this.checkBox2.Text = "다가구";
             this.checkBox2.UseSelectable = true;
             this.checkBox2.Click += new System.EventHandler(this.otherType_checked);
@@ -181,6 +184,7 @@
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(53, 19);
             this.checkBox3.TabIndex = 3;
+            this.checkBox3.TabStop = false;
             this.checkBox3.Text = "빌딩";
             this.checkBox3.UseSelectable = true;
             this.checkBox3.Click += new System.EventHandler(this.otherType_checked);
@@ -193,6 +197,7 @@
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.Size = new System.Drawing.Size(81, 19);
             this.checkBox4.TabIndex = 4;
+            this.checkBox4.TabStop = false;
             this.checkBox4.Text = "상가주택";
             this.checkBox4.UseSelectable = true;
             this.checkBox4.Click += new System.EventHandler(this.otherType_checked);
@@ -205,6 +210,7 @@
             this.checkBox5.Name = "checkBox5";
             this.checkBox5.Size = new System.Drawing.Size(81, 19);
             this.checkBox5.TabIndex = 5;
+            this.checkBox5.TabStop = false;
             this.checkBox5.Text = "신축부지";
             this.checkBox5.UseSelectable = true;
             this.checkBox5.Click += new System.EventHandler(this.otherType_checked);
@@ -217,6 +223,7 @@
             this.checkBox6.Name = "checkBox6";
             this.checkBox6.Size = new System.Drawing.Size(53, 19);
             this.checkBox6.TabIndex = 6;
+            this.checkBox6.TabStop = false;
             this.checkBox6.Text = "상가";
             this.checkBox6.UseSelectable = true;
             this.checkBox6.Click += new System.EventHandler(this.otherType_checked);
@@ -311,7 +318,7 @@
             this.TB_SellPrice.SelectionStart = 0;
             this.TB_SellPrice.ShortcutsEnabled = true;
             this.TB_SellPrice.Size = new System.Drawing.Size(182, 28);
-            this.TB_SellPrice.TabIndex = 8;
+            this.TB_SellPrice.TabIndex = 0;
             this.TB_SellPrice.UseSelectable = true;
             this.TB_SellPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_SellPrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -343,7 +350,7 @@
             this.TB_TakeOverPrice.SelectionStart = 0;
             this.TB_TakeOverPrice.ShortcutsEnabled = true;
             this.TB_TakeOverPrice.Size = new System.Drawing.Size(182, 30);
-            this.TB_TakeOverPrice.TabIndex = 8;
+            this.TB_TakeOverPrice.TabIndex = 1;
             this.TB_TakeOverPrice.UseSelectable = true;
             this.TB_TakeOverPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_TakeOverPrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -375,7 +382,7 @@
             this.TB_YearPercent.SelectionStart = 0;
             this.TB_YearPercent.ShortcutsEnabled = true;
             this.TB_YearPercent.Size = new System.Drawing.Size(182, 30);
-            this.TB_YearPercent.TabIndex = 8;
+            this.TB_YearPercent.TabIndex = 3;
             this.TB_YearPercent.UseSelectable = true;
             this.TB_YearPercent.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_YearPercent.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -407,7 +414,7 @@
             this.TB_Income.SelectionStart = 0;
             this.TB_Income.ShortcutsEnabled = true;
             this.TB_Income.Size = new System.Drawing.Size(182, 30);
-            this.TB_Income.TabIndex = 8;
+            this.TB_Income.TabIndex = 2;
             this.TB_Income.UseSelectable = true;
             this.TB_Income.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_Income.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -439,7 +446,7 @@
             this.TB_Distance.SelectionStart = 0;
             this.TB_Distance.ShortcutsEnabled = true;
             this.TB_Distance.Size = new System.Drawing.Size(182, 30);
-            this.TB_Distance.TabIndex = 8;
+            this.TB_Distance.TabIndex = 4;
             this.TB_Distance.UseSelectable = true;
             this.TB_Distance.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_Distance.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -471,7 +478,7 @@
             this.TB_Addr.SelectionStart = 0;
             this.TB_Addr.ShortcutsEnabled = true;
             this.TB_Addr.Size = new System.Drawing.Size(182, 30);
-            this.TB_Addr.TabIndex = 8;
+            this.TB_Addr.TabIndex = 5;
             this.TB_Addr.UseSelectable = true;
             this.TB_Addr.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_Addr.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -502,7 +509,7 @@
             this.TB_RoadWidth.SelectionStart = 0;
             this.TB_RoadWidth.ShortcutsEnabled = true;
             this.TB_RoadWidth.Size = new System.Drawing.Size(182, 30);
-            this.TB_RoadWidth.TabIndex = 8;
+            this.TB_RoadWidth.TabIndex = 6;
             this.TB_RoadWidth.UseSelectable = true;
             this.TB_RoadWidth.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TB_RoadWidth.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -527,7 +534,8 @@
             this.CB_sellPrice.Location = new System.Drawing.Point(295, 125);
             this.CB_sellPrice.Name = "CB_sellPrice";
             this.CB_sellPrice.Size = new System.Drawing.Size(121, 29);
-            this.CB_sellPrice.TabIndex = 9;
+            this.CB_sellPrice.TabIndex = 100;
+            this.CB_sellPrice.TabStop = false;
             this.CB_sellPrice.UseSelectable = true;
             this.CB_sellPrice.SelectedIndexChanged += new System.EventHandler(this.CB_sellPrice_SelectedIndexChanged);
             // 
@@ -542,7 +550,8 @@
             this.CB_TakeOverPrice.Location = new System.Drawing.Point(295, 162);
             this.CB_TakeOverPrice.Name = "CB_TakeOverPrice";
             this.CB_TakeOverPrice.Size = new System.Drawing.Size(121, 29);
-            this.CB_TakeOverPrice.TabIndex = 9;
+            this.CB_TakeOverPrice.TabIndex = 100;
+            this.CB_TakeOverPrice.TabStop = false;
             this.CB_TakeOverPrice.UseSelectable = true;
             this.CB_TakeOverPrice.SelectedIndexChanged += new System.EventHandler(this.CB_TakeOverPrice_SelectedIndexChanged);
             // 
@@ -557,7 +566,8 @@
             this.CB_Income.Location = new System.Drawing.Point(295, 197);
             this.CB_Income.Name = "CB_Income";
             this.CB_Income.Size = new System.Drawing.Size(121, 29);
-            this.CB_Income.TabIndex = 9;
+            this.CB_Income.TabIndex = 100;
+            this.CB_Income.TabStop = false;
             this.CB_Income.UseSelectable = true;
             this.CB_Income.SelectedIndexChanged += new System.EventHandler(this.CB_Income_SelectedIndexChanged);
             // 
@@ -572,7 +582,8 @@
             this.CB_YearPercent.Location = new System.Drawing.Point(295, 232);
             this.CB_YearPercent.Name = "CB_YearPercent";
             this.CB_YearPercent.Size = new System.Drawing.Size(121, 29);
-            this.CB_YearPercent.TabIndex = 9;
+            this.CB_YearPercent.TabIndex = 100;
+            this.CB_YearPercent.TabStop = false;
             this.CB_YearPercent.UseSelectable = true;
             this.CB_YearPercent.SelectedIndexChanged += new System.EventHandler(this.CB_YearPercent_SelectedIndexChanged);
             // 
@@ -587,7 +598,8 @@
             this.CB_RoadWidth.Location = new System.Drawing.Point(295, 337);
             this.CB_RoadWidth.Name = "CB_RoadWidth";
             this.CB_RoadWidth.Size = new System.Drawing.Size(121, 29);
-            this.CB_RoadWidth.TabIndex = 9;
+            this.CB_RoadWidth.TabIndex = 100;
+            this.CB_RoadWidth.TabStop = false;
             this.CB_RoadWidth.UseSelectable = true;
             this.CB_RoadWidth.SelectedIndexChanged += new System.EventHandler(this.CB_RoadWidth_SelectedIndexChanged);
             // 
@@ -602,7 +614,7 @@
             this.metroPanel1.Location = new System.Drawing.Point(107, 375);
             this.metroPanel1.Name = "metroPanel1";
             this.metroPanel1.Size = new System.Drawing.Size(182, 31);
-            this.metroPanel1.TabIndex = 10;
+            this.metroPanel1.TabIndex = 7;
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
@@ -626,7 +638,7 @@
             this.RB_CornerExist.Location = new System.Drawing.Point(83, 0);
             this.RB_CornerExist.Name = "RB_CornerExist";
             this.RB_CornerExist.Size = new System.Drawing.Size(39, 19);
-            this.RB_CornerExist.TabIndex = 2;
+            this.RB_CornerExist.TabIndex = 1;
             this.RB_CornerExist.Text = "유";
             this.RB_CornerExist.UseSelectable = true;
             this.RB_CornerExist.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
@@ -639,7 +651,7 @@
             this.RB_CornerAll.Location = new System.Drawing.Point(10, 0);
             this.RB_CornerAll.Name = "RB_CornerAll";
             this.RB_CornerAll.Size = new System.Drawing.Size(66, 19);
-            this.RB_CornerAll.TabIndex = 2;
+            this.RB_CornerAll.TabIndex = 0;
             this.RB_CornerAll.TabStop = true;
             this.RB_CornerAll.Text = "유 / 무";
             this.RB_CornerAll.UseSelectable = true;
@@ -652,6 +664,7 @@
             this.btn_find.Name = "btn_find";
             this.btn_find.Size = new System.Drawing.Size(100, 31);
             this.btn_find.TabIndex = 11;
+            this.btn_find.TabStop = false;
             this.btn_find.Text = "검색";
             this.btn_find.UseSelectable = true;
             this.btn_find.Click += new System.EventHandler(this.btn_find_Click);
@@ -663,6 +676,7 @@
             this.btn_addBuilding.Name = "btn_addBuilding";
             this.btn_addBuilding.Size = new System.Drawing.Size(100, 31);
             this.btn_addBuilding.TabIndex = 11;
+            this.btn_addBuilding.TabStop = false;
             this.btn_addBuilding.Text = "추가";
             this.btn_addBuilding.UseSelectable = true;
             this.btn_addBuilding.Click += new System.EventHandler(this.btn_addBuilding_Click);
@@ -675,6 +689,7 @@
             this.HiddenBox.Name = "HiddenBox";
             this.HiddenBox.Size = new System.Drawing.Size(29, 19);
             this.HiddenBox.TabIndex = 6;
+            this.HiddenBox.TabStop = false;
             this.HiddenBox.Text = " ";
             this.HiddenBox.UseSelectable = true;
             this.HiddenBox.CheckedChanged += new System.EventHandler(this.HiddenBox_CheckedChanged);

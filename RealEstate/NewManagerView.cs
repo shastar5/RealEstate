@@ -120,12 +120,12 @@ namespace RealEstate
                 TB_Addr.Text = rdr[1].ToString();
                 TB_RoadAddr.Text = rdr[2].ToString();
                 TB_Area.Text = rdr[3].ToString();
-                TB_Station.Text = rdr[4].ToString();
+                TB_Distance.Text = rdr[4].ToString();
                 TB_UseDistrict.Text = rdr[5].ToString();
                 if (rdr[6].ToString().Equals("-9999"))
-                    TB_Distance.Text = "";
+                    TB_Station.Text = "";
                 else
-                    TB_Distance.Text = rdr[6].ToString();
+                    TB_Station.Text = rdr[6].ToString();
                 if (rdr[7].ToString().Equals("-9999"))
                     TB_RoadWidth.Text = "";
                 else
@@ -287,10 +287,10 @@ namespace RealEstate
             addr = TB_Addr.Text.ToString();
             roadAddr = TB_RoadAddr.Text.ToString();
             area = TB_Area.Text.ToString();
-            station = TB_Station.Text.ToString();
+            station = TB_Distance.Text.ToString();
             useArea = TB_UseDistrict.Text.ToString();
 
-            distance = checkNulls(TB_Distance.Text.ToString());
+            distance = checkNulls(TB_Station.Text.ToString());
             roadWidth = checkNulls(TB_RoadWidth.Text.ToString());
 
             totalArea = TB_TotalArea.Text.ToString();
@@ -809,7 +809,6 @@ namespace RealEstate
         private void NewManagerView_Load(object sender, EventArgs e)
         {
             OriginalSize = this.Size;
-
             strConn = MysqlIp.Logic.getStrConn(); //DLL에서 mysql server ip 불러오기
             conn = new MySqlConnection(strConn);
             print.Click += new EventHandler(print_Click);
