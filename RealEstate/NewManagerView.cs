@@ -1245,6 +1245,7 @@ namespace RealEstate
             if (br == null)
             {
                 br = new BuildingReport();
+                br.setID(id);
                 br.Show();
             }
         }

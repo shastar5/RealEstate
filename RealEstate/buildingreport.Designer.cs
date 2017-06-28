@@ -49,6 +49,8 @@
             this.commentTableAdapter = new RealEstate.GoogleMySqlTableAdapters.commentTableAdapter();
             this.memoTableAdapter = new RealEstate.GoogleMySqlTableAdapters.memoTableAdapter();
             this.picturesTableAdapter = new RealEstate.GoogleMySqlTableAdapters.picturesTableAdapter();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tableAdapterManager = new RealEstate.GoogleMySqlTableAdapters.TableAdapterManager();
             ((System.ComponentModel.ISupportInitialize)(this.info1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GoogleMySql)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.info2BindingSource)).BeginInit();
@@ -56,6 +58,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.memoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturesBindingSource)).BeginInit();
             this.SuspendLayout();
+
             // 
             // info1BindingSource
             // 
@@ -99,7 +102,7 @@
             // 
             // metroButton2
             // 
-            this.metroButton2.Location = new System.Drawing.Point(854, 18);
+            this.metroButton2.Location = new System.Drawing.Point(756, 18);
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(75, 23);
             this.metroButton2.TabIndex = 1;
@@ -128,7 +131,7 @@
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "RealEstate.Report.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(20, 60);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(912, 693);
+            this.reportViewer1.Size = new System.Drawing.Size(834, 693);
             this.reportViewer1.TabIndex = 2;
             this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
             // 
@@ -152,12 +155,34 @@
             // 
             this.picturesTableAdapter.ClearBeforeFill = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(274, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 12);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "label1";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.commentTableAdapter = null;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.info1TableAdapter = null;
+            this.tableAdapterManager.info2TableAdapter = null;
+            this.tableAdapterManager.memoTableAdapter = null;
+            this.tableAdapterManager.picturesTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = RealEstate.GoogleMySqlTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
             // BuildingReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(952, 773);
+            this.ClientSize = new System.Drawing.Size(874, 773);
             this.ControlBox = false;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.metroButton1);
@@ -173,6 +198,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.memoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturesBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -192,5 +218,7 @@
         private GoogleMySqlTableAdapters.commentTableAdapter commentTableAdapter;
         private GoogleMySqlTableAdapters.memoTableAdapter memoTableAdapter;
         private GoogleMySqlTableAdapters.picturesTableAdapter picturesTableAdapter;
+        private System.Windows.Forms.Label label1;
+        private GoogleMySqlTableAdapters.TableAdapterManager tableAdapterManager;
     }
 }
