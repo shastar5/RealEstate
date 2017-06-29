@@ -9264,7 +9264,8 @@ namespace RealEstate.GoogleMySqlTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `id`, `buildingid`, `picture` FROM `pictures` WHERE id = " + id;
+            //this._commandCollection[0].CommandText = "SELECT `id`, `buildingid`, `picture` FROM `pictures` WHERE id = " + id;
+            this._commandCollection[0].CommandText = "SELECT a.id, a.buildingid, a.picture FROM pictures a, info1 b WHERE a.id = b.profilePictureID";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

@@ -34,14 +34,6 @@ namespace RealEstate
             this.memoTableAdapter.Fill(this.GoogleMySql.memo);
             // TODO: 이 코드는 데이터를 'GoogleMySql.pictures' 테이블에 로드합니다. 필요 시 이 코드를 이동하거나 제거할 수 있습니다.
             this.picturesTableAdapter.Fill(this.GoogleMySql.pictures);
-
-            this.reportViewer1.RefreshReport();
-            MessageBox.Show(id.ToString());
-            this.info1TableAdapter.setID(id);
-            this.info2TableAdapter.setID(id);
-            this.commentTableAdapter.setID(id);
-            this.memoTableAdapter.setID(id);
-            this.picturesTableAdapter.setID(id);
             this.reportViewer1.RefreshReport();
         }
 
