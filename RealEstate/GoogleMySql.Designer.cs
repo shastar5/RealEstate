@@ -4150,8 +4150,13 @@ namespace RealEstate.GoogleMySqlTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class commentTableAdapter : global::System.ComponentModel.Component {
-        
+    public partial class commentTableAdapter : global::System.ComponentModel.Component, IdInterface {
+        private int id;
+        public void setID(int id)
+        {
+            this.id = id;
+        }
+
         private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
         
         private global::MySql.Data.MySqlClient.MySqlConnection _connection;
@@ -4409,7 +4414,7 @@ namespace RealEstate.GoogleMySqlTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `id`, `content`, `buildingID` FROM `comment`";
+            this._commandCollection[0].CommandText = "SELECT `id`, `content`, `buildingID` FROM `comment` WHERE id = " + id;
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -4597,8 +4602,12 @@ namespace RealEstate.GoogleMySqlTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class info1TableAdapter : global::System.ComponentModel.Component {
-        
+    public partial class info1TableAdapter : global::System.ComponentModel.Component, IdInterface {
+        private int id;
+        public void setID(int id)
+        {
+            this.id = id;
+        }
         private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
         
         private global::MySql.Data.MySqlClient.MySqlConnection _connection;
@@ -6379,7 +6388,7 @@ namespace RealEstate.GoogleMySqlTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT `id`, `addr`, `roadAddr`, `area`, `station`, `useArea`, `distance`, `roadWidth`, `totalArea`, `completeYear`, `parking`, `acHeating`, `EV`, `buildingName`, `owner`, `tel`, `meno`, `deposit`, `income`, `loan`, `interest`, `takeOverPrice`, `sellPrice`, `payedPrice`, `yearPercent`, `type`, `state`, `premium`, `monthlyPay`, `maintenance`, `isCorner`, `profilePictureID`, `netIncome` FROM `info1`";
+            this._commandCollection[0].CommandText = @"SELECT `id`, `addr`, `roadAddr`, `area`, `station`, `useArea`, `distance`, `roadWidth`, `totalArea`, `completeYear`, `parking`, `acHeating`, `EV`, `buildingName`, `owner`, `tel`, `meno`, `deposit`, `income`, `loan`, `interest`, `takeOverPrice`, `sellPrice`, `payedPrice`, `yearPercent`, `type`, `state`, `premium`, `monthlyPay`, `maintenance`, `isCorner`, `profilePictureID`, `netIncome` FROM `info1` WHERE id = " + id;
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -7537,8 +7546,12 @@ namespace RealEstate.GoogleMySqlTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class info2TableAdapter : global::System.ComponentModel.Component {
-        
+    public partial class info2TableAdapter : global::System.ComponentModel.Component, IdInterface {
+        private int id;
+        public void setID(int id)
+        {
+            this.id = id;
+        }
         private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
         
         private global::MySql.Data.MySqlClient.MySqlConnection _connection;
@@ -8089,7 +8102,7 @@ namespace RealEstate.GoogleMySqlTableAdapters {
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT `id`, `buildingID`, `floor`, `area`, `storeName`, `deposit`, `monthlyIncom" +
-                "e`, `managementPrice`, `etc` FROM `info2`";
+                "e`, `managementPrice`, `etc` FROM `info2` WHERE id = " + id;
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -8462,8 +8475,12 @@ namespace RealEstate.GoogleMySqlTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class memoTableAdapter : global::System.ComponentModel.Component {
-        
+    public partial class memoTableAdapter : global::System.ComponentModel.Component, IdInterface {
+        private int id;
+        public void setID(int id)
+        {
+            this.id = id;
+        }
         private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
         
         private global::MySql.Data.MySqlClient.MySqlConnection _connection;
@@ -8768,7 +8785,7 @@ namespace RealEstate.GoogleMySqlTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `id`, `c_date`, `memo`, `buildingID` FROM `memo`";
+            this._commandCollection[0].CommandText = "SELECT `id`, `c_date`, `memo`, `buildingID` FROM `memo` WHERE id = " + id;
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -8984,8 +9001,12 @@ namespace RealEstate.GoogleMySqlTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class picturesTableAdapter : global::System.ComponentModel.Component {
-        
+    public partial class picturesTableAdapter : global::System.ComponentModel.Component, IdInterface {
+        private int id;
+        public void setID(int id)
+        {
+            this.id = id;
+        }
         private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
         
         private global::MySql.Data.MySqlClient.MySqlConnection _connection;
@@ -9243,7 +9264,7 @@ namespace RealEstate.GoogleMySqlTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `id`, `buildingid`, `picture` FROM `pictures`";
+            this._commandCollection[0].CommandText = "SELECT `id`, `buildingid`, `picture` FROM `pictures` WHERE id = " + id;
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

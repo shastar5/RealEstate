@@ -45,10 +45,15 @@
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.info1TableAdapter = new RealEstate.GoogleMySqlTableAdapters.info1TableAdapter();
+            info1TableAdapter.setID(id);
             this.info2TableAdapter = new RealEstate.GoogleMySqlTableAdapters.info2TableAdapter();
+            info2TableAdapter.setID(id);
             this.commentTableAdapter = new RealEstate.GoogleMySqlTableAdapters.commentTableAdapter();
+            commentTableAdapter.setID(id);
             this.memoTableAdapter = new RealEstate.GoogleMySqlTableAdapters.memoTableAdapter();
+            memoTableAdapter.setID(id);
             this.picturesTableAdapter = new RealEstate.GoogleMySqlTableAdapters.picturesTableAdapter();
+            picturesTableAdapter.setID(id);
             this.label1 = new System.Windows.Forms.Label();
             this.tableAdapterManager = new RealEstate.GoogleMySqlTableAdapters.TableAdapterManager();
             ((System.ComponentModel.ISupportInitialize)(this.info1BindingSource)).BeginInit();
