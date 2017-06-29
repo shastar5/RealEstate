@@ -2,6 +2,7 @@
 {
     partial class BuildingReport
     {
+        
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -18,6 +19,7 @@
                 components.Dispose();
             }
             base.Dispose(disposing);
+            
         }
 
         #region Windows Form Designer generated code
