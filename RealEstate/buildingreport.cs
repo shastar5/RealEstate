@@ -18,7 +18,6 @@ namespace RealEstate
 
         private void BuildingReport_Load(object sender, EventArgs e)
         {
-            MessageBox.Show(id.ToString());
             this.info1TableAdapter.setID(id);
             this.info2TableAdapter.setID(id);
             this.commentTableAdapter.setID(id);

@@ -47,16 +47,10 @@
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.info1TableAdapter = new RealEstate.GoogleMySqlTableAdapters.info1TableAdapter();
-            info1TableAdapter.setID(id);
             this.info2TableAdapter = new RealEstate.GoogleMySqlTableAdapters.info2TableAdapter();
-            info2TableAdapter.setID(id);
             this.commentTableAdapter = new RealEstate.GoogleMySqlTableAdapters.commentTableAdapter();
-            commentTableAdapter.setID(id);
             this.memoTableAdapter = new RealEstate.GoogleMySqlTableAdapters.memoTableAdapter();
-            memoTableAdapter.setID(id);
             this.picturesTableAdapter = new RealEstate.GoogleMySqlTableAdapters.picturesTableAdapter();
-            picturesTableAdapter.setID(id);
-            this.label1 = new System.Windows.Forms.Label();
             this.tableAdapterManager = new RealEstate.GoogleMySqlTableAdapters.TableAdapterManager();
             ((System.ComponentModel.ISupportInitialize)(this.info1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GoogleMySql)).BeginInit();
@@ -65,7 +59,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.memoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturesBindingSource)).BeginInit();
             this.SuspendLayout();
-
             // 
             // info1BindingSource
             // 
@@ -162,16 +155,6 @@
             // 
             this.picturesTableAdapter.ClearBeforeFill = true;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(274, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 12);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "label1";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
@@ -189,7 +172,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(874, 773);
             this.ControlBox = false;
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.metroButton1);
@@ -205,7 +187,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.memoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturesBindingSource)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -225,7 +206,6 @@
         private GoogleMySqlTableAdapters.commentTableAdapter commentTableAdapter;
         private GoogleMySqlTableAdapters.memoTableAdapter memoTableAdapter;
         private GoogleMySqlTableAdapters.picturesTableAdapter picturesTableAdapter;
-        private System.Windows.Forms.Label label1;
         private GoogleMySqlTableAdapters.TableAdapterManager tableAdapterManager;
     }
 }
