@@ -4414,7 +4414,7 @@ namespace RealEstate.GoogleMySqlTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `id`, `content`, `buildingID` FROM `comment` WHERE id = " + id;
+            this._commandCollection[0].CommandText = "SELECT `id`, `content`, `buildingID` FROM `comment` WHERE buildingID = " + id;
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -8101,8 +8101,11 @@ namespace RealEstate.GoogleMySqlTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
+            /*
             this._commandCollection[0].CommandText = "SELECT `id`, `buildingID`, `floor`, `area`, `storeName`, `deposit`, `monthlyIncom" +
-                "e`, `managementPrice`, `etc` FROM `info2` WHERE id = " + id;
+                "e`, `managementPrice`, `etc` FROM `info2` WHERE buildingID = " + id;
+            */
+            this._commandCollection[0].CommandText = "SELECT * FROM `info2` WHERE buildingID = " + id;
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -8785,7 +8788,7 @@ namespace RealEstate.GoogleMySqlTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `id`, `c_date`, `memo`, `buildingID` FROM `memo` WHERE id = " + id;
+            this._commandCollection[0].CommandText = "SELECT `id`, `c_date`, `memo`, `buildingID` FROM `memo` WHERE buildingID = " + id;
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
