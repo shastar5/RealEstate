@@ -60,7 +60,6 @@ namespace RealEstate
         public int profilePictureID = -1;
 
         int ErrorStr2Num;
-
         Findvalue findvalue = new Findvalue();
         String strConn;
         MySqlConnection conn;
@@ -76,7 +75,6 @@ namespace RealEstate
         Queue<int> todo = new Queue<int>();
         Stack<int> commentdelete = new Stack<int>();
         Stack<int> memodelete = new Stack<int>();
-        BuildingReport br;
 
         public void setID(int id)
         {
@@ -811,7 +809,6 @@ namespace RealEstate
             OriginalSize = this.Size;
             strConn = MysqlIp.Logic.getStrConn(); //DLL에서 mysql server ip 불러오기
             conn = new MySqlConnection(strConn);
-            print.Click += new EventHandler(print_Click);
             dgv.CellBorderStyle = DataGridViewCellBorderStyle.Single;
             commentview.CellBorderStyle = DataGridViewCellBorderStyle.Single;
             memoview.CellBorderStyle = DataGridViewCellBorderStyle.Single;
@@ -1242,9 +1239,23 @@ namespace RealEstate
 
         private void print_Click(object sender, EventArgs e)
         {
-            if (br == null)
+            int isOpen = 0;
+            try
             {
-                br = new BuildingReport();
+                foreach (Form form in Application.OpenForms)
+                {
+                    if (form.Name.Equals("BuildingReport"))
+                    {
+                        isOpen = 1;
+                        MetroMessageBox.Show(this, "인쇄 창이 이미 열려있습니다", "창 중복 방지", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        break;
+                    }
+                }
+            }
+            catch { };
+            if (isOpen == 0)
+            {
+                BuildingReport br = new BuildingReport();
                 br.setID(id);
                 br.Show();
             }
