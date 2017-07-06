@@ -48,10 +48,6 @@ namespace RealEstate
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
-            System.Drawing.Printing.PageSettings ps = new System.Drawing.Printing.PageSettings();
-            ps.Landscape = false;
-            ps.PaperSize.RawKind = (int)System.Drawing.Printing.PaperKind.A4;
-            reportViewer1.SetPageSettings(ps);
             reportViewer1.PrintDialog();
         }
 
