@@ -248,20 +248,26 @@ namespace RealEstate
 
         public void loadPicture()//프로필 사진 불러오기위해 추가
         {
-            string query = "select picture from pictures where id = " + profilePictureID + " and buildingid = " + id;
-            conn.Open();
-            cmd = new MySqlCommand(query, conn);
-            da = new MySqlDataAdapter(cmd);
-            mbd = new MySqlCommandBuilder(da);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            byte[] ap = (byte[])(ds.Tables[0].Rows[0]["picture"]);
-            MemoryStream ms = new MemoryStream(ap);
-            pictureBox1.Image = Image.FromStream(ms);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            ms.Close();
-            conn.Close();
-
+            if (profilePictureID != -1)
+            {
+                string query = "select picture from pictures where id = " + profilePictureID + " and buildingid = " + id;
+                conn.Open();
+                cmd = new MySqlCommand(query, conn);
+                da = new MySqlDataAdapter(cmd);
+                mbd = new MySqlCommandBuilder(da);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                byte[] ap = (byte[])(ds.Tables[0].Rows[0]["picture"]);
+                MemoryStream ms = new MemoryStream(ap);
+                pictureBox1.Image = Image.FromStream(ms);
+                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                ms.Close();
+                conn.Close();
+            }
+            else
+            {
+                pictureBox1.Image = null;
+            }
         }
         private void NewUserView_Load(object sender, EventArgs e)
         {

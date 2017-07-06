@@ -302,8 +302,6 @@ namespace RealEstate
             strConn = MysqlIp.Logic.getStrConn(); //DLL에서 mysql server ip 불러오기
             conn = new MySqlConnection(strConn);
             readData();
-            loadPicture();
-
             readDataGrid();
 
             readcomment();
@@ -313,6 +311,9 @@ namespace RealEstate
             dgv.Columns[dgv.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             commentview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             commentview.Columns[commentview.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            loadPicture();
+
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
