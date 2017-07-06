@@ -829,7 +829,7 @@ namespace RealEstate
                 commentview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 commentview.Columns[commentview.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
-
+            updateTB();
         }
 
         private void readcomment()
