@@ -8,9 +8,9 @@
         <MIMEType>image/jpeg</MIMEType>
         <Sizing>Fit</Sizing>
         <Top>1.10807cm</Top>
-        <Left>1.92828cm</Left>
-        <Height>22.53437cm</Height>
-        <Width>16.58125cm</Width>
+        <Left>1.22978cm</Left>
+        <Height>19.20062cm</Height>
+        <Width>15.84594cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -122,9 +122,10 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
+        <KeepTogether>true</KeepTogether>
         <DataSetName>DataSet1</DataSetName>
-        <Top>24.31204cm</Top>
-        <Left>6.11553cm</Left>
+        <Top>21.45454cm</Top>
+        <Left>5.79803cm</Left>
         <Height>1.91438cm</Height>
         <Width>8.26792cm</Width>
         <ZIndex>1</ZIndex>
@@ -138,10 +139,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>8.001cm</Width>
+              <Width>7.23787cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.12608cm</Width>
+              <Width>4.59182cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -158,7 +159,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!addr.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -169,24 +173,9 @@
                       <rd:DefaultName>addr1</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
                           <Style>Solid</Style>
+                          <Width>1.25pt</Width>
                         </Border>
-                        <TopBorder>
-                          <Color>Black</Color>
-                          <Width>1.5pt</Width>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>Black</Color>
-                          <Width>1.5pt</Width>
-                        </BottomBorder>
-                        <LeftBorder>
-                          <Color>Black</Color>
-                          <Width>1.5pt</Width>
-                        </LeftBorder>
-                        <RightBorder>
-                          <Style>None</Style>
-                        </RightBorder>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -206,7 +195,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!buildingName.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -217,24 +209,9 @@
                       <rd:DefaultName>buildingName1</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
                           <Style>Solid</Style>
+                          <Width>1.25pt</Width>
                         </Border>
-                        <TopBorder>
-                          <Color>Black</Color>
-                          <Width>1.5pt</Width>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>Black</Color>
-                          <Width>1.5pt</Width>
-                        </BottomBorder>
-                        <LeftBorder>
-                          <Style>None</Style>
-                        </LeftBorder>
-                        <RightBorder>
-                          <Color>Black</Color>
-                          <Width>1.5pt</Width>
-                        </RightBorder>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -263,7 +240,7 @@
                 </GroupExpressions>
               </Group>
               <TablixHeader>
-                <Size>3.50167cm</Size>
+                <Size>3.00024cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox5">
                     <CanGrow>true</CanGrow>
@@ -273,7 +250,10 @@
                         <TextRuns>
                           <TextRun>
                             <Value>소   재   지</Value>
-                            <Style />
+                            <Style>
+                              <FontFamily>맑은 고딕</FontFamily>
+                              <FontSize>8pt</FontSize>
+                            </Style>
                           </TextRun>
                         </TextRuns>
                         <Style>
@@ -285,7 +265,7 @@
                     <Style>
                       <Border>
                         <Style>Solid</Style>
-                        <Width>1.5pt</Width>
+                        <Width>1.25pt</Width>
                       </Border>
                       <VerticalAlign>Middle</VerticalAlign>
                       <PaddingLeft>2pt</PaddingLeft>
@@ -299,11 +279,12 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
+        <KeepTogether>true</KeepTogether>
         <DataSetName>DataSet1</DataSetName>
-        <Top>28.7147cm</Top>
-        <Left>2.88078cm</Left>
+        <Top>25.8572cm</Top>
+        <Left>2.24578cm</Left>
         <Height>0.6cm</Height>
-        <Width>15.62875cm</Width>
+        <Width>14.82994cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -312,22 +293,6 @@
           </Border>
         </Style>
       </Tablix>
-      <Rectangle Name="Rectangle2">
-        <PageBreak>
-          <BreakLocation>End</BreakLocation>
-        </PageBreak>
-        <KeepTogether>true</KeepTogether>
-        <Top>28.4401cm</Top>
-        <Left>7.94115cm</Left>
-        <Height>0.02646cm</Height>
-        <Width>5cm</Width>
-        <ZIndex>3</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Rectangle>
       <Textbox Name="Textbox15">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -439,15 +404,15 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox15</rd:DefaultName>
-        <Top>28.7147cm</Top>
-        <Left>1.99884cm</Left>
-        <Height>7.37133cm</Height>
+        <Top>25.8572cm</Top>
+        <Left>1.36384cm</Left>
+        <Height>7.68883cm</Height>
         <Width>0.88194cm</Width>
-        <ZIndex>4</ZIndex>
+        <ZIndex>3</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
-            <Width>1.5pt</Width>
+            <Width>1.25pt</Width>
           </Border>
           <BackgroundColor>Silver</BackgroundColor>
           <VerticalAlign>Middle</VerticalAlign>
@@ -568,15 +533,15 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox15</rd:DefaultName>
-        <Top>29.3147cm</Top>
-        <Left>2.88078cm</Left>
+        <Top>26.4572cm</Top>
+        <Left>2.24578cm</Left>
         <Height>3.60408cm</Height>
         <Width>0.88194cm</Width>
-        <ZIndex>5</ZIndex>
+        <ZIndex>4</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
-            <Width>1.5pt</Width>
+            <Width>1.25pt</Width>
           </Border>
           <BackgroundColor>Silver</BackgroundColor>
           <VerticalAlign>Middle</VerticalAlign>
@@ -697,15 +662,15 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox15</rd:DefaultName>
-        <Top>29.3147cm</Top>
-        <Left>10.68162cm</Left>
+        <Top>26.4572cm</Top>
+        <Left>9.25287cm</Left>
         <Height>3.60408cm</Height>
         <Width>0.88194cm</Width>
-        <ZIndex>6</ZIndex>
+        <ZIndex>5</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
-            <Width>1.5pt</Width>
+            <Width>1.25pt</Width>
           </Border>
           <BackgroundColor>Silver</BackgroundColor>
           <VerticalAlign>Middle</VerticalAlign>
@@ -719,10 +684,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.62854cm</Width>
+              <Width>1.98621cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.29917cm</Width>
+              <Width>4.14776cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -741,6 +706,7 @@
                               <Value>면　　　적</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -776,6 +742,7 @@
                               <Value>=Fields!area.Value</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -816,6 +783,7 @@
                               <Value>주　변　역</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -851,6 +819,7 @@
                               <Value>=Fields!station.Value</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -891,6 +860,7 @@
                               <Value>용도지역</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -926,6 +896,7 @@
                               <Value>=Fields!useArea.Value</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -966,6 +937,7 @@
                               <Value>도로너비</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1001,6 +973,7 @@
                               <Value>=Fields!roadWidth.Value</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1041,6 +1014,7 @@
                               <Value>도　로　명</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1076,6 +1050,7 @@
                               <Value>=Fields!roadAddr.Value</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1123,12 +1098,13 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
+        <KeepTogether>true</KeepTogether>
         <DataSetName>DataSet1</DataSetName>
-        <Top>29.29678cm</Top>
-        <Left>3.75391cm</Left>
+        <Top>26.47103cm</Top>
+        <Left>3.11891cm</Left>
         <Height>3cm</Height>
-        <Width>6.92771cm</Width>
-        <ZIndex>7</ZIndex>
+        <Width>6.13396cm</Width>
+        <ZIndex>6</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1139,10 +1115,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.62854cm</Width>
+              <Width>2.90935cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.29983cm</Width>
+              <Width>4.01396cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -1161,6 +1137,7 @@
                               <Value>연　면　적</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1196,6 +1173,7 @@
                               <Value>=Fields!totalArea.Value</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1236,6 +1214,7 @@
                               <Value>건축면적</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1271,6 +1250,7 @@
                               <Value>=Fields!useArea.Value</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1311,6 +1291,7 @@
                               <Value>준공연도</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1346,6 +1327,7 @@
                               <Value>=Fields!completeYear.Value</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1386,6 +1368,7 @@
                               <Value>주차방식／대수</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1421,6 +1404,7 @@
                               <Value>=Fields!parking.Value</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1461,6 +1445,7 @@
                               <Value>냉／난방방식</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1496,6 +1481,7 @@
                               <Value>=Fields!acHeating.Value</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1536,6 +1522,7 @@
                               <Value>Ｅ／Ｖ</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1571,6 +1558,7 @@
                               <Value>=Fields!EV.Value</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1619,12 +1607,13 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
+        <KeepTogether>true</KeepTogether>
         <DataSetName>DataSet1</DataSetName>
-        <Top>29.31878cm</Top>
-        <Left>11.58116cm</Left>
+        <Top>26.46128cm</Top>
+        <Left>10.15241cm</Left>
         <Height>3.6cm</Height>
-        <Width>6.92837cm</Width>
-        <ZIndex>8</ZIndex>
+        <Width>6.92331cm</Width>
+        <ZIndex>7</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1635,10 +1624,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>3.50167cm</Width>
+              <Width>2.8527cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.29917cm</Width>
+              <Width>4.14112cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -1657,6 +1646,7 @@
                               <Value>보　증　금</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1692,6 +1682,7 @@
                               <Value>=Fields!deposit.Value</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1732,6 +1723,7 @@
                               <Value>임　대　료</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1767,6 +1759,7 @@
                               <Value>=Sum(Fields!monthlyPay.Value, "DataSet1")</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1807,6 +1800,7 @@
                               <Value>관　리　비</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1842,6 +1836,7 @@
                               <Value>=Sum(Fields!maintenance.Value, "DataSet1")</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1887,12 +1882,13 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
+        <KeepTogether>true</KeepTogether>
         <DataSetName>DataSet1</DataSetName>
-        <Top>33.10478cm</Top>
-        <Left>2.88078cm</Left>
+        <Top>30.56478cm</Top>
+        <Left>2.24578cm</Left>
         <Height>1.7904cm</Height>
-        <Width>7.80084cm</Width>
-        <ZIndex>9</ZIndex>
+        <Width>6.99382cm</Width>
+        <ZIndex>8</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1903,15 +1899,15 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>3.50167cm</Width>
+              <Width>3.15484cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.33951cm</Width>
+              <Width>4.68128cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.58942cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -1925,6 +1921,7 @@
                               <Value>대출금액</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1960,6 +1957,7 @@
                               <Value>=Fields!loan.Value</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1986,7 +1984,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.58942cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -2000,6 +1998,7 @@
                               <Value>대출이자</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -2035,6 +2034,7 @@
                               <Value>=Fields!interest.Value</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -2061,7 +2061,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.58942cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -2075,6 +2075,7 @@
                               <Value>순수익</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -2110,6 +2111,7 @@
                               <Value>=Fields!netIncome.Value</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -2155,12 +2157,13 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
+        <KeepTogether>true</KeepTogether>
         <DataSetName>DataSet1</DataSetName>
-        <Top>33.10478cm</Top>
-        <Left>10.66835cm</Left>
-        <Height>1.8cm</Height>
-        <Width>7.84118cm</Width>
-        <ZIndex>10</ZIndex>
+        <Top>30.56478cm</Top>
+        <Left>9.2396cm</Left>
+        <Height>1.76825cm</Height>
+        <Width>7.83612cm</Width>
+        <ZIndex>9</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -2171,10 +2174,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>3.5246cm</Width>
+              <Width>2.88227cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>12.12708cm</Width>
+              <Width>11.9706cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -2190,9 +2193,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>수익률　（％）</Value>
+                              <Value>수익률（％）</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -2228,6 +2232,7 @@
                               <Value>=Fields!yearPercent.Value</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -2271,12 +2276,13 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
+        <KeepTogether>true</KeepTogether>
         <DataSetName>DataSet1</DataSetName>
-        <Top>34.88278cm</Top>
-        <Left>2.85785cm</Left>
+        <Top>32.34278cm</Top>
+        <Left>2.22285cm</Left>
         <Height>0.6cm</Height>
-        <Width>15.65168cm</Width>
-        <ZIndex>11</ZIndex>
+        <Width>14.85287cm</Width>
+        <ZIndex>10</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -2287,10 +2293,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>3.5246cm</Width>
+              <Width>2.87563cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.29917cm</Width>
+              <Width>4.61737cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -2309,6 +2315,7 @@
                               <Value>매매가격</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -2344,6 +2351,7 @@
                               <Value>=Fields!sellPrice.Value</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -2387,12 +2395,13 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
+        <KeepTogether>true</KeepTogether>
         <DataSetName>DataSet1</DataSetName>
-        <Top>35.48603cm</Top>
-        <Left>2.85785cm</Left>
+        <Top>32.94603cm</Top>
+        <Left>2.22285cm</Left>
         <Height>0.6cm</Height>
-        <Width>7.82377cm</Width>
-        <ZIndex>12</ZIndex>
+        <Width>7.493cm</Width>
+        <ZIndex>11</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -2403,10 +2412,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>3.50167cm</Width>
+              <Width>2.67859cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.33951cm</Width>
+              <Width>4.68128cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -2425,6 +2434,7 @@
                               <Value>인수가격</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -2460,6 +2470,7 @@
                               <Value>=Fields!takeOverPrice.Value</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -2503,12 +2514,13 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
+        <KeepTogether>true</KeepTogether>
         <DataSetName>DataSet1</DataSetName>
-        <Top>35.48603cm</Top>
-        <Left>10.66835cm</Left>
+        <Top>32.94603cm</Top>
+        <Left>9.71585cm</Left>
         <Height>0.6cm</Height>
-        <Width>7.84118cm</Width>
-        <ZIndex>13</ZIndex>
+        <Width>7.35987cm</Width>
+        <ZIndex>12</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -2656,15 +2668,15 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox15</rd:DefaultName>
-        <Top>36.26242cm</Top>
-        <Left>1.99884cm</Left>
+        <Top>34.35742cm</Top>
+        <Left>1.36384cm</Left>
         <Height>6.44529cm</Height>
         <Width>0.88194cm</Width>
-        <ZIndex>14</ZIndex>
+        <ZIndex>13</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
-            <Width>1.5pt</Width>
+            <Width>1.25pt</Width>
           </Border>
           <BackgroundColor>Silver</BackgroundColor>
           <VerticalAlign>Middle</VerticalAlign>
@@ -2725,15 +2737,15 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox15</rd:DefaultName>
-        <Top>42.8841cm</Top>
-        <Left>1.99884cm</Left>
+        <Top>41.9316cm</Top>
+        <Left>1.36384cm</Left>
         <Height>4.64612cm</Height>
         <Width>0.88194cm</Width>
-        <ZIndex>15</ZIndex>
+        <ZIndex>14</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
-            <Width>1.5pt</Width>
+            <Width>1.25pt</Width>
           </Border>
           <BackgroundColor>Silver</BackgroundColor>
           <VerticalAlign>Middle</VerticalAlign>
@@ -2747,7 +2759,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>15.62875cm</Width>
+              <Width>14.82994cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -2766,6 +2778,7 @@
                               <Value>=Fields!memo.Value</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -2808,12 +2821,13 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
+        <KeepTogether>true</KeepTogether>
         <DataSetName>DataSet4</DataSetName>
-        <Top>42.8841cm</Top>
-        <Left>2.88078cm</Left>
+        <Top>41.9316cm</Top>
+        <Left>2.24578cm</Left>
         <Height>0.5968cm</Height>
-        <Width>15.62875cm</Width>
-        <ZIndex>16</ZIndex>
+        <Width>14.82994cm</Width>
+        <ZIndex>15</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -2824,21 +2838,21 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.62313cm</Width>
+              <Width>2.1216cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.42063cm</Width>
+              <Width>3.27576cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.25708cm</Width>
+              <Width>2.48424cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>6.94835cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.5074cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -2852,6 +2866,7 @@
                               <Value>층</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -2887,6 +2902,7 @@
                               <Value>면적（㎡）</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -2899,7 +2915,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>1.5pt</Width>
+                          <Width>1.25pt</Width>
                         </Border>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -2922,6 +2938,7 @@
                               <Value>평수</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -2934,7 +2951,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>1.5pt</Width>
+                          <Width>1.25pt</Width>
                         </Border>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -2957,6 +2974,7 @@
                               <Value>용도</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -2969,7 +2987,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>1.5pt</Width>
+                          <Width>1.25pt</Width>
                         </Border>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -2983,7 +3001,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.5968cm</Height>
+              <Height>0.5042cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -2997,6 +3015,7 @@
                               <Value>=Fields!floor.Value</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -3032,6 +3051,7 @@
                               <Value>=Fields!area.Value</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -3064,9 +3084,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!area.Value</Value>
+                              <Value>=Fields!area.Value*3.3</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -3102,6 +3123,7 @@
                               <Value>=Fields!storeName.Value</Value>
                               <Style>
                                 <FontFamily>맑은 고딕</FontFamily>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -3150,370 +3172,49 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
+        <KeepTogether>true</KeepTogether>
         <DataSetName>DataSet2</DataSetName>
         <SortExpressions>
           <SortExpression>
             <Value>=Fields!floor.Value</Value>
           </SortExpression>
         </SortExpressions>
-        <Top>36.31104cm</Top>
-        <Left>2.88078cm</Left>
-        <Height>1.1968cm</Height>
-        <Width>7.80084cm</Width>
+        <Top>34.34254cm</Top>
+        <Left>2.24578cm</Left>
+        <Height>1.01159cm</Height>
+        <Width>14.82994cm</Width>
+        <ZIndex>16</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Tablix>
+      <Rectangle Name="Rectangle2">
+        <PageBreak>
+          <BreakLocation>End</BreakLocation>
+        </PageBreak>
+        <KeepTogether>true</KeepTogether>
+        <Top>24.39141cm</Top>
+        <Left>7.64833cm</Left>
+        <Height>0.93896cm</Height>
+        <Width>5cm</Width>
         <ZIndex>17</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
-      </Tablix>
-      <Tablix Name="Tablix12">
-        <TablixBody>
-          <TablixColumns>
-            <TablixColumn>
-              <Width>1.62313cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>2.42063cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>1.25708cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>2.5cm</Width>
-            </TablixColumn>
-          </TablixColumns>
-          <TablixRows>
-            <TablixRow>
-              <Height>0.6cm</Height>
-              <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox63">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>층</Value>
-                              <Style>
-                                <FontFamily>맑은 고딕</FontFamily>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox61</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                          <Width>1.25pt</Width>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox61">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>면적（㎡）</Value>
-                              <Style>
-                                <FontFamily>맑은 고딕</FontFamily>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox59</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                          <Width>1.5pt</Width>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox71">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>평수</Value>
-                              <Style>
-                                <FontFamily>맑은 고딕</FontFamily>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox66</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                          <Width>1.5pt</Width>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox72">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>용도</Value>
-                              <Style>
-                                <FontFamily>맑은 고딕</FontFamily>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox68</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                          <Width>1.5pt</Width>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-              </TablixCells>
-            </TablixRow>
-            <TablixRow>
-              <Height>0.5968cm</Height>
-              <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="floor2">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!floor.Value</Value>
-                              <Style>
-                                <FontFamily>맑은 고딕</FontFamily>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>floor1</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                          <Width>1.25pt</Width>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="area4">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!area.Value</Value>
-                              <Style>
-                                <FontFamily>맑은 고딕</FontFamily>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>area2</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                          <Width>1.25pt</Width>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="area5">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!area.Value</Value>
-                              <Style>
-                                <FontFamily>맑은 고딕</FontFamily>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>area3</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                          <Width>1.25pt</Width>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="storeName2">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!storeName.Value</Value>
-                              <Style>
-                                <FontFamily>맑은 고딕</FontFamily>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>storeName1</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                          <Width>1.25pt</Width>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-              </TablixCells>
-            </TablixRow>
-          </TablixRows>
-        </TablixBody>
-        <TablixColumnHierarchy>
-          <TablixMembers>
-            <TablixMember />
-            <TablixMember />
-            <TablixMember />
-            <TablixMember />
-          </TablixMembers>
-        </TablixColumnHierarchy>
-        <TablixRowHierarchy>
-          <TablixMembers>
-            <TablixMember>
-              <KeepWithGroup>After</KeepWithGroup>
-            </TablixMember>
-            <TablixMember>
-              <Group Name="세부정보10" />
-              <TablixMembers>
-                <TablixMember />
-              </TablixMembers>
-            </TablixMember>
-          </TablixMembers>
-        </TablixRowHierarchy>
-        <DataSetName>DataSet2</DataSetName>
-        <Top>36.31151cm</Top>
-        <Left>10.66835cm</Left>
-        <Height>1.1968cm</Height>
-        <Width>7.80084cm</Width>
-        <ZIndex>18</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Tablix>
+      </Rectangle>
     </ReportItems>
-    <Height>19.26292in</Height>
-    <Style />
+    <Height>18.86894in</Height>
+    <Style>
+      <Border>
+        <Style>Solid</Style>
+      </Border>
+    </Style>
   </Body>
-  <Width>8.27147in</Width>
+  <Width>7.24772in</Width>
   <Page>
     <PageHeader>
       <Height>2.54cm</Height>
@@ -3549,7 +3250,7 @@
           </Paragraphs>
           <rd:DefaultName>ReportName</rd:DefaultName>
           <Top>0.74959cm</Top>
-          <Left>16.34578cm</Left>
+          <Left>13.48828cm</Left>
           <Height>0.98792cm</Height>
           <Width>3.96844cm</Width>
           <Style>
@@ -3572,7 +3273,7 @@
                 <TextRun>
                   <Value>물건 보고서</Value>
                   <Style>
-                    <FontFamily>굴림</FontFamily>
+                    <FontFamily>맑은 고딕</FontFamily>
                     <FontSize>24pt</FontSize>
                     <FontWeight>ExtraBold</FontWeight>
                     <Language>ko-KR</Language>
@@ -3586,7 +3287,7 @@
           </Paragraphs>
           <rd:DefaultName>ReportName</rd:DefaultName>
           <Top>0.56437cm</Top>
-          <Left>7.67657cm</Left>
+          <Left>6.40657cm</Left>
           <Height>1.41125cm</Height>
           <Width>5.64855cm</Width>
           <ZIndex>1</ZIndex>
@@ -3604,20 +3305,16 @@
       </ReportItems>
       <Style>
         <Border>
-          <Style>None</Style>
-        </Border>
-        <BottomBorder>
           <Style>Solid</Style>
-          <Width>1.5pt</Width>
-        </BottomBorder>
+        </Border>
       </Style>
     </PageHeader>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
-    <LeftMargin>2cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
-    <BottomMargin>2cm</BottomMargin>
+    <LeftMargin>1cm</LeftMargin>
+    <RightMargin>1cm</RightMargin>
+    <TopMargin>1cm</TopMargin>
+    <BottomMargin>1cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>
@@ -3921,6 +3618,7 @@
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>6a6e9ec4-cc63-4583-8ef2-7378e9906826</rd:ReportID>
 </Report>
