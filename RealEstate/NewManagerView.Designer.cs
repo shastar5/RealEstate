@@ -796,6 +796,7 @@
             this.Tab_control.TabIndex = 27;
             this.Tab_control.TabStop = false;
             this.Tab_control.UseSelectable = true;
+            this.Tab_control.SelectedIndexChanged += new System.EventHandler(this.Tabs_SelectedIndexChanged);
             // 
             // Page_prepare
             // 
@@ -2259,7 +2260,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(889, 879);
+            this.ClientSize = new System.Drawing.Size(889, 788);
             this.ControlBox = false;
             this.Controls.Add(this.Tab_control);
             this.Controls.Add(this.addRow);
